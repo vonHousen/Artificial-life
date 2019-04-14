@@ -11,10 +11,10 @@ class Genotype
 {
 public:
 	Genotype crossOver(const Genotype& other) const;
-	Genotype& mutate(); 					//NOTE (KP): make it const or not?
+	Genotype& mutate();
 
 private:
-	float alertness_;						//NOTE (KP): is this variable's name good enough?
+	float alertness_;
 	float sightRange_;
 	float stamina_;
 	float speed_;

@@ -5,12 +5,20 @@
 #ifndef ARTIFICIAL_LIFE_ORGANISM_H
 #define ARTIFICIAL_LIFE_ORGANISM_H
 
+#include "Vector.h"
+#include "Simulation.h"
+#include "Genotype.h"
+#include "Behaviour.h"
+#include "Needs.h"
+
+class Needs;
+class Behaviour;
 
 class Organism
 {
 public:
 	void update(float dt); //INFO (KP): will call bhv.act(this, simulation)
-	void changeBehavior(const Behavior&); //INFO (KP): called by needs
+	void changeBehavior(const Behaviour&); //INFO (KP): called by needs
 
 	bool isAlive() const;
 private:
@@ -21,7 +29,7 @@ private:
 	Vector velocity_;
 	Vector acceleration_;
 	Needs needs_;
-	Behavior behavior_;
+	Behaviour behavior_;
 	std::shared_ptr<Simulation> simulation_;
 };
 

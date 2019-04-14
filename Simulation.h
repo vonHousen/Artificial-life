@@ -7,9 +7,10 @@
 
 #include <vector>
 #include <memory>
-#include "Organism.h"
+
 #include "Map.h"
 
+class Organism;
 
 class Simulation
 {

@@ -5,7 +5,7 @@
 #ifndef ARTIFICIAL_LIFE_BEHAVIOUR_H
 #define ARTIFICIAL_LIFE_BEHAVIOUR_H
 
-#include "Organism.h"
+#include <memory>
 #include "Simulation.h"
 
 
