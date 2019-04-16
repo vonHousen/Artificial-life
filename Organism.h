@@ -20,6 +20,7 @@ public:
 	void updateBehaviour(); 						//INFO (KP): called by needs
 
 	bool isAlive() const;
+	//TODO think about passing needs to behaviour
 
 private:
 	//basic traits of the organism
@@ -30,14 +31,14 @@ private:
 	Vector acceleration_;
 
 	//complex traits of the organism
-	Genotype genes_;
-	Needs needs_;
-	Behaviour behaviour_;
+	std::shared_ptr<Genotype> genes_;
+	std::shared_ptr<Needs> needs_;
+	std::shared_ptr<Behaviour> behaviour_;
 
 	//pointer for simulation the organism takes part in
 	std::shared_ptr<Simulation> simulation_;
 
-	//KP: will call bhv.act(this, simulation)
+	//KP: will call bhv.act(this, simulation)k
 	void update(float dt);
 };
 
