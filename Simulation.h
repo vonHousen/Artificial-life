@@ -14,7 +14,7 @@ class Organism;
 
 class Simulation
 {
-private:
+public:
 	void update(float dt);				//NOTE (KP): not so sure about that dt argument, but it probably be needed
 
 private:
