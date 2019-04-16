@@ -12,12 +12,9 @@
 class Carnivore : public Organism
 {
 public:
-	/* just my idea
-	 *
 	Carnivore() {
-		behaviour_ = std::shared_ptr<Behaviour>(new CarnivoreBehaviour());
+		behaviour_ = std::shared_ptr<Behaviour>(new CarnivoreBehaviour());	//TODO get rid of shared_ptr
 	}
-	*/
 };
 
 
