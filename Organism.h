@@ -22,7 +22,7 @@ public:
 	bool isAlive() const;
 	//TODO think about passing needs to behaviour
 
-private:
+protected:
 	//basic traits of the organism
 	float health_;
 	float timeAlive_;
@@ -30,7 +30,7 @@ private:
 	Vector velocity_;
 	Vector acceleration_;
 
-	//complex traits of the organism
+	//complex traits of the organism, ready for polymorphism
 	std::shared_ptr<Genotype> genes_;
 	std::shared_ptr<Needs> needs_;
 	std::shared_ptr<Behaviour> behaviour_;
@@ -38,7 +38,7 @@ private:
 	//pointer for simulation the organism takes part in
 	std::shared_ptr<Simulation> simulation_;
 
-	//KP: will call bhv.act(this, simulation)k
+	//KP: will call bhv.act(this, simulation)
 	void update(float dt);
 };
 
