@@ -33,7 +33,6 @@ protected:
 	//complex traits of the organism, ready for polymorphism
 	std::shared_ptr<Genotype> 		genes_;
 	std::shared_ptr<Needs> 			needs_;			//TODO eliminate shared_ptr here
-	std::shared_ptr<ActionFactory> 	actionFactory_;
 	std::shared_ptr<Action> 		currentAction_;
 
 	//pointer for simulation the organism takes part in

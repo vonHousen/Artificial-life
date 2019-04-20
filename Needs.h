@@ -9,7 +9,7 @@
 
 class Organism;
 
-class Needs
+class Needs final
 {
 public:
 	explicit Needs(std::shared_ptr<Organism> owner): owner_(owner) {}
