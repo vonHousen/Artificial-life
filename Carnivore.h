@@ -6,15 +6,12 @@
 #define ARTIFICIAL_LIFE_CARNIVORE_H
 
 #include "Organism.h"
-#include "CarnivoreBehaviour.h"
+#include "CarnivoreAction.h"
 
 
 class Carnivore : public Organism
 {
-public:
-	Carnivore() {
-		behaviour_ = std::shared_ptr<Behaviour>(new CarnivoreBehaviour());	//TODO get rid of shared_ptr
-	}
+
 };
 
 

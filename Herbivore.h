@@ -6,6 +6,8 @@
 #define ARTIFICIAL_LIFE_HERBIVORE_H
 
 #include "Organism.h"
+#include "HerbivoreAction.h"
+
 
 class Herbivore : public Organism
 {

@@ -15,16 +15,18 @@ public:
 	explicit Needs(std::shared_ptr<Organism> owner): owner_(owner) {}
 
 	void update();
-	void notify() const; 							//INFO (KP): will notify owner when leading desire will change
 
 private:
 	enum class LeadingDesire { EATING, REPRODUCTION, SLEEPING };
 	LeadingDesire leadingDesire_;
-	std::shared_ptr<Organism> owner_;
+	std::shared_ptr<Organism> owner_;				//TODO eliminate shared_ptr here
 
 	float hunger_;
 	float tiredness_;
 	float loneliness_;
+
+	void notify() const; 							//notify owner when leading desire changes
+
 };
 
 

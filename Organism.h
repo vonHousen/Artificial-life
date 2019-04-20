@@ -8,7 +8,7 @@
 #include "Vector.h"
 #include "Simulation.h"
 #include "Genotype.h"
-#include "Behaviour.h"
+#include "Action.h"
 #include "Needs.h"
 
 class Needs;
@@ -17,29 +17,29 @@ class Behaviour;
 class Organism
 {
 public:
-	void updateBehaviour(); 						//INFO (KP): called by needs
+	void updateAction();						//after being notified, it uses ActionFactory to update currentAction_
+	void update();								//flow of the information upside down
 
 	bool isAlive() const;
-	//TODO think about passing needs to behaviour
 
 protected:
 	//basic traits of the organism
-	float health_;
-	float timeAlive_;
-	Vector position_;
-	Vector velocity_;
-	Vector acceleration_;
+	float 	health_;
+	int 	timeAlive_;
+	Vector 	position_;
+	Vector 	velocity_;
+	Vector 	acceleration_;
 
 	//complex traits of the organism, ready for polymorphism
-	std::shared_ptr<Genotype> genes_;
-	std::shared_ptr<Needs> needs_;
-	std::shared_ptr<Behaviour> behaviour_;
+	std::shared_ptr<Genotype> 		genes_;
+	std::shared_ptr<Needs> 			needs_;			//TODO eliminate shared_ptr here
+	std::shared_ptr<ActionFactory> 	actionFactory_;
+	std::shared_ptr<Action> 		currentAction_;
 
 	//pointer for simulation the organism takes part in
-	std::shared_ptr<Simulation> simulation_;
+	std::shared_ptr<Simulation> 	simulation_;	//TODO eliminate shared_ptr here
 
-	//KP: will call bhv.act(this, simulation)
-	void update(float dt);
+
 };
 
 
