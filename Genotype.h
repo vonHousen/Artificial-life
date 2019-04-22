@@ -10,6 +10,8 @@
 class Genotype
 {
 public:
+	Genotype();
+
 	Genotype crossOver(const Genotype& other) const;
 	Genotype& mutate();
 

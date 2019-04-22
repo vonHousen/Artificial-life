@@ -9,17 +9,18 @@
 
 class Organism;
 
+
 class Needs final
 {
 public:
-	explicit Needs(std::shared_ptr<Organism> owner): owner_(owner) {}
+	explicit Needs(std::weak_ptr<Organism> owner);
 
 	void update();
 
 private:
 	enum class LeadingDesire { EATING, REPRODUCTION, SLEEPING };
 	LeadingDesire leadingDesire_;
-	std::shared_ptr<Organism> owner_;				//TODO eliminate shared_ptr here
+	std::weak_ptr<Organism> owner_;
 
 	float hunger_;
 	float tiredness_;

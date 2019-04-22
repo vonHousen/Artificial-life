@@ -1,5 +1,5 @@
 /*
- * Organism TODO
+ * Organism - abstract (super) class for both species
  */
 
 #ifndef ARTIFICIAL_LIFE_ORGANISM_H
@@ -12,11 +12,15 @@
 #include "Needs.h"
 
 class Needs;
-class Behaviour;
+
 
 class Organism
 {
 public:
+	Organism() = delete;
+	Organism(const Organism&) = delete;
+	Organism(std::shared_ptr<Genotype> genes, const Vector& position, std::weak_ptr<Simulation> simulation);
+
 	void updateAction();						//after being notified, it uses ActionFactory to update currentAction_
 	void update();								//flow of the information upside down
 
@@ -32,11 +36,11 @@ protected:
 
 	//complex traits of the organism, ready for polymorphism
 	std::shared_ptr<Genotype> 		genes_;
-	std::shared_ptr<Needs> 			needs_;			//TODO eliminate shared_ptr here
+	std::shared_ptr<Needs> 			needs_;
 	std::shared_ptr<Action> 		currentAction_;
 
 	//pointer for simulation the organism takes part in
-	std::shared_ptr<Simulation> 	simulation_;	//TODO eliminate shared_ptr here
+	std::weak_ptr<Simulation> 	simulation_;
 
 
 };

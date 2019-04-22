@@ -1,5 +1,5 @@
 /*
- * Vector
+ * Vector - version in 2D: a geometric object that has magnitude and direction
  */
 
 #ifndef ARTIFICIAL_LIFE_VECTOR_H
@@ -10,9 +10,8 @@
 
 class Vector
 {
-
 public:
-	explicit Vector();
+	Vector();
 	Vector(float x, float y);
 
 	float getX() const;
@@ -29,6 +28,7 @@ public:
 	Vector& operator*=(float f);
 
 	friend std::ostream& operator<<(std::ostream& os, const Vector& vector);
+
 private:
 	float x_;
 	float y_;
