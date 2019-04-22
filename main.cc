@@ -3,15 +3,13 @@
  *
  */
 
-#include "Organism.h"
+#include "Tests.h"
 
 int main()
 {
-	Vector startPos(0.0, 0.0);
-	auto testGen = std::shared_ptr<Genotype>(new Genotype());
-	auto testSim = std::shared_ptr<Simulation>(new Simulation());
+	Tests test;
 
-    Organism A(testGen, startPos, testSim);
+	test.constructSingleOrganism();
 
     return 0;
 }

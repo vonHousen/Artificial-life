@@ -17,8 +17,6 @@ Organism::Organism(std::shared_ptr<Genotype> genes, const Vector &position, std:
 
 	simulation_ 	(std::move(simulation))
 {
-	std::weak_ptr<Organism> OrgPtr = std::shared_ptr<Organism>(this);
-	auto NeedsObj = new Needs(OrgPtr);
-	needs_ =		std::shared_ptr<Needs>(NeedsObj);
-
+	std::weak_ptr<Organism> organismPtr = std::shared_ptr<Organism>(this);
+	needs_ =		std::make_shared<Needs>(Needs(organismPtr));
 }
