@@ -9,3 +9,8 @@ HerbivoreActionFactory& HerbivoreActionFactory::getInstance()
 	static HerbivoreActionFactory instance;
 	return instance;
 }
+
+HerbivoreActionFactory::HerbivoreActionFactory()
+{
+	//TODO
+}

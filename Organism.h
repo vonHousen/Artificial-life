@@ -28,6 +28,8 @@ public:
 
 	bool isAlive() const;
 
+	//TODO what about destructors?
+
 protected:
 	//basic traits of the organism
 	float 	health_;

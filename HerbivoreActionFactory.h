@@ -6,7 +6,7 @@
 #define ARTIFICIAL_LIFE_HERBIVOREACTIONFACTORY_H
 
 
-class HerbivoreActionFactory
+class HerbivoreActionFactory final
 {
 public:
 	HerbivoreActionFactory(const HerbivoreActionFactory&) = delete;
@@ -14,13 +14,11 @@ public:
 	HerbivoreActionFactory(HerbivoreActionFactory&&) = delete;
 	HerbivoreActionFactory& operator=(HerbivoreActionFactory&&) = delete;
 
-
-private:
-	HerbivoreActionFactory() = default;
 	static HerbivoreActionFactory& getInstance();
 
+private:
+	HerbivoreActionFactory();
 
-	friend class Herbivore;
 };
 
 

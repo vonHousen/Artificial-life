@@ -5,7 +5,16 @@
 #include "Herbivore.h"
 
 Herbivore::Herbivore(std::shared_ptr<Genotype> genes, const Vector &position, std::weak_ptr<Simulation> simulation) :
-	Organism(std::move(genes), position, std::move(simulation))
+	Organism(genes, position, simulation)
 {}
 
-HerbivoreActionFactory* Herbivore::factory_ = &HerbivoreActionFactory::getInstance();
+void Herbivore::update()
+{
+	//TODO
+}
+
+void Herbivore::updateAction()
+{
+	//TODO
+}
+
