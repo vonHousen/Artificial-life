@@ -14,6 +14,11 @@ class Needs final
 {
 public:
 	explicit Needs(std::weak_ptr<Organism> owner);
+	Needs(const Needs&) = delete;
+	Needs& operator=(const Needs&) = delete;
+	Needs(Needs&&) = delete;
+	Needs& operator=(Needs&&) = delete;
+
 
 	void update();									//flow of the information upside down
 

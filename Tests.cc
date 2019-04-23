@@ -9,8 +9,8 @@
 void Tests::constructSingleOrganism()
 {
 	Vector dummyPosition(0.0, 0.0);
-	std::shared_ptr<Genotype> dummyGenes = std::make_shared<Genotype>(Genotype());
-	std::weak_ptr<Simulation> dummySimulation = std::make_shared<Simulation>(Simulation());
+	std::shared_ptr<Genotype> dummyGenes = std::make_shared<Genotype>();
+	std::weak_ptr<Simulation> dummySimulation = std::make_shared<Simulation>();
 
 	Herbivore dummyOrganism(dummyGenes, dummyPosition, dummySimulation);
 }
