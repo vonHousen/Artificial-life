@@ -4,6 +4,7 @@
 
 #include "Tests.h"
 #include "Organism.h"
+#include "Herbivore.h"
 
 void Tests::constructSingleOrganism()
 {
@@ -11,5 +12,5 @@ void Tests::constructSingleOrganism()
 	std::shared_ptr<Genotype> dummyGenes = std::make_shared<Genotype>(Genotype());
 	std::weak_ptr<Simulation> dummySimulation = std::make_shared<Simulation>(Simulation());
 
-	Organism dummyOrganism(dummyGenes, dummyPosition, dummySimulation);
+	Herbivore dummyOrganism(dummyGenes, dummyPosition, dummySimulation);
 }

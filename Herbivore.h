@@ -7,19 +7,25 @@
 
 #include "Organism.h"
 #include "HerbivoreAction.h"
+#include "HerbivoreActionFactory.h"
 
-class HerbivoreActionFactory;
 
 
-class Herbivore : public Organism
+class Herbivore final : public Organism
 {
+public:
+	Herbivore() = delete;
+	Herbivore(const Organism&) = delete;
+	Herbivore(Organism&&) = delete;
+	Herbivore(std::shared_ptr<Genotype> genes, const Vector& position, std::weak_ptr<Simulation> simulation);
+
+	virtual void updateAction();			//after being notified, it uses ActionFactory to update currentAction_
+	virtual void update();					//flow of the information upside down
+
+
 private:
-	static HerbivoreActionFactory 	actionFactory_;
+	static HerbivoreActionFactory* factory_;
 
-	class HerbivoreActionFactory
-	{
-
-	};
 };
 
 

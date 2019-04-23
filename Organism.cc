@@ -20,3 +20,8 @@ Organism::Organism(std::shared_ptr<Genotype> genes, const Vector &position, std:
 	std::weak_ptr<Organism> organismPtr = std::shared_ptr<Organism>(this);
 	needs_ =		std::make_shared<Needs>(Needs(organismPtr));
 }
+
+bool Organism::isAlive() const
+{
+	return health_ <= 0.0;
+}

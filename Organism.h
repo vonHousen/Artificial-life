@@ -11,19 +11,20 @@
 #include "Action.h"
 #include "Needs.h"
 
-class Needs;
-
+class ActionFactory;
 
 class Organism
 {
 public:
 	Organism() = delete;
 	Organism(const Organism&) = delete;
+	Organism& operator=(const Organism&) = delete;
 	Organism(Organism&&) = delete;
+	Organism& operator=(Organism&&) = delete;
 	Organism(std::shared_ptr<Genotype> genes, const Vector& position, std::weak_ptr<Simulation> simulation);
 
-	void updateAction();						//after being notified, it uses ActionFactory to update currentAction_
-	void update();								//flow of the information upside down
+	virtual void updateAction() = 0;			//after being notified, it uses ActionFactory to update currentAction_
+	virtual void update() = 0;					//flow of the information upside down
 
 	bool isAlive() const;
 
@@ -43,8 +44,9 @@ protected:
 	//pointer for simulation the organism takes part in
 	std::weak_ptr<Simulation> 	simulation_;
 
-
 };
+
+
 
 
 #endif //ARTIFICIAL_LIFE_ORGANISM_H
