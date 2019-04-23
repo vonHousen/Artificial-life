@@ -1,5 +1,5 @@
 /*
- * Action TODO
+ * Action - abstract class for all types of actions organism can perform driven by needs
  */
 
 #ifndef ARTIFICIAL_LIFE_ACTION_H
@@ -12,13 +12,13 @@
 class Action
 {
 public:
-	Action(std::shared_ptr<Organism> owner,std::shared_ptr<Simulation> simulation);
+	Action(std::weak_ptr<Organism> owner, std::weak_ptr<Simulation> simulation);
 
 	virtual void act() = 0;
 
 protected:
-	std::shared_ptr<Organism> owner_;
-	std::shared_ptr<Simulation> simulation_;
+	std::weak_ptr<Organism> owner_;
+	std::weak_ptr<Simulation> simulation_;
 };
 
 
