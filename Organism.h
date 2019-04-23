@@ -19,6 +19,7 @@ class Organism
 public:
 	Organism() = delete;
 	Organism(const Organism&) = delete;
+	Organism(Organism&&) = delete;
 	Organism(std::shared_ptr<Genotype> genes, const Vector& position, std::weak_ptr<Simulation> simulation);
 
 	void updateAction();						//after being notified, it uses ActionFactory to update currentAction_
