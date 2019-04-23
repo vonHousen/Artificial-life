@@ -1,6 +1,6 @@
-//
-// Created by Kamil Zych on 23.04.2019.
-//
+/*
+ * Tests - simple class for aggregation all tests
+ */
 
 #ifndef ARTIFICIAL_LIFE_TESTS_H
 #define ARTIFICIAL_LIFE_TESTS_H
@@ -9,7 +9,7 @@
 class Tests
 {
 public:
-	void constructSingleOrganism();
+	static void constructSingleOrganism();
 
 };
 

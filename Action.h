@@ -1,5 +1,5 @@
 /*
- * Behaviour TODO
+ * Action TODO
  */
 
 #ifndef ARTIFICIAL_LIFE_ACTION_H

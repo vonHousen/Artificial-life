@@ -7,9 +7,7 @@
 
 int main()
 {
-	Tests test;
-
-	test.constructSingleOrganism();
+	Tests::constructSingleOrganism();
 
     return 0;
 }

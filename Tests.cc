@@ -1,6 +1,6 @@
-//
-// Created by Kamil Zych on 23.04.2019.
-//
+/*
+ * Tests - simple class for aggregation all tests
+ */
 
 #include "Tests.h"
 #include "Organism.h"
