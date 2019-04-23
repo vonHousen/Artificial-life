@@ -20,7 +20,7 @@ public:
 	Organism() = delete;
 	Organism(const Organism&) = delete;
 	Organism(Organism&&) = delete;
-	Organism(std::shared_ptr<Genotype> genes, const Vector& position, std::weak_ptr<Simulation> simulation);
+	Organism(std::unique_ptr<Genotype> genes, const Vector& position, Simulation* const simulation);
 
 	void updateAction();						//after being notified, it uses ActionFactory to update currentAction_
 	void update();								//flow of the information upside down
@@ -36,12 +36,12 @@ protected:
 	Vector 	acceleration_;
 
 	//complex traits of the organism, ready for polymorphism
-	std::shared_ptr<Genotype> 		genes_;
-	std::shared_ptr<Needs> 			needs_;
-	std::shared_ptr<Action> 		currentAction_;
+	std::unique_ptr<Genotype> 		genes_;
+	std::unique_ptr<Needs> 			needs_;
+	std::unique_ptr<Action> 		currentAction_;
 
 	//pointer for simulation the organism takes part in
-	std::weak_ptr<Simulation> 	simulation_;
+	Simulation* const				simulation_;
 
 
 };

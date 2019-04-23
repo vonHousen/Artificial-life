@@ -5,7 +5,6 @@
 #ifndef ARTIFICIAL_LIFE_TESTS_H
 #define ARTIFICIAL_LIFE_TESTS_H
 
-
 class Tests
 {
 public:

@@ -11,8 +11,8 @@
 class CarnivoreAction : public Action
 {
 public:
-	CarnivoreAction(std::shared_ptr<Organism> owner, std::shared_ptr<Simulation> simulation) :
-		Action(owner,simulation) {}
+	CarnivoreAction(Organism* const owner, Simulation* const simulation) :
+		Action(owner, simulation) {}
 
 };
 

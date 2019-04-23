@@ -8,12 +8,11 @@
 #include "Organism.h"
 #include "HerbivoreAction.h"
 
-class HerbivoreActionFactory;
-
 
 class Herbivore : public Organism
 {
 private:
+	class HerbivoreActionFactory;
 	static HerbivoreActionFactory 	actionFactory_;
 
 	class HerbivoreActionFactory

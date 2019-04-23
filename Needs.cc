@@ -4,7 +4,7 @@
 
 #include "Needs.h"
 
-Needs::Needs(std::weak_ptr<Organism> owner) :
+Needs::Needs(Organism* const owner) :
 	owner_(owner),
 	leadingDesire_(LeadingDesire::EATING),
 

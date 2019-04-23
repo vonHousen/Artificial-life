@@ -5,15 +5,12 @@
 #ifndef ARTIFICIAL_LIFE_NEEDS_H
 #define ARTIFICIAL_LIFE_NEEDS_H
 
-#include <memory>
-
 class Organism;
-
 
 class Needs final
 {
 public:
-	explicit Needs(std::weak_ptr<Organism> owner);
+	explicit Needs(Organism* owner);
 
 	void update();									//flow of the information upside down
 
@@ -21,7 +18,7 @@ private:
 	enum class LeadingDesire { EATING, REPRODUCTION, SLEEPING };
 	LeadingDesire leadingDesire_;
 
-	std::weak_ptr<Organism> owner_;
+	Organism* owner_;
 
 	float hunger_;
 	float tiredness_;
