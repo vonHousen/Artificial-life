@@ -1,3 +1,4 @@
+
 # Artificial Life
 Simulation of an artificial life of two species loosely based on Conway's Game of Life
 
@@ -27,3 +28,8 @@ this should result in creating application's executable file that you can run wi
 ```
 ./Artificial-life
 ```
+
+
+Class Diagram [UML]:
+![Class hierarchy](https://i.imgur.com/PBnTuuk.png)
+>>>>>>> 9887537... Create README.md
