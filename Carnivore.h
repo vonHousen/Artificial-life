@@ -7,6 +7,7 @@
 
 #include "Organism.h"
 #include "CarnivoreAction.h"
+#include "CarnivoreActionFactory.h"
 
 
 class Carnivore : public Organism
