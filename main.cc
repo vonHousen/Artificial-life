@@ -3,11 +3,16 @@
  *
  */
 
+#include "Window.h"
 #include "Tests.h"
 
-int main()
+int main(int argc, char *argv[])
 {
-	Tests::constructSingleOrganism();
+    QApplication app(argc, argv);
 
-    return 0;
+    Window window(720, 540);
+    window.show();
+
+	Tests::constructSingleOrganism();
+    return app.exec();
 }
