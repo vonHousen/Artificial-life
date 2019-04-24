@@ -6,10 +6,10 @@
 #define ARTIFICIAL_LIFE_ORGANISM_H
 
 #include "Vector.h"
-#include "Simulation.h"
 #include "Genotype.h"
 #include "Action.h"
 #include "Needs.h"
+#include <memory>
 
 class ActionFactory;
 

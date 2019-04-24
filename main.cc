@@ -1,6 +1,5 @@
 /*
  * Main file, currently for testing
- *
  */
 
 #include "Tests.h"

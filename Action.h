@@ -5,7 +5,8 @@
 #ifndef ARTIFICIAL_LIFE_ACTION_H
 #define ARTIFICIAL_LIFE_ACTION_H
 
-#include "Simulation.h"
+class Simulation;
+class Organism;
 
 class Action
 {
