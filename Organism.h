@@ -27,6 +27,7 @@ public:
 	virtual void update() = 0;					//flow of the information upside down
 
 	bool isAlive() const;
+	const Vector& getPosition() const;
 
 	//TODO what about destructors?
 

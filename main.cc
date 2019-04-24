@@ -6,7 +6,7 @@
 
 int main()
 {
-	Tests::constructSingleOrganism();
+	Tests::constructFirstOrganisms();
 
     return 0;
 }

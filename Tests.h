@@ -8,7 +8,7 @@
 class Tests
 {
 public:
-	static void constructSingleOrganism();
+	static void constructFirstOrganisms();
 
 };
 

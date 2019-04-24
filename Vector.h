@@ -12,20 +12,22 @@ class Vector
 {
 public:
 	Vector();
-	Vector(float x, float y);
+	Vector(double x, double y);
 
 	double getX() const;
 	double getY() const;
-	void setX(float x);
-	void setY(float y);
+	void setX(double x);
+	void setY(double y);
 
 	Vector operator+(const Vector& other) const;
 	Vector operator-(const Vector& other) const;
 	Vector operator-() const;
-	Vector operator*(float f) const;
+	Vector operator*(double scalar) const;
 	Vector& operator+=(const Vector& other);
 	Vector& operator-=(const Vector& other);
-	Vector& operator*=(float f);
+	Vector& operator*=(double scalar);
+	bool operator==(const Vector& other) const;
+	bool operator!=(const Vector& other) const;
 
 	friend std::ostream& operator<<(std::ostream& os, const Vector& vector);
 

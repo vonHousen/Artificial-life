@@ -23,3 +23,8 @@ bool Organism::isAlive() const
 	return health_ <= 0.0;
 }
 
+const Vector& Organism::getPosition() const
+{
+	return position_;
+}
+
