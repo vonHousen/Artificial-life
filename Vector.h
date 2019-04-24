@@ -14,8 +14,8 @@ public:
 	Vector();
 	Vector(float x, float y);
 
-	float getX() const;
-	float getY() const;
+	double getX() const;
+	double getY() const;
 	void setX(float x);
 	void setY(float y);
 
@@ -30,8 +30,8 @@ public:
 	friend std::ostream& operator<<(std::ostream& os, const Vector& vector);
 
 private:
-	float x_;
-	float y_;
+	double x_;
+	double y_;
 };
 
 
