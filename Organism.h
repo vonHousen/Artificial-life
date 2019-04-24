@@ -21,7 +21,7 @@ public:
 	Organism& operator=(const Organism&) = delete;
 	Organism(Organism&&) = delete;
 	Organism& operator=(Organism&&) = delete;
-  Organism(std::unique_ptr<Genotype> genes, const Vector& position, Simulation* const simulation);
+  	Organism(std::unique_ptr<Genotype> genes, const Vector& position, Simulation* const simulation);
 
 	virtual void updateAction() = 0;			//after being notified, it uses ActionFactory to update currentAction_
 	virtual void update() = 0;					//flow of the information upside down

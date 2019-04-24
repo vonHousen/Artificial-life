@@ -9,8 +9,6 @@
 void Tests::constructSingleOrganism()
 {
 	Vector dummyPosition(0.0, 0.0);
-
 	Simulation dummySimulation;
-
-	Organism dummyOrganism(std::make_unique<Genotype>(), dummyPosition, &dummySimulation);
+	Herbivore dummyOrganism(std::make_unique<Genotype>(), dummyPosition, &dummySimulation);
 }

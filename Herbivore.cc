@@ -4,8 +4,8 @@
 
 #include "Herbivore.h"
 
-Herbivore::Herbivore(std::shared_ptr<Genotype> genes, const Vector &position, std::weak_ptr<Simulation> simulation) :
-	Organism(genes, position, simulation)
+Herbivore::Herbivore(std::unique_ptr<Genotype> genes, const Vector &position, Simulation* const simulation) :
+	Organism(std::move(genes), position, simulation)
 {}
 
 void Herbivore::update()

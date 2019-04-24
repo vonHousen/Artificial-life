@@ -20,7 +20,7 @@ public:
 	Herbivore() = delete;
 	Herbivore(const Organism&) = delete;
 	Herbivore(Organism&&) = delete;
-	Herbivore(std::shared_ptr<Genotype> genes, const Vector& position, std::weak_ptr<Simulation> simulation);
+	Herbivore(std::unique_ptr<Genotype> genes, const Vector &position, Simulation* const simulation);
 
 	virtual void updateAction();			//after being notified, it uses ActionFactory to update currentAction_
 	virtual void update();					//flow of the information upside down
