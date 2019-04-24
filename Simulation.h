@@ -10,6 +10,9 @@
 #include <memory>
 #include "Map.h"
 #include "Organism.h"
+#include "Herbivore.h"
+#include "Carnivore.h"
+
 
 
 class Organism;
