@@ -11,8 +11,11 @@
 
 
 
+
+
 class Herbivore final : public Organism
 {
+
 public:
 	Herbivore() = delete;
 	Herbivore(const Organism&) = delete;

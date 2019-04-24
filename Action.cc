@@ -4,7 +4,7 @@
 
 #include "Action.h"
 
-Action::Action(std::weak_ptr<Organism> owner, std::weak_ptr<Simulation> simulation) :
-	owner_		(std::move(owner)),
-	simulation_	(std::move(simulation))
+Action::Action(Organism* const owner, Simulation* const simulation) :
+	owner_		(owner),
+	simulation_	(simulation)
 {}

@@ -6,7 +6,6 @@
 #define ARTIFICIAL_LIFE_GENOTYPE_H
 
 
-
 class Genotype
 {
 public:
