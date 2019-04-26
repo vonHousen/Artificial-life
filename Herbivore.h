@@ -21,7 +21,6 @@ public:
 	virtual void updateAction();			//after being notified, it uses ActionFactory to update currentAction_
 	virtual void update();					//flow of the information upside down
 
-	//TODO what about destructors?
 };
 
 

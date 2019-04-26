@@ -30,12 +30,12 @@ void Tests::checkVectors()
 {
 	Vector posHerbi(-0.25, -0.25), posCarni(0.75, 0.75);
 
-	assert(posHerbi.getVectorTo(posCarni) == Vector(-1.0, -1.0));
+	assert(posHerbi.getShortestVectorToPosition(posCarni) == Vector(-1.0, -1.0));
 
 	//std::cout << std::endl;
 	//std::cout << "Herbi: " << posHerbi << std::endl;
 	//std::cout << "Carni: " << posCarni << std::endl;
-	//std::cout << "posHerbi.getVectorTo(posCarni): " << posHerbi.getVectorTo(posCarni) << std::endl;
+	//std::cout << "posHerbi.getVectorTo(posCarni): " << posHerbi.getShortestVectorToPosition(posCarni) << std::endl;
 
 	Vector outOfRange(2,-3);
 	assert(outOfRange == Vector(0.0, -1.0));
@@ -56,7 +56,7 @@ void Tests::checkVectors()
 	experimental *= 2;
 	assert(experimental == Vector(1.0, 1.0));
 	experimental *= 2;
-	assert(experimental == Vector(2.0, 2.0));	//in fact
+	assert(experimental == Vector(2.0, 2.0));	//in fact both vectors are: (0.0, 0.0)
 
 }
 

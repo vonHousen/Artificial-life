@@ -10,7 +10,8 @@ Carnivore::Carnivore(std::unique_ptr<Genotype> genes, const Vector &position, Si
 
 void Carnivore::update()
 {
-	currentAction_->act();
+	if(currentAction_)
+		currentAction_->act();
 
 	// Move
 	position_ += velocity_;

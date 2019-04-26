@@ -1,5 +1,8 @@
 /*
- * Vector - version in 2D: a geometric object that has magnitude and direction
+ * Vector - version in 2D: a geometric object that has magnitude and direction.
+ *
+ * Vector is applicable in spherical coordinate system. Primal dimensions: [-1, 1] x [1, 1]
+ * For example, y = 1.5 in fact is equal to y = -0.5
  */
 
 #ifndef ARTIFICIAL_LIFE_VECTOR_H
@@ -19,7 +22,7 @@ public:
 	void setX(double x);
 	void setY(double y);
 	double getLength() const;
-	Vector getVectorTo(const Vector& other) const;
+	Vector getShortestVectorToPosition(const Vector &other) const;	//returns the shortest vector pointing from one position to the other one
 
 	Vector operator+(const Vector& other) const;
 	Vector operator-(const Vector& other) const;

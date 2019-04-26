@@ -31,7 +31,6 @@ public:
 	const Vector& getPosition() const;
 	static double getRadius();
 
-	//TODO what about destructors?
 
 protected:
 	//basic traits of the organism
@@ -40,6 +39,7 @@ protected:
 	Vector 	position_;
 	Vector 	velocity_;
 	Vector 	acceleration_;
+	static double radius_;
 
 	//complex traits of the organism, ready for polymorphism
 	std::unique_ptr<Genotype> 		genes_;

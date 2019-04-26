@@ -26,7 +26,7 @@ public:
 	void addOrganism(Organism* const);
 
 	Vector getNearestFoodLocation(Herbivore*) const;
-	Vector getNearestPreyVector(Organism* const) const;
+	Vector getVectorToNearestPrey(Organism *) const;
 
 private:
 	std::vector<Organism*> organisms_;

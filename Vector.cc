@@ -163,7 +163,7 @@ double Vector::getLength() const
 	return sqrt(x_*x_ + y_*y_);
 }
 
-Vector Vector::getVectorTo(const Vector &other) const
+Vector Vector::getShortestVectorToPosition(const Vector &other) const
 {
 	double dx_natural, dx_symmetric, dy_natural, dy_symmetric, dx_nearest, dy_nearest;
 

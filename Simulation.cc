@@ -9,7 +9,7 @@ void Simulation::addOrganism(Organism* const new_organism)
 	organisms_.push_back(new_organism);
 }
 
-Vector Simulation::getNearestPreyVector(Organism* hunter) const
+Vector Simulation::getVectorToNearestPrey(Organism *hunter) const
 {
 	std::vector<Organism*> tastyOrganisms;
 
@@ -18,13 +18,13 @@ Vector Simulation::getNearestPreyVector(Organism* hunter) const
 			tastyOrganisms.push_back(organism);
 
 	if(tastyOrganisms.empty())
-		return hunter->getPosition();
+		return Vector();
 
 	Vector foodVector, nearestFoodVector(1,1);
 
 	for(auto food : tastyOrganisms){
 
-		foodVector = hunter->getPosition().getVectorTo(food->getPosition());
+		foodVector = hunter->getPosition().getShortestVectorToPosition(food->getPosition());
 		if(foodVector.getLength() <= nearestFoodVector.getLength())
 			nearestFoodVector = foodVector;
 	}

@@ -10,7 +10,10 @@ Herbivore::Herbivore(std::unique_ptr<Genotype> genes, const Vector &position, Si
 
 void Herbivore::update()
 {
-	currentAction_->act();
+	if(currentAction_)
+		currentAction_->act();
+
+	//TODO
 }
 
 void Herbivore::updateAction()
