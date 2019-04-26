@@ -25,6 +25,9 @@ public:
 	void update(float dt);				//NOTE (KP): not so sure about that dt argument, but it probably be needed
 	void addOrganism(Organism* const);
 
+	Vector getNearestFoodLocation(const Herbivore&) const;
+	Vector getNearestFoodLocation(const Carnivore&) const;
+
 private:
 	std::vector<Organism*> organisms_;
 	Map map_;

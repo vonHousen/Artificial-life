@@ -4,6 +4,7 @@
 
 #include "Vector.h"
 #include <string>
+#include <cmath>
 
 Vector::Vector(double x, double y)
 {
@@ -155,4 +156,24 @@ bool Vector::operator==(const Vector &other) const
 bool Vector::operator!=(const Vector &other) const
 {
 	return (x_ != other.getX() or y_ != other.getY());
+}
+
+double Vector::getLength() const
+{
+	return sqrt(x_*x_ + y_*y_);
+}
+
+Vector Vector::getVectorTo(const Vector &other) const
+{
+	double dx_natural, dx_symmetric, dy_natural, dy_symmetric, dx_nearest, dy_nearest;
+
+	dx_natural = 	other.getX() - this->getX();
+	dx_symmetric = 	other.getX() - this->getX() - 2.0 ;
+	dy_natural = 	other.getY() - this->getY();
+	dy_symmetric = 	other.getY() - this->getY() - 2.0 ;
+
+	dx_nearest = fabs(dx_natural) < fabs(dx_symmetric) ? dx_natural : dx_symmetric;
+	dy_nearest = fabs(dy_natural) < fabs(dy_symmetric) ? dy_natural : dy_symmetric;
+
+	return {dx_nearest, dy_nearest};
 }

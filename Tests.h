@@ -9,6 +9,9 @@ class Tests
 {
 public:
 	static void constructFirstOrganisms();
+	static void checkVectors();
+
+	static void runAll();
 
 };
 

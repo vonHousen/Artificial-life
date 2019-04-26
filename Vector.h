@@ -18,6 +18,8 @@ public:
 	double getY() const;
 	void setX(double x);
 	void setY(double y);
+	double getLength() const;
+	Vector getVectorTo(const Vector& other) const;
 
 	Vector operator+(const Vector& other) const;
 	Vector operator-(const Vector& other) const;
