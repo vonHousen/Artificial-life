@@ -1,5 +1,8 @@
 /*
- * Vector - version in 2D: a geometric object that has magnitude and direction
+ * Vector - version in 2D: a geometric object that has magnitude and direction.
+ *
+ * Vector is applicable in spherical coordinate system. Primal dimensions: [-1, 1] x [1, 1]
+ * For example, y = 1.5 in fact is equal to y = -0.5
  */
 
 #ifndef ARTIFICIAL_LIFE_VECTOR_H
@@ -12,26 +15,30 @@ class Vector
 {
 public:
 	Vector();
-	Vector(float x, float y);
+	Vector(double x, double y);
 
-	float getX() const;
-	float getY() const;
-	void setX(float x);
-	void setY(float y);
+	double getX() const;
+	double getY() const;
+	void setX(double x);
+	void setY(double y);
+	double getLength() const;
+	Vector getShortestVectorToPosition(const Vector &other) const;	//returns the shortest vector pointing from one position to the other one
 
 	Vector operator+(const Vector& other) const;
 	Vector operator-(const Vector& other) const;
 	Vector operator-() const;
-	Vector operator*(float f) const;
+	Vector operator*(double scalar) const;
 	Vector& operator+=(const Vector& other);
 	Vector& operator-=(const Vector& other);
-	Vector& operator*=(float f);
+	Vector& operator*=(double scalar);
+	bool operator==(const Vector& other) const;
+	bool operator!=(const Vector& other) const;
 
 	friend std::ostream& operator<<(std::ostream& os, const Vector& vector);
 
 private:
-	float x_;
-	float y_;
+	double x_;
+	double y_;
 };
 
 

@@ -8,7 +8,10 @@
 class Tests
 {
 public:
-	static void constructSingleOrganism();
+	static void constructFirstOrganisms();
+	static void checkVectors();
+
+	static void runAll();
 
 };
 

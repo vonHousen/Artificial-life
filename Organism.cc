@@ -4,6 +4,8 @@
 
 #include "Organism.h"
 
+double Organism::radius_ = 0.01;
+
 Organism::Organism(std::unique_ptr<Genotype> genes, const Vector &position, Simulation* const simulation) :
 	health_			(10.0),
 	timeAlive_		(0),
@@ -14,6 +16,26 @@ Organism::Organism(std::unique_ptr<Genotype> genes, const Vector &position, Simu
 	genes_ 			(std::move(genes)),
 	needs_			(std::make_unique<Needs>(this)),
 	currentAction_ 	(nullptr),
-
 	simulation_ 	(simulation)
 {}
+
+
+bool Organism::isAlive() const
+{
+	return health_ <= 0.0;
+}
+
+const Vector& Organism::getPosition() const
+{
+	return position_;
+}
+
+void Organism::setVelocity(const Vector& velocity)
+{
+	velocity_ = velocity;
+}
+
+double Organism::getRadius()
+{
+	return radius_;
+}

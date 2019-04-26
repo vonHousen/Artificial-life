@@ -10,6 +10,12 @@ class Organism;
 class Needs final
 {
 public:
+
+	
+	Needs(const Needs&) = delete;
+	Needs& operator=(const Needs&) = delete;
+	Needs(Needs&&) = delete;
+	Needs& operator=(Needs&&) = delete;
 	explicit Needs(Organism* owner);
 
 	void update();									//flow of the information upside down

@@ -1,5 +1,5 @@
 /*
- * Herbivore (concrete) Action - Strategy Design Pattern
+ * Herbivore Action - Strategy Design Pattern
  */
 
 #ifndef ARTIFICIAL_LIFE_HERBIVOREACTION_H
@@ -11,9 +11,9 @@
 class HerbivoreAction : public Action
 {
 public:
-	HerbivoreAction(Organism* const owner, Simulation* const simulation) :
-		Action(owner, simulation) {}
+	HerbivoreAction(Organism* const owner, Simulation* const simulation);
 
+	virtual void act() = 0;
 };
 
 
