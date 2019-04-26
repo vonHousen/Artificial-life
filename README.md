@@ -2,6 +2,7 @@
 # Artificial Life
 Simulation of an artificial life of two species loosely based on Conway's Game of Life
 
+## Installation
 In order to install this application, the following packages are required:
 * g++ (with c++14 support)
 * cmake (>=2.4)
@@ -30,6 +31,7 @@ this should result in creating application's executable file that you can run wi
 ```
 
 
-Class Diagram [UML]:
+
+## Class Diagram [UML]:
 ![Class hierarchy](https://i.imgur.com/PBnTuuk.png)
->>>>>>> 9887537... Create README.md
+
