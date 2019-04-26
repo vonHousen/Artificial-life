@@ -22,11 +22,11 @@ class Simulation
 public:
 	Simulation() = default;
 
-	void update(float dt);				//NOTE (KP): not so sure about that dt argument, but it probably be needed
+	void update();
 	void addOrganism(Organism* const);
 
-	Vector getNearestFoodLocation(const Herbivore&) const;
-	Vector getNearestFoodLocation(const Carnivore&) const;
+	Vector getNearestFoodLocation(Herbivore*) const;
+	Vector getNearestPreyVector(Organism* const) const;
 
 private:
 	std::vector<Organism*> organisms_;

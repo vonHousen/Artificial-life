@@ -28,3 +28,12 @@ const Vector& Organism::getPosition() const
 	return position_;
 }
 
+void Organism::setVelocity(const Vector& velocity)
+{
+	velocity_ = velocity;
+}
+
+double Organism::getRadius()
+{
+	return 0.01;
+}

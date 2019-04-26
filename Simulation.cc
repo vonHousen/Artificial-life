@@ -9,7 +9,7 @@ void Simulation::addOrganism(Organism* const new_organism)
 	organisms_.push_back(new_organism);
 }
 
-Vector Simulation::getNearestFoodLocation(const Carnivore& hunter) const
+Vector Simulation::getNearestPreyVector(Organism* hunter) const
 {
 	std::vector<Organism*> tastyOrganisms;
 
@@ -17,21 +17,23 @@ Vector Simulation::getNearestFoodLocation(const Carnivore& hunter) const
 		if(typeid(organism) != typeid(hunter))
 			tastyOrganisms.push_back(organism);
 
-	if(!tastyOrganisms.size())
-		return hunter.getPosition();
+	if(tastyOrganisms.empty())
+		return hunter->getPosition();
 
-	Vector nearestFoodLocation;
-	double distance, shortestDistance = 2.0;	// 2.0 is actually way longer than any possible distance on the map
-
+	Vector foodVector, nearestFoodVector(1,1);
 
 	for(auto food : tastyOrganisms){
 
-		distance = (food->getPosition() - hunter.getPosition()).getLength();	// TODO
-		if(distance <= shortestDistance){
-			shortestDistance = distance;
-			nearestFoodLocation = food->getPosition();
-		}
+		foodVector = hunter->getPosition().getVectorTo(food->getPosition());
+		if(foodVector.getLength() <= nearestFoodVector.getLength())
+			nearestFoodVector = foodVector;
 	}
 
-	return nearestFoodLocation;
+	return nearestFoodVector;
+}
+
+void Simulation::update()
+{
+	for(auto organism : organisms_)
+		organism->update();
 }

@@ -25,9 +25,11 @@ public:
 
 	virtual void updateAction() = 0;			//after being notified, it uses ActionFactory to update currentAction_
 	virtual void update() = 0;					//flow of the information upside down
+	void setVelocity(const Vector &);
 
 	bool isAlive() const;
 	const Vector& getPosition() const;
+	static double getRadius();
 
 	//TODO what about destructors?
 
