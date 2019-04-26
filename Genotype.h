@@ -1,20 +1,22 @@
 /*
- * Genotype TODO
+ * Genotype represents individual organism's traits inherited from parents
  */
 
 #ifndef ARTIFICIAL_LIFE_GENOTYPE_H
 #define ARTIFICIAL_LIFE_GENOTYPE_H
 
 
-
 class Genotype
 {
 public:
+	Genotype();
+	Genotype(const Genotype& inheritedGenes);
+
 	Genotype crossOver(const Genotype& other) const;
-	Genotype& mutate(); 					//NOTE (KP): make it const or not?
+	Genotype& mutate();
 
 private:
-	float alertness_;						//NOTE (KP): is this variable's name good enough?
+	float alertness_;
 	float sightRange_;
 	float stamina_;
 	float speed_;

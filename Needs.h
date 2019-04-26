@@ -1,31 +1,37 @@
 /*
- * Needs TODO
+ * Needs represents all organism's physical and psychological needs. It implicitly impacts organism's actions.
  */
 
 #ifndef ARTIFICIAL_LIFE_NEEDS_H
 #define ARTIFICIAL_LIFE_NEEDS_H
 
-#include "Organism.h"
-#include <memory>
+class Organism;
 
-class Needs
+class Needs final
 {
 public:
-	Needs(std::shared_ptr<Organism> owner): owner_(owner) {}
 
-	void update();
-	void notify() const //INFO (KP): will notify owner when leading desire will change
-	{
-		//auto bhv = ...
-		//owner_.changeBehavior(bhv);
-	}
+	
+	Needs(const Needs&) = delete;
+	Needs& operator=(const Needs&) = delete;
+	Needs(Needs&&) = delete;
+	Needs& operator=(Needs&&) = delete;
+	explicit Needs(Organism* owner);
+
+	void update();									//flow of the information upside down
+
 private:
 	enum class LeadingDesire { EATING, REPRODUCTION, SLEEPING };
-	std::shared_ptr<Organism> owner_;
-	float hunger_;
-	float fatigue_;//NOTE (KP): how should we call it?
-	float reproductionDesire_;//NOTE (KP): hmm...
 	LeadingDesire leadingDesire_;
+
+	Organism* owner_;
+
+	float hunger_;
+	float tiredness_;
+	float loneliness_;
+
+	void notify() const; 							//notify owner when leading desire changes
+
 };
 
 
