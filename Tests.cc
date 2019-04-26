@@ -37,6 +37,27 @@ void Tests::checkVectors()
 	//std::cout << "Carni: " << posCarni << std::endl;
 	//std::cout << "posHerbi.getVectorTo(posCarni): " << posHerbi.getVectorTo(posCarni) << std::endl;
 
+	Vector outOfRange(2,-3);
+	assert(outOfRange == Vector(0.0, -1.0));
+
+	Vector experimental(0.5, -0.5);
+	assert((experimental + Vector(1,1)) == Vector(-0.5, 0.5));
+	experimental.setX(6);
+	assert(experimental == Vector(0.0, -0.5));
+	experimental.setY(-5);
+	assert(experimental == Vector(0.0, -1.0));
+	assert(experimental.getLength() == 1.0);
+	experimental += Vector(1,0);
+	assert(experimental.getLength() > 1.41);
+	assert(experimental.getLength() < 1.42);
+	experimental = experimental + Vector(1.5,0);
+	assert(experimental == Vector(0.5, -1.0));
+	experimental = Vector(0.5,0.5);
+	experimental *= 2;
+	assert(experimental == Vector(1.0, 1.0));
+	experimental *= 2;
+	assert(experimental == Vector(2.0, 2.0));	//in fact
+
 }
 
 void Tests::runAll()
