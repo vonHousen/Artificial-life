@@ -18,7 +18,9 @@ public:
 private:
     int width_;
     int height_;
-};
+
+    QGraphicsScene qGraphicsScene_;
+    QGraphicsView qGraphicsView_;};
 
 
 #endif //ARTIFICIAL_LIFE_WINDOW_H
