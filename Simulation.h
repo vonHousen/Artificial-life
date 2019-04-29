@@ -29,7 +29,7 @@ public:
 	Vector getVectorToNearestPrey(Organism *) const;
 
 private:
-	std::vector<Organism*> organisms_;
+	std::vector<Organism*> organisms_;	//TODO destructor
 	Map map_;
 };
 
