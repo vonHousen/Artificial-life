@@ -7,11 +7,13 @@
 
 #include <QtWidgets>
 
+#include "SimulationView.h"
+
 class Window : public QWidget
 {
 Q_OBJECT
 public:
-    explicit Window(int width, int height, QWidget *parent = 0);
+    explicit Window(std::shared_ptr<Simulation> simulation, int width, int height, QWidget *parent = 0);
     ~Window();
 private slots:
     void handleButtonEvent();
@@ -20,6 +22,8 @@ private:
     int height_;
 
     QGraphicsScene* qGraphicsScene_;
+    std::shared_ptr<Simulation> simulation_;
+    std::unique_ptr<SimulationView> simulationView_;
     QLabel* qLabelCarnivores_;
     QLabel* qLabelHerbivores_;
 };

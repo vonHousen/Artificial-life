@@ -13,6 +13,7 @@ SimulationView::SimulationView(QGraphicsScene* qGraphicsScene, Simulation* const
 
 SimulationView::~SimulationView()
 {
+    std::cout << "~simV\n";
     for(auto organismView : organismViews_)
     {
         delete organismView;

@@ -13,6 +13,7 @@ Simulation::~Simulation()
 void Simulation::addOrganism(Organism* const newOrganism)
 {
 	organisms_.push_back(newOrganism);
+	if(view_) view_->notifyWhenOrganismAdded(newOrganism);
 }
 
 void Simulation::registerView(SimulationView* const simulationView)
@@ -45,6 +46,7 @@ Vector Simulation::getVectorToNearestPrey(Organism *hunter) const
 
 void Simulation::update()
 {
+	if(view_) view_->update();
 	for(auto organism : organisms_)
 		organism->update();
 }

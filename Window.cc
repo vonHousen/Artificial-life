@@ -6,21 +6,30 @@
 
 #include "Window.h"
 
-Window::Window(int width, int height, QWidget *parent)
-    : QWidget(parent), width_(width), height_(height)
+Window::Window(std::shared_ptr<Simulation> simulation, int width, int height, QWidget *parent): 
+    QWidget(parent), 
+    width_(width), 
+    height_(height),
+    simulation_(std::move(simulation))
 {
     setWindowTitle(tr("Artificial Life"));
     setFixedSize(width, height);
     move(QApplication::desktop()->screen()->rect().center() - rect().center());
 
     qGraphicsScene_ = new QGraphicsScene(this);
-    qGraphicsScene_->setSceneRect(0, 0, width, height);
+    qGraphicsScene_->setSceneRect(-1, -1, 2, 2);
+
+    simulationView_ = std::make_unique<SimulationView>(qGraphicsScene_, simulation_.get());
 
     QGraphicsView* view = new QGraphicsView(qGraphicsScene_, this);
     view->setRenderHint(QPainter::Antialiasing);
     view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view->setStyleSheet("border-style: none");
+    
+    float aspectRatio = static_cast<float>(width)/height;
+    view->translate(1, 1);
+    view->scale(width*0.5, height*0.5*aspectRatio);
 
     qLabelCarnivores_ = new QLabel(this);
     qLabelCarnivores_->setText("Carnivores: ");
@@ -48,12 +57,6 @@ Window::Window(int width, int height, QWidget *parent)
     hlayout->addLayout(vlayout);
 
     view->setBackgroundBrush(QBrush(Qt::black));
-
-    QGraphicsEllipseItem* testEllipse = new QGraphicsEllipseItem();
-    testEllipse->setRect(250, 200, 15, 15);
-    testEllipse->setBrush(QBrush(Qt::white));
-
-    qGraphicsScene_->addItem(testEllipse);
 
     setLayout(hlayout);
 }

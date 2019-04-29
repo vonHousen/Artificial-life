@@ -14,6 +14,7 @@
 #include "Carnivore.h"
 #include "SimulationView.h"
 
+class SimulationView;
 
 class Organism;
 
