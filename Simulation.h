@@ -21,7 +21,7 @@ class Organism;
 class Simulation
 {
 public:
-	Simulation() = default;
+	Simulation();
 	~Simulation();
 
 	void update();

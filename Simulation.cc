@@ -4,6 +4,10 @@
 
 #include "Simulation.h"
 
+Simulation::Simulation():
+	view_(nullptr)
+{}
+
 Simulation::~Simulation()
 {
 	for(auto organism : organisms_)
