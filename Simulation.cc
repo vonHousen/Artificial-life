@@ -4,9 +4,20 @@
 
 #include "Simulation.h"
 
-void Simulation::addOrganism(Organism* const new_organism)
+Simulation::~Simulation()
 {
-	organisms_.push_back(new_organism);
+	for(auto organism : organisms_)
+		delete organism;
+}
+
+void Simulation::addOrganism(Organism* const newOrganism)
+{
+	organisms_.push_back(newOrganism);
+}
+
+void Simulation::registerView(SimulationView* const simulationView)
+{
+	view_ = simulationView;
 }
 
 Vector Simulation::getVectorToNearestPrey(Organism *hunter) const
@@ -22,8 +33,8 @@ Vector Simulation::getVectorToNearestPrey(Organism *hunter) const
 
 	Vector foodVector, nearestFoodVector(1,1);
 
-	for(auto food : tastyOrganisms){
-
+	for(auto food : tastyOrganisms)
+	{
 		foodVector = hunter->getPosition().getShortestVectorToPosition(food->getPosition());
 		if(foodVector.getLength() <= nearestFoodVector.getLength())
 			nearestFoodVector = foodVector;

@@ -12,7 +12,7 @@
 #include "Organism.h"
 #include "Herbivore.h"
 #include "Carnivore.h"
-
+#include "SimulationView.h"
 
 
 class Organism;
@@ -21,9 +21,11 @@ class Simulation
 {
 public:
 	Simulation() = default;
+	~Simulation();
 
 	void update();
 	void addOrganism(Organism* const);
+	void registerView(SimulationView* const);
 
 	Vector getNearestFoodLocation(Herbivore*) const;
 	Vector getVectorToNearestPrey(Organism *) const;
@@ -31,6 +33,7 @@ public:
 private:
 	std::vector<Organism*> organisms_;
 	Map map_;
+	SimulationView* view_;
 };
 
 

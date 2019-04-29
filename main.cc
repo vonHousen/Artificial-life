@@ -7,15 +7,12 @@
 
 int main(int argc, char *argv[])
 {
-  Tests::runAll();
-  
+    Tests::runAll();
+
     QApplication app(argc, argv);
 
     Window window(720, 540);
     window.show();
-
-	
-
 
     return app.exec();
 }
