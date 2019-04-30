@@ -8,6 +8,7 @@
 #include "Organism.h"
 #include "CarnivoreAction.h"
 #include "CarnivoreActionFactory.h"
+#include "Simulation.h"
 
 
 class Carnivore : public Organism
@@ -20,6 +21,7 @@ public:
 
 	virtual void updateAction();			//after being notified, it uses ActionFactory to update currentAction_
 	virtual void update();					//flow of the information upside down
+	virtual void eatIt(const Vector&);
 
 };
 

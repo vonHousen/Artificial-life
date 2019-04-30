@@ -12,3 +12,8 @@ Needs::Needs(Organism* const owner) :
 	tiredness_(0.0),
 	loneliness_(0.0)
 {}
+
+void Needs::decreaseHungerBy(float value)
+{
+	hunger_ -= value;
+}

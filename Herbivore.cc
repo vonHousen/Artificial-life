@@ -13,11 +13,16 @@ void Herbivore::update()
 	if(currentAction_)
 		currentAction_->act();
 
-	//TODO
+	// TODO
 }
 
 void Herbivore::updateAction()
 {
-	//TODO
+	// TODO
+}
+
+void Herbivore::eatIt(const Vector &)
+{
+	// TODO
 }
 

@@ -21,8 +21,8 @@ void Tests::constructFirstOrganisms()
 	assert(carni->getPosition() == posCarni);
 
 	//std::cout << std::endl;
-	//std::cout << "Herbi: " << herbi.getPosition() << std::endl;
-	//std::cout << "Carni: " << carni.getPosition() << std::endl;
+	//std::cout << "Herbi: " << herbi->getPosition() << std::endl;
+	//std::cout << "Carni: " << carni->getPosition() << std::endl;
 
 }
 
@@ -64,4 +64,26 @@ void Tests::runAll()
 {
 	constructFirstOrganisms();
 	checkVectors();
+	hunting();
+}
+
+void Tests::hunting()
+{
+	Vector 		posHerbi(-0.5, -0.5), posCarni(0.5, 0.5);
+	Simulation 	dummySimulation;
+	Herbivore* 	herbi = new Herbivore(std::make_unique<Genotype>(), posHerbi, &dummySimulation);
+	Carnivore*	carni = new Carnivore(std::make_unique<Genotype>(), posCarni, &dummySimulation);
+
+	dummySimulation.addOrganism(herbi);
+	dummySimulation.addOrganism(carni);
+
+	std::cout << std::endl;
+	std::cout << "Herbi: " << herbi->getPosition() << std::endl;
+	std::cout << "Carni: " << carni->getPosition() << std::endl;
+
+	dummySimulation.update();
+	std::cout << std::endl;
+	std::cout << "Herbi: " << herbi->getPosition() << std::endl;
+	std::cout << "Carni: " << carni->getPosition() << std::endl;
+
 }

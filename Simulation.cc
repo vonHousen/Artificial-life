@@ -16,6 +16,7 @@ Simulation::~Simulation()
 
 void Simulation::addOrganism(Organism* const newOrganism)
 {
+	newOrganism->setSimulation(this);
 	organisms_.push_back(newOrganism);
 	if(view_) view_->notifyWhenOrganismAdded(newOrganism);
 }
@@ -25,7 +26,7 @@ void Simulation::registerView(SimulationView* const simulationView)
 	view_ = simulationView;
 }
 
-Vector Simulation::getVectorToNearestPrey(Organism *hunter) const
+Vector Simulation::getVectorToNearestPrey(Carnivore *hunter) const
 {
 	std::vector<Organism*> tastyOrganisms;
 
@@ -34,7 +35,7 @@ Vector Simulation::getVectorToNearestPrey(Organism *hunter) const
 			tastyOrganisms.push_back(organism);
 
 	if(tastyOrganisms.empty())
-		return Vector();
+		return {};
 
 	Vector foodVector, nearestFoodVector(1,1);
 
@@ -51,6 +52,16 @@ Vector Simulation::getVectorToNearestPrey(Organism *hunter) const
 void Simulation::update()
 {
 	if(view_) view_->update();
+
 	for(auto organism : organisms_)
 		organism->update();
+}
+
+Organism *Simulation::getOrganismAt(const Vector &position)
+{
+	for(auto organism : organisms_)
+		if(organism->getPosition() == position)
+			return organism;
+
+	return nullptr;
 }

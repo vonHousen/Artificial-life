@@ -5,6 +5,9 @@
 #ifndef ARTIFICIAL_LIFE_CARNIVOREACTIONFACTORY_H
 #define ARTIFICIAL_LIFE_CARNIVOREACTIONFACTORY_H
 
+#include "CarnivoreHunting.h"
+
+class CarnivoreAction;
 
 class CarnivoreActionFactory
 {
@@ -15,6 +18,8 @@ public:
 	CarnivoreActionFactory& operator=(CarnivoreActionFactory&&) = delete;
 
 	static CarnivoreActionFactory& getInstance();
+
+	CarnivoreHunting produceEatingAction(Carnivore* const owner, Simulation* const simulation);
 
 private:
 	CarnivoreActionFactory();

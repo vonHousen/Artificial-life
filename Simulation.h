@@ -15,7 +15,6 @@
 #include "SimulationView.h"
 
 class SimulationView;
-
 class Organism;
 
 class Simulation
@@ -29,10 +28,11 @@ public:
 	void registerView(SimulationView* const);
 
 	Vector getNearestFoodLocation(Herbivore*) const;
-	Vector getVectorToNearestPrey(Organism *) const;
+	Vector getVectorToNearestPrey(Carnivore*) const;
+	Organism* getOrganismAt(const Vector &);
 
 private:
-	std::vector<Organism*> organisms_;	//TODO destructor
+	std::vector<Organism*> organisms_;
 	Map map_;
 	SimulationView* view_;
 };

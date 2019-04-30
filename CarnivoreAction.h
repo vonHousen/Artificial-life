@@ -7,12 +7,16 @@
 
 #include "Action.h"
 
+class Carnivore;
+
 
 class CarnivoreAction : public Action
 {
 public:
-	CarnivoreAction(Organism* const owner, Simulation* const simulation) :
-		Action(owner, simulation) {}
+	CarnivoreAction(Carnivore* const owner, Simulation* const simulation);
+
+	virtual void act() = 0;
+
 
 };
 

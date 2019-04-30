@@ -5,8 +5,9 @@
 #ifndef ARTIFICIAL_LIFE_ACTION_H
 #define ARTIFICIAL_LIFE_ACTION_H
 
-class Simulation;
 class Organism;
+class Simulation;
+
 
 class Action
 {

@@ -19,6 +19,7 @@ public:
 	explicit Needs(Organism* owner);
 
 	void update();									//flow of the information upside down
+	void decreaseHungerBy(float);					//use when organism has eaten
 
 private:
 	enum class LeadingDesire { EATING, REPRODUCTION, SLEEPING };

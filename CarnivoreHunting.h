@@ -11,7 +11,7 @@
 class CarnivoreHunting : public CarnivoreAction
 {
 public:
-	CarnivoreHunting(Organism* const owner, Simulation* const simulation);
+	CarnivoreHunting(Carnivore* const owner, Simulation* const simulation);
 
 	virtual void act();
 

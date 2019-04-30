@@ -5,7 +5,7 @@
 #include "CarnivoreHunting.h"
 #include "Simulation.h"
 
-CarnivoreHunting::CarnivoreHunting(Organism *const owner, Simulation *const simulation) :
+CarnivoreHunting::CarnivoreHunting(Carnivore *const owner, Simulation *const simulation) :
 	CarnivoreAction(owner, simulation)
 {}
 
@@ -20,8 +20,10 @@ void CarnivoreHunting::act()
 
 	//if food is near enough - eat it!
 	if(foodVector.getLength() <= Carnivore::getRadius())
-		//owner_->eatIt() TODO
-	{}
+	{
+		auto foodPosition = foodVector + owner_->getPosition();
+		owner_->eatIt(foodPosition);
+	}
 	else
-		owner_->setVelocity(foodVector);
+		owner_->setVelocity(foodVector);		//TODO change dummy velocity to real one
 }
