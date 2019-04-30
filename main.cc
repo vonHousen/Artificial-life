@@ -8,6 +8,6 @@
 int main(int argc, char *argv[])
 {
     Tests::runAll();
-  
+
     return 0;
 }
