@@ -3,6 +3,9 @@
  */
 
 #include "Carnivore.h"
+#include "CarnivoreActionFactory.h"
+#include "CarnivoreHunting.h"
+#include "Simulation.h"
 
 Carnivore::Carnivore(std::unique_ptr<Genotype> genes, const Vector &position, Simulation* const simulation) :
 		Organism(std::move(genes), position, simulation)

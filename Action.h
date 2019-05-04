@@ -7,12 +7,16 @@
 
 class Organism;
 class Simulation;
+class Carnivore;
+class Herbivore;
 
 
 class Action
 {
 public:
 	Action(Organism* const owner, Simulation* const simulation);
+	Action(Carnivore* const owner, Simulation* const simulation);
+	Action(Herbivore* const owner, Simulation* const simulation);
 
 	virtual void act() = 0;
 

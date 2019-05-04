@@ -3,6 +3,9 @@
  */
 
 #include "Simulation.h"
+#include "SimulationView.h"
+#include "Carnivore.h"
+#include "Herbivore.h"
 
 Simulation::Simulation():
 	view_(nullptr)

@@ -5,9 +5,9 @@
 #ifndef ARTIFICIAL_LIFE_CARNIVOREACTIONFACTORY_H
 #define ARTIFICIAL_LIFE_CARNIVOREACTIONFACTORY_H
 
-#include "CarnivoreHunting.h"
-
-class CarnivoreAction;
+class CarnivoreHunting;
+class Carnivore;
+class Simulation;
 
 class CarnivoreActionFactory
 {

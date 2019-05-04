@@ -6,16 +6,15 @@
 #ifndef ARTIFICIAL_LIFE_SIMULATION_H
 #define ARTIFICIAL_LIFE_SIMULATION_H
 
+class SimulationView;
+class Organism;
+class Herbivore;
+class Carnivore;
+class Vector;
+
 #include <vector>
 #include <memory>
 #include "Map.h"
-#include "Organism.h"
-#include "Herbivore.h"
-#include "Carnivore.h"
-#include "SimulationView.h"
-
-class SimulationView;
-class Organism;
 
 class Simulation
 {

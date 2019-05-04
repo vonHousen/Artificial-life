@@ -5,9 +5,9 @@
 #ifndef ARTIFICIAL_LIFE_HERBIVORE_H
 #define ARTIFICIAL_LIFE_HERBIVORE_H
 
+class Simulation;
+
 #include "Organism.h"
-#include "HerbivoreAction.h"
-#include "HerbivoreActionFactory.h"
 
 
 class Herbivore final : public Organism

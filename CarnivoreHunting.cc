@@ -3,16 +3,19 @@
  */
 
 #include "CarnivoreHunting.h"
+#include "Carnivore.h"
 #include "Simulation.h"
+#include "Vector.h"
 
 CarnivoreHunting::CarnivoreHunting(Carnivore *const owner, Simulation *const simulation) :
-	CarnivoreAction(owner, simulation)
+	CarnivoreAction(owner, simulation),
+	concreteOwner_(owner)
 {}
 
 void CarnivoreHunting::act()
 {
 	//Organism is hungry, it needs to find the nearest food
-	auto foodVector = simulation_->getVectorToNearestPrey(owner_);
+	auto foodVector = simulation_->getVectorToNearestPrey(concreteOwner_);
 
 	//if foodVector points to nowhere (length of zero) - do nothing
 	if(foodVector == Vector())

@@ -4,6 +4,10 @@
 
 #include "Tests.h"
 #include "Simulation.h"
+#include "Genotype.h"
+#include "Herbivore.h"
+#include "Carnivore.h"
+#include "Vector.h"
 #include <iostream>
 #include <cassert>
 

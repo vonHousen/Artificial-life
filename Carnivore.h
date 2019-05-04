@@ -5,10 +5,9 @@
 #ifndef ARTIFICIAL_LIFE_CARNIVORE_H
 #define ARTIFICIAL_LIFE_CARNIVORE_H
 
+class Simulation;
+
 #include "Organism.h"
-#include "CarnivoreAction.h"
-#include "CarnivoreActionFactory.h"
-#include "Simulation.h"
 
 
 class Carnivore : public Organism

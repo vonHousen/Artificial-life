@@ -5,13 +5,14 @@
 #ifndef ARTIFICIAL_LIFE_ORGANISM_H
 #define ARTIFICIAL_LIFE_ORGANISM_H
 
-#include "Vector.h"
-#include "Genotype.h"
+class Simulation;
+
 #include "Action.h"
 #include "Needs.h"
+#include "Genotype.h"
+#include "Vector.h"
 #include <memory>
 
-class ActionFactory;
 
 class Organism
 {

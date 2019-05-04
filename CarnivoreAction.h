@@ -7,8 +7,6 @@
 
 #include "Action.h"
 
-class Carnivore;
-
 
 class CarnivoreAction : public Action
 {
