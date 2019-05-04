@@ -23,7 +23,8 @@ public:
 	~Simulation();
 
 	void update();
-	void addOrganism(Organism* const);
+	void addOrganism(Carnivore* const);
+	void addOrganism(Herbivore* const);
 	void registerView(SimulationView* const);
 
 	Vector getNearestFoodLocation(Herbivore*) const;
@@ -31,7 +32,8 @@ public:
 	Organism* getOrganismAt(const Vector &);
 
 private:
-	std::vector<Organism*> organisms_;
+	std::vector<Carnivore*> carnivores_;
+	std::vector<Herbivore*> herbivores_;
 	Map map_;
 	SimulationView* view_;
 };

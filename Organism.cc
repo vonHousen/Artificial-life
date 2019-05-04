@@ -23,7 +23,7 @@ Organism::Organism(std::unique_ptr<Genotype> genes, const Vector &position, Simu
 
 bool Organism::isAlive() const
 {
-	return health_ <= 0.0;
+	return health_ > 0.0;
 }
 
 const Vector& Organism::getPosition() const

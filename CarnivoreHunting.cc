@@ -22,11 +22,15 @@ void CarnivoreHunting::act()
 		return;
 
 	//if food is near enough - eat it!
-	if(foodVector.getLength() <= Carnivore::getRadius())
+	if(foodVector.getLength() <= 2*Carnivore::getRadius())
 	{
 		auto foodPosition = foodVector + owner_->getPosition();
 		owner_->eatIt(foodPosition);
 	}
 	else
-		owner_->setVelocity(foodVector);		//TODO change dummy velocity to real one
+	{
+		auto correctionFactor = 1.0 - 2*Carnivore::getRadius()/foodVector.getLength();
+
+		owner_->setVelocity(foodVector*correctionFactor);		//TODO change dummy velocity to real one
+	}
 }

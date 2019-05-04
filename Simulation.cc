@@ -13,14 +13,25 @@ Simulation::Simulation():
 
 Simulation::~Simulation()
 {
-	for(auto organism : organisms_)
+	for(auto organism : carnivores_)
 		delete organism;
+
+	for(auto organism : herbivores_)
+		delete organism;
+
 }
 
-void Simulation::addOrganism(Organism* const newOrganism)
+void Simulation::addOrganism(Carnivore* const newOrganism)
 {
 	newOrganism->setSimulation(this);
-	organisms_.push_back(newOrganism);
+	carnivores_.push_back(newOrganism);
+	if(view_) view_->notifyWhenOrganismAdded(newOrganism);
+}
+
+void Simulation::addOrganism(Herbivore* const newOrganism)
+{
+	newOrganism->setSimulation(this);
+	herbivores_.push_back(newOrganism);
 	if(view_) view_->notifyWhenOrganismAdded(newOrganism);
 }
 
@@ -31,20 +42,14 @@ void Simulation::registerView(SimulationView* const simulationView)
 
 Vector Simulation::getVectorToNearestPrey(Carnivore *hunter) const
 {
-	std::vector<Organism*> tastyOrganisms;
-
-	for(auto organism : organisms_)
-		if(typeid(organism) != typeid(hunter))
-			tastyOrganisms.push_back(organism);
-
-	if(tastyOrganisms.empty())
+	if(herbivores_.empty())
 		return {};
 
 	Vector foodVector, nearestFoodVector(1,1);
 
-	for(auto food : tastyOrganisms)
+	for(auto tastyOrganism : herbivores_)
 	{
-		foodVector = hunter->getPosition().getShortestVectorToPosition(food->getPosition());
+		foodVector = getShortestVectorBetweenPositions(hunter->getPosition(), tastyOrganism->getPosition());
 		if(foodVector.getLength() <= nearestFoodVector.getLength())
 			nearestFoodVector = foodVector;
 	}
@@ -56,13 +61,22 @@ void Simulation::update()
 {
 	if(view_) view_->update();
 
-	for(auto organism : organisms_)
+	for(auto organism : carnivores_)
 		organism->update();
+
+	for(auto organism : herbivores_)
+		organism->update();
+
+	// TODO implement deleting dead organisms
 }
 
 Organism *Simulation::getOrganismAt(const Vector &position)
 {
-	for(auto organism : organisms_)
+	for(auto organism : carnivores_)
+		if(organism->getPosition() == position)
+			return organism;
+
+	for(auto organism : herbivores_)
 		if(organism->getPosition() == position)
 			return organism;
 
