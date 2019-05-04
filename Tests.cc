@@ -98,7 +98,6 @@ void Tests::hunting()
 	//std::cout << "Herbi: " << herbi->getPosition() << std::endl;
 	//std::cout << "Carni: " << carni->getPosition() << std::endl;
 
-	dummySimulation.update();
 
 
 }

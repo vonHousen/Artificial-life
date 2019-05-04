@@ -8,8 +8,7 @@
 #include "Vector.h"
 
 CarnivoreHunting::CarnivoreHunting(Carnivore *const owner, Simulation *const simulation) :
-	CarnivoreAction(owner, simulation),
-	concreteOwner_(owner)
+	CarnivoreAction(owner, simulation)
 {}
 
 void CarnivoreHunting::act()

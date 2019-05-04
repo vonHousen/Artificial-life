@@ -15,9 +15,6 @@ public:
 
 	virtual void act();
 
-private:
-	Carnivore* const concreteOwner_;
-
 };
 
 

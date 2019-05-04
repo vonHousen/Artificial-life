@@ -15,6 +15,9 @@ public:
 
 	virtual void act() = 0;
 
+protected:
+	Carnivore* const concreteOwner_;
+
 
 };
 
