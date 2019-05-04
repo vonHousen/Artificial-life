@@ -11,11 +11,6 @@ CarnivoreActionFactory& CarnivoreActionFactory::getInstance()
 	return instance;
 }
 
-CarnivoreActionFactory::CarnivoreActionFactory()
-{
-	//TODO
-}
-
 CarnivoreHunting CarnivoreActionFactory::produceEatingAction(Carnivore* const owner, Simulation* const simulation)
 {
 	return {owner, simulation};

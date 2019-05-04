@@ -17,7 +17,7 @@ public:
 	static HerbivoreActionFactory& getInstance();
 
 private:
-	HerbivoreActionFactory();
+	HerbivoreActionFactory() = default;
 
 };
 

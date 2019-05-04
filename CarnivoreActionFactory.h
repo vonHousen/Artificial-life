@@ -22,7 +22,7 @@ public:
 	CarnivoreHunting produceEatingAction(Carnivore* const owner, Simulation* const simulation);
 
 private:
-	CarnivoreActionFactory();
+	CarnivoreActionFactory() = default;
 
 };
 

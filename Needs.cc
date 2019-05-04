@@ -65,7 +65,7 @@ void Needs::update()
 
 }
 
-void Needs::notify() const
+void Needs::notify() const // TODO
 {
-	// TODO
+
 }
