@@ -6,9 +6,9 @@
 #define ARTIFICIAL_LIFE_DESIREDACTIONADAPTER_H
 
 
-class DesiredActionAdapter
+class DesiredActionAdapter //TODO
 {
-	//TODO
+
 };
 
 

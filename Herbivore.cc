@@ -12,21 +12,21 @@ Herbivore::Herbivore(std::unique_ptr<Genotype> genes, const Vector &position, Si
 	Organism(std::move(genes), position, simulation)
 {}
 
-void Herbivore::update()
+void Herbivore::update() // TODO
 {
 	if(currentAction_)
 		currentAction_->act();
 
-	// TODO
+
 }
 
-void Herbivore::updateAction()
+void Herbivore::updateAction() // TODO
 {
-	// TODO
+
 }
 
-void Herbivore::eatIt(const Vector &)
+void Herbivore::eatIt(const Vector &) // TODO
 {
-	// TODO
+
 }
 
