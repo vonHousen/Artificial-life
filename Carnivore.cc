@@ -15,6 +15,8 @@ Carnivore::Carnivore(std::unique_ptr<Genotype> genes, const Vector &position, Si
 
 void Carnivore::update()
 {
+	needs_->update();
+
 	if(currentAction_)
 		currentAction_->act();
 
@@ -30,7 +32,9 @@ void Carnivore::updateAction()
 	switch(suggestedAction_)
 	{
 		case SuggestedAction::EATING:
-			currentAction_ = std::make_unique<CarnivoreHunting>(CarnivoreActionFactory::getInstance().produceEatingAction(this,simulation_));
+			currentAction_ = std::make_unique<CarnivoreHunting>(
+					CarnivoreActionFactory::getInstance().produceEatingAction(this,simulation_)
+					);
 			break;
 
 		default:
@@ -46,6 +50,7 @@ void Carnivore::eatIt(const Vector& position)
 	{
 		food->setHealth(0.0);
 		this->needs_->decreaseHungerBy(5.0);
+		this->needs_->increaseLonelinessBy(2.0);
 	}
 
 }
