@@ -26,10 +26,11 @@ void CarnivoreHunting::act()
 		auto foodPosition = foodVector + owner_->getPosition();
 		owner_->eatIt(foodPosition);
 	}
-	else
+	else //go for it
 	{
 		auto correctionFactor = 1.0 - 2*Carnivore::getRadius()/foodVector.getLength();
+		auto velocityFactor = 1.0;
 
-		owner_->setVelocity(foodVector*correctionFactor);		//TODO change dummy velocity to real one
+		owner_->setVelocity(foodVector*velocityFactor*correctionFactor);		//TODO change dummy velocity to real one
 	}
 }
