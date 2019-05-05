@@ -5,13 +5,14 @@
 #ifndef ARTIFICIAL_LIFE_ORGANISM_H
 #define ARTIFICIAL_LIFE_ORGANISM_H
 
-#include "Vector.h"
-#include "Genotype.h"
+class Simulation;
+
 #include "Action.h"
 #include "Needs.h"
+#include "Genotype.h"
+#include "Vector.h"
 #include <memory>
 
-class ActionFactory;
 
 class Organism
 {
@@ -22,11 +23,15 @@ public:
 	Organism(Organism&&) = delete;
 	Organism& operator=(Organism&&) = delete;
   	Organism(std::unique_ptr<Genotype> genes, const Vector& position, Simulation* const simulation);
+  	virtual ~Organism() = default;
 
 	virtual void updateAction() = 0;			//after being notified, it uses ActionFactory to update currentAction_
 	virtual void update() = 0;					//flow of the information upside down
-	void setVelocity(const Vector &);
+	virtual void eatIt(const Vector&) = 0;		//polymorphism decides whether to eat grass or another organism
 
+	void setVelocity(const Vector &);
+	void setHealth(float);
+	void setSimulation(Simulation* const);
 	bool isAlive() const;
 	const Vector& getPosition() const;
 	static double getRadius();
@@ -47,7 +52,11 @@ protected:
 	std::unique_ptr<Action> 		currentAction_;
 
 	//pointer for simulation the organism takes part in
-	Simulation* const				simulation_;
+	Simulation*						simulation_;
+
+	enum class SuggestedAction { EATING, REPRODUCTION, SLEEPING };
+	SuggestedAction suggestedAction_;
+
 
 };
 

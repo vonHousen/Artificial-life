@@ -4,6 +4,10 @@
 
 #include "Tests.h"
 #include "Simulation.h"
+#include "Genotype.h"
+#include "Herbivore.h"
+#include "Carnivore.h"
+#include "Vector.h"
 #include <iostream>
 #include <cassert>
 
@@ -21,8 +25,8 @@ void Tests::constructFirstOrganisms()
 	assert(carni->getPosition() == posCarni);
 
 	//std::cout << std::endl;
-	//std::cout << "Herbi: " << herbi.getPosition() << std::endl;
-	//std::cout << "Carni: " << carni.getPosition() << std::endl;
+	//std::cout << "Herbi: " << herbi->getPosition() << std::endl;
+	//std::cout << "Carni: " << carni->getPosition() << std::endl;
 
 }
 
@@ -30,12 +34,12 @@ void Tests::checkVectors()
 {
 	Vector posHerbi(-0.25, -0.25), posCarni(0.75, 0.75);
 
-	assert(posHerbi.getShortestVectorToPosition(posCarni) == Vector(-1.0, -1.0));
+	assert(getShortestVectorBetweenPositions(posHerbi, posCarni) == Vector(-1.0, -1.0));
 
 	//std::cout << std::endl;
 	//std::cout << "Herbi: " << posHerbi << std::endl;
 	//std::cout << "Carni: " << posCarni << std::endl;
-	//std::cout << "posHerbi.getVectorTo(posCarni): " << posHerbi.getShortestVectorToPosition(posCarni) << std::endl;
+	//std::cout << "posHerbi.getVectorTo(posCarni): " << posHerbi.getShortestVectorBetweenPositions(posCarni) << std::endl;
 
 	Vector outOfRange(2,-3);
 	assert(outOfRange == Vector(0.0, -1.0));
@@ -64,4 +68,36 @@ void Tests::runAll()
 {
 	constructFirstOrganisms();
 	checkVectors();
+	hunting();
+}
+
+void Tests::hunting()
+{
+	Vector 		posHerbi(-0.5, -0.5), posCarni(0.5, 0.5);
+	Simulation 	dummySimulation;
+	Herbivore* 	herbi = new Herbivore(std::make_unique<Genotype>(), posHerbi, &dummySimulation);
+	Carnivore*	carni = new Carnivore(std::make_unique<Genotype>(), posCarni, &dummySimulation);
+
+	dummySimulation.addOrganism(herbi);
+	dummySimulation.addOrganism(carni);
+
+	//std::cout << std::endl;
+	//std::cout << "Herbi: " << herbi->getPosition() << std::endl;
+	//std::cout << "Carni: " << carni->getPosition() << std::endl;
+
+	dummySimulation.update();
+	assert(herbi->isAlive());
+	//std::cout << std::endl;
+	//std::cout << "Herbi: " << herbi->getPosition() << std::endl;
+	//std::cout << "Carni: " << carni->getPosition() << std::endl;
+
+
+	dummySimulation.update();
+	assert(not (herbi->isAlive()));
+	//std::cout << std::endl;
+	//std::cout << "Herbi: " << herbi->getPosition() << std::endl;
+	//std::cout << "Carni: " << carni->getPosition() << std::endl;
+
+
+
 }

@@ -5,11 +5,12 @@
 #ifndef ARTIFICIAL_LIFE_SIMULATIONVIEW_H
 #define ARTIFICIAL_LIFE_SIMULATIONVIEW_H
 
+class Simulation;
+class Organism;
+class OrganismView;
+
 #include <QtWidgets>
 #include <vector>
-
-#include "Simulation.h"
-#include "OrganismView.h"
 
 class SimulationView
 {

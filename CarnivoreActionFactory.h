@@ -5,6 +5,9 @@
 #ifndef ARTIFICIAL_LIFE_CARNIVOREACTIONFACTORY_H
 #define ARTIFICIAL_LIFE_CARNIVOREACTIONFACTORY_H
 
+class CarnivoreHunting;
+class Carnivore;
+class Simulation;
 
 class CarnivoreActionFactory
 {
@@ -16,8 +19,10 @@ public:
 
 	static CarnivoreActionFactory& getInstance();
 
+	CarnivoreHunting produceEatingAction(Carnivore* const owner, Simulation* const simulation);
+
 private:
-	CarnivoreActionFactory();
+	CarnivoreActionFactory() = default;
 
 };
 

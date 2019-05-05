@@ -6,17 +6,15 @@
 #ifndef ARTIFICIAL_LIFE_SIMULATION_H
 #define ARTIFICIAL_LIFE_SIMULATION_H
 
+class SimulationView;
+class Organism;
+class Herbivore;
+class Carnivore;
+class Vector;
+
 #include <vector>
 #include <memory>
 #include "Map.h"
-#include "Organism.h"
-#include "Herbivore.h"
-#include "Carnivore.h"
-#include "SimulationView.h"
-
-class SimulationView;
-
-class Organism;
 
 class Simulation
 {
@@ -25,14 +23,17 @@ public:
 	~Simulation();
 
 	void update();
-	void addOrganism(Organism* const);
+	void addOrganism(Carnivore* const);
+	void addOrganism(Herbivore* const);
 	void registerView(SimulationView* const);
 
 	Vector getNearestFoodLocation(Herbivore*) const;
-	Vector getVectorToNearestPrey(Organism *) const;
+	Vector getVectorToNearestPrey(Carnivore*) const;
+	Organism* getOrganismAt(const Vector &);
 
 private:
-	std::vector<Organism*> organisms_;
+	std::vector<Carnivore*> carnivores_;
+	std::vector<Herbivore*> herbivores_;
 	Map map_;
 	SimulationView* view_;
 };
