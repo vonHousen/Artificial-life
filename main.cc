@@ -13,11 +13,11 @@ int main(int argc, char *argv[])
 
     std::shared_ptr<Simulation> simulation = std::make_shared<Simulation>();
 
-    Vector 		posHerbi(0, 0), posCarni(0.1, 0.1);
+    Vector 		posHerbi(0, 0), posCarni(0.3, -0.2);
 	Herbivore*  herbi = new Herbivore(std::make_unique<Genotype>(), posHerbi, simulation.get());
 	Carnivore*	carni = new Carnivore(std::make_unique<Genotype>(), posCarni, simulation.get());
 
-    Window window(simulation, 720, 540);
+    Window window(simulation, 560);
     window.show();
 
 	simulation->addOrganism(herbi);

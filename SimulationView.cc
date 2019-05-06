@@ -36,8 +36,8 @@ void SimulationView::notifyWhenOrganismAdded(Organism* const organismToAdd)
 
 void SimulationView::notifyWhenOrganismRemoved(Organism* organismToRemove)
 {
-    //TODO
-    //OrganismView* organismView = ___________;
-    //qGraphicsScene_->removeItem(organismView);
-    //delete organismView;
+    OrganismView* organismView = organismToRemove->getView();
+    qGraphicsScene_->removeItem(organismView);
+    organismViews_.erase(std::remove(organismViews_.begin(), organismViews_.end(), organismView), organismViews_.end());
+    delete organismView;
 }
