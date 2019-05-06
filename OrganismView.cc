@@ -12,7 +12,7 @@ OrganismView::OrganismView(Organism* const model):
     
     model->setView(this);
 
-    setRect(position.getX() - radius*0.5, position.getY() - radius, radius, radius);
+    setRect(position.getX() - radius*0.5, position.getY() - radius*0.5, radius, radius);
     setBrush(QBrush(Qt::white));
 }
 

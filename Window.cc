@@ -24,6 +24,7 @@ Window::Window(std::shared_ptr<Simulation> simulation, int size, QWidget *parent
     view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view->setStyleSheet("border-style: none");
+    view->setFixedSize(size, size);
     
     view->translate(1, 1);
     view->scale(size*0.5, -size*0.5);
