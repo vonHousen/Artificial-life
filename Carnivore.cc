@@ -14,6 +14,7 @@ void Carnivore::update()
 		currentAction_->act();
 
 	// Move
+	velocity_ += acceleration_;
 	position_ += velocity_;
 }
 

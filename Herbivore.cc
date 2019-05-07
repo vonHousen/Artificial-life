@@ -13,7 +13,9 @@ void Herbivore::update()
 	if(currentAction_)
 		currentAction_->act();
 
-	//TODO
+	// Move
+	velocity_ += acceleration_;
+	position_ += velocity_;
 }
 
 void Herbivore::updateAction()

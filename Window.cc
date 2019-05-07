@@ -57,6 +57,15 @@ Window::Window(std::shared_ptr<Simulation> simulation, int size, QWidget *parent
     view->setBackgroundBrush(QBrush(Qt::black));
 
     setLayout(hlayout);
+
+    qTimer_ = new QTimer(this);
+    connect(qTimer_, SIGNAL(timeout()), this, SLOT(update()));
+    qTimer_->start(5);
+}
+
+void Window::update()
+{
+    simulation_->update();
 }
 
 void Window::handleButtonEvent()
