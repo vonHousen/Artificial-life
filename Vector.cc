@@ -8,20 +8,8 @@
 
 Vector::Vector(double x, double y)
 {
-	while(x > 1.0)
-		x -= 2.0;
-
-	while(x < -1.0)
-		x += 2.0;
-
-	while(y > 1.0)
-		y -= 2.0;
-
-	while(y < -1.0)
-		y += 2.0;
-
-	x_ = x;
-	y_ = y;
+	x_ = wrapCoordinateAround(x);
+	y_ = wrapCoordinateAround(y);
 }
 
 Vector::Vector() : Vector(0.0, 0.0) {}
@@ -38,22 +26,12 @@ double Vector::getY() const
 
 void Vector::setX(double x)
 {
-	if(x > 1.0)
-		this->setX(x - 2.0);
-	else if(x < -1.0)
-		this->setX(x + 2.0);
-	else
-		x_ = x;
+	x_ = wrapCoordinateAround(x);
 }
 
 void Vector::setY(double y)
 {
-	if(y > 1.0)
-		this->setY(y - 2.0);
-	else if(y < -1.0)
-		this->setY(y + 2.0);
-	else
-		y_ = y;
+	y_ = wrapCoordinateAround(y);
 }
 
 Vector Vector::operator+(const Vector &other) const
@@ -176,4 +154,12 @@ Vector Vector::getShortestVectorToPosition(const Vector &other) const
 	dy_nearest = fabs(dy_natural) < fabs(dy_symmetric) ? dy_natural : dy_symmetric;
 
 	return {dx_nearest, dy_nearest};
+}
+
+double Vector::wrapCoordinateAround(double value) const
+{
+	double result = fmod(value, 2);
+    if(result > 1) result = result - 2;
+    else if(result < -1) result = result + 2;
+    return result;
 }

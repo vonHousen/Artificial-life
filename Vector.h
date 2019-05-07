@@ -37,6 +37,8 @@ public:
 	friend std::ostream& operator<<(std::ostream& os, const Vector& vector);
 
 private:
+	double wrapCoordinateAround(double value) const;
+
 	double x_;
 	double y_;
 };
