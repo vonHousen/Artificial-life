@@ -5,9 +5,9 @@
 #ifndef ARTIFICIAL_LIFE_ORGANISMVIEW_H
 #define ARTIFICIAL_LIFE_ORGANISMVIEW_H
 
-#include <QtWidgets>
+class Organism;
 
-#include "Organism.h"
+#include <QtWidgets>
 
 class OrganismView : public QGraphicsEllipseItem
 {

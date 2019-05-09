@@ -22,7 +22,6 @@ public:
 	void setX(double x);
 	void setY(double y);
 	double getLength() const;
-	Vector getShortestVectorToPosition(const Vector &other) const;	//returns the shortest vector pointing from one position to the other one
 
 	Vector operator+(const Vector& other) const;
 	Vector operator-(const Vector& other) const;
@@ -42,6 +41,11 @@ private:
 	double x_;
 	double y_;
 };
+
+
+//returns the shortest vector pointing from one position to the other one
+Vector getShortestVectorBetweenPositions(const Vector &first, const Vector &second);
+
 
 
 #endif //ARTIFICIAL_LIFE_VECTOR_H

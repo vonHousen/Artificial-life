@@ -8,8 +8,8 @@ HerbivoreEating::HerbivoreEating(Organism *const owner, Simulation *const simula
 	HerbivoreAction(owner, simulation)
 {}
 
-void HerbivoreEating::act()
+void HerbivoreEating::act() //TODO
 {
 	//Organism is hungry, it needs to find the nearest food
-	//simulation_->getNearestFoodLoc(this); //TODO
+	//simulation_->getNearestFoodLoc(this);
 }

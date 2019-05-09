@@ -3,12 +3,16 @@
  */
 
 #include "Herbivore.h"
+#include "HerbivoreActionFactory.h"
+#include "Simulation.h"
+#include "Action.h"
+
 
 Herbivore::Herbivore(std::unique_ptr<Genotype> genes, const Vector &position, Simulation* const simulation) :
 	Organism(std::move(genes), position, simulation)
 {}
 
-void Herbivore::update()
+void Herbivore::update() // TODO
 {
 	if(currentAction_)
 		currentAction_->act();
@@ -18,8 +22,13 @@ void Herbivore::update()
 	position_ += velocity_;
 }
 
-void Herbivore::updateAction()
+void Herbivore::updateAction() // TODO
 {
-	//TODO
+
+}
+
+void Herbivore::eatIt(const Vector &) // TODO
+{
+
 }
 

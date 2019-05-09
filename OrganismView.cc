@@ -3,6 +3,8 @@
  */
 
 #include "OrganismView.h"
+#include "Organism.h"
+#include "Vector.h"
 
 OrganismView::OrganismView(Organism* const model):
     model_(model)

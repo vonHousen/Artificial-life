@@ -2,6 +2,10 @@
  * Main file, currently for testing
  */
 
+#include "Simulation.h"
+#include "Organism.h"
+#include "Herbivore.h"
+#include "Carnivore.h"
 #include "Window.h"
 #include "Tests.h"
 

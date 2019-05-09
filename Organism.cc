@@ -16,13 +16,14 @@ Organism::Organism(std::unique_ptr<Genotype> genes, const Vector &position, Simu
 	genes_ 			(std::move(genes)),
 	needs_			(std::make_unique<Needs>(this)),
 	currentAction_ 	(nullptr),
-	simulation_ 	(simulation)
+	simulation_ 	(simulation),
+	suggestedAction_(SuggestedAction::EATING)
 {}
 
 
 bool Organism::isAlive() const
 {
-	return health_ <= 0.0;
+	return health_ > 0.0;
 }
 
 const Vector& Organism::getPosition() const
@@ -38,4 +39,14 @@ void Organism::setVelocity(const Vector& velocity)
 double Organism::getRadius()
 {
 	return radius_;
+}
+
+void Organism::setHealth(float health)
+{
+	health_ = health;
+}
+
+void Organism::setSimulation(Simulation* const simulation)
+{
+	simulation_ = simulation;
 }

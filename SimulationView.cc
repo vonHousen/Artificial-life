@@ -3,6 +3,8 @@
  */
 
 #include "SimulationView.h"
+#include "Simulation.h"
+#include "OrganismView.h"
 
 SimulationView::SimulationView(QGraphicsScene* qGraphicsScene, Simulation* const model):
     qGraphicsScene_(qGraphicsScene),

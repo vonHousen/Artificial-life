@@ -3,6 +3,7 @@
  */
 
 #include "CarnivoreActionFactory.h"
+#include "CarnivoreHunting.h"
 
 CarnivoreActionFactory& CarnivoreActionFactory::getInstance()
 {
@@ -10,7 +11,7 @@ CarnivoreActionFactory& CarnivoreActionFactory::getInstance()
 	return instance;
 }
 
-CarnivoreActionFactory::CarnivoreActionFactory()
+CarnivoreHunting CarnivoreActionFactory::produceEatingAction(Carnivore* const owner, Simulation* const simulation)
 {
-	//TODO
+	return {owner, simulation};
 }
