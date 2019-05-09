@@ -5,6 +5,7 @@
 #ifndef ARTIFICIAL_LIFE_SIMULATIONVIEW_H
 #define ARTIFICIAL_LIFE_SIMULATIONVIEW_H
 
+class Window;
 class Simulation;
 class Organism;
 class OrganismView;
@@ -15,7 +16,7 @@ class OrganismView;
 class SimulationView
 {
 public:
-    SimulationView(QGraphicsScene*, Simulation* const);
+    SimulationView(Window* const, QGraphicsScene* const, Simulation* const);
     ~SimulationView();
 
     void update();
@@ -23,8 +24,9 @@ public:
     void notifyWhenOrganismRemoved(Organism* const);
 
 private:
+    Window* const window_;
     Simulation* const model_;
-    QGraphicsScene* qGraphicsScene_;
+    QGraphicsScene* const qGraphicsScene_;
     std::unordered_map<Organism*, OrganismView*> organismViews_;
 };
 

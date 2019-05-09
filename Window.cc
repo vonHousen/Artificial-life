@@ -5,6 +5,7 @@
 #include <iostream>
 
 #include "Window.h"
+#include "Simulation.h"
 
 Window::Window(std::shared_ptr<Simulation> simulation, int size, QWidget *parent): 
     QWidget(parent), 
@@ -17,7 +18,7 @@ Window::Window(std::shared_ptr<Simulation> simulation, int size, QWidget *parent
     qGraphicsScene_ = new QGraphicsScene(this);
     qGraphicsScene_->setSceneRect(-1, -1, 2, 2);
 
-    simulationView_ = std::make_unique<SimulationView>(qGraphicsScene_, simulation_.get());
+    simulationView_ = std::make_unique<SimulationView>(this, qGraphicsScene_, simulation_.get());
 
     QGraphicsView* view = new QGraphicsView(qGraphicsScene_, this);
     view->setRenderHint(QPainter::Antialiasing);
@@ -61,6 +62,15 @@ Window::Window(std::shared_ptr<Simulation> simulation, int size, QWidget *parent
     qTimer_ = new QTimer(this);
     connect(qTimer_, SIGNAL(timeout()), this, SLOT(update()));
     qTimer_->start(5);
+}
+
+void Window::updateOrganismCount()
+{
+    int carnivores = simulation_->getCarnivoreCount();
+    int herbivores = simulation_->getHerbivoreCount();
+
+    qLabelCarnivores_->setText(QString("Carnivores: ") + QString::number(carnivores));
+    qLabelHerbivores_->setText(QString("Herbivores: ") + QString::number(herbivores));
 }
 
 void Window::update()

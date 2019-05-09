@@ -5,8 +5,10 @@
 #include "SimulationView.h"
 #include "Simulation.h"
 #include "OrganismView.h"
+#include "Window.h"
 
-SimulationView::SimulationView(QGraphicsScene* qGraphicsScene, Simulation* const model):
+SimulationView::SimulationView(Window* const window, QGraphicsScene* const qGraphicsScene, Simulation* const model):
+    window_(window),
     qGraphicsScene_(qGraphicsScene),
     model_(model)
 {
@@ -34,12 +36,14 @@ void SimulationView::notifyWhenOrganismAdded(Organism* const organismToAdd)
     auto newOrganismView = new OrganismView(organismToAdd);
     qGraphicsScene_->addItem(newOrganismView);
     organismViews_.emplace(std::make_pair(organismToAdd, newOrganismView));
+    window_->updateOrganismCount();
 }
 
-void SimulationView::notifyWhenOrganismRemoved(Organism* organismToRemove)
+void SimulationView::notifyWhenOrganismRemoved(Organism* const organismToRemove)
 {
     OrganismView* organismView = organismViews_[organismToRemove];
     qGraphicsScene_->removeItem(organismView);
     organismViews_.erase(organismToRemove);
+    window_->updateOrganismCount();
     delete organismView;
 }

@@ -5,6 +5,7 @@
 #ifndef ARTIFICIAL_LIFE_WINDOW_H
 #define ARTIFICIAL_LIFE_WINDOW_H
 
+#include <memory>
 #include <QtWidgets>
 
 #include "SimulationView.h"
@@ -15,6 +16,8 @@ Q_OBJECT
 public:
     explicit Window(std::shared_ptr<Simulation> simulation, int size, QWidget *parent = 0);
     ~Window();
+
+    void updateOrganismCount();
 private slots:
     void update();
     void handleButtonEvent();
