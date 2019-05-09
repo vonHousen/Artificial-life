@@ -16,8 +16,7 @@ Organism::Organism(std::unique_ptr<Genotype> genes, const Vector &position, Simu
 	genes_ 			(std::move(genes)),
 	needs_			(std::make_unique<Needs>(this)),
 	currentAction_ 	(nullptr),
-	simulation_ 	(simulation),
-	view_			(nullptr)
+	simulation_ 	(simulation)
 {}
 
 
@@ -31,19 +30,9 @@ const Vector& Organism::getPosition() const
 	return position_;
 }
 
-OrganismView* Organism::getView() const
-{
-	return view_;
-}
-
 void Organism::setVelocity(const Vector& velocity)
 {
 	velocity_ = velocity;
-}
-
-void Organism::setView(OrganismView* view)
-{
-	view_ = view;
 }
 
 double Organism::getRadius()

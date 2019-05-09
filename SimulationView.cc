@@ -13,17 +13,17 @@ SimulationView::SimulationView(QGraphicsScene* qGraphicsScene, Simulation* const
 
 SimulationView::~SimulationView()
 {
-    for(auto organismView : organismViews_)
+    for(auto organismViewPair : organismViews_)
     {
-        delete organismView;
+        delete organismViewPair.second;
     }
 }
 
 void SimulationView::update()
 {
-    for(auto organismView : organismViews_)
+    for(auto organismViewPair : organismViews_)
     {
-        organismView->update();
+        organismViewPair.second->update();
     }
 }
 
@@ -31,13 +31,13 @@ void SimulationView::notifyWhenOrganismAdded(Organism* const organismToAdd)
 {
     auto newOrganismView = new OrganismView(organismToAdd);
     qGraphicsScene_->addItem(newOrganismView);
-    organismViews_.push_back(newOrganismView);
+    organismViews_.emplace(std::make_pair(organismToAdd, newOrganismView));
 }
 
 void SimulationView::notifyWhenOrganismRemoved(Organism* organismToRemove)
 {
-    OrganismView* organismView = organismToRemove->getView();
+    OrganismView* organismView = organismViews_[organismToRemove];
     qGraphicsScene_->removeItem(organismView);
-    organismViews_.erase(std::remove(organismViews_.begin(), organismViews_.end(), organismView), organismViews_.end());
+    organismViews_.erase(organismToRemove);
     delete organismView;
 }

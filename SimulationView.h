@@ -6,7 +6,7 @@
 #define ARTIFICIAL_LIFE_SIMULATIONVIEW_H
 
 #include <QtWidgets>
-#include <vector>
+#include <unordered_map>
 
 #include "Simulation.h"
 #include "OrganismView.h"
@@ -24,7 +24,7 @@ public:
 private:
     Simulation* const model_;
     QGraphicsScene* qGraphicsScene_;
-    std::vector<OrganismView*> organismViews_;
+    std::unordered_map<Organism*, OrganismView*> organismViews_;
 };
 
 #endif //ARTIFICIAL_LIFE_SIMULATIONVIEW_H

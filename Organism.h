@@ -29,11 +29,8 @@ public:
 	virtual void update() = 0;					//flow of the information upside down
 	void setVelocity(const Vector &);
 
-	void setView(OrganismView* view);
-
 	bool isAlive() const;
 	const Vector& getPosition() const;
-	OrganismView* getView() const;
 	static double getRadius();
 
 
@@ -53,9 +50,6 @@ protected:
 
 	//pointer to simulation the organism takes part in
 	Simulation* const				simulation_;
-
-	//pointer to view associated with this organism
-	OrganismView* 					view_;
 };
 
 

@@ -9,8 +9,6 @@ OrganismView::OrganismView(Organism* const model):
 {
     Vector position = model_->getPosition();
     float radius = model_->getRadius();
-    
-    model->setView(this);
 
     setRect(position.getX() - radius*0.5, position.getY() - radius*0.5, radius, radius);
     setBrush(QBrush(Qt::white));
