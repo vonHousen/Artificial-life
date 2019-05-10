@@ -1,5 +1,5 @@
 /*
- * OrganismView TODO
+ * Base class for organisms' views, whose objects are added to simulation view.
  */
 
 #ifndef ARTIFICIAL_LIFE_ORGANISMVIEW_H
@@ -14,8 +14,7 @@ class OrganismView : public QGraphicsEllipseItem
 public:
     OrganismView(Organism* const model);
 
-    void update();
-
+    virtual void update();
 private:
     Organism* const model_;
 };

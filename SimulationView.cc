@@ -1,10 +1,11 @@
 /*
- * OrganismView TODO
+ * Class responsible for visual represenation of simulation
  */
 
 #include "SimulationView.h"
 #include "Simulation.h"
-#include "OrganismView.h"
+#include "CarnivoreView.h"
+#include "HerbivoreView.h"
 #include "Window.h"
 
 SimulationView::SimulationView(Window* const window, QGraphicsScene* const qGraphicsScene, Simulation* const model):
@@ -17,33 +18,60 @@ SimulationView::SimulationView(Window* const window, QGraphicsScene* const qGrap
 
 SimulationView::~SimulationView()
 {
-    for(auto organismViewPair : organismViews_)
+    for(auto carnivoreViewPair : carnivoreViews_)
     {
-        delete organismViewPair.second;
+        delete carnivoreViewPair.second;
+    }
+
+    for(auto herbivoreViewPair : herbivoreViews_)
+    {
+        delete herbivoreViewPair.second;
     }
 }
 
 void SimulationView::update()
 {
-    for(auto organismViewPair : organismViews_)
+    for(auto carnivoreViewPair : carnivoreViews_)
     {
-        organismViewPair.second->update();
+        carnivoreViewPair.second->update();
+    }
+
+    for(auto herbivoreViewPair : herbivoreViews_)
+    {
+        herbivoreViewPair.second->update();
     }
 }
 
-void SimulationView::notifyWhenOrganismAdded(Organism* const organismToAdd)
+void SimulationView::notifyWhenOrganismAdded(Carnivore* const organismToAdd)
 {
-    auto newOrganismView = new OrganismView(organismToAdd);
+    auto newOrganismView = new CarnivoreView(organismToAdd);
     qGraphicsScene_->addItem(newOrganismView);
-    organismViews_.emplace(std::make_pair(organismToAdd, newOrganismView));
+    carnivoreViews_.emplace(std::make_pair(organismToAdd, newOrganismView));
     window_->updateOrganismCount();
 }
 
-void SimulationView::notifyWhenOrganismRemoved(Organism* const organismToRemove)
+void SimulationView::notifyWhenOrganismAdded(Herbivore* const organismToAdd)
 {
-    OrganismView* organismView = organismViews_[organismToRemove];
+    auto newOrganismView = new HerbivoreView(organismToAdd);
+    qGraphicsScene_->addItem(newOrganismView);
+    herbivoreViews_.emplace(std::make_pair(organismToAdd, newOrganismView));
+    window_->updateOrganismCount();
+}
+
+void SimulationView::notifyWhenOrganismRemoved(Carnivore* const organismToRemove)
+{
+    OrganismView* organismView = carnivoreViews_[organismToRemove];
     qGraphicsScene_->removeItem(organismView);
-    organismViews_.erase(organismToRemove);
+    carnivoreViews_.erase(organismToRemove);
+    window_->updateOrganismCount();
+    delete organismView;
+}
+
+void SimulationView::notifyWhenOrganismRemoved(Herbivore* const organismToRemove)
+{
+    OrganismView* organismView = herbivoreViews_[organismToRemove];
+    qGraphicsScene_->removeItem(organismView);
+    herbivoreViews_.erase(organismToRemove);
     window_->updateOrganismCount();
     delete organismView;
 }
