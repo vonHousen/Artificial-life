@@ -40,7 +40,7 @@ add_executable(Artificial_Life
         ${PROJECT_CODE})
 
 add_executable(A_Tests
-        tests/test.cc
+        tests/main_test.cc
         tests/Tests.cc tests/Tests.h
         ${PROJECT_CODE}
         )
