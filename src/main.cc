@@ -1,13 +1,13 @@
 /*
- * Main file, currently for testing
+ * Main file designed for production code: initialises GUI
  */
 
 #include "Window.h"
-#include "Tests.h"
+#include <iostream>
 
 int main(int argc, char *argv[])
 {
-    Tests::runAll();
+	std::cout << "\n" << "Executing main..." << std::endl;
 
     return 0;
 }
