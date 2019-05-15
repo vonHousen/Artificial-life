@@ -63,7 +63,7 @@ Vector Simulation::getVectorToNearestPrey(Carnivore *hunter) const
 
 	for(auto tastyOrganism : herbivores_)
 	{
-		foodVector = getShortestVectorBetweenPositions(hunter->getPosition(), tastyOrganism->getPosition());
+		foodVector = hunter->getPosition() - tastyOrganism->getPosition();//getShortestVectorBetweenPositions(hunter->getPosition(), tastyOrganism->getPosition());
 		if(foodVector.getLength() <= nearestFoodVector.getLength())
 			nearestFoodVector = foodVector;
 	}

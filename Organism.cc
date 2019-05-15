@@ -4,7 +4,7 @@
 
 #include "Organism.h"
 
-double Organism::radius_ = 0.01;
+double Organism::radius_ = 0.03;
 
 Organism::Organism(std::unique_ptr<Genotype> genes, const Vector &position, Simulation* const simulation) :
 	health_			(10.0),
@@ -29,6 +29,11 @@ bool Organism::isAlive() const
 const Vector& Organism::getPosition() const
 {
 	return position_;
+}
+
+void Organism::setAcceleration(const Vector& acceleration)
+{
+	acceleration_ = acceleration;
 }
 
 void Organism::setVelocity(const Vector& velocity)

@@ -14,12 +14,16 @@ Herbivore::Herbivore(std::unique_ptr<Genotype> genes, const Vector &position, Si
 
 void Herbivore::update() // TODO
 {
+	needs_->update();
 	if(currentAction_)
 		currentAction_->act();
 
 	// Move
+	// deltaS = v*dt + 1/2*a*dt^2
+	// deltaV = a*dt
+	// where dt = 1
+	position_ += velocity_ + acceleration_*0.5; 
 	velocity_ += acceleration_;
-	position_ += velocity_;
 }
 
 void Herbivore::updateAction() // TODO

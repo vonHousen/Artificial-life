@@ -12,7 +12,8 @@ OrganismView::OrganismView(Organism* const model):
     Vector position = model_->getPosition();
     float radius = model_->getRadius();
 
-    setRect(position.getX() - radius*0.5, position.getY() - radius*0.5, radius, radius);
+    setRect(-radius*0.5, -radius*0.5, radius, radius);
+    setPos(position.getX(), position.getY());
 }
 
 void OrganismView::update()

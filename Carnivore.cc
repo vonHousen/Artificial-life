@@ -16,12 +16,15 @@ Carnivore::Carnivore(std::unique_ptr<Genotype> genes, const Vector &position, Si
 void Carnivore::update()
 {
 	needs_->update();
-	currentAction_->act();
+	if(currentAction_)
+		currentAction_->act();
 
 	// Move
+	// deltaS = v*dt + 1/2*a*dt^2
+	// deltaV = a*dt
+	// where dt = 1
+	position_ += velocity_ + acceleration_*0.5; 
 	velocity_ += acceleration_;
-	position_ += velocity_;
-	velocity_ = Vector();
 }
 
 void Carnivore::updateAction()
@@ -32,7 +35,7 @@ void Carnivore::updateAction()
 	{
 		case SuggestedAction::EATING:
 			currentAction_ = std::make_unique<CarnivoreHunting>(
-					CarnivoreActionFactory::getInstance().produceEatingAction(this,simulation_)
+					CarnivoreActionFactory::getInstance().produceEatingAction(this, simulation_)
 					);
 			break;
 

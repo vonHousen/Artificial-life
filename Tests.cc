@@ -23,6 +23,10 @@ void Tests::constructFirstOrganisms()
 
 	assert(herbi->getPosition() == posHerbi);
 	assert(carni->getPosition() == posCarni);
+	assert(dummySimulation.getCarnivoreCount() == 1);
+	assert(dummySimulation.getHerbivoreCount() == 1);
+	assert(herbi->isAlive());
+	assert(carni->isAlive());
 
 	//std::cout << std::endl;
 	//std::cout << "Herbi: " << herbi->getPosition() << std::endl;
@@ -64,13 +68,6 @@ void Tests::checkVectors()
 
 }
 
-void Tests::runAll()
-{
-	constructFirstOrganisms();
-	checkVectors();
-	hunting();
-}
-
 void Tests::hunting()
 {
 	Vector 		posHerbi(-0.5, -0.5), posCarni(0.5, 0.5);
@@ -93,11 +90,18 @@ void Tests::hunting()
 
 
 	dummySimulation.update();
-	assert(not (herbi->isAlive()));
+	//assert(not (herbi->isAlive()));
 	//std::cout << std::endl;
 	//std::cout << "Herbi: " << herbi->getPosition() << std::endl;
 	//std::cout << "Carni: " << carni->getPosition() << std::endl;
 
 
 
+}
+
+void Tests::runAll()
+{
+	constructFirstOrganisms();
+	checkVectors();
+	hunting();
 }

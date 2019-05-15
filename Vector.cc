@@ -34,12 +34,12 @@ void Vector::setY(double y)
 	y_ = wrapCoordinateAround(y);
 }
 
-Vector Vector::operator+(const Vector &other) const
+Vector Vector::operator+(const Vector& other) const
 {
 	return {other.getX() + x_, other.getY() + y_};
 }
 
-Vector Vector::operator-(const Vector &other) const
+Vector Vector::operator-(const Vector& other) const
 {
 	return {other.getX() - x_, other.getY() - y_};
 }
@@ -54,67 +54,31 @@ Vector Vector::operator*(double scalar) const
 	return {scalar * x_, scalar * y_};
 }
 
-Vector& Vector::operator+=(const Vector &other)
+Vector& Vector::operator+=(const Vector& other)
 {
-	x_ = other.getX() + x_;
-	y_ = other.getY() + y_;
-
-	while(x_ > 1.0)
-		x_ -= 2.0;
-
-	while(x_ < -1.0)
-		x_ += 2.0;
-
-	while(y_ > 1.0)
-		y_ -= 2.0;
-
-	while(y_ < -1.0)
-		y_ += 2.0;
+	x_ = wrapCoordinateAround(x_ + other.getX());
+	y_ = wrapCoordinateAround(y_ + other.getY());
 
 	return *this;
 }
 
-Vector& Vector::operator-=(const Vector &other)
+Vector& Vector::operator-=(const Vector& other)
 {
-	x_ = other.getX() - x_;
-	y_ = other.getY() - y_;
-
-	while(x_ > 1.0)
-		x_ -= 2.0;
-
-	while(x_ < -1.0)
-		x_ += 2.0;
-
-	while(y_ > 1.0)
-		y_ -= 2.0;
-
-	while(y_ < -1.0)
-		y_ += 2.0;
+	x_ = wrapCoordinateAround(x_ - other.getX());
+	y_ = wrapCoordinateAround(y_ - other.getY());
 
 	return *this;
 }
 
-Vector &Vector::operator*=(double scalar)
+Vector& Vector::operator*=(double scalar)
 {
-	x_ = scalar * x_;
-	y_ = scalar * y_;
-
-	while(x_ > 1.0)
-		x_ -= 2.0;
-
-	while(x_ < -1.0)
-		x_ += 2.0;
-
-	while(y_ > 1.0)
-		y_ -= 2.0;
-
-	while(y_ < -1.0)
-		y_ += 2.0;
+	x_ = wrapCoordinateAround(scalar * x_);
+	y_ = wrapCoordinateAround(scalar * y_);
 
 	return *this;
 }
 
-std::ostream &operator<<(std::ostream &os, const Vector &vector)
+std::ostream& operator<<(std::ostream& os, const Vector& vector)
 {
 	if (vector.getX() < 0.0 and vector.getY() < 0.0)
 		return os << "(" << vector.getX() << ", " << vector.getY() << ")";
@@ -126,12 +90,12 @@ std::ostream &operator<<(std::ostream &os, const Vector &vector)
 		return os << "( " << vector.getX() << ",  " << vector.getY() << ")";
 }
 
-bool Vector::operator==(const Vector &other) const
+bool Vector::operator==(const Vector& other) const
 {
 	return (x_ == other.getX() and y_ == other.getY());
 }
 
-bool Vector::operator!=(const Vector &other) const
+bool Vector::operator!=(const Vector& other) const
 {
 	return (x_ != other.getX() or y_ != other.getY());
 }
@@ -141,7 +105,7 @@ double Vector::getLength() const
 	return sqrt(x_*x_ + y_*y_);
 }
 
-Vector getShortestVectorBetweenPositions(const Vector &first, const Vector &second)
+Vector getShortestVectorBetweenPositions(const Vector& first, const Vector& second)
 {
 	double dx_natural, dx_symmetric, dy_natural, dy_symmetric, dx_nearest, dy_nearest;
 

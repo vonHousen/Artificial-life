@@ -32,7 +32,7 @@ public:
 
 	Vector getNearestFoodLocation(Herbivore*) const;
 	Vector getVectorToNearestPrey(Carnivore*) const;
-	Organism* getOrganismAt(const Vector &);
+	Organism* getOrganismAt(const Vector&);
 
 private:
 	int carnivoreCount_;
