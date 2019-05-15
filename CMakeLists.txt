@@ -29,9 +29,11 @@ set(PROJECT_CODE
 find_package(Qt5Widgets CONFIG REQUIRED)
 
 add_subdirectory(src)
-add_subdirectory(include)
+add_subdirectory(include/Alife)
+add_subdirectory(include/googletest)
 add_subdirectory(tests)
 include_directories(include/Alife)
+include_directories(include/googletest)
 
 add_executable(Artificial_Life
         src/main.cc
@@ -44,5 +46,5 @@ add_executable(A_Tests
         )
 
 target_link_libraries(Artificial_Life   Qt5::Widgets)
-target_link_libraries(A_Tests           Qt5::Widgets)
+target_link_libraries(A_Tests           Qt5::Widgets gtest gtest_main)
 
