@@ -12,7 +12,7 @@ Genotype::Genotype() :
 	lifespan_(5.0)
 {}
 
-Genotype::Genotype(const Genotype & inheritedGenes) :
+Genotype::Genotype(const Genotype& inheritedGenes) :
 	alertness_(inheritedGenes.alertness_),
 	sightRange_(inheritedGenes.sightRange_),
 	stamina_(inheritedGenes.stamina_),

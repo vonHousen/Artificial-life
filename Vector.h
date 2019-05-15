@@ -44,7 +44,7 @@ private:
 
 
 //returns the shortest vector pointing from one position to the other one
-Vector getShortestVectorBetweenPositions(const Vector &first, const Vector &second);
+Vector getShortestVectorBetweenPositions(const Vector& first, const Vector& second);
 
 
 

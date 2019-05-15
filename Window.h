@@ -14,7 +14,7 @@ class Window : public QWidget
 {
 Q_OBJECT
 public:
-    explicit Window(std::shared_ptr<Simulation> simulation, int size, QWidget *parent = 0);
+    explicit Window(std::shared_ptr<Simulation> simulation, int size, QWidget* parent = 0);
     ~Window();
 
     void updateOrganismCount();

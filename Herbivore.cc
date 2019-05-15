@@ -8,7 +8,7 @@
 #include "Action.h"
 
 
-Herbivore::Herbivore(std::unique_ptr<Genotype> genes, const Vector &position, Simulation* const simulation) :
+Herbivore::Herbivore(std::unique_ptr<Genotype> genes, const Vector& position, Simulation* const simulation) :
 	Organism(std::move(genes), position, simulation)
 {}
 

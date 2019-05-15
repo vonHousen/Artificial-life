@@ -7,7 +7,7 @@
 #include "Window.h"
 #include "Simulation.h"
 
-Window::Window(std::shared_ptr<Simulation> simulation, int size, QWidget *parent): 
+Window::Window(std::shared_ptr<Simulation> simulation, int size, QWidget* parent): 
     QWidget(parent), 
     size_(size), 
     simulation_(std::move(simulation))
