@@ -8,6 +8,8 @@
 #include "Herbivore.h"
 
 Simulation::Simulation():
+	carnivoreCount_(0),
+	herbivoreCount_(0),
 	view_(nullptr)
 {}
 
@@ -25,6 +27,7 @@ void Simulation::addOrganism(Carnivore* const newOrganism)
 {
 	newOrganism->setSimulation(this);
 	carnivores_.push_back(newOrganism);
+	carnivoreCount_ += 1;
 	if(view_) view_->notifyWhenOrganismAdded(newOrganism);
 }
 
@@ -32,6 +35,7 @@ void Simulation::addOrganism(Herbivore* const newOrganism)
 {
 	newOrganism->setSimulation(this);
 	herbivores_.push_back(newOrganism);
+	herbivoreCount_ += 1;
 	if(view_) view_->notifyWhenOrganismAdded(newOrganism);
 }
 
@@ -40,7 +44,17 @@ void Simulation::registerView(SimulationView* const simulationView)
 	view_ = simulationView;
 }
 
-Vector Simulation::getVectorToNearestPrey(Carnivore *hunter) const
+int Simulation::getCarnivoreCount() const
+{
+	return carnivoreCount_;
+}
+
+int Simulation::getHerbivoreCount() const
+{
+	return herbivoreCount_;
+}
+
+Vector Simulation::getVectorToNearestPrey(Carnivore* hunter) const
 {
 	if(herbivores_.empty())
 		return {};

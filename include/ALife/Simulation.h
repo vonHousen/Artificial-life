@@ -27,11 +27,17 @@ public:
 	void addOrganism(Herbivore* const);
 	void registerView(SimulationView* const);
 
+	int getCarnivoreCount() const;
+	int getHerbivoreCount() const;
+
 	Vector getNearestFoodLocation(Herbivore*) const;
 	Vector getVectorToNearestPrey(Carnivore*) const;
-	Organism* getOrganismAt(const Vector &);
+	Organism* getOrganismAt(const Vector&);
 
 private:
+	int carnivoreCount_;
+	int herbivoreCount_;
+
 	std::vector<Carnivore*> carnivores_;
 	std::vector<Herbivore*> herbivores_;
 	Map map_;

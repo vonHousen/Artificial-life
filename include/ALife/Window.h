@@ -5,6 +5,7 @@
 #ifndef ARTIFICIAL_LIFE_WINDOW_H
 #define ARTIFICIAL_LIFE_WINDOW_H
 
+#include <memory>
 #include <QtWidgets>
 
 #include "SimulationView.h"
@@ -13,14 +14,17 @@ class Window : public QWidget
 {
 Q_OBJECT
 public:
-    explicit Window(std::shared_ptr<Simulation> simulation, int width, int height, QWidget *parent = 0);
+    explicit Window(std::shared_ptr<Simulation> simulation, int size, QWidget* parent = 0);
     ~Window();
+
+    void updateOrganismCount();
 private slots:
+    void update();
     void handleButtonEvent();
 private:
-    int width_;
-    int height_;
+    int size_;
 
+    QTimer* qTimer_;
     QGraphicsScene* qGraphicsScene_;
     std::shared_ptr<Simulation> simulation_;
     std::unique_ptr<SimulationView> simulationView_;

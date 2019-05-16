@@ -1,5 +1,5 @@
 /*
- * OrganismView TODO
+ * OrganismView - Base class for organisms' views, whose objects are added to simulation view.
  */
 
 #include "OrganismView.h"
@@ -12,8 +12,8 @@ OrganismView::OrganismView(Organism* const model):
     Vector position = model_->getPosition();
     float radius = model_->getRadius();
 
-    setRect(position.getX(), position.getY(), radius, radius);
-    setBrush(QBrush(Qt::white));
+    setRect(-radius, -radius, radius, radius);
+    setPos(position.getX(), position.getY());
 }
 
 void OrganismView::update()

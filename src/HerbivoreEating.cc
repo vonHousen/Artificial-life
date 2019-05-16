@@ -4,7 +4,7 @@
 
 #include "HerbivoreEating.h"
 
-HerbivoreEating::HerbivoreEating(Organism *const owner, Simulation *const simulation) :
+HerbivoreEating::HerbivoreEating(Organism* const owner, Simulation* const simulation) :
 	HerbivoreAction(owner, simulation)
 {}
 

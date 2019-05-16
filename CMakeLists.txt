@@ -23,6 +23,8 @@ set(PROJECT_CODE
         src/CarnivoreHunting.cc         include/Alife/CarnivoreHunting.h
         src/OrganismView.cc             include/Alife/OrganismView.h
         src/SimulationView.cc           include/Alife/SimulationView.h
+        src/CarnivoreView.cc            include/ALife/CarnivoreView.h
+        src/HerbivoreView.cc            include/ALife/HerbivoreView.h
         src/DesiredActionAdapter.cc     include/Alife/DesiredActionAdapter.h
         )
 

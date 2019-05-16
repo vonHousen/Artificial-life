@@ -7,7 +7,7 @@
 #include "Simulation.h"
 #include "Vector.h"
 
-CarnivoreHunting::CarnivoreHunting(Carnivore *const owner, Simulation *const simulation) :
+CarnivoreHunting::CarnivoreHunting(Carnivore* const owner, Simulation* const simulation) :
 	CarnivoreAction(owner, simulation)
 {}
 
@@ -28,9 +28,10 @@ void CarnivoreHunting::act()
 	}
 	else //go for it
 	{
-		auto correctionFactor = 1.0 - 2*Carnivore::getRadius()/foodVector.getLength();
-		auto velocityFactor = 1.0;
+		auto correctionFactor = 1.0;// - 2*Carnivore::getRadius()/foodVector.getLength();
+		auto velocityFactor = 0.01;//1.0;
 
+		// TODO normalize foodVector for velocity setter
 		owner_->setVelocity(foodVector*velocityFactor*correctionFactor);		//TODO change dummy velocity to real one
 	}
 }

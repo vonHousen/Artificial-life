@@ -1,31 +1,39 @@
 /*
- * SimulationView TODO
+ * SimulationView - Class responsible for visual representation of simulation
  */
 
 #ifndef ARTIFICIAL_LIFE_SIMULATIONVIEW_H
 #define ARTIFICIAL_LIFE_SIMULATIONVIEW_H
 
+class Window;
 class Simulation;
 class Organism;
-class OrganismView;
+class Carnivore;
+class Herbivore;
+class CarnivoreView;
+class HerbivoreView;
 
 #include <QtWidgets>
-#include <vector>
+#include <unordered_map>
 
 class SimulationView
 {
 public:
-    SimulationView(QGraphicsScene*, Simulation* const);
+    SimulationView(Window* const, QGraphicsScene* const, Simulation* const);
     ~SimulationView();
 
     void update();
-    void notifyWhenOrganismAdded(Organism* const);
-    void notifyWhenOrganismRemoved(Organism* const);
+    void notifyWhenOrganismAdded(Carnivore* const);
+    void notifyWhenOrganismAdded(Herbivore* const);
+    void notifyWhenOrganismRemoved(Carnivore* const);
+    void notifyWhenOrganismRemoved(Herbivore* const);
 
 private:
+    Window* const window_;
     Simulation* const model_;
-    QGraphicsScene* qGraphicsScene_;
-    std::vector<OrganismView*> organismViews_;
+    QGraphicsScene* const qGraphicsScene_;
+    std::unordered_map<Carnivore*, CarnivoreView*> carnivoreViews_;
+    std::unordered_map<Herbivore*, HerbivoreView*> herbivoreViews_;
 };
 
 #endif //ARTIFICIAL_LIFE_SIMULATIONVIEW_H

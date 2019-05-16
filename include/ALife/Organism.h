@@ -7,11 +7,11 @@
 
 class Simulation;
 
+#include <memory>
 #include "Action.h"
 #include "Needs.h"
 #include "Genotype.h"
 #include "Vector.h"
-#include <memory>
 
 
 class Organism
@@ -29,7 +29,8 @@ public:
 	virtual void update() = 0;					//flow of the information upside down
 	virtual void eatIt(const Vector&) = 0;		//polymorphism decides whether to eat grass or another organism
 
-	void setVelocity(const Vector &);
+	void setAcceleration(const Vector&);
+	void setVelocity(const Vector&);
 	void setHealth(float);
 	void setSimulation(Simulation* const);
 	bool isAlive() const;

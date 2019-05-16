@@ -36,13 +36,15 @@ public:
 	friend std::ostream& operator<<(std::ostream& os, const Vector& vector);
 
 private:
+	double wrapCoordinateAround(double value) const;
+
 	double x_;
 	double y_;
 };
 
 
 //returns the shortest vector pointing from one position to the other one
-Vector getShortestVectorBetweenPositions(const Vector &first, const Vector &second);
+Vector getShortestVectorBetweenPositions(const Vector& first, const Vector& second);
 
 
 
