@@ -30,8 +30,6 @@ set(PROJECT_CODE
 
 find_package(Qt5Widgets CONFIG REQUIRED)
 
-add_subdirectory(src)
-add_subdirectory(include/Alife)
 add_subdirectory(include/googletest)
 add_subdirectory(tests)
 include_directories(include/Alife)
