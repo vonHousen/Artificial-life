@@ -27,7 +27,6 @@ public:
   	virtual ~Organism() = default;
 
 	virtual void updateAction() = 0;			//after being notified, it uses ActionFactory to update currentAction_
-	virtual void update() = 0;					//flow of the information upside down
 	virtual void eatIt(const Vector&) = 0;		//polymorphism decides whether to eat grass or another organism
 
 	void setAcceleration(const Vector&);
@@ -35,6 +34,7 @@ public:
 	void setHealth(float);
 	void setSimulation(Simulation* const);
 
+	void update();								//flow of the information upside down
 	bool isAlive() const;
 	const Vector& getPosition() const;
 	static double getRadius();

@@ -73,7 +73,7 @@ Vector Simulation::getVectorToNearestPrey(Carnivore* hunter) const
 
 void Simulation::update()
 {
-	for(auto carnivoreIterator=carnivores_.begin(); carnivoreIterator!=carnivores_.end(); )
+	for(auto carnivoreIterator = carnivores_.begin(); carnivoreIterator != carnivores_.end();)
 	{
 		auto carnivore = *carnivoreIterator;
 
@@ -91,7 +91,7 @@ void Simulation::update()
 		}
 	}
 
-	for(auto herbivoreIterator=herbivores_.begin(); herbivoreIterator!=herbivores_.end(); )
+	for(auto herbivoreIterator=herbivores_.begin(); herbivoreIterator != herbivores_.end();)
 	{
 		auto herbivore = *herbivoreIterator;
 
@@ -115,12 +115,16 @@ void Simulation::update()
 
 Organism* Simulation::getOrganismAt(const Vector& position)
 {
+	const double EPS = 0.0001;
+
 	for(auto organism : carnivores_)
-		if(organism->getPosition() == position)
+		if(fabs(organism->getPosition().getX() - position.getX()) < EPS and
+		   fabs(organism->getPosition().getY() - position.getY()) < EPS)
 			return organism;
 
 	for(auto organism : herbivores_)
-		if(organism->getPosition() == position)
+		if(fabs(organism->getPosition().getX() - position.getX()) < EPS and
+		   fabs(organism->getPosition().getY() - position.getY()) < EPS)
 			return organism;
 
 	return nullptr;

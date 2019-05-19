@@ -23,6 +23,21 @@ Organism::Organism(std::unique_ptr<Genotype> genes, const Vector& position, Simu
 {}
 
 
+void Organism::update()
+{
+	needs_->update();
+
+	if(currentAction_)
+		currentAction_->act();
+
+	// Move
+	// deltaS = v*dt + 1/2*a*dt^2
+	// deltaV = a*dt
+	// where dt = 1
+	position_ += velocity_ + acceleration_*0.5; 
+	velocity_ += acceleration_;
+}
+
 bool Organism::isAlive() const
 {
 	return health_ > 0.0;

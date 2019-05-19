@@ -13,21 +13,6 @@ Carnivore::Carnivore(std::unique_ptr<Genotype> genes, const Vector& position, Si
 	this->updateAction();
 }
 
-void Carnivore::update()
-{
-	needs_->update();
-
-	if(currentAction_)
-		currentAction_->act();
-
-	// Move
-	// deltaS = v*dt + 1/2*a*dt^2
-	// deltaV = a*dt
-	// where dt = 1
-	position_ += velocity_ + acceleration_*0.5; 
-	velocity_ += acceleration_;
-}
-
 void Carnivore::updateAction()
 {
 	suggestedAction_ = needs_->getLeadingDesire();
