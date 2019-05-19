@@ -32,6 +32,7 @@ find_package(Qt5Widgets CONFIG REQUIRED)
 
 add_subdirectory(include/googletest)
 add_subdirectory(tests)
+add_subdirectory(src)
 include_directories(include/Alife)
 include_directories(include/googletest)
 
