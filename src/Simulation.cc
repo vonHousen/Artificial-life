@@ -75,15 +75,41 @@ Vector Simulation::getVectorToNearestPrey(Carnivore* hunter) const
 
 void Simulation::update()
 {
-	for(auto organism : carnivores_)
-		if(organism->isAlive())
-			organism->update();
+	for(auto carnivoreIterator=carnivores_.begin(); carnivoreIterator!=carnivores_.end(); )
+	{
+		auto carnivore = *carnivoreIterator;
 
-	for(auto organism : herbivores_)
-		if(organism->isAlive())
-			organism->update();
+		if (carnivore->isAlive())
+		{
+			carnivore->update();
+			++carnivoreIterator;
 
-	this->removeDeadBodies();
+		} else		// remove organism from Simulation
+		{
+			carnivoreCount_--;
+			if(view_)
+				view_->notifyWhenOrganismRemoved(carnivore);
+			carnivoreIterator = carnivores_.erase(carnivoreIterator);
+		}
+	}
+
+	for(auto herbivoreIterator=herbivores_.begin(); herbivoreIterator!=herbivores_.end(); )
+	{
+		auto herbivore = *herbivoreIterator;
+
+		if (herbivore->isAlive())
+		{
+			herbivore->update();
+			++herbivoreIterator;
+
+		} else		// remove organism from Simulation
+		{
+			herbivoreCount_--;
+			if(view_)
+				view_->notifyWhenOrganismRemoved(herbivore);
+			herbivoreIterator = herbivores_.erase(herbivoreIterator);
+		}
+	}
 
 	if(view_)
 		view_->update();
@@ -100,35 +126,4 @@ Organism* Simulation::getOrganismAt(const Vector &position)
 			return organism;
 
 	return nullptr;
-}
-
-void Simulation::removeDeadBodies()
-{
-	// remove dead carnivores
-	for(auto carnivoreIterator=carnivores_.begin(); carnivoreIterator!=carnivores_.end(); )
-	{
-		if (not(*carnivoreIterator)->isAlive())
-		{
-			carnivoreCount_--;
-			if(view_)
-				view_->notifyWhenOrganismRemoved(*carnivoreIterator);
-			carnivoreIterator = carnivores_.erase(carnivoreIterator);
-
-		} else
-			++carnivoreIterator;
-	}
-
-	// remove dead herbivores
-	for(auto herbivoreIterator=herbivores_.begin(); herbivoreIterator!=herbivores_.end(); )
-	{
-		if (not(*herbivoreIterator)->isAlive())
-		{
-			herbivoreCount_--;
-			if(view_)
-				view_->notifyWhenOrganismRemoved(*herbivoreIterator);
-			herbivoreIterator = herbivores_.erase(herbivoreIterator);
-
-		} else
-			++herbivoreIterator;
-	}
 }
