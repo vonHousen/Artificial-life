@@ -4,5 +4,7 @@
 
 #include "HerbivoreAction.h"
 
-HerbivoreAction::HerbivoreAction(Organism* const owner, Simulation* const simulation) :
-	Action(owner, simulation) {}
+HerbivoreAction::HerbivoreAction(Herbivore *const owner, Simulation *const simulation) :
+	Action(owner, simulation),
+	concreteOwner_(owner)
+	{}

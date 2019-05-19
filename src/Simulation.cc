@@ -1,5 +1,5 @@
 /**
- * Main class for responsible for simulation
+ * Main class responsible for simulation
  */
 
 #include <include/ALife/Simulation.h>
@@ -22,7 +22,6 @@ Simulation::~Simulation()
 
 	for(auto organism : herbivores_)
 		delete organism;
-
 }
 
 void Simulation::addOrganism(Carnivore* const newOrganism)

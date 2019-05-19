@@ -1,6 +1,3 @@
-/**
- * Needs represents all organism's physical and psychological needs. It implicitly impacts organism's actions.
- */
 
 #ifndef ARTIFICIAL_LIFE_NEEDS_H
 #define ARTIFICIAL_LIFE_NEEDS_H
@@ -9,38 +6,49 @@
 
 class Organism;
 
+/**
+ * Represents all Organism's physical and psychological Needs - it implicitly impacts Organism's Actions.
+ */
 
-class Needs final
+class Needs
 {
 public:
 
-	Needs(const Needs&) = delete;
-	Needs& operator=(const Needs&) = delete;
-	Needs(Needs&&) = delete;
-	Needs& operator=(Needs&&) = delete;
+	Needs(const Needs&) = delete;					///< Deleted copying constructor.
+	Needs& operator=(const Needs&) = delete;		///< Deleted assignment operator
+	Needs(Needs&&) = delete;						///< Deleted moving constructor.
+	Needs& operator=(Needs&&) = delete;				///< Deleted moving assignment operator.
+
+	/**
+	 * A one parameter constructor.
+	 * @param owner - Organism "owning" this Needs.
+	 */
 	explicit Needs(Organism* owner);
 
-	void update();									//flow of the information upside down
-	void decreaseHungerBy(float);					//use when organism has eaten
-	void increaseHungerBy(float);
-	void decreaseLonelinessBy(float);
-	void increaseLonelinessBy(float);				//use when organism has eaten
-	void decreaseTirednessBy(float);
-	void increaseTirednessBy(float);
+	void update();									///< flow of the information upside down.
+	void decreaseHungerBy(float value);				///< Organism is less hungry after eating something.
+	void increaseHungerBy(float value);				///< Organism is hungry after sleeping.
+	void decreaseLonelinessBy(float value);			///< Organism is less lonely after reproduction.
+	void increaseLonelinessBy(float value);			///< Organism is feeling lonely after eating something.
+	void decreaseTirednessBy(float value);			///< Organism is less tired after sleeping.
+	void increaseTirednessBy(float value);			///< Organism is tired after reproduction.
 
+	/**
+	 * Getter for LeadingDesire
+	 * @return LeadingDesire
+	 */
 	LeadingDesire getLeadingDesire() const;
 
 private:
 
-	LeadingDesire leadingDesire_;
+	LeadingDesire leadingDesire_;					///< the most desired Action by particular Organism.
+	Organism* owner_;								///< Organism "owning" this Needs.
 
-	Organism* owner_;
+	float hunger_;									///< a need for eating, value in range [0; 10].
+	float tiredness_;								///< a need for sleeping, value in range [0; 10].
+	float loneliness_;								///< a need for reproduction, value in range [0; 10].
 
-	float hunger_;
-	float tiredness_;
-	float loneliness_;
-
-	void notify() const; 							//notify owner when leading desire changes
+	void notify() const; 							///< notifies owner when leading desire is changed.
 
 };
 

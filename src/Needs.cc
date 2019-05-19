@@ -18,31 +18,43 @@ Needs::Needs(Organism* const owner) :
 void Needs::decreaseHungerBy(float value)
 {
 	hunger_ -= value;
+	if(hunger_ < 0.0)
+		hunger_ = 0.0;
 }
 
 void Needs::increaseHungerBy(float value)
 {
 	hunger_ += value;
+	if(hunger_ < 10.0)
+		hunger_ = 10.0;
 }
 
 void Needs::decreaseLonelinessBy(float value)
 {
 	loneliness_ -= value;
+	if(loneliness_ < 0.0)
+		loneliness_ = 0.0;
 }
 
 void Needs::increaseLonelinessBy(float value)
 {
 	loneliness_ += value;
+	if(loneliness_ > 10.0)
+		loneliness_ = 10.0;
 }
 
 void Needs::decreaseTirednessBy(float value)
 {
 	tiredness_ -= value;
+	if(tiredness_ < 0.0)
+		tiredness_ = 0.0;
 }
 
 void Needs::increaseTirednessBy(float value)
 {
 	tiredness_ += value;
+	if(tiredness_ > 10.0)
+		tiredness_ = 10.0;
 }
 
 void Needs::update()

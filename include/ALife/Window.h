@@ -1,6 +1,3 @@
-/**
- * Main window to display simulation
- */
 
 #ifndef ARTIFICIAL_LIFE_WINDOW_H
 #define ARTIFICIAL_LIFE_WINDOW_H
@@ -9,6 +6,10 @@
 #include <QtWidgets>
 
 #include "SimulationView.h"
+
+/**
+ * Main window to display Simulation
+ */
 
 class Window : public QWidget
 {
