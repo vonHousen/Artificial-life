@@ -2,8 +2,6 @@
  * Main class for responsible for simulation
  */
 
-#include <include/ALife/Simulation.h>
-
 #include "Simulation.h"
 #include "SimulationView.h"
 #include "Carnivore.h"
