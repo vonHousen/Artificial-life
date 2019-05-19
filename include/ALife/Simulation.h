@@ -38,8 +38,11 @@ private:
 	int carnivoreCount_;
 	int herbivoreCount_;
 
+	void removeDeadBodies();
+
 	std::vector<Carnivore*> carnivores_;
 	std::vector<Herbivore*> herbivores_;
+
 	Map map_;
 	SimulationView* view_;
 };

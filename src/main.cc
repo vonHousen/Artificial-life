@@ -18,9 +18,6 @@ int main(int argc, char* argv[])
 	Herbivore*  herbi = new Herbivore(std::make_unique<Genotype>(), posHerbi, simulation.get());
 	Carnivore*	carni = new Carnivore(std::make_unique<Genotype>(), posCarni, simulation.get());
 
-	herbi->setVelocity(Vector(0.003, -0.004));
-	carni->setVelocity(Vector(0.002, -0.004));
-
 	Window window(simulation, 560);
 	window.show();
 

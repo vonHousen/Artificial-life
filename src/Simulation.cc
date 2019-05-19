@@ -2,6 +2,8 @@
  * Main class for simulation
  */
 
+#include <include/ALife/Simulation.h>
+
 #include "Simulation.h"
 #include "SimulationView.h"
 #include "Carnivore.h"
@@ -73,18 +75,19 @@ Vector Simulation::getVectorToNearestPrey(Carnivore* hunter) const
 
 void Simulation::update()
 {
-	if(view_) view_->update();
-
 	for(auto organism : carnivores_)
 		organism->update();
 
 	for(auto organism : herbivores_)
 		organism->update();
 
-	// TODO implement deleting dead organisms
+	this->removeDeadBodies();
+
+	if(view_)
+		view_->update();
 }
 
-Organism *Simulation::getOrganismAt(const Vector &position)
+Organism* Simulation::getOrganismAt(const Vector &position)
 {
 	for(auto organism : carnivores_)
 		if(organism->getPosition() == position)
@@ -95,4 +98,35 @@ Organism *Simulation::getOrganismAt(const Vector &position)
 			return organism;
 
 	return nullptr;
+}
+
+void Simulation::removeDeadBodies()
+{
+	// remove dead carnivores
+	for(auto carnivoreIterator=carnivores_.begin(); carnivoreIterator!=carnivores_.end(); )
+	{
+		if (not(*carnivoreIterator)->isAlive())
+		{
+			view_->notifyWhenOrganismRemoved(*carnivoreIterator);
+			carnivores_.erase(carnivoreIterator);
+			carnivoreCount_--;
+
+		} else
+			++carnivoreIterator;
+	}
+
+	// remove dead herbivores
+	for(auto herbivoreIterator=herbivores_.begin(); herbivoreIterator!=herbivores_.end(); )
+	{
+		if (not(*herbivoreIterator)->isAlive())
+		{
+			view_->notifyWhenOrganismRemoved(*herbivoreIterator);
+			herbivores_.erase(herbivoreIterator);
+			herbivoreCount_--;
+
+		} else
+			++herbivoreIterator;
+	}
+	// TODO inform View-layer about death
+
 }

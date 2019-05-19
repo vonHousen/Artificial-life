@@ -5,6 +5,9 @@
 #include "Vector.h"
 #include <string>
 #include <cmath>
+#include <iomanip>
+#include <include/ALife/Vector.h>
+
 
 Vector::Vector(double x, double y)
 {
@@ -80,14 +83,9 @@ Vector& Vector::operator*=(double scalar)
 
 std::ostream& operator<<(std::ostream& os, const Vector& vector)
 {
-	if (vector.getX() < 0.0 and vector.getY() < 0.0)
-		return os << "(" << vector.getX() << ", " << vector.getY() << ")";
-	else if (vector.getX() > 0.0 and vector.getY() < 0.0)
-		return os << "( " << vector.getX() << ", " << vector.getY() << ")";
-	else if (vector.getX() < 0.0 and vector.getY() > 0.0)
-		return os << "(" << vector.getX() << ",  " << vector.getY() << ")";
-	else
-		return os << "( " << vector.getX() << ",  " << vector.getY() << ")";
+
+	return os << std::showpoint << "( "  	<< std::setw(8) << std::setprecision(3) << vector.getX() << ", "
+											<< std::setw(8) << std::setprecision(3) << vector.getY() << " )";
 }
 
 bool Vector::operator==(const Vector& other) const
@@ -126,4 +124,9 @@ double Vector::wrapCoordinateAround(double value) const
     if(result > 1) result = result - 2;
     else if(result < -1) result = result + 2;
     return result;
+}
+
+Vector Vector::getUnitVector() const
+{
+	return *this * (1.0/(this->getLength()));
 }
