@@ -5,35 +5,42 @@ set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
 set(PROJECT_CODE
-        src/Vector.cc                   include/Alife/Vector.h
-        src/Window.cc                   include/Alife/Window.h
-        src/Map.cc                      include/Alife/Map.h
-        src/Simulation.cc               include/Alife/Simulation.h
-        src/Genotype.cc                 include/Alife/Genotype.h
-        src/Organism.cc                 include/Alife/Organism.h
-        src/Action.cc                   include/Alife/Action.h
-        src/Needs.cc                    include/Alife/Needs.h
-        src/Herbivore.cc                include/Alife/Herbivore.h
-        src/Carnivore.cc                include/Alife/Carnivore.h
-        src/CarnivoreAction.cc          include/Alife/CarnivoreAction.h
-        src/HerbivoreAction.cc          include/Alife/HerbivoreAction.h
-        src/HerbivoreActionFactory.cc   include/Alife/HerbivoreActionFactory.h
-        src/CarnivoreActionFactory.cc   include/Alife/CarnivoreActionFactory.h
-        src/HerbivoreEating.cc          include/Alife/HerbivoreEating.h
-        src/CarnivoreHunting.cc         include/Alife/CarnivoreHunting.h
-        src/OrganismView.cc             include/Alife/OrganismView.h
-        src/SimulationView.cc           include/Alife/SimulationView.h
+        src/Vector.cc                   include/ALife/Vector.h
+        src/Window.cc                   include/ALife/Window.h
+        src/Map.cc                      include/ALife/Map.h
+        src/Simulation.cc               include/ALife/Simulation.h
+        src/Genotype.cc                 include/ALife/Genotype.h
+        src/Organism.cc                 include/ALife/Organism.h
+        src/Action.cc                   include/ALife/Action.h
+        src/Needs.cc                    include/ALife/Needs.h
+        src/Herbivore.cc                include/ALife/Herbivore.h
+        src/Carnivore.cc                include/ALife/Carnivore.h
+        src/CarnivoreAction.cc          include/ALife/CarnivoreAction.h
+        src/HerbivoreAction.cc          include/ALife/HerbivoreAction.h
+        src/HerbivoreActionFactory.cc   include/ALife/HerbivoreActionFactory.h
+        src/CarnivoreActionFactory.cc   include/ALife/CarnivoreActionFactory.h
+        src/HerbivoreEating.cc          include/ALife/HerbivoreEating.h
+        src/CarnivoreHunting.cc         include/ALife/CarnivoreHunting.h
+        src/OrganismView.cc             include/ALife/OrganismView.h
+        src/SimulationView.cc           include/ALife/SimulationView.h
         src/CarnivoreView.cc            include/ALife/CarnivoreView.h
         src/HerbivoreView.cc            include/ALife/HerbivoreView.h
                                         include/ALife/LeadingDesire.h
+
         )
 
 find_package(Qt5Widgets CONFIG REQUIRED)
 
 add_subdirectory(include/googletest)
 add_subdirectory(tests)
-include_directories(include/Alife)
+add_subdirectory(src)
+add_subdirectory(include/ALife)
+include_directories(include/ALife)
 include_directories(include/googletest)
+
+if(COMMAND cmake_policy)
+        cmake_policy(SET CMP0003 NEW)
+endif(COMMAND cmake_policy)
 
 add_executable(Artificial_Life
         src/main.cc
