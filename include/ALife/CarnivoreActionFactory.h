@@ -1,5 +1,5 @@
-/*
- * CarnivoreActionFactory - Factory Design Pattern for Carnivore's actions. It's a singleton
+/**
+ * Factory Design Pattern for Carnivore's actions. It's a singleton
  */
 
 #ifndef ARTIFICIAL_LIFE_CARNIVOREACTIONFACTORY_H

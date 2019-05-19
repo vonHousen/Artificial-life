@@ -1,4 +1,4 @@
-/*
+/**
  * Main file designed for production code: initialises GUI
  */
 

@@ -1,5 +1,5 @@
-/*
- * Herbivore (concrete) Action - Strategy Design Pattern
+/**
+ * Herbivore's (concrete) Action - Strategy Design Pattern
  */
 
 #include "HerbivoreAction.h"

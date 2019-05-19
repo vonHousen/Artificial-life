@@ -1,5 +1,5 @@
-/*
- * Herbivore (concrete) Action - eating
+/**
+ * Herbivore's (concrete) Action - eating
  */
 
 #ifndef ARTIFICIAL_LIFE_HERBIVOREEATING_H

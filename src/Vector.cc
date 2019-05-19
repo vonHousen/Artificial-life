@@ -1,5 +1,8 @@
-/*
- * Vector - version in 2D: a geometric object that has magnitude and direction
+/**
+ * Vector - version in 2D: a geometric object that has magnitude and direction.
+ *
+ * Vector is applicable in spherical coordinate system. Primal dimensions: [-1, 1] x [1, 1]
+ * For example, y = 1.5 in fact is equal to y = -0.5
  */
 
 #include "Vector.h"

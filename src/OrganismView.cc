@@ -1,5 +1,5 @@
-/*
- * OrganismView - Base class for organisms' views, whose objects are added to simulation view.
+/**
+ * Base class for organisms' views, whose objects are added to simulation view.
  */
 
 #include "OrganismView.h"

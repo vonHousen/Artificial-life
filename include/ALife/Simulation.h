@@ -1,5 +1,5 @@
-/*
- * Main class for simulation
+/**
+ * Main class for responsible for simulation
  */
 
 

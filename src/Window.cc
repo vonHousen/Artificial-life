@@ -1,4 +1,4 @@
-/*
+/**
  * Main window to display simulation
  */
 

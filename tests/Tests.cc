@@ -1,5 +1,5 @@
-/*
- * Tests - simple class for aggregation all tests
+/**
+ * Class for aggregating all tests
  */
 
 #include "Simulation.h"

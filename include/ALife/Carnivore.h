@@ -1,5 +1,5 @@
-/*
- * Carnivore - deriving from organism
+/**
+ * Concrete species of an organism (derives from it)
  */
 
 #ifndef ARTIFICIAL_LIFE_CARNIVORE_H

@@ -1,5 +1,5 @@
-/*
- * Carnivore (concrete) action - Strategy Design Pattern
+/**
+ * Carnivore's (concrete) action - Strategy Design Pattern
  */
 
 #ifndef ARTIFICIAL_LIFE_CARNIVOREACTION_H

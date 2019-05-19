@@ -1,5 +1,5 @@
-/*
- * Organism - abstract (super) class for both species
+/**
+ * Abstract (base) class for both species
  */
 
 #include <include/ALife/Organism.h>

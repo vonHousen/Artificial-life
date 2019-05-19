@@ -1,4 +1,4 @@
-/*
+/**
  * Genotype represents individual organism's traits inherited from parents
  */
 

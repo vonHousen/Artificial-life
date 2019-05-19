@@ -1,5 +1,5 @@
-/*
- * Herbivore - deriving from Organism
+/**
+ * Concrete species of an organism (derives from it)
  */
 
 #ifndef ARTIFICIAL_LIFE_HERBIVORE_H

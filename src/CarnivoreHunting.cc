@@ -1,5 +1,5 @@
-/*
- * Carnivore (concrete) Action - hunting
+/**
+ * Carnivore's (concrete) Action - eating
  */
 
 #include "CarnivoreHunting.h"

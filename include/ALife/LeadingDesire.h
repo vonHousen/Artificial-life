@@ -1,5 +1,5 @@
-/*
- * LeadingDesire - enum class for the most desired action by particular organism
+/**
+ * Enum class for the most desired action by particular organism
  */
 
 #ifndef ARTIFICIAL_LIFE_LEADINGDESIRE_H
