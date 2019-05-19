@@ -1,6 +1,3 @@
-/**
- * Class responsible for visual representation of the simulation
- */
 
 #ifndef ARTIFICIAL_LIFE_SIMULATIONVIEW_H
 #define ARTIFICIAL_LIFE_SIMULATIONVIEW_H
@@ -16,7 +13,11 @@ class HerbivoreView;
 #include <QtWidgets>
 #include <unordered_map>
 
-class SimulationView
+/**
+ * Class responsible for visual representation of the simulation
+ */
+
+class SimulationView	// TODO make documentation
 {
 public:
     SimulationView(Window* const, QGraphicsScene* const, Simulation* const);
