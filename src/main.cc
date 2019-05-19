@@ -21,8 +21,7 @@ int main(int argc, char* argv[])
 	Window window(simulation, 560);
 	window.show();
 
-	simulation->addOrganism(herbi);
-	simulation->addOrganism(carni);
+	simulation->initializeSimulation(100, 100);
 
 	return app.exec();
 }

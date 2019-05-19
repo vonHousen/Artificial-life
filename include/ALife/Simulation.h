@@ -26,6 +26,7 @@ public:
 	void addOrganism(Carnivore* const);
 	void addOrganism(Herbivore* const);
 	void registerView(SimulationView* const);
+	void initializeSimulation(int carnivores, int herbivores);
 
 	int getCarnivoreCount() const;
 	int getHerbivoreCount() const;
@@ -35,6 +36,7 @@ public:
 	Organism* getOrganismAt(const Vector&);
 
 private:
+
 	int carnivoreCount_;
 	int herbivoreCount_;
 

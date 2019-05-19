@@ -14,6 +14,7 @@ OrganismView::OrganismView(Organism* const model):
 
     setRect(-radius, -radius, 2.0*radius, 2.0*radius);
     setPos(position.getX(), position.getY());
+    setPen(Qt::NoPen);
 }
 
 void OrganismView::update()

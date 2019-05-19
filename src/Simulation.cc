@@ -7,6 +7,9 @@
 #include "Carnivore.h"
 #include "Herbivore.h"
 
+#include <algorithm>
+#include <random>
+
 Simulation::Simulation():
 	carnivoreCount_(0),
 	herbivoreCount_(0),
@@ -59,7 +62,7 @@ Vector Simulation::getVectorToNearestPrey(Carnivore* hunter) const
 	if(herbivores_.empty())
 		return {};
 
-	Vector foodVector, nearestFoodVector(1,1);
+	Vector foodVector, nearestFoodVector(1, 1);
 
 	for(auto tastyOrganism : herbivores_)
 	{
@@ -91,7 +94,7 @@ void Simulation::update()
 		}
 	}
 
-	for(auto herbivoreIterator=herbivores_.begin(); herbivoreIterator != herbivores_.end();)
+	for(auto herbivoreIterator=  herbivores_.begin(); herbivoreIterator != herbivores_.end();)
 	{
 		auto herbivore = *herbivoreIterator;
 
@@ -128,4 +131,46 @@ Organism* Simulation::getOrganismAt(const Vector& position)
 			return organism;
 
 	return nullptr;
+}
+
+void Simulation::initializeSimulation(int carnivores, int herbivores)
+{
+	const float CELL_SIZE = 1.5 * Organism::getRadius();
+	const int CELLS_IN_ROW = 1.0 / CELL_SIZE;
+	const int CELLS_IN_COLUMN = 2.0 / CELL_SIZE;
+	const int NUM_CELLS = CELLS_IN_COLUMN * CELLS_IN_ROW;
+
+	//Create pool of numbers (cell indexes from 0 to NUM_CELLS - 1) and shuffle them
+	std::vector<int> pool(NUM_CELLS);
+	std::iota(pool.begin(), pool.end(), 0);
+	auto rng = std::default_random_engine(std::random_device()());
+	std::shuffle(pool.begin(), pool.end(), rng);
+
+	for(int i = 0; i < carnivores; ++i)
+	{
+		int cellIndex = pool[i];
+		int cellY = cellIndex / CELLS_IN_ROW;
+		int cellX = cellIndex - cellY*CELLS_IN_ROW;
+
+		//Carnivores go to the left side of window, hence there is a minus in organismX
+		float organismX = -cellX * CELL_SIZE + 0.5*CELL_SIZE;
+		float organismY = cellY * CELL_SIZE + 0.5*CELL_SIZE - 1;
+
+		auto genes = std::make_unique<Genotype>();
+		addOrganism(new Carnivore(std::move(genes), Vector(organismX, organismY), this));
+	}
+
+	std::shuffle(pool.begin(), pool.end(), rng);
+	for(int i = 0; i < herbivores; ++i)
+	{
+		int cellIndex = pool[i];
+		int cellY = cellIndex / CELLS_IN_ROW;
+		int cellX = cellIndex - cellY*CELLS_IN_ROW;
+
+		float organismX = cellX * CELL_SIZE + 0.5*CELL_SIZE;
+		float organismY = cellY * CELL_SIZE + 0.5*CELL_SIZE - 1;
+
+		auto genes = std::make_unique<Genotype>();
+		addOrganism(new Herbivore(std::move(genes), Vector(organismX, organismY), this));
+	}
 }
