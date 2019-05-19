@@ -6,7 +6,7 @@
 
 #include "Organism.h"
 
-double Organism::radius_ = 0.03;
+double Organism::radius_ = 0.015;
 
 Organism::Organism(std::unique_ptr<Genotype> genes, const Vector& position, Simulation* const simulation) :
 	health_			(10.0),
