@@ -2,8 +2,6 @@
  * Needs represents all organism's physical and psychological needs. It implicitly impacts organism's actions.
  */
 
-#include <include/ALife/Needs.h>
-
 #include "Needs.h"
 #include "Organism.h"
 
