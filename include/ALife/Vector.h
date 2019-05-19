@@ -24,6 +24,9 @@ public:
 	double getLength() const;
 	Vector getUnitVector() const;
 
+	//returns the shortest vector pointing from one position to the other one
+	static Vector getShortestVectorBetweenPositions(const Vector& first, const Vector& second);
+
 	Vector operator+(const Vector& other) const;
 	Vector operator-(const Vector& other) const;
 	Vector operator-() const;
@@ -42,10 +45,6 @@ private:
 	double x_;
 	double y_;
 };
-
-
-//returns the shortest vector pointing from one position to the other one
-Vector getShortestVectorBetweenPositions(const Vector& first, const Vector& second);	// TODO make it local method
 
 
 

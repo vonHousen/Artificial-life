@@ -30,7 +30,7 @@ TEST (BasicTestSuite, OrganismsConstruction)
 TEST (BasicTestSuite, VectorBasicOperations)
 {
 	Vector posHerbi(-0.25, -0.25), posCarni(0.75, 0.75);
-	EXPECT_EQ(getShortestVectorBetweenPositions(posHerbi, posCarni), Vector(-1.0, -1.0));
+	EXPECT_EQ(Vector::getShortestVectorBetweenPositions(posHerbi, posCarni), Vector(-1.0, -1.0));
 
 	Vector outOfRange(2,-3);
 	EXPECT_EQ(outOfRange, Vector(0.0, -1.0));

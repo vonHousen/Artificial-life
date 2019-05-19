@@ -1,5 +1,5 @@
 /**
- * Main class for responsible for simulation
+ * Main class responsible for simulation
  */
 
 #include "Simulation.h"
@@ -63,7 +63,7 @@ Vector Simulation::getVectorToNearestPrey(Carnivore* hunter) const
 
 	for(auto tastyOrganism : herbivores_)
 	{
-		foodVector = getShortestVectorBetweenPositions(hunter->getPosition(), tastyOrganism->getPosition());
+		foodVector = Vector::getShortestVectorBetweenPositions(hunter->getPosition(), tastyOrganism->getPosition());
 		if(foodVector.getLength() <= nearestFoodVector.getLength())
 			nearestFoodVector = foodVector;
 	}
@@ -113,7 +113,7 @@ void Simulation::update()
 		view_->update();
 }
 
-Organism* Simulation::getOrganismAt(const Vector &position)
+Organism* Simulation::getOrganismAt(const Vector& position)
 {
 	for(auto organism : carnivores_)
 		if(organism->getPosition() == position)

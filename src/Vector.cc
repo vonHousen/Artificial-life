@@ -9,8 +9,6 @@
 #include <string>
 #include <cmath>
 #include <iomanip>
-#include <include/ALife/Vector.h>
-
 
 Vector::Vector(double x, double y)
 {
@@ -106,7 +104,7 @@ double Vector::getLength() const
 	return sqrt(x_*x_ + y_*y_);
 }
 
-Vector getShortestVectorBetweenPositions(const Vector& first, const Vector& second)
+Vector Vector::getShortestVectorBetweenPositions(const Vector& first, const Vector& second)
 {
 	double dx_natural, dx_symmetric, dy_natural, dy_symmetric, dx_nearest, dy_nearest;
 
