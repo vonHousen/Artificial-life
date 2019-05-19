@@ -69,8 +69,20 @@ TEST (ActionsTestSuite, Hunting)
 	dummySimulation.addOrganism(carni);
 
 	dummySimulation.update();
-	ASSERT_TRUE(herbi->isAlive());
+	EXPECT_EQ(dummySimulation.getHerbivoreCount(), 1);
 
-	dummySimulation.update();
-	//EXPECT_FALSE((herbi->isAlive())); // TODO adjust test case for real velocity
+	int iterationCounter = 0;
+	bool isEaten = false;
+	for( ; iterationCounter<9999; ++iterationCounter)
+	{
+		dummySimulation.update();
+		if (dummySimulation.getHerbivoreCount() < 1)
+		{
+			isEaten = true;
+			break;
+		}
+	}
+
+	EXPECT_TRUE(isEaten);
+	ASSERT_LT(iterationCounter, 1400);	// assert to be eaten in decent time
 }

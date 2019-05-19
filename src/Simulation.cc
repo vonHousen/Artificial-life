@@ -107,9 +107,10 @@ void Simulation::removeDeadBodies()
 	{
 		if (not(*carnivoreIterator)->isAlive())
 		{
-			view_->notifyWhenOrganismRemoved(*carnivoreIterator);
-			carnivores_.erase(carnivoreIterator);
 			carnivoreCount_--;
+			if(view_)
+				view_->notifyWhenOrganismRemoved(*carnivoreIterator);
+			carnivoreIterator = carnivores_.erase(carnivoreIterator);
 
 		} else
 			++carnivoreIterator;
@@ -120,13 +121,12 @@ void Simulation::removeDeadBodies()
 	{
 		if (not(*herbivoreIterator)->isAlive())
 		{
-			view_->notifyWhenOrganismRemoved(*herbivoreIterator);
-			herbivores_.erase(herbivoreIterator);
 			herbivoreCount_--;
+			if(view_)
+				view_->notifyWhenOrganismRemoved(*herbivoreIterator);
+			herbivoreIterator = herbivores_.erase(herbivoreIterator);
 
 		} else
 			++herbivoreIterator;
 	}
-	// TODO inform View-layer about death
-
 }
