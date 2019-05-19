@@ -25,7 +25,8 @@ set(PROJECT_CODE
         src/SimulationView.cc           include/ALife/SimulationView.h
         src/CarnivoreView.cc            include/ALife/CarnivoreView.h
         src/HerbivoreView.cc            include/ALife/HerbivoreView.h
-        src/DesiredActionAdapter.cc     include/ALife/DesiredActionAdapter.h
+                                        include/ALife/LeadingDesire.h
+
         )
 
 find_package(Qt5Widgets CONFIG REQUIRED)

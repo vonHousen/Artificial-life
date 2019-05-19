@@ -1,5 +1,5 @@
-/*
- * Carnivore (concrete) Action - hunting
+/**
+ * Carnivore's (concrete) Action - eating
  */
 
 #include "CarnivoreHunting.h"
@@ -28,10 +28,19 @@ void CarnivoreHunting::act()
 	}
 	else //go for it
 	{
-		auto correctionFactor = 1.0;// - 2*Carnivore::getRadius()/foodVector.getLength();
-		auto velocityFactor = 0.01;//1.0;
+		auto correctionFactor = 1.0;	// - 2*Carnivore::getRadius()/foodVector.getLength();
+		auto velocityFactor = 0.001;	//1.0;
+		auto intendedVelocity = foodVector.getUnitVector()*velocityFactor*correctionFactor;
 
-		// TODO normalize foodVector for velocity setter
-		owner_->setVelocity(foodVector*velocityFactor*correctionFactor);		//TODO change dummy velocity to real one
+		//if Carnivore is about to "jump above" the food when it is moving too fast
+		if(foodVector.getLength() - Carnivore::getRadius() < intendedVelocity.getLength())
+		{
+			intendedVelocity = foodVector.getUnitVector() * (foodVector.getLength() - Carnivore::getRadius());
+			owner_->setVelocity(intendedVelocity);
+			auto foodPosition = foodVector + owner_->getPosition();
+			owner_->eatIt(foodPosition);
+		}
+
+		owner_->setVelocity(intendedVelocity);		//TODO change dummy velocity to real one
 	}
 }

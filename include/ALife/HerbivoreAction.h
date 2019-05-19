@@ -1,5 +1,5 @@
-/*
- * Herbivore Action - Strategy Design Pattern
+/**
+ * Herbivore's (concrete) Action - Strategy Design Pattern
  */
 
 #ifndef ARTIFICIAL_LIFE_HERBIVOREACTION_H

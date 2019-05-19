@@ -1,5 +1,5 @@
-/*
- * Herbivore - deriving from Organism
+/**
+ * Concrete species of an organism (derives from it)
  */
 
 #include "Herbivore.h"

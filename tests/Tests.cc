@@ -1,5 +1,5 @@
-/*
- * Tests - simple class for aggregation all tests
+/**
+ * Class for aggregating all tests
  */
 
 #include "Simulation.h"
@@ -23,6 +23,8 @@ TEST (BasicTestSuite, OrganismsConstruction)
 
 	EXPECT_EQ(herbi->getPosition(), posHerbi);
 	EXPECT_EQ(carni->getPosition(), posCarni);
+	ASSERT_EQ(herbi->getSuggestedAction(), LeadingDesire::EATING);
+	ASSERT_EQ(carni->getSuggestedAction(), LeadingDesire::EATING);
 }
 
 TEST (BasicTestSuite, VectorBasicOperations)
@@ -69,8 +71,25 @@ TEST (ActionsTestSuite, Hunting)
 	dummySimulation.addOrganism(carni);
 
 	dummySimulation.update();
-	ASSERT_TRUE(herbi->isAlive());
+	EXPECT_EQ(dummySimulation.getHerbivoreCount(), 1);
+	EXPECT_EQ(carni->getSuggestedAction(), LeadingDesire::EATING);
+
+
+	int iterationCounter = 0;
+	bool isEaten = false;
+	for( ; iterationCounter<9999; ++iterationCounter)
+	{
+		dummySimulation.update();
+		if (dummySimulation.getHerbivoreCount() < 1)
+		{
+			isEaten = true;
+			break;
+		}
+	}
+
+	EXPECT_TRUE(isEaten);
+	ASSERT_LT(iterationCounter, 1400);	// assert to be eaten in decent time
 
 	dummySimulation.update();
-	//EXPECT_FALSE((herbi->isAlive())); // TODO adjust test case for real velocity
+	EXPECT_EQ(carni->getSuggestedAction(), LeadingDesire::REPRODUCTION);
 }

@@ -1,5 +1,5 @@
-/*
- * HerbivoreActionFactory - Factory Design Pattern for Herbivore's actions. It's a singleton
+/**
+ * Factory Design Pattern for Herbivore's actions. It's a singleton
  */
 
 #ifndef ARTIFICIAL_LIFE_HERBIVOREACTIONFACTORY_H

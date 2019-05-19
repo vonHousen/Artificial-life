@@ -1,5 +1,5 @@
-/*
- * Carnivore (concrete) Action - Strategy Design Pattern
+/**
+ * Carnivore's (concrete) action - Strategy Design Pattern
  */
 
 #include "CarnivoreAction.h"

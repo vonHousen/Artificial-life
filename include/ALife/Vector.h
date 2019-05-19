@@ -1,4 +1,4 @@
-/*
+/**
  * Vector - version in 2D: a geometric object that has magnitude and direction.
  *
  * Vector is applicable in spherical coordinate system. Primal dimensions: [-1, 1] x [1, 1]
@@ -22,6 +22,7 @@ public:
 	void setX(double x);
 	void setY(double y);
 	double getLength() const;
+	Vector getUnitVector() const;
 
 	Vector operator+(const Vector& other) const;
 	Vector operator-(const Vector& other) const;
@@ -44,7 +45,7 @@ private:
 
 
 //returns the shortest vector pointing from one position to the other one
-Vector getShortestVectorBetweenPositions(const Vector& first, const Vector& second);
+Vector getShortestVectorBetweenPositions(const Vector& first, const Vector& second);	// TODO make it local method
 
 
 

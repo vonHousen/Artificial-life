@@ -1,4 +1,4 @@
-/*
+/**
  * Concrete view for herbivores, responsible for their visual representation
  */
 

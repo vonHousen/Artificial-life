@@ -1,5 +1,5 @@
-/*
- * Organism - abstract (super) class for both species
+/**
+ * Abstract (base) class for both species
  */
 
 #ifndef ARTIFICIAL_LIFE_ORGANISM_H
@@ -12,6 +12,7 @@ class Simulation;
 #include "Needs.h"
 #include "Genotype.h"
 #include "Vector.h"
+#include "LeadingDesire.h"
 
 
 class Organism
@@ -33,10 +34,11 @@ public:
 	void setVelocity(const Vector&);
 	void setHealth(float);
 	void setSimulation(Simulation* const);
+
 	bool isAlive() const;
 	const Vector& getPosition() const;
 	static double getRadius();
-
+	LeadingDesire getSuggestedAction() const;
 
 protected:
 	//basic traits of the organism
@@ -55,8 +57,7 @@ protected:
 	//pointer for simulation the organism takes part in
 	Simulation*						simulation_;
 
-	enum class SuggestedAction { EATING, REPRODUCTION, SLEEPING };
-	SuggestedAction suggestedAction_;
+	LeadingDesire suggestedAction_;
 
 
 };

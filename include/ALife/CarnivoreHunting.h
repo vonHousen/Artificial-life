@@ -1,5 +1,5 @@
-/*
- * Carnivore (concrete) Action - eating
+/**
+ * Carnivore's (concrete) Action - eating
  */
 
 #ifndef ARTIFICIAL_LIFE_CARNIVOREHUNTING_H

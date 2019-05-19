@@ -1,5 +1,5 @@
-/*
- * SimulationView - Class responsible for visual represenation of simulation
+/**
+ * Class responsible for visual representation of the simulation
  */
 
 #include "SimulationView.h"

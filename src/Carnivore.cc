@@ -1,5 +1,5 @@
-/*
- * Carnivore - deriving from organism
+/**
+ * Concrete species of an organism (derives from it)
  */
 
 #include "Carnivore.h"
@@ -16,6 +16,7 @@ Carnivore::Carnivore(std::unique_ptr<Genotype> genes, const Vector& position, Si
 void Carnivore::update()
 {
 	needs_->update();
+
 	if(currentAction_)
 		currentAction_->act();
 
@@ -29,11 +30,13 @@ void Carnivore::update()
 
 void Carnivore::updateAction()
 {
+	suggestedAction_ = needs_->getLeadingDesire();
+
 	// TODO check first if there are no other factors that may change suggestedAction
 
 	switch(suggestedAction_)
 	{
-		case SuggestedAction::EATING:
+		case LeadingDesire::EATING:
 			currentAction_ = std::make_unique<CarnivoreHunting>(
 					CarnivoreActionFactory::getInstance().produceEatingAction(this, simulation_)
 					);

@@ -1,6 +1,8 @@
-/*
- * Main class for simulation
+/**
+ * Main class for responsible for simulation
  */
+
+#include <include/ALife/Simulation.h>
 
 #include "Simulation.h"
 #include "SimulationView.h"
@@ -73,18 +75,47 @@ Vector Simulation::getVectorToNearestPrey(Carnivore* hunter) const
 
 void Simulation::update()
 {
-	if(view_) view_->update();
+	for(auto carnivoreIterator=carnivores_.begin(); carnivoreIterator!=carnivores_.end(); )
+	{
+		auto carnivore = *carnivoreIterator;
 
-	for(auto organism : carnivores_)
-		organism->update();
+		if (carnivore->isAlive())
+		{
+			carnivore->update();
+			++carnivoreIterator;
 
-	for(auto organism : herbivores_)
-		organism->update();
+		} else		// remove organism from Simulation
+		{
+			carnivoreCount_--;
+			if(view_)
+				view_->notifyWhenOrganismRemoved(carnivore);
+			carnivoreIterator = carnivores_.erase(carnivoreIterator);
+		}
+	}
 
-	// TODO implement deleting dead organisms
+	for(auto herbivoreIterator=herbivores_.begin(); herbivoreIterator!=herbivores_.end(); )
+	{
+		auto herbivore = *herbivoreIterator;
+
+		if (herbivore->isAlive())
+		{
+			herbivore->update();
+			++herbivoreIterator;
+
+		} else		// remove organism from Simulation
+		{
+			herbivoreCount_--;
+			if(view_)
+				view_->notifyWhenOrganismRemoved(herbivore);
+			herbivoreIterator = herbivores_.erase(herbivoreIterator);
+		}
+	}
+
+	if(view_)
+		view_->update();
 }
 
-Organism *Simulation::getOrganismAt(const Vector &position)
+Organism* Simulation::getOrganismAt(const Vector &position)
 {
 	for(auto organism : carnivores_)
 		if(organism->getPosition() == position)

@@ -1,5 +1,5 @@
-/*
- * Action - abstract class for all types of actions organism can perform driven by needs
+/**
+ * Abstract class for all types of actions organism can perform driven by needs
  */
 
 #ifndef ARTIFICIAL_LIFE_ACTION_H

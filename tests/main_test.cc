@@ -1,5 +1,5 @@
-/*
- * Main file designed for tests
+/**
+ * Main file designed for running tests along with production code
  */
 
 #include <iostream>

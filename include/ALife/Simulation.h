@@ -1,5 +1,5 @@
-/*
- * Main class for simulation
+/**
+ * Main class for responsible for simulation
  */
 
 
@@ -40,6 +40,7 @@ private:
 
 	std::vector<Carnivore*> carnivores_;
 	std::vector<Herbivore*> herbivores_;
+
 	Map map_;
 	SimulationView* view_;
 };

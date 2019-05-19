@@ -1,5 +1,5 @@
-/*
- * Herbivore (concrete) Action - eating
+/**
+ * Herbivore's (concrete) Action - eating
  */
 
 #include "HerbivoreEating.h"

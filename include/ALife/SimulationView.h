@@ -1,5 +1,5 @@
-/*
- * SimulationView - Class responsible for visual representation of simulation
+/**
+ * Class responsible for visual representation of the simulation
  */
 
 #ifndef ARTIFICIAL_LIFE_SIMULATIONVIEW_H
