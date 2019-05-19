@@ -2,7 +2,10 @@
  * Needs represents all organism's physical and psychological needs. It implicitly impacts organism's actions.
  */
 
+#include <include/ALife/Needs.h>
+
 #include "Needs.h"
+#include "Organism.h"
 
 
 Needs::Needs(Organism* const owner) :
@@ -65,7 +68,12 @@ void Needs::update()
 
 }
 
-void Needs::notify() const // TODO
+void Needs::notify() const
 {
+	owner_->updateAction();
+}
 
+LeadingDesire Needs::getLeadingDesire() const
+{
+	return leadingDesire_;
 }

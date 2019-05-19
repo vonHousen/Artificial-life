@@ -5,13 +5,15 @@
 #ifndef ARTIFICIAL_LIFE_NEEDS_H
 #define ARTIFICIAL_LIFE_NEEDS_H
 
+#include "LeadingDesire.h"
+
 class Organism;
+
 
 class Needs final
 {
 public:
 
-	
 	Needs(const Needs&) = delete;
 	Needs& operator=(const Needs&) = delete;
 	Needs(Needs&&) = delete;
@@ -26,8 +28,10 @@ public:
 	void decreaseTirednessBy(float);
 	void increaseTirednessBy(float);
 
+	LeadingDesire getLeadingDesire() const;
+
 private:
-	enum class LeadingDesire { EATING, REPRODUCTION, SLEEPING };
+
 	LeadingDesire leadingDesire_;
 
 	Organism* owner_;

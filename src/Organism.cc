@@ -2,6 +2,8 @@
  * Organism - abstract (super) class for both species
  */
 
+#include <include/ALife/Organism.h>
+
 #include "Organism.h"
 
 double Organism::radius_ = 0.03;
@@ -17,7 +19,7 @@ Organism::Organism(std::unique_ptr<Genotype> genes, const Vector& position, Simu
 	needs_			(std::make_unique<Needs>(this)),
 	currentAction_ 	(nullptr),
 	simulation_ 	(simulation),
-	suggestedAction_(SuggestedAction::EATING)
+	suggestedAction_(LeadingDesire::EATING)
 {}
 
 
@@ -54,4 +56,9 @@ void Organism::setHealth(float health)
 void Organism::setSimulation(Simulation* const simulation)
 {
 	simulation_ = simulation;
+}
+
+LeadingDesire Organism::getSuggestedAction() const
+{
+	return suggestedAction_;
 }

@@ -76,10 +76,12 @@ Vector Simulation::getVectorToNearestPrey(Carnivore* hunter) const
 void Simulation::update()
 {
 	for(auto organism : carnivores_)
-		organism->update();
+		if(organism->isAlive())
+			organism->update();
 
 	for(auto organism : herbivores_)
-		organism->update();
+		if(organism->isAlive())
+			organism->update();
 
 	this->removeDeadBodies();
 

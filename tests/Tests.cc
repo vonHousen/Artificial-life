@@ -23,6 +23,8 @@ TEST (BasicTestSuite, OrganismsConstruction)
 
 	EXPECT_EQ(herbi->getPosition(), posHerbi);
 	EXPECT_EQ(carni->getPosition(), posCarni);
+	ASSERT_EQ(herbi->getSuggestedAction(), LeadingDesire::EATING);
+	ASSERT_EQ(carni->getSuggestedAction(), LeadingDesire::EATING);
 }
 
 TEST (BasicTestSuite, VectorBasicOperations)
@@ -70,6 +72,8 @@ TEST (ActionsTestSuite, Hunting)
 
 	dummySimulation.update();
 	EXPECT_EQ(dummySimulation.getHerbivoreCount(), 1);
+	EXPECT_EQ(carni->getSuggestedAction(), LeadingDesire::EATING);
+
 
 	int iterationCounter = 0;
 	bool isEaten = false;
@@ -85,4 +89,7 @@ TEST (ActionsTestSuite, Hunting)
 
 	EXPECT_TRUE(isEaten);
 	ASSERT_LT(iterationCounter, 1400);	// assert to be eaten in decent time
+
+	dummySimulation.update();
+	EXPECT_EQ(carni->getSuggestedAction(), LeadingDesire::REPRODUCTION);
 }
