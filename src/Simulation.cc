@@ -63,7 +63,7 @@ Herbivore* Simulation::getNearestPrey(Carnivore* hunter) const
 	for(auto tastyOrganism : herbivores_)
 	{
 		foodVector = Vector::getShortestVectorBetweenPositions(hunter->getPosition(), tastyOrganism->getPosition());
-		if(foodVector.getLength() <= nearestFoodVector.getLength())
+		if(foodVector.getLength() <= nearestFoodVector.getLength() and tastyOrganism->isAlive())
 		{
 			nearestFoodVector = foodVector;
 			pray = tastyOrganism;
@@ -86,7 +86,6 @@ void Simulation::update()
 
 		} else		// remove organism from Simulation
 		{
-			std::cout << "Carnivore killed!\n";
 			carnivoreIterator = carnivores_.erase(carnivoreIterator);
 			if(view_) view_->notifyWhenOrganismRemoved(carnivore);
 			delete carnivore;
