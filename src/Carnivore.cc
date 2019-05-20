@@ -50,18 +50,17 @@ void Carnivore::eatPray(Herbivore* pray)
 
 double Carnivore::getIndividualSpeedValueAfter(unsigned int time) const
 {
+	const double tirednessFactor = genes_-> getTirednessFactor();
+	const double basicSpeed = genes_-> getBasicSpeed();
 
-	double tirednessFactor = genes_-> getTirednessFactor();
-	double basicSpeed = genes_-> getBasicSpeed();
-	int runDuration = 1000 * tirednessFactor;
-	double pseudoNormalisationFactor = 0.000001;
+	const int intendedRunDuration = 1000 * tirednessFactor;
+	const double pseudoNormalisationFactor = 0.000001;
+	const double speedDeviation =
+			static_cast<double>(intendedRunDuration - static_cast<int>(time)) * pseudoNormalisationFactor;
 
-	//if run takes too long
-	if(time > 2 * runDuration)
-		return basicSpeed - runDuration * pseudoNormalisationFactor;
+	//if run takes too long, organism is tired, but is not stopping!
+	if(speedDeviation < -0.5*speedDeviation)
+		return 0.5* basicSpeed;
 	else
-	{
-		double speedDeviation = static_cast<double>(runDuration - static_cast<int>(time)) * pseudoNormalisationFactor;
 		return speedDeviation + basicSpeed;
-	}
 }
