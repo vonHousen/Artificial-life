@@ -5,7 +5,7 @@
  * For example, y = 1.5 in fact is equal to y = -0.5
  */
 
-#include "Vector.h"
+#include <include/ALife/Vector.h>
 #include <string>
 #include <cmath>
 #include <iomanip>

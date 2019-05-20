@@ -2,8 +2,8 @@
  * Factory Design Pattern for Carnivore's actions. It's a singleton
  */
 
-#include "CarnivoreActionFactory.h"
-#include "CarnivoreHunting.h"
+#include <include/ALife/CarnivoreActionFactory.h>
+#include <include/ALife/CarnivoreHunting.h>
 
 CarnivoreActionFactory& CarnivoreActionFactory::getInstance()
 {

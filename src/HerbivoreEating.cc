@@ -2,7 +2,7 @@
  * Herbivore's (concrete) Action - eating
  */
 
-#include "HerbivoreEating.h"
+#include <include/ALife/HerbivoreEating.h>
 
 HerbivoreEating::HerbivoreEating(Herbivore *const owner, Simulation *const simulation) :
 	HerbivoreAction(owner, simulation)

@@ -2,8 +2,8 @@
  * Needs represents all organism's physical and psychological needs. It implicitly impacts organism's actions.
  */
 
-#include "Needs.h"
-#include "Organism.h"
+#include <include/ALife/Needs.h>
+#include <include/ALife/Organism.h>
 
 
 Needs::Needs(Organism* const owner) :

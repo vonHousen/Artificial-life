@@ -4,8 +4,8 @@
 
 #include <iostream>
 
-#include "Window.h"
-#include "Simulation.h"
+#include <include/ALife/Window.h>
+#include <include/ALife/Simulation.h>
 
 Window::Window(std::shared_ptr<Simulation> simulation, int size, QWidget* parent): 
     QWidget(parent), 

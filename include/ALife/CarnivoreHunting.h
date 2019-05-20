@@ -2,6 +2,8 @@
 #ifndef ARTIFICIAL_LIFE_CARNIVOREHUNTING_H
 #define ARTIFICIAL_LIFE_CARNIVOREHUNTING_H
 
+class Vector;
+
 #include "CarnivoreAction.h"
 
 /**
@@ -20,6 +22,17 @@ public:
 	CarnivoreHunting(Carnivore* const owner, Simulation* const simulation);
 
 	virtual void act();										///< Universal for all Actions, executes particular Action.
+
+private:
+
+	unsigned int timeDuration_;								///< Duration of time passed since action has started.
+
+	/**
+	 * Method is a realisation of going for pointed Herbivore.
+	 * @param foodVector - Vector pointing from "owning" Carnivore to tasty Herbivore.
+	 * @param pray - tasty Herbivore to be followed by Carnivore.
+	 */
+	void goForIt(const Vector& foodVector, Herbivore* pray);
 
 };
 

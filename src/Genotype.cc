@@ -2,7 +2,9 @@
  * Genotype represents individual organism's traits inherited from parents
  */
 
-#include "Genotype.h"
+#include <include/ALife/Genotype.h>
+
+double Genotype::basicSpeedValue_ = 0.0002;
 
 Genotype::Genotype() :
 	alertness_(5.0),
@@ -19,4 +21,14 @@ Genotype::Genotype(const Genotype& inheritedGenes) :
 	speed_(inheritedGenes.speed_),
 	lifespan_(inheritedGenes.lifespan_)
 {}
+
+double Genotype::getBasicSpeed() const
+{
+	return basicSpeedValue_ * speed_;
+}
+
+double Genotype::getTirednessFactor() const
+{
+	return stamina_ * 0.1;
+}
 

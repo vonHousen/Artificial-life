@@ -24,6 +24,18 @@ public:
 	Genotype crossOver(const Genotype& other) const;	// TODO
 	Genotype& mutate();									// TODO
 
+	/**
+	 * Getter for individual for every Organism, basic value of calculated speed based on Genotype.
+	 * @return individual, basic value of speed (avg: 0.001).
+	 */
+	double getBasicSpeed() const;
+
+	/**
+	 * Getter for individual for every Organism tiredness factor based on Genotype.
+	 * @return individual tiredness value (avg: 0.5)
+	 */
+	double getTirednessFactor() const;
+
 private:
 
 	float alertness_;							///< Trait representing alertness, value in range [0.0; 10.0]
@@ -31,6 +43,9 @@ private:
 	float stamina_;								///< Trait representing stamina, value in range [0.0; 10.0]
 	float speed_;								///< Trait representing speed, value in range [0.0; 10.0]
 	float lifespan_;							///< Trait representing lifespan, value in range [0.0; 10.0]
+
+	static double basicSpeedValue_;		///< basic, static value for every Organism, used for calculating actual speed.
+
 
 };
 

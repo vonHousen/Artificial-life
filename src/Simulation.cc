@@ -2,10 +2,10 @@
  * Main class responsible for simulation
  */
 
-#include "Simulation.h"
-#include "SimulationView.h"
-#include "Carnivore.h"
-#include "Herbivore.h"
+#include <include/ALife/Simulation.h>
+#include <include/ALife/SimulationView.h>
+#include <include/ALife/Carnivore.h>
+#include <include/ALife/Herbivore.h>
 
 #include <algorithm>
 #include <random>

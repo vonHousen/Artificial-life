@@ -30,6 +30,20 @@ public:
 	Herbivore(std::unique_ptr<Genotype> genes, const Vector& position, Simulation* const simulation);
 
 	virtual void updateAction();			///< after being notified, it uses ActionFactory to update currentAction_.
+
+	/**
+	 * Herbivore eats grass of a position pointed by Vector.
+	 * @param position - position of eaten Organism.
+	 */
+	virtual void eatIt(const Vector&);
+
+	/**
+	 * Getter for individual for every Organism speed value, but tiredness is also taken into account.
+	 * @param time passed after beginning of performed movement.
+	 * @return individual speed value.
+	 */
+	virtual double getIndividualSpeedValueAfter(unsigned int time) const;
+
 };
 
 

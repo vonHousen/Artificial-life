@@ -4,8 +4,6 @@
 
 #include <include/ALife/Organism.h>
 
-#include "Organism.h"
-
 double Organism::radius_ = 0.015;
 
 Organism::Organism(std::unique_ptr<Genotype> genes, const Vector& position, Simulation* const simulation) :
@@ -26,6 +24,9 @@ Organism::Organism(std::unique_ptr<Genotype> genes, const Vector& position, Simu
 void Organism::update()
 {
 	needs_->update();
+
+	velocity_ = Vector();
+	acceleration_ = Vector();
 
 	if(currentAction_)
 		currentAction_->act();

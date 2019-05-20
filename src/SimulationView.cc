@@ -2,11 +2,11 @@
  * Class responsible for visual representation of the simulation
  */
 
-#include "SimulationView.h"
-#include "Simulation.h"
-#include "CarnivoreView.h"
-#include "HerbivoreView.h"
-#include "Window.h"
+#include <include/ALife/SimulationView.h>
+#include <include/ALife/Simulation.h>
+#include <include/ALife/CarnivoreView.h>
+#include <include/ALife/HerbivoreView.h>
+#include <include/ALife/Window.h>
 
 SimulationView::SimulationView(Window* const window, QGraphicsScene* const qGraphicsScene, Simulation* const model):
     window_(window),

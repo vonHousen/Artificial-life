@@ -29,8 +29,22 @@ public:
 	 */
 	Carnivore(std::unique_ptr<Genotype> genes, const Vector& position, Simulation* const simulation);
 
-	virtual void updateAction();			//after being notified, it uses ActionFactory to update currentAction_
-	void eatPray(Herbivore*);
+
+	virtual void updateAction();			///< after being notified, it uses ActionFactory to update currentAction_.
+
+	/**
+	 * Carnivore eats a Herbivore.
+	 * @param pray - eaten Organism.
+	 */
+	void eatPray(Herbivore* pray);
+
+	/**
+	 * Getter for individual for every Organism speed value, but tiredness is also taken into account.
+	 * @param time passed after beginning of performed movement.
+	 * @return individual speed value.
+	 */
+	virtual double getIndividualSpeedValueAfter(unsigned int time) const;
+
 };
 
 

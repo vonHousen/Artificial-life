@@ -2,11 +2,11 @@
  * Class for aggregating all tests
  */
 
-#include "Simulation.h"
-#include "Genotype.h"
-#include "Herbivore.h"
-#include "Carnivore.h"
-#include "Vector.h"
+#include <include/ALife/Simulation.h>
+#include <include/ALife/Genotype.h>
+#include <include/ALife/Herbivore.h>
+#include <include/ALife/Carnivore.h>
+#include <include/ALife/Vector.h>
 #include "gtest/gtest.h"
 #include <iostream>
 #include <cassert>
@@ -88,7 +88,7 @@ TEST (ActionsTestSuite, Hunting)
 	}
 
 	EXPECT_TRUE(isEaten);
-	ASSERT_LT(iterationCounter, 1400);	// assert to be eaten in decent time
+	ASSERT_LT(iterationCounter, 2000);	// assert to be eaten in decent time
 
 	dummySimulation.update();
 	EXPECT_EQ(carni->getSuggestedAction(), LeadingDesire::REPRODUCTION);

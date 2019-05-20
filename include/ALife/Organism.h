@@ -68,21 +68,29 @@ public:
 	 */
 	LeadingDesire getSuggestedAction() const;
 
+	/**
+	 * Getter for individual for every Organism speed value, but tiredness is also taken into account.
+	 * @param time passed after beginning of performed movement.
+	 * @return individual speed value.
+	 */
+	virtual double getIndividualSpeedValueAfter(unsigned int time) const = 0;
+
+
 protected:
 
-	float 	health_;								///< basic trait of the Organism, value in range of [0.0, 10.0].
-	unsigned int 	timeAlive_;						///< basic trait of the Organism, value of [0.0, inf].
-	Vector 	position_;								///< basic state of the Organism represented by Vector.
-	Vector 	velocity_;								///< basic state of the Organism represented by Vector.
-	Vector 	acceleration_;							///< basic state of the Organism represented by Vector.
-	static double radius_;							///< basic trait of the Organism, static value for every Organism.
+	float 	health_;							///< basic, actual trait of the Organism, value in range of [0.0, 10.0].
+	unsigned int 	timeAlive_;					///< basic, actual trait of the Organism, value of [0.0, inf].
+	Vector 	position_;							///< basic, actual state of the Organism represented by Vector.
+	Vector 	velocity_;							///< basic, actual state of the Organism represented by Vector.
+	Vector 	acceleration_;						///< basic, actual state of the Organism represented by Vector.
+	static double radius_;						///< basic trait of the Organism, static value for every Organism.
 
-	std::unique_ptr<Genotype> 		genes_;			///< represents individual Organism's traits inherited from parents.
-	std::unique_ptr<Needs> 			needs_;			///< represents all Organism's physical and psychological Needs.
-	std::unique_ptr<Action> 		currentAction_;	///< current Action Organism can perform driven by Needs.
+	std::unique_ptr<Genotype> 	genes_;			///< represents individual Organism's traits inherited from parents.
+	std::unique_ptr<Needs> 		needs_;			///< represents all Organism's physical and psychological Needs.
+	std::unique_ptr<Action> 	currentAction_;	///< current Action Organism can perform driven by Needs.
 
-	Simulation*						simulation_;	///< Simulation that Organism takes part in.
-	LeadingDesire suggestedAction_;					///< LeadingDesire interpreted as suggested Action.
+	Simulation*	simulation_;					///< Simulation that Organism takes part in.
+	LeadingDesire suggestedAction_;				///< LeadingDesire interpreted as suggested Action.
 
 };
 
