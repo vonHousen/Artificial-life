@@ -2,17 +2,22 @@
  * Carnivore's (concrete) Action - eating
  */
 
+#include <include/ALife/CarnivoreHunting.h>
+
 #include "CarnivoreHunting.h"
 #include "Carnivore.h"
 #include "Simulation.h"
 #include "Vector.h"
 
 CarnivoreHunting::CarnivoreHunting(Carnivore* const owner, Simulation* const simulation) :
-	CarnivoreAction(owner, simulation)
+	CarnivoreAction(owner, simulation),
+	timeDuration_(0)
 {}
 
 void CarnivoreHunting::act()
 {
+	timeDuration_++;
+
 	//Organism is hungry, it needs to find the nearest food
 	auto foodVector = simulation_->getVectorToNearestPrey(concreteOwner_);
 
@@ -28,19 +33,26 @@ void CarnivoreHunting::act()
 	}
 	else //go for it
 	{
-		auto correctionFactor = 1.0;	// - 2*Carnivore::getRadius()/foodVector.getLength();
-		auto velocityFactor = 0.001;	//1.0;
-		auto intendedVelocity = foodVector.getUnitVector()*velocityFactor*correctionFactor;
-
-		//if Carnivore is about to "jump above" the food when it is moving too fast
-		if(foodVector.getLength() - Carnivore::getRadius() < intendedVelocity.getLength())
-		{
-			intendedVelocity = foodVector.getUnitVector() * (foodVector.getLength() - Carnivore::getRadius());
-			owner_->setVelocity(intendedVelocity);
-			auto foodPosition = foodVector + owner_->getPosition();
-			owner_->eatIt(foodPosition);
-		}
-
-		owner_->setVelocity(intendedVelocity);		//TODO change dummy velocity to real one
+		this->goForIt(foodVector);
 	}
+}
+
+void CarnivoreHunting::goForIt(const Vector &foodVector)
+{
+	auto velocity = owner_->getIndividualSpeedValueAfter(timeDuration_);
+
+	auto direction = foodVector.getUnitVector();
+	auto intendedVelocity = direction * velocity;
+
+	//if Carnivore is about to "jump above" the food when it is moving too fast
+	if(foodVector.getLength() - Carnivore::getRadius() < intendedVelocity.getLength())
+	{
+		intendedVelocity = direction * (foodVector.getLength() - Carnivore::getRadius());
+		owner_->setVelocity(intendedVelocity);
+		auto foodPosition = foodVector + owner_->getPosition();
+		owner_->eatIt(foodPosition);
+
+	} else
+		owner_->setVelocity(intendedVelocity);
+
 }

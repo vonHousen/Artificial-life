@@ -2,6 +2,8 @@
  * Concrete species of an organism (derives from it)
  */
 
+#include <include/ALife/Herbivore.h>
+
 #include "Herbivore.h"
 #include "HerbivoreActionFactory.h"
 #include "Simulation.h"
@@ -34,5 +36,10 @@ void Herbivore::updateAction() // TODO
 void Herbivore::eatIt(const Vector &) // TODO
 {
 
+}
+
+double Herbivore::getIndividualSpeedValueAfter(unsigned int time) const
+{
+	return genes_->getBasicSpeed();		// TODO
 }
 

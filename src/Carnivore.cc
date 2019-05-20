@@ -2,6 +2,8 @@
  * Concrete species of an organism (derives from it)
  */
 
+#include <include/ALife/Carnivore.h>
+
 #include "Carnivore.h"
 #include "CarnivoreActionFactory.h"
 #include "CarnivoreHunting.h"
@@ -16,6 +18,9 @@ Carnivore::Carnivore(std::unique_ptr<Genotype> genes, const Vector& position, Si
 void Carnivore::update()
 {
 	needs_->update();
+
+	acceleration_ = Vector();
+	velocity_ = Vector();
 
 	if(currentAction_)
 		currentAction_->act();
@@ -42,6 +47,10 @@ void Carnivore::updateAction()
 					);
 			break;
 
+		case LeadingDesire::REPRODUCTION:
+			currentAction_ = nullptr;
+			break;
+
 		default:
 			break;
 	}
@@ -58,4 +67,22 @@ void Carnivore::eatIt(const Vector& position)
 		this->needs_->increaseLonelinessBy(2.0);
 	}
 
+}
+
+double Carnivore::getIndividualSpeedValueAfter(unsigned int time) const
+{
+
+	double tirednessFactor = genes_-> getTirednessFactor();
+	double basicSpeed = genes_-> getBasicSpeed();
+	int runDuration = 1000 * tirednessFactor;
+	double pseudoNormalisationFactor = 0.000001;
+
+	//if run takes too long
+	if(time > 2 * runDuration)
+		return basicSpeed - runDuration * pseudoNormalisationFactor;
+	else
+	{
+		double speedDeviation = static_cast<double>(runDuration - static_cast<int>(time)) * pseudoNormalisationFactor;
+		return speedDeviation + basicSpeed;
+	}
 }

@@ -39,6 +39,13 @@ public:
 	 */
 	virtual void eatIt(const Vector&);
 
+	/**
+	 * Getter for individual for every Organism speed value, but tiredness is also taken into account.
+	 * @param time passed after beginning of performed movement.
+	 * @return individual speed value.
+	 */
+	virtual double getIndividualSpeedValueAfter(unsigned int time) const;
+
 };
 
 
