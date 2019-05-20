@@ -9,6 +9,7 @@
 
 #include <algorithm>
 #include <random>
+#include <chrono>
 
 Simulation::Simulation():
 	view_(nullptr)
@@ -86,7 +87,6 @@ void Simulation::update()
 
 		} else		// remove organism from Simulation
 		{
-			std::cout << "Carnivore killed!\n";
 			carnivoreIterator = carnivores_.erase(carnivoreIterator);
 			if(view_) view_->notifyWhenOrganismRemoved(carnivore);
 			delete carnivore;
@@ -160,7 +160,8 @@ void Simulation::initializeSimulation(int carnivoreCount, int herbivoreCount)
 	//Create pool of numbers (cell indexes from 0 to NUM_CELLS - 1) and shuffle them
 	std::vector<int> pool(NUM_CELLS);
 	std::iota(pool.begin(), pool.end(), 0);
-	auto rng = std::default_random_engine(std::random_device()());
+	auto rng = std::default_random_engine(
+		std::chrono::high_resolution_clock::now().time_since_epoch().count());
 	std::shuffle(pool.begin(), pool.end(), rng);
 
 	for(int i = 0; i < carnivoreCount; ++i)
