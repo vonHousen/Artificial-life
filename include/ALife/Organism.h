@@ -26,8 +26,7 @@ public:
   	Organism(std::unique_ptr<Genotype> genes, const Vector& position, Simulation* const simulation);
   	virtual ~Organism() = default;
 
-	virtual void updateAction() = 0;			//after being notified, it uses ActionFactory to update currentAction_
-	virtual void eatIt(const Vector&) = 0;		//polymorphism decides whether to eat grass or another organism
+	virtual void updateAction() = 0;				//after being notified, it uses ActionFactory to update currentAction_
 
 	void setAcceleration(const Vector&);
 	void setVelocity(const Vector&);

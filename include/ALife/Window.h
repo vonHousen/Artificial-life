@@ -30,6 +30,8 @@ private:
     std::unique_ptr<SimulationView> simulationView_;
     QLabel* qLabelCarnivores_;
     QLabel* qLabelHerbivores_;
+    QSlider* qSliderCarnivores_;
+    QSlider* qSliderHerbivores_;
 };
 
 

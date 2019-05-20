@@ -11,8 +11,6 @@
 #include <random>
 
 Simulation::Simulation():
-	carnivoreCount_(0),
-	herbivoreCount_(0),
 	view_(nullptr)
 {}
 
@@ -30,7 +28,6 @@ void Simulation::addOrganism(Carnivore* const newOrganism)
 {
 	newOrganism->setSimulation(this);
 	carnivores_.push_back(newOrganism);
-	carnivoreCount_ += 1;
 	if(view_) view_->notifyWhenOrganismAdded(newOrganism);
 }
 
@@ -38,7 +35,6 @@ void Simulation::addOrganism(Herbivore* const newOrganism)
 {
 	newOrganism->setSimulation(this);
 	herbivores_.push_back(newOrganism);
-	herbivoreCount_ += 1;
 	if(view_) view_->notifyWhenOrganismAdded(newOrganism);
 }
 
@@ -49,29 +45,33 @@ void Simulation::registerView(SimulationView* const simulationView)
 
 int Simulation::getCarnivoreCount() const
 {
-	return carnivoreCount_;
+	return carnivores_.size();
 }
 
 int Simulation::getHerbivoreCount() const
 {
-	return herbivoreCount_;
+	return herbivores_.size();
 }
 
-Vector Simulation::getVectorToNearestPrey(Carnivore* hunter) const
+Herbivore* Simulation::getNearestPrey(Carnivore* hunter) const
 {
 	if(herbivores_.empty())
-		return {};
+		return nullptr;
 
 	Vector foodVector, nearestFoodVector(1, 1);
+	Herbivore* pray = nullptr;
 
 	for(auto tastyOrganism : herbivores_)
 	{
 		foodVector = Vector::getShortestVectorBetweenPositions(hunter->getPosition(), tastyOrganism->getPosition());
 		if(foodVector.getLength() <= nearestFoodVector.getLength())
+		{
 			nearestFoodVector = foodVector;
+			pray = tastyOrganism;
+		}
 	}
-
-	return nearestFoodVector;
+	
+	return pray;
 }
 
 void Simulation::update()
@@ -87,14 +87,14 @@ void Simulation::update()
 
 		} else		// remove organism from Simulation
 		{
-			carnivoreCount_--;
-			if(view_)
-				view_->notifyWhenOrganismRemoved(carnivore);
+			std::cout << "Carnivore killed!\n";
 			carnivoreIterator = carnivores_.erase(carnivoreIterator);
+			if(view_) view_->notifyWhenOrganismRemoved(carnivore);
+			delete carnivore;
 		}
 	}
 
-	for(auto herbivoreIterator=  herbivores_.begin(); herbivoreIterator != herbivores_.end();)
+	for(auto herbivoreIterator = herbivores_.begin(); herbivoreIterator != herbivores_.end();)
 	{
 		auto herbivore = *herbivoreIterator;
 
@@ -105,10 +105,9 @@ void Simulation::update()
 
 		} else		// remove organism from Simulation
 		{
-			herbivoreCount_--;
-			if(view_)
-				view_->notifyWhenOrganismRemoved(herbivore);
 			herbivoreIterator = herbivores_.erase(herbivoreIterator);
+			if(view_) view_->notifyWhenOrganismRemoved(herbivore);
+			delete herbivore;
 		}
 	}
 
@@ -133,9 +132,28 @@ Organism* Simulation::getOrganismAt(const Vector& position)
 	return nullptr;
 }
 
-void Simulation::initializeSimulation(int carnivores, int herbivores)
+void Simulation::reset(int carnivoreCount, int herbivoreCount)
 {
-	const float CELL_SIZE = 1.5 * Organism::getRadius();
+	for(auto organism : carnivores_)
+	{
+		if(view_) view_->notifyWhenOrganismRemoved(organism);
+		delete organism;
+	}
+	carnivores_.clear();
+
+	for(auto organism : herbivores_)
+	{
+		if(view_) view_->notifyWhenOrganismRemoved(organism);
+		delete organism;
+	}
+	herbivores_.clear();
+
+	initializeSimulation(carnivoreCount, herbivoreCount);
+}
+
+void Simulation::initializeSimulation(int carnivoreCount, int herbivoreCount)
+{
+	const float CELL_SIZE = 2.2 * Organism::getRadius();
 	const int CELLS_IN_ROW = 1.0 / CELL_SIZE;
 	const int CELLS_IN_COLUMN = 2.0 / CELL_SIZE;
 	const int NUM_CELLS = CELLS_IN_COLUMN * CELLS_IN_ROW;
@@ -146,13 +164,13 @@ void Simulation::initializeSimulation(int carnivores, int herbivores)
 	auto rng = std::default_random_engine(std::random_device()());
 	std::shuffle(pool.begin(), pool.end(), rng);
 
-	for(int i = 0; i < carnivores; ++i)
+	for(int i = 0; i < carnivoreCount; ++i)
 	{
 		int cellIndex = pool[i];
 		int cellY = cellIndex / CELLS_IN_ROW;
 		int cellX = cellIndex - cellY*CELLS_IN_ROW;
 
-		//Carnivores go to the left side of window, hence there is a minus in organismX
+		//Carnivores go to the left side of the window, hence there is a minus in organismX
 		float organismX = -cellX * CELL_SIZE + 0.5*CELL_SIZE;
 		float organismY = cellY * CELL_SIZE + 0.5*CELL_SIZE - 1;
 
@@ -161,7 +179,7 @@ void Simulation::initializeSimulation(int carnivores, int herbivores)
 	}
 
 	std::shuffle(pool.begin(), pool.end(), rng);
-	for(int i = 0; i < herbivores; ++i)
+	for(int i = 0; i < herbivoreCount; ++i)
 	{
 		int cellIndex = pool[i];
 		int cellY = cellIndex / CELLS_IN_ROW;

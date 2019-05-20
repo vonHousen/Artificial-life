@@ -36,6 +36,16 @@ Window::Window(std::shared_ptr<Simulation> simulation, int size, QWidget* parent
     qLabelHerbivores_ = new QLabel(this);
     qLabelHerbivores_->setText("Herbivores: ");
 
+    qSliderCarnivores_ = new QSlider(this);
+    qSliderCarnivores_->setOrientation(Qt::Horizontal);
+    qSliderCarnivores_->setRange(0, 100);
+    qSliderCarnivores_->setValue(50);
+
+    qSliderHerbivores_ = new QSlider(this);
+    qSliderHerbivores_->setOrientation(Qt::Horizontal);
+    qSliderHerbivores_->setRange(0, 100);
+    qSliderHerbivores_->setValue(50);
+
     QPushButton* button = new QPushButton(this);
     button->setText("Reset simulation");
     connect(button, SIGNAL(released()), this, SLOT(handleButtonEvent()));
@@ -47,6 +57,8 @@ Window::Window(std::shared_ptr<Simulation> simulation, int size, QWidget* parent
     vlayout->addWidget(qLabelCarnivores_);
     vlayout->addWidget(qLabelHerbivores_);
     vlayout->addSpacing(200);
+    vlayout->addWidget(qSliderCarnivores_);
+    vlayout->addWidget(qSliderHerbivores_);
     vlayout->addWidget(button);
 
     QHBoxLayout* hlayout = new QHBoxLayout(this);
@@ -80,7 +92,7 @@ void Window::update()
 
 void Window::handleButtonEvent()
 {
-    std::cout << "Reset simulation!\n";
+    simulation_->reset(qSliderCarnivores_->value(), qSliderHerbivores_->value());
 }
 
 Window::~Window()

@@ -3,6 +3,7 @@
  */
 
 #include "Carnivore.h"
+#include "Herbivore.h"
 #include "CarnivoreActionFactory.h"
 #include "CarnivoreHunting.h"
 #include "Simulation.h"
@@ -32,13 +33,11 @@ void Carnivore::updateAction()
 	}
 }
 
-void Carnivore::eatIt(const Vector& position)
+void Carnivore::eatPray(Herbivore* pray)
 {
-	auto food = simulation_->getOrganismAt(position);
-
-	if(food)
+	if(pray)
 	{
-		food->setHealth(0.0);
+		pray->setHealth(0.0);
 		this->needs_->decreaseHungerBy(5.0);
 		this->needs_->increaseLonelinessBy(2.0);
 	}

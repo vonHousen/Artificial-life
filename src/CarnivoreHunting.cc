@@ -4,6 +4,7 @@
 
 #include "CarnivoreHunting.h"
 #include "Carnivore.h"
+#include "Herbivore.h"
 #include "Simulation.h"
 #include "Vector.h"
 
@@ -14,17 +15,19 @@ CarnivoreHunting::CarnivoreHunting(Carnivore* const owner, Simulation* const sim
 void CarnivoreHunting::act()
 {
 	//Organism is hungry, it needs to find the nearest food
-	auto foodVector = simulation_->getVectorToNearestPrey(concreteOwner_);
+	Herbivore* pray = simulation_->getNearestPrey(concreteOwner_);
 
-	//if foodVector points to nowhere (length of zero) - do nothing
-	if(foodVector == Vector())
+	//if pray points to nowhere (there are no herbivores) - do nothing
+	if(pray == nullptr)
 		return;
+
+	//calculate vector to food
+	auto foodVector = owner_->getPosition() - pray->getPosition();
 
 	//if food is near enough - eat it!
 	if(foodVector.getLength() <= 2*Carnivore::getRadius())
 	{
-		auto foodPosition = foodVector + owner_->getPosition();
-		owner_->eatIt(foodPosition);
+		concreteOwner_->eatPray(pray);
 	}
 	else //go for it
 	{
@@ -37,8 +40,7 @@ void CarnivoreHunting::act()
 		{
 			intendedVelocity = foodVector.getUnitVector() * (foodVector.getLength() - Carnivore::getRadius());
 			owner_->setVelocity(intendedVelocity);
-			auto foodPosition = foodVector + owner_->getPosition();
-			owner_->eatIt(foodPosition);
+			concreteOwner_->eatPray(pray);
 		}
 
 		owner_->setVelocity(intendedVelocity);		//TODO change dummy velocity to real one

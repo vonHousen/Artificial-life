@@ -26,19 +26,17 @@ public:
 	void addOrganism(Carnivore* const);
 	void addOrganism(Herbivore* const);
 	void registerView(SimulationView* const);
-	void initializeSimulation(int carnivores, int herbivores);
+	void reset(int carnivoreCount, int herbivoreCount);
+	void initializeSimulation(int carnivoreCount, int herbivoreCount);
 
 	int getCarnivoreCount() const;
 	int getHerbivoreCount() const;
 
 	Vector getNearestFoodLocation(Herbivore*) const;
-	Vector getVectorToNearestPrey(Carnivore*) const;
+	Herbivore* getNearestPrey(Carnivore*) const;
 	Organism* getOrganismAt(const Vector&);
 
 private:
-
-	int carnivoreCount_;
-	int herbivoreCount_;
 
 	std::vector<Carnivore*> carnivores_;
 	std::vector<Herbivore*> herbivores_;

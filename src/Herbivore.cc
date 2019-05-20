@@ -16,9 +16,3 @@ void Herbivore::updateAction() // TODO
 {
 
 }
-
-void Herbivore::eatIt(const Vector&) // TODO
-{
-
-}
-
