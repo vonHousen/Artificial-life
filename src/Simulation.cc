@@ -21,7 +21,6 @@ Simulation::~Simulation()
 
 	for(auto organism : herbivores_)
 		delete organism;
-
 }
 
 void Simulation::addOrganism(Carnivore* const newOrganism)

@@ -16,33 +16,61 @@ class Vector;
 #include <memory>
 #include "Map.h"
 
+
+/**
+ * Main class responsible for simulation.
+ */
+
 class Simulation
 {
 public:
-	Simulation();
-	~Simulation();
 
-	void update();
-	void addOrganism(Carnivore* const);
-	void addOrganism(Herbivore* const);
-	void registerView(SimulationView* const);
+	Simulation();										///< A default constructor.
+	~Simulation();										///< A destructor.
+
+	void update();										///< flow of the information upside down.
+	void addOrganism(Carnivore* const);					///< adds concrete Organism (Carnivore) to Simulation.
+	void addOrganism(Herbivore* const);					///< adds concrete Organism (Herbivore) to Simulation.
+	void registerView(SimulationView* const);			///< registers Simulation in View layer.
+
 	void reset(int carnivoreCount, int herbivoreCount);
 	void initializeSimulation(int carnivoreCount, int herbivoreCount);
 
-	int getCarnivoreCount() const;
-	int getHerbivoreCount() const;
+	int getCarnivoreCount() const;						///< Getter for count of alive Carnivores in Simulation.
+	int getHerbivoreCount() const;						///< Getter for count of alive Herbivores in Simulation.
 
-	Vector getNearestFoodLocation(Herbivore*) const;
-	Herbivore* getNearestPrey(Carnivore*) const;
+	/**
+	 * Getter for location of nearest food edible for Herbivore.
+	 * @param hungryHerbivore - Organism for which nearest location is calculated
+	 * @return Vector pointing to location of nearest food / Vector of length zero if not found.
+	 */
+	Vector getNearestFoodLocation(Herbivore* hungryHerbivore) const;
+
+	/**
+	 * Getter for pointer to nearest Herbivore edible for Carnivore.
+	 * @param hungryCarnivore - Organism for which nearest location is calculated
+	 * @return Pointing nearest pray / null pointer if not found.
+	 */
+	Herbivore* getNearestPrey(Carnivore* hungryCarnivore) const;
+
+	/**
+	 * Getter for Organism at given location.
+	 * @param location - Vector pointing to location of an Organism.
+	 * @return Organism at location / nullptr if not found.
+	 */
 	Organism* getOrganismAt(const Vector&);
 
 private:
 
-	std::vector<Carnivore*> carnivores_;
-	std::vector<Herbivore*> herbivores_;
+	int carnivoreCount_;								///< count of alive Carnivores in Simulation.
+	int herbivoreCount_;								///< count of alive Herbivores in Simulation.
 
-	Map map_;
-	SimulationView* view_;
+	std::vector<Carnivore*> carnivores_;				///< data structure for aggregation of Carnivores.
+	std::vector<Herbivore*> herbivores_;				///< data structure for aggregation of Herbivores.
+
+	Map map_;											///< Map TODO
+	SimulationView* view_;								///< View layer of Simulation class.
+
 };
 
 
