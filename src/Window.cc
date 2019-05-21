@@ -36,15 +36,23 @@ Window::Window(std::shared_ptr<Simulation> simulation, int size, QWidget* parent
     qLabelHerbivores_ = new QLabel(this);
     qLabelHerbivores_->setText("Herbivores: ");
 
+    qLabelSetCarnivoresPopulation_ = new QLabel(this);
+    qLabelSetCarnivoresPopulation_->setText("Carnivore population: 10");
+
+    qLabelSetHerbivoresPopulation_ = new QLabel(this);
+    qLabelSetHerbivoresPopulation_->setText("Herbivore population: 10");
+
     qSliderCarnivores_ = new QSlider(this);
     qSliderCarnivores_->setOrientation(Qt::Horizontal);
     qSliderCarnivores_->setRange(0, 100);
-    qSliderCarnivores_->setValue(50);
+    qSliderCarnivores_->setValue(10);
+    connect(qSliderCarnivores_, SIGNAL(valueChanged(int)), this, SLOT(updateCarnivorePopulationLabel(int)));
 
     qSliderHerbivores_ = new QSlider(this);
     qSliderHerbivores_->setOrientation(Qt::Horizontal);
     qSliderHerbivores_->setRange(0, 100);
-    qSliderHerbivores_->setValue(50);
+    qSliderHerbivores_->setValue(10);
+    connect(qSliderHerbivores_, SIGNAL(valueChanged(int)), this, SLOT(updateHerbivorePopulationLabel(int)));
 
     QPushButton* button = new QPushButton(this);
     button->setText("Reset simulation");
@@ -57,7 +65,9 @@ Window::Window(std::shared_ptr<Simulation> simulation, int size, QWidget* parent
     vlayout->addWidget(qLabelCarnivores_);
     vlayout->addWidget(qLabelHerbivores_);
     vlayout->addSpacing(200);
+    vlayout->addWidget(qLabelSetCarnivoresPopulation_);
     vlayout->addWidget(qSliderCarnivores_);
+    vlayout->addWidget(qLabelSetHerbivoresPopulation_);
     vlayout->addWidget(qSliderHerbivores_);
     vlayout->addWidget(button);
 
@@ -88,6 +98,16 @@ void Window::updateOrganismCount()
 void Window::update()
 {
     simulation_->update();
+}
+
+void Window::updateCarnivorePopulationLabel(int value)
+{
+    qLabelSetCarnivoresPopulation_->setText(QString("Carnivores population: ") + QString::number(value));
+}
+
+void Window::updateHerbivorePopulationLabel(int value)
+{
+    qLabelSetHerbivoresPopulation_->setText(QString("Herbivores population: ") + QString::number(value));
 }
 
 void Window::handleButtonEvent()

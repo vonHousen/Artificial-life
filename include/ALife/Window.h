@@ -21,6 +21,8 @@ public:
     void updateOrganismCount();
 private slots:
     void update();
+    void updateCarnivorePopulationLabel(int value);
+    void updateHerbivorePopulationLabel(int value);
     void handleButtonEvent();
 private:
     int size_;
@@ -31,6 +33,8 @@ private:
     std::unique_ptr<SimulationView> simulationView_;
     QLabel* qLabelCarnivores_;
     QLabel* qLabelHerbivores_;
+    QLabel* qLabelSetCarnivoresPopulation_;
+    QLabel* qLabelSetHerbivoresPopulation_;
     QSlider* qSliderCarnivores_;
     QSlider* qSliderHerbivores_;
 };
