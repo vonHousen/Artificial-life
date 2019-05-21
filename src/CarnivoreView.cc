@@ -5,7 +5,8 @@
 #include <include/ALife/CarnivoreView.h>
 #include <include/ALife/Carnivore.h>
 
-CarnivoreView::CarnivoreView(Carnivore* const model): OrganismView(model)
+CarnivoreView::CarnivoreView(Carnivore* const model, SimulationView* const owner): 
+    OrganismView(model, owner)
 {
     setBrush(QBrush(Qt::red));
 }

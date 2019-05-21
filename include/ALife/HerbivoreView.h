@@ -19,7 +19,7 @@ public:
 	 *
 	 * @param model - Herbivore related to this view, that will be displayed.
 	 */
-    HerbivoreView(Herbivore* const model);
+    HerbivoreView(Herbivore* const model, SimulationView* const owner);
 
 private:
 

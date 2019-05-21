@@ -19,7 +19,7 @@ public:
 	 *
 	 * @param model - Carnivore related to this view, that will be displayed.
 	 */
-    CarnivoreView(Carnivore* const model);
+    CarnivoreView(Carnivore* const model, SimulationView* const owner);
 private:
 
 };

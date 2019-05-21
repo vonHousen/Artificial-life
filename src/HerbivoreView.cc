@@ -5,7 +5,8 @@
 #include <include/ALife/HerbivoreView.h>
 #include <include/ALife/Herbivore.h>
 
-HerbivoreView::HerbivoreView(Herbivore* const model): OrganismView(model)
+HerbivoreView::HerbivoreView(Herbivore* const model, SimulationView* const owner): 
+    OrganismView(model, owner)
 {
     setBrush(QBrush(Qt::green));
 }

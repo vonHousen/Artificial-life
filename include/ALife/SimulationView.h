@@ -7,6 +7,7 @@ class Simulation;
 class Organism;
 class Carnivore;
 class Herbivore;
+class OrganismView;
 class CarnivoreView;
 class HerbivoreView;
 
@@ -60,6 +61,9 @@ public:
 	 */
     void notifyWhenOrganismRemoved(Herbivore* const organismToRemove);
 
+    void notifyWhenOrganismClicked(Organism* const organism, OrganismView* const view) const; //TODO document
+
+    void notifyWhenSelectedViewDeleted(OrganismView* const view) const; //TODO document
 private:
     Window* const window_;                                              ///< Pointer to Window on which the simulation will be displayed.
     Simulation* const model_;                                           ///< Pointer to Simulation which will be displayed.

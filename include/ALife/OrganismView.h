@@ -3,6 +3,7 @@
 #define ARTIFICIAL_LIFE_ORGANISMVIEW_H
 
 class Organism;
+class SimulationView;
 
 #include <QtWidgets>
 
@@ -19,12 +20,17 @@ public:
 	 * A constructor.
 	 * @param model - Organism related to this view, that will be displayed.
 	 */
-    OrganismView(Organism* const model);
+    OrganismView(Organism* const model, SimulationView* const owner);
+    ~OrganismView();
 
+    virtual void mousePressEvent(QGraphicsSceneMouseEvent* event); //TODO document
+    virtual void unselect();
     virtual void update();      ///< Updates position to match owner's location. Called by Organism.
 
 private:
-    Organism* const model_;     ///< pointer to organism, that this view represents
+    Organism* const model_;         ///< pointer to organism, that this view represents
+    SimulationView* const owner_;   //TODO document
+    bool isSelected_;
 };
 
 #endif //ARTIFICIAL_LIFE_ORGANISMVIEW_H
