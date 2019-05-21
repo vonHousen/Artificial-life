@@ -68,7 +68,7 @@ private:
 	std::vector<Carnivore*> carnivores_;				///< data structure for aggregation of Carnivores.
 	std::vector<Herbivore*> herbivores_;				///< data structure for aggregation of Herbivores.
 
-	Map map_;											///< Map TODO
+	Map map_;											///< Map, that covers simulation's area. TODO
 	SimulationView* view_;								///< View layer of Simulation class.
 
 };

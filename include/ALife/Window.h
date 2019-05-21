@@ -15,28 +15,35 @@ class Window : public QWidget
 {
 Q_OBJECT
 public:
+
+    /**
+	 * A constructor.
+	 * @param simulation - Pointer to simulation that this window will display
+     * @param size - Size of the simulation view
+     * @param parent - Pointer to QWidget that contains this window
+	 */
     explicit Window(std::shared_ptr<Simulation> simulation, int size, QWidget* parent = 0);
-    ~Window();
+    ~Window();                                          ///< A destructor.
 
-    void updateOrganismCount();
+    void updateOrganismCount();                         ///< Updates labels what show population of organisms. Called by Simulation.
 private slots:
-    void update();
-    void updateCarnivorePopulationLabel(int value);
-    void updateHerbivorePopulationLabel(int value);
-    void handleButtonEvent();
+    void update();                                      ///< Slot that reacts to QTimer's tick signal. Calls Simulation's update.
+    void updateCarnivorePopulationLabel(int value);     ///< Slot that reacts when slider value is changed. Updates text in label to reflect slider's value. 
+    void updateHerbivorePopulationLabel(int value);     ///< Slot that reacts when slider value is changed. Updates text in label to reflect slider's value.
+    void handleButtonEvent();                           ///< Slot that reacts when user clicks the Reset button. Caused reinitialization of simulation, with user-specified populations.
 private:
-    int size_;
+    int size_;                                          ///< Size of the simulation view.
 
-    QTimer* qTimer_;
-    QGraphicsScene* qGraphicsScene_;
-    std::shared_ptr<Simulation> simulation_;
-    std::unique_ptr<SimulationView> simulationView_;
-    QLabel* qLabelCarnivores_;
-    QLabel* qLabelHerbivores_;
-    QLabel* qLabelSetCarnivoresPopulation_;
-    QLabel* qLabelSetHerbivoresPopulation_;
-    QSlider* qSliderCarnivores_;
-    QSlider* qSliderHerbivores_;
+    QTimer* qTimer_;                                    ///< Timer that ticks with regular intervals
+    QGraphicsScene* qGraphicsScene_;                    ///< Scene containing all views. 
+    std::shared_ptr<Simulation> simulation_;            ///< Simulation that is being displayed
+    std::unique_ptr<SimulationView> simulationView_;    ///< View for simulation 
+    QLabel* qLabelCarnivores_;                          ///< Label that shows current population of Carnivores
+    QLabel* qLabelHerbivores_;                          ///< Label that shows current population of Herbivores
+    QLabel* qLabelSetCarnivoresPopulation_;             ///< Label that shows position of slider that controls population of Carnivores that will be created on reset
+    QLabel* qLabelSetHerbivoresPopulation_;             ///< Label that shows position of slider that controls population of Herbivores that will be created on reset
+    QSlider* qSliderCarnivores_;                        ///< Slider that controls population of Carnivores that will be created on reset
+    QSlider* qSliderHerbivores_;                        ///< Slider that controls population of Hernivores that will be created on reset
 };
 
 

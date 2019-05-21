@@ -21,7 +21,17 @@ public:
 	 */
 	Genotype(const Genotype& inheritedGenes);
 
+	/**
+	 * Function that creates a new Genotype object by mixing this object with provided genotype.
+	 * @param other - Genotype object to be mixed with.
+	 * @return resultant genotype.
+	 */
 	Genotype crossOver(const Genotype& other) const;	// TODO
+	
+	/**
+	 * Introduces random changes in traits' values, mimicking mutation.
+	 * @return reference to mutated genotype
+	 */
 	Genotype& mutate();									// TODO
 
 	/**

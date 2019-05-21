@@ -42,7 +42,7 @@ public:
 	void setHealth(float health);											///< Setter for private trait.
 	void setSimulation(Simulation* const simulation);						///< Setter for private trait.
 
-	void update();								//flow of the information upside down
+	void update();							///< updates organism's fields such as position; called by Simulation
 	
 	/**
 	 * Decides if an Organism is alive (or dead).
