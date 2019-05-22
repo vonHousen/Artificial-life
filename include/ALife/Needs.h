@@ -26,6 +26,7 @@ public:
 	explicit Needs(Organism* owner);
 
 	void update();									///< flow of the information upside down.
+
 	void decreaseHungerBy(float value);				///< Organism is less hungry after eating something.
 	void increaseHungerBy(float value);				///< Organism is hungry after sleeping.
 	void decreaseLonelinessBy(float value);			///< Organism is less lonely after reproduction.

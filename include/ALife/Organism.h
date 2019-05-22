@@ -40,7 +40,7 @@ public:
 
 	void setAcceleration(const Vector& acceleration);						///< Setter for private trait.
 	void setVelocity(const Vector& velocity);								///< Setter for private trait.
-	void setHealth(float health);											///< Setter for private trait.
+	void decreaseHealthByValue(float value);								///< Decreases health by given value.
 	void setSimulation(Simulation* const simulation);						///< Setter for private trait.
 
 	/**

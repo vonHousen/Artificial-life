@@ -59,10 +59,10 @@ Herbivore* Simulation::getNearestPrey(Carnivore* hunter, double sightRange) cons
 		return nullptr;
 
 	Vector foodVector, nearestFoodVector(1, 0);
-	const double NORMALISATION_FACTOR = 0.5;
+	const double NORMALIZATION_FACTOR = 0.5;
 
 	// set the maximal sight range
-	nearestFoodVector = nearestFoodVector * sightRange * NORMALISATION_FACTOR;
+	nearestFoodVector = nearestFoodVector * sightRange * NORMALIZATION_FACTOR;
 	Herbivore* pray = nullptr;
 
 	for(auto tastyOrganism : herbivores_)
@@ -84,10 +84,10 @@ Carnivore* Simulation::getNearestPredator(Herbivore* herbi, double sightRange) c
 		return nullptr;
 
 	Vector predatorVector, nearestPredatorVector(1, 0);
-	const double NORMALISATION_FACTOR = 0.5;
+	const double NORMALIZATION_FACTOR = 0.5;
 
 	// set the maximal sight range
-	nearestPredatorVector = nearestPredatorVector * sightRange * NORMALISATION_FACTOR;
+	nearestPredatorVector = nearestPredatorVector * sightRange * NORMALIZATION_FACTOR;
 	Carnivore* predator = nullptr;
 
 	for(auto scaryHunter : carnivores_)
