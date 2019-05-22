@@ -31,7 +31,17 @@ public:
 	 */
 	Genotype(const Genotype& inheritedGenes);
 
+	/**
+	 * Function that creates a new Genotype object by mixing this object with provided genotype.
+	 * @param other - Genotype object to be mixed with.
+	 * @return resultant genotype.
+	 */
 	Genotype crossOver(const Genotype& other) const;	// TODO
+	
+	/**
+	 * Introduces random changes in traits' values, mimicking mutation.
+	 * @return reference to mutated genotype
+	 */
 	Genotype& mutate();									// TODO
 
 	/**
@@ -45,6 +55,12 @@ public:
 	 * @return individual tiredness value (avg: 0.5)
 	 */
 	double getTirednessFactor() const;
+
+	float getAlertness() const;				///< Getter for alertness trait
+	float getSightRange() const;			///< Getter for sight range trait
+	float getStamina() const;				///< Getter for stamina trait
+	float getSpeed() const;					///< Getter for speed trait
+	float getLifespan() const;				///< Getter for lifespan trait
 
 private:
 

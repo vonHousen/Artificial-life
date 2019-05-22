@@ -14,7 +14,12 @@ class HerbivoreView : public OrganismView
 {
 public:
 
-    HerbivoreView(Herbivore* const model);	// TODO make documentation
+    /**
+	 * A constructor.
+	 *
+	 * @param model - Herbivore related to this view, that will be displayed.
+	 */
+    HerbivoreView(Herbivore* const model, SimulationView* const owner);
 
 private:
 

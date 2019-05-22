@@ -42,7 +42,7 @@ public:
 	void setHealth(float health);											///< Setter for private trait.
 	void setSimulation(Simulation* const simulation);						///< Setter for private trait.
 
-	void update();								//flow of the information upside down
+	void update();							///< updates organism's fields such as position; called by Simulation
 	
 	/**
 	 * Decides if an Organism is alive (or dead).
@@ -56,11 +56,23 @@ public:
 	 */
 	const Vector& getPosition() const;
 
+	float getHealth() const;				///< Getter for organism's trait
+	unsigned int getTimeAlive() const;		///< Returns value indicating for how long the organism is alive
+	float getAlertness() const;				///< Getter for organism's trait
+	float getSightRange() const;			///< Getter for organism's trait
+	float getStamina() const;				///< Getter for organism's trait
+	float getSpeed() const;					///< Getter for organism's trait
+	float getLifespan() const;				///< Getter for organism's trait
+	float getHunger() const;				///< Getter for organism's trait
+	float getTiredness() const;				///< Getter for organism's trait
+	float getLoneliness() const;			///< Getter for organism's trait
+
 	/**
 	 * Static getter for a radius.
 	 * @return Radius of a model representing an Organism.
 	 */
 	static double getRadius();
+
 
 	/**
 	 * Getter for a suggested Action equal to LeadingDesire.

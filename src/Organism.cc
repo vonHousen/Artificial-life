@@ -49,6 +49,56 @@ const Vector& Organism::getPosition() const
 	return position_;
 }
 
+float Organism::getHealth() const
+{
+	return health_;
+}
+
+unsigned int Organism::getTimeAlive() const
+{
+	return timeAlive_;
+}
+
+float Organism::getAlertness() const
+{
+	return genes_->getAlertness();
+}
+
+float Organism::getSightRange() const
+{
+	return genes_->getSightRange();
+}
+
+float Organism::getStamina() const
+{
+	return genes_->getStamina();
+}
+
+float Organism::getSpeed() const
+{
+	return genes_->getSpeed();
+}
+
+float Organism::getLifespan() const
+{
+	return genes_->getLifespan();
+}
+
+float Organism::getHunger() const
+{
+	return needs_->getHunger();
+}
+
+float Organism::getTiredness() const
+{
+	return needs_->getTiredness();
+}
+
+float Organism::getLoneliness() const
+{
+	return needs_->getLoneliness();
+}
+
 void Organism::setAcceleration(const Vector& acceleration)
 {
 	acceleration_ = acceleration;

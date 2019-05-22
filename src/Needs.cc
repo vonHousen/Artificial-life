@@ -57,6 +57,21 @@ void Needs::increaseTirednessBy(float value)
 		tiredness_ = 10.0;
 }
 
+float Needs::getHunger() const
+{
+	return hunger_;
+}
+
+float Needs::getTiredness() const
+{
+	return tiredness_;
+}
+
+float Needs::getLoneliness() const
+{
+	return loneliness_;
+}
+
 void Needs::update()
 {
 	LeadingDesire updatedDesire;

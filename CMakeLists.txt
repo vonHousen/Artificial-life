@@ -8,6 +8,7 @@ set(PROJECT_CODE
         src/Vector.cc                   include/ALife/Vector.h
         src/Window.cc                   include/ALife/Window.h
         src/Map.cc                      include/ALife/Map.h
+        src/MapTile.cc                  include/ALife/MapTile.h
         src/Simulation.cc               include/ALife/Simulation.h
         src/Genotype.cc                 include/ALife/Genotype.h
         src/Organism.cc                 include/ALife/Organism.h

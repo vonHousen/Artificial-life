@@ -44,7 +44,7 @@ void SimulationView::update()
 
 void SimulationView::notifyWhenOrganismAdded(Carnivore* const organismToAdd)
 {
-    auto newOrganismView = new CarnivoreView(organismToAdd);
+    auto newOrganismView = new CarnivoreView(organismToAdd, this);
     qGraphicsScene_->addItem(newOrganismView);
     carnivoreViews_.emplace(std::make_pair(organismToAdd, newOrganismView));
     window_->updateOrganismCount();
@@ -52,7 +52,7 @@ void SimulationView::notifyWhenOrganismAdded(Carnivore* const organismToAdd)
 
 void SimulationView::notifyWhenOrganismAdded(Herbivore* const organismToAdd)
 {
-    auto newOrganismView = new HerbivoreView(organismToAdd);
+    auto newOrganismView = new HerbivoreView(organismToAdd, this);
     qGraphicsScene_->addItem(newOrganismView);
     herbivoreViews_.emplace(std::make_pair(organismToAdd, newOrganismView));
     window_->updateOrganismCount();
@@ -74,4 +74,14 @@ void SimulationView::notifyWhenOrganismRemoved(Herbivore* const organismToRemove
     herbivoreViews_.erase(organismToRemove);
     window_->updateOrganismCount();
     delete organismView;
+}
+
+void SimulationView::notifyWhenOrganismClicked(Organism* const organism, OrganismView* view) const
+{
+    window_->showOrganismInfo(organism, view);
+}
+
+void SimulationView::notifyWhenSelectedViewDeleted(OrganismView* const view) const
+{
+    window_->unselectDeletedView(view);
 }
