@@ -46,6 +46,12 @@ public:
 	 */
 	double getTirednessFactor() const;
 
+	float getAlertness() const;				///< Getter for alertness trait
+	float getSightRange() const;			///< Getter for sight range trait
+	float getStamina() const;				///< Getter for stamina trait
+	float getSpeed() const;					///< Getter for speed trait
+	float getLifespan() const;				///< Getter for lifespan trait
+
 private:
 
 	float alertness_;							///< Trait representing alertness, value in range [0.0; 10.0]

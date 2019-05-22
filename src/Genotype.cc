@@ -32,3 +32,29 @@ double Genotype::getTirednessFactor() const
 	return stamina_ * 0.1;
 }
 
+float Genotype::getAlertness() const
+{
+	return alertness_;
+}
+
+float Genotype::getSightRange() const
+{
+	return sightRange_;
+}
+
+float Genotype::getStamina() const
+{
+	return stamina_;
+}
+
+float Genotype::getSpeed() const
+{
+	return speed_;
+}
+
+float Genotype::getLifespan() const
+{
+	return	lifespan_;
+}
+
+

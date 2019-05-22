@@ -33,6 +33,10 @@ public:
 	void decreaseTirednessBy(float value);			///< Organism is less tired after sleeping.
 	void increaseTirednessBy(float value);			///< Organism is tired after reproduction.
 
+	float getHunger() const;						///< Getter for value representing how hungry the organism is
+	float getTiredness() const;						///< Getter for value representing how tired the organism is
+	float getLoneliness() const;					///< Getter for value representing how lonely the organism is
+
 	/**
 	 * Getter for LeadingDesire
 	 * @return LeadingDesire

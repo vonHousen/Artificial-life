@@ -3,7 +3,6 @@
  */
 
 #include <iostream>
-#include <sstream>
 
 #include <include/ALife/Window.h>
 #include <include/ALife/Simulation.h>
@@ -64,23 +63,48 @@ Window::Window(std::shared_ptr<Simulation> simulation, int size, QWidget* parent
     button->setText("Reset simulation");
     connect(button, SIGNAL(released()), this, SLOT(handleButtonEvent()));
 
-    qOrganismPosition_ = new QLabel(this);
-    qOrganismPosition_->setVisible(false);
+    qOrganismHealth_ = new QLabel(this);
+    qOrganismTimeAlive_ = new QLabel(this);
+    qOrganismAlertness_ = new QLabel(this);
+    qOrganismSightRange_ = new QLabel(this);
+    qOrganismStamina_ = new QLabel(this);
+    qOrganismSpeed_ = new QLabel(this);
+    qOrganismLifespan_ = new QLabel(this);
+    qOrganismHunger_ = new QLabel(this);
+    qOrganismTiredness_ = new QLabel(this);
+    qOrganismLoneliness_ = new QLabel(this);
+
+    setOrganismTraitsLablesVisability(false);
 
     QVBoxLayout* vlayout = new QVBoxLayout();
     vlayout->setSpacing(10);
     vlayout->setMargin(10);
     vlayout->setAlignment(Qt::AlignTop);
+
+    //Labels indicating population of organisms in simulation
     vlayout->addWidget(qLabelCarnivores_);
     vlayout->addWidget(qLabelHerbivores_);
     vlayout->addSpacing(20);
+
+    //Controls related to simulation reset feature
     vlayout->addWidget(qLabelSetCarnivoresPopulation_);
     vlayout->addWidget(qSliderCarnivores_);
     vlayout->addWidget(qLabelSetHerbivoresPopulation_);
     vlayout->addWidget(qSliderHerbivores_);
     vlayout->addWidget(button);
     vlayout->addSpacing(20);
-    vlayout->addWidget(qOrganismPosition_);
+
+    //Labels indicating selected organism's traits
+    vlayout->addWidget(qOrganismHealth_);
+    vlayout->addWidget(qOrganismTimeAlive_);
+    vlayout->addWidget(qOrganismAlertness_);
+    vlayout->addWidget(qOrganismSightRange_);
+    vlayout->addWidget(qOrganismStamina_);
+    vlayout->addWidget(qOrganismSpeed_);
+    vlayout->addWidget(qOrganismLifespan_);
+    vlayout->addWidget(qOrganismHunger_);
+    vlayout->addWidget(qOrganismTiredness_);
+    vlayout->addWidget(qOrganismLoneliness_);
 
     QHBoxLayout* hlayout = new QHBoxLayout(this);
     hlayout->setMargin(0);
@@ -99,20 +123,20 @@ void Window::showOrganismInfo(Organism* const organism, OrganismView* const orga
 {
     if(selectedOrganismView_ and selectedOrganismView_ != organismView) 
         selectedOrganismView_->unselect();
-
-    std::stringstream ss;
-    ss << organism->getPosition();
-    qOrganismPosition_->setText(QString("Position: ") + QString(ss.str().c_str()));
-    qOrganismPosition_->setVisible(true);
+    
     selectedOrganism_ = organism;
     selectedOrganismView_ = organismView;
+    
+    setOrganismTraitsLablesText();
+    setOrganismTraitsLablesVisability(true);
 }
 
 void Window::unselectDeletedView(OrganismView* const organismView)
 {
-    qOrganismPosition_->setVisible(false);
     selectedOrganism_ = nullptr;
     selectedOrganismView_ = nullptr;
+
+    setOrganismTraitsLablesVisability(false);
 }
 
 void Window::updateOrganismCount()
@@ -131,16 +155,48 @@ void Window::mousePressEvent(QMouseEvent* event)
     QPoint positionInViewSpace = qGraphicsView_->mapFromParent(event->pos());
     if(qGraphicsView_->rect().contains(positionInViewSpace))
     {
-        qOrganismPosition_->setVisible(false);
         selectedOrganismView_->unselect();
         selectedOrganism_ = nullptr;
         selectedOrganismView_ = nullptr;
+
+        setOrganismTraitsLablesVisability(false);
     }
+}
+
+void Window::setOrganismTraitsLablesText() const
+{
+    if(not selectedOrganism_) return;
+
+    qOrganismHealth_->setText(QString("Health: ") + QString::number(selectedOrganism_->getHealth()));
+    qOrganismTimeAlive_->setText(QString("Time alive: ") + QString::number(selectedOrganism_->getTimeAlive()));
+    qOrganismAlertness_->setText(QString("Alertness: ") + QString::number(selectedOrganism_->getAlertness()));
+    qOrganismSightRange_->setText(QString("Sight range: ") + QString::number(selectedOrganism_->getSightRange()));
+    qOrganismStamina_->setText(QString("Stamina: ") + QString::number(selectedOrganism_->getStamina()));
+    qOrganismSpeed_->setText(QString("Speed: ") + QString::number(selectedOrganism_->getSpeed()));
+    qOrganismLifespan_->setText(QString("Lifespan: " + QString::number(selectedOrganism_->getLifespan())));
+    qOrganismHunger_->setText(QString("Hunger: " + QString::number(selectedOrganism_->getHunger())));
+    qOrganismTiredness_->setText(QString("Tiredness: " + QString::number(selectedOrganism_->getTiredness())));
+    qOrganismLoneliness_->setText(QString("Loneliness: " + QString::number(selectedOrganism_->getLoneliness())));
+}
+
+void Window::setOrganismTraitsLablesVisability(bool value) const
+{
+    qOrganismHealth_->setVisible(value);
+    qOrganismTimeAlive_->setVisible(value);
+    qOrganismAlertness_->setVisible(value);
+    qOrganismSightRange_->setVisible(value);
+    qOrganismStamina_->setVisible(value);
+    qOrganismSpeed_->setVisible(value);
+    qOrganismLifespan_->setVisible(value);
+    qOrganismHunger_->setVisible(value);
+    qOrganismTiredness_->setVisible(value);
+    qOrganismLoneliness_->setVisible(value);
 }
 
 void Window::update()
 {
     simulation_->update();
+    setOrganismTraitsLablesText();
 }
 
 void Window::updateCarnivorePopulationLabel(int value)
