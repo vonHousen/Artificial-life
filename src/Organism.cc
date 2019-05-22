@@ -109,3 +109,31 @@ LeadingDesire Organism::getSuggestedAction() const
 {
 	return suggestedAction_;
 }
+
+void Organism::move()
+{
+	// Move
+	// deltaS = v*dt + 1/2*a*dt^2
+	// deltaV = a*dt
+	// where dt = 1
+	position_ += velocity_ + acceleration_*0.5;
+	velocity_ += acceleration_;
+}
+
+void Organism::newIteration()
+{
+	++timeAlive_;
+	needs_->update();
+
+	velocity_ = Vector();
+	acceleration_ = Vector();
+}
+
+void Organism::checkAge()
+{
+	constexpr unsigned long int NORMALISATION_FACTOR = 2000;
+	const unsigned long int PREDICTED_LIFESPAN = genes_->getLifespan() * NORMALISATION_FACTOR;
+
+	if(timeAlive_ >= PREDICTED_LIFESPAN)
+		this->setHealth(0.0);
+}

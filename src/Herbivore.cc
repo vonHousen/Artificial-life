@@ -59,11 +59,7 @@ void Herbivore::runAwayFrom(Carnivore* danger)
 
 void Herbivore::update()
 {
-	++timeAlive_;
-	needs_->update();
-
-	velocity_ = Vector();
-	acceleration_ = Vector();
+	this->newIteration();
 
 	// determine the greatest danger
 	Carnivore* danger = simulation_->getNearestPredator(this, this->getSightRange());
@@ -79,10 +75,6 @@ void Herbivore::update()
 			currentAction_->act();
 	}
 
-	// Move
-	// deltaS = v*dt + 1/2*a*dt^2
-	// deltaV = a*dt
-	// where dt = 1
-	position_ += velocity_ + acceleration_*0.5;
-	velocity_ += acceleration_;
+	this->move();
+	this->checkAge();
 }

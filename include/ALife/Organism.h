@@ -103,6 +103,10 @@ protected:
 	Simulation*	simulation_;					///< Simulation that Organism takes part in.
 	LeadingDesire suggestedAction_;				///< LeadingDesire interpreted as suggested Action.
 
+	void move();								///< Organism moves.
+	void newIteration();						///< Sequence of actions at the begging of new iteration.
+	void checkAge();									///< Organism ages.
+
 };
 
 
