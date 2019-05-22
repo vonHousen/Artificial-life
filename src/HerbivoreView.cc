@@ -8,5 +8,5 @@
 HerbivoreView::HerbivoreView(Herbivore* const model, SimulationView* const owner): 
     OrganismView(model, owner)
 {
-    setBrush(QBrush(Qt::green));
+    setBrush(QBrush(Qt::blue));
 }

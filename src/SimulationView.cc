@@ -2,10 +2,12 @@
  * Class responsible for visual representation of the simulation
  */
 
-#include <include/ALife/SimulationView.h>
 #include <include/ALife/Simulation.h>
+#include <include/ALife/SimulationView.h>
 #include <include/ALife/CarnivoreView.h>
 #include <include/ALife/HerbivoreView.h>
+#include <include/ALife/MapTileView.h>
+#include <include/ALife/MapTile.h>
 #include <include/ALife/Window.h>
 
 SimulationView::SimulationView(Window* const window, QGraphicsScene* const qGraphicsScene, Simulation* const model):
@@ -27,6 +29,11 @@ SimulationView::~SimulationView()
     {
         delete herbivoreViewPair.second;
     }
+
+    for(auto mapTileViewPair : mapTileViews_)
+    {
+        delete mapTileViewPair.second;
+    }
 }
 
 void SimulationView::update()
@@ -39,6 +46,23 @@ void SimulationView::update()
     for(auto herbivoreViewPair : herbivoreViews_)
     {
         herbivoreViewPair.second->update();
+    }
+
+    for(auto mapTileViewPair : mapTileViews_)
+    {
+        mapTileViewPair.second->update();
+    }
+}
+
+void SimulationView::createViewsForMap(Map* const map)
+{
+    auto tiles = map->getTiles();
+    for(auto tile : tiles)
+    {
+        auto mapTileView = new MapTileView(tile.get());
+        tile->registerView(mapTileView);
+        qGraphicsScene_->addItem(mapTileView);
+        mapTileViews_.emplace(std::make_pair(tile.get(), mapTileView));
     }
 }
 

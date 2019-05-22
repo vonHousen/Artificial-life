@@ -10,6 +10,9 @@ class Herbivore;
 class OrganismView;
 class CarnivoreView;
 class HerbivoreView;
+class Map;
+class MapTile;
+class MapTileView;
 
 #include <QtWidgets>
 #include <unordered_map>
@@ -33,6 +36,8 @@ public:
 
     void update();                                          ///< Updated views contained in simulation to match the models' states. Called by Simulation.
     
+    void createViewsForMap(Map* const map);
+
     /**
 	 * Called to notify that Carnivore object was added to simulation. 
      * Creates view related to new organism and adds it to this view.
@@ -68,8 +73,9 @@ private:
     Window* const window_;                                              ///< Pointer to Window on which the simulation will be displayed.
     Simulation* const model_;                                           ///< Pointer to Simulation which will be displayed.
     QGraphicsScene* const qGraphicsScene_;                              ///< Pointer to QGraphicsScene, where objects to be displayed are being added.
-    std::unordered_map<Carnivore*, CarnivoreView*> carnivoreViews_;     ///< Map that stores related pairs of Carnivores and their Views, that will all be added to QGraphicsScene and displayed.
-    std::unordered_map<Herbivore*, HerbivoreView*> herbivoreViews_;     ///< Map that stores related pairs of Herbiivores and their Views, that will all be added to QGraphicsScene and displayed.
+    std::unordered_map<Carnivore*, CarnivoreView*> carnivoreViews_;     ///< Map that stores related pairs of Carnivore and its View, that will be added to QGraphicsScene and displayed.
+    std::unordered_map<Herbivore*, HerbivoreView*> herbivoreViews_;     ///< Map that stores related pairs of Herbivore and its View, that will be added to QGraphicsScene and displayed.
+    std::unordered_map<MapTile*, MapTileView*> mapTileViews_;           ///< Map that stores related pairs of MapTile and its View, that will be added to QGraphicsScene and displayed.
 };
 
 #endif //ARTIFICIAL_LIFE_SIMULATIONVIEW_H

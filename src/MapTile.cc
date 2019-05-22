@@ -3,13 +3,15 @@
  */
 
 #include <include/ALife/MapTile.h>
+#include <include/ALife/MapTileView.h>
 #include <include/ALife/Organism.h>
 
-float MapTile::size_ = 2.0f * Organism::getRadius();
+double MapTile::size_ = 2.0f * Organism::getRadius();
 
 MapTile::MapTile(TileType type, Vector position): 
     type_(type), 
-    position_(position)
+    position_(position),
+    view_(nullptr)
 {
     if(type == TileType::CAVE)
     {
@@ -17,7 +19,7 @@ MapTile::MapTile(TileType type, Vector position):
     }
     else //type == TileType::GRASS
     {
-        grassiness_ = 10.0;
+        grassiness_ = 0.0;
     }
 }
 
@@ -37,19 +39,26 @@ float MapTile::getGrassiness() const
     return grassiness_;
 }
 
-float MapTile::getSize()
+double MapTile::getSize()
 {
     return size_;
+}
+
+void MapTile::registerView(MapTileView* view)
+{
+    view_ = view;
 }
 
 void MapTile::increaseGrassiness(float value)
 {
     grassiness_ += value;
     grassiness_ = std::min(grassiness_, 10.0f);
+    if(view_) view_->update();
 }
 
 void MapTile::decreaseGrassiness(float value)
 {
     grassiness_ -= value;
     grassiness_ = std::max(grassiness_, 0.0f);
+    if(view_) view_->update();
 }

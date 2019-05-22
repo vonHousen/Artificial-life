@@ -14,6 +14,11 @@ class Map
 {
 public:
 	Map();
+
+	void update();
+
+	const std::vector<std::shared_ptr<MapTile>>& getTiles() const;
+
 private:
 	std::vector<std::shared_ptr<MapTile>> tiles_; ///< vector containing all MapTiles that the map is composed of
 };

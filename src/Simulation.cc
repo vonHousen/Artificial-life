@@ -41,6 +41,7 @@ void Simulation::addOrganism(Herbivore* const newOrganism)
 void Simulation::registerView(SimulationView* const simulationView)
 {
 	view_ = simulationView;
+	simulationView->createViewsForMap(&map_);
 }
 
 int Simulation::getCarnivoreCount() const
@@ -76,6 +77,8 @@ Herbivore* Simulation::getNearestPrey(Carnivore* hunter) const
 
 void Simulation::update()
 {
+	map_.update();
+
 	for(auto carnivoreIterator = carnivores_.begin(); carnivoreIterator != carnivores_.end();)
 	{
 		auto carnivore = *carnivoreIterator;

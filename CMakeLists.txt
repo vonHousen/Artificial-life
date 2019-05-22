@@ -22,8 +22,9 @@ set(PROJECT_CODE
         src/CarnivoreActionFactory.cc   include/ALife/CarnivoreActionFactory.h
         src/HerbivoreEating.cc          include/ALife/HerbivoreEating.h
         src/CarnivoreHunting.cc         include/ALife/CarnivoreHunting.h
-        src/OrganismView.cc             include/ALife/OrganismView.h
         src/SimulationView.cc           include/ALife/SimulationView.h
+        src/MapTileView.cc              include/ALife/MapTileView.h
+        src/OrganismView.cc             include/ALife/OrganismView.h
         src/CarnivoreView.cc            include/ALife/CarnivoreView.h
         src/HerbivoreView.cc            include/ALife/HerbivoreView.h
                                         include/ALife/LeadingDesire.h

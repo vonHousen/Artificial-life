@@ -62,9 +62,6 @@ public:
 
 private:
 
-	int carnivoreCount_;								///< count of alive Carnivores in Simulation.
-	int herbivoreCount_;								///< count of alive Herbivores in Simulation.
-
 	std::vector<Carnivore*> carnivores_;				///< data structure for aggregation of Carnivores.
 	std::vector<Herbivore*> herbivores_;				///< data structure for aggregation of Herbivores.
 
