@@ -36,14 +36,13 @@ public:
   	Organism(std::unique_ptr<Genotype> genes, const Vector& position, Simulation* const simulation);
 
 	virtual void updateAction() = 0;		///< after being notified, it uses ActionFactory to update currentAction_.
+	virtual void update() = 0;				///< flow of the information, called by Simulation
 
 	void setAcceleration(const Vector& acceleration);						///< Setter for private trait.
 	void setVelocity(const Vector& velocity);								///< Setter for private trait.
 	void setHealth(float health);											///< Setter for private trait.
 	void setSimulation(Simulation* const simulation);						///< Setter for private trait.
 
-	void update();							///< updates organism's fields such as position; called by Simulation
-	
 	/**
 	 * Decides if an Organism is alive (or dead).
 	 * @return True/False.
@@ -91,7 +90,7 @@ public:
 protected:
 
 	float 	health_;							///< basic, actual trait of the Organism, value in range of [0.0, 10.0].
-	unsigned int 	timeAlive_;					///< basic, actual trait of the Organism, value of [0.0, inf].
+	unsigned long int 	timeAlive_;					///< basic, actual trait of the Organism, value of [0.0, inf].
 	Vector 	position_;							///< basic, actual state of the Organism represented by Vector.
 	Vector 	velocity_;							///< basic, actual state of the Organism represented by Vector.
 	Vector 	acceleration_;						///< basic, actual state of the Organism represented by Vector.

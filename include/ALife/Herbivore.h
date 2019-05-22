@@ -20,6 +20,7 @@ public:
 	Herbivore(Organism&&) = delete;			///< Deleted moving constructor.
 	virtual ~Herbivore() = default;			///< Default virtual destructor
 
+	virtual void update();					///< flow of the information, called by Simulation
 
 	/**
 	 * A constructor.
@@ -33,9 +34,9 @@ public:
 
 	/**
 	 * Herbivore eats grass of a position pointed by Vector.
-	 * @param position - position of eaten Organism.
+	 * @param position - position of eaten grass.
 	 */
-	virtual void eatIt(const Vector&);
+	virtual void eatIt(const Vector& position);
 
 	/**
 	 * Getter for individual for every Organism speed value, but tiredness is also taken into account.
@@ -43,6 +44,14 @@ public:
 	 * @return individual speed value.
 	 */
 	virtual double getIndividualSpeedValueAfter(unsigned int time) const;
+
+private:
+
+	/**
+	 * Get away from the greatest danger.
+	 * @param danger - pointer for the nearest Carnivore.
+	 */
+	void runAwayFrom(Carnivore* danger);
 
 };
 

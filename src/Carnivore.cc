@@ -18,8 +18,6 @@ void Carnivore::updateAction()
 {
 	suggestedAction_ = needs_->getLeadingDesire();
 
-	// TODO check first if there are no other factors that may change suggestedAction
-
 	switch(suggestedAction_)
 	{
 		case LeadingDesire::EATING:
@@ -54,7 +52,7 @@ double Carnivore::getIndividualSpeedValueAfter(unsigned int time) const
 	const double basicSpeed = genes_-> getBasicSpeed();
 
 	const int intendedRunDuration = 1000 * tirednessFactor;
-	const double pseudoNormalisationFactor = 0.000001;
+	const double pseudoNormalisationFactor = 0.000002;
 	const double speedDeviation =
 			static_cast<double>(intendedRunDuration - static_cast<int>(time)) * pseudoNormalisationFactor;
 
@@ -64,3 +62,24 @@ double Carnivore::getIndividualSpeedValueAfter(unsigned int time) const
 	else
 		return speedDeviation + basicSpeed;
 }
+
+void Carnivore::update()
+{
+	++timeAlive_;
+
+	needs_->update();
+
+	velocity_ = Vector();
+	acceleration_ = Vector();
+
+	if(currentAction_)
+		currentAction_->act();
+
+	// Move
+	// deltaS = v*dt + 1/2*a*dt^2
+	// deltaV = a*dt
+	// where dt = 1
+	position_ += velocity_ + acceleration_*0.5;
+	velocity_ += acceleration_;
+}
+

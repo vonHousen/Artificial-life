@@ -53,12 +53,16 @@ int Simulation::getHerbivoreCount() const
 	return herbivores_.size();
 }
 
-Herbivore* Simulation::getNearestPrey(Carnivore* hunter) const
+Herbivore* Simulation::getNearestPrey(Carnivore* hunter, double sightRange) const
 {
 	if(herbivores_.empty())
 		return nullptr;
 
-	Vector foodVector, nearestFoodVector(1, 1);
+	Vector foodVector, nearestFoodVector(1, 0);
+	const double NORMALISATION_FACTOR = 0.5;
+
+	// set the maximal sight range
+	nearestFoodVector = nearestFoodVector * sightRange * NORMALISATION_FACTOR;
 	Herbivore* pray = nullptr;
 
 	for(auto tastyOrganism : herbivores_)
@@ -72,6 +76,32 @@ Herbivore* Simulation::getNearestPrey(Carnivore* hunter) const
 	}
 	
 	return pray;
+}
+
+Carnivore* Simulation::getNearestPredator(Herbivore* herbi, double sightRange) const
+{
+	if(carnivores_.empty())
+		return nullptr;
+
+	Vector predatorVector, nearestPredatorVector(1, 0);
+	const double NORMALISATION_FACTOR = 0.5;
+
+	// set the maximal sight range
+	nearestPredatorVector = nearestPredatorVector * sightRange * NORMALISATION_FACTOR;
+	Carnivore* predator = nullptr;
+
+	for(auto scaryHunter : carnivores_)
+	{
+		predatorVector = Vector::getShortestVectorBetweenPositions(herbi->getPosition(), scaryHunter->getPosition());
+		if(predatorVector.getLength() <= nearestPredatorVector.getLength()
+			and scaryHunter->getSuggestedAction() == LeadingDesire::EATING)
+		{
+			nearestPredatorVector = predatorVector;
+			predator = scaryHunter;
+		}
+	}
+
+	return predator;
 }
 
 void Simulation::update()

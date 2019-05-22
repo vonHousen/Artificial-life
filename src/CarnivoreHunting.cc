@@ -18,7 +18,7 @@ void CarnivoreHunting::act()
 	timeDuration_++;
 
 	//Organism is hungry, it needs to find the nearest food
-	Herbivore* pray = simulation_->getNearestPrey(concreteOwner_);
+	Herbivore* pray = simulation_->getNearestPrey(concreteOwner_, owner_->getSightRange());
 
 	//if pray points to nowhere (there are no herbivores) - do nothing
 	if(pray == nullptr)

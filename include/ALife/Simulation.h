@@ -39,19 +39,22 @@ public:
 	int getCarnivoreCount() const;						///< Getter for count of alive Carnivores in Simulation.
 	int getHerbivoreCount() const;						///< Getter for count of alive Herbivores in Simulation.
 
-	/**
-	 * Getter for location of nearest food edible for Herbivore.
-	 * @param hungryHerbivore - Organism for which nearest location is calculated
-	 * @return Vector pointing to location of nearest food / Vector of length zero if not found.
-	 */
-	Vector getNearestFoodLocation(Herbivore* hungryHerbivore) const;
 
 	/**
 	 * Getter for pointer to nearest Herbivore edible for Carnivore.
 	 * @param hungryCarnivore - Organism for which nearest location is calculated
+	 * @param sightRange - Genotype value for sightRange, value in range [0.0; 10.0]
 	 * @return Pointing nearest pray / null pointer if not found.
 	 */
-	Herbivore* getNearestPrey(Carnivore* hungryCarnivore) const;
+	Herbivore* getNearestPrey(Carnivore* hungryCarnivore, double sightRange) const;
+
+	/**
+	 * Getter for nearest Carnivore.
+	 * @param herbi - Organism for which the nearest location is calculated.
+	 * @param sightRange - Genotype value for sightRange, value in range [0.0; 10.0]
+	 * @return nearest Carnivore pointer / nullptr if not found.
+	 */
+	Carnivore* getNearestPredator(Herbivore* herbi, double sightRange) const;
 
 	/**
 	 * Getter for Organism at given location.
@@ -59,6 +62,7 @@ public:
 	 * @return Organism at location / nullptr if not found.
 	 */
 	Organism* getOrganismAt(const Vector&);
+
 
 private:
 
