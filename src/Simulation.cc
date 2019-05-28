@@ -6,6 +6,7 @@
 #include <include/ALife/SimulationView.h>
 #include <include/ALife/Carnivore.h>
 #include <include/ALife/Herbivore.h>
+#include <include/ALife/RandomGenerator.h>
 
 #include <algorithm>
 #include <random>
@@ -163,8 +164,8 @@ void Simulation::initializeSimulation(int carnivoreCount, int herbivoreCount)
 	//Create pool of numbers (cell indexes from 0 to NUM_CELLS - 1) and shuffle them
 	std::vector<int> pool(NUM_CELLS);
 	std::iota(pool.begin(), pool.end(), 0);
-	auto rng = std::default_random_engine(
-		std::chrono::high_resolution_clock::now().time_since_epoch().count());
+	
+	auto& rng = RandomGenerator::getInstance()->getGenerator();
 	std::shuffle(pool.begin(), pool.end(), rng);
 
 	for(int i = 0; i < carnivoreCount; ++i)
