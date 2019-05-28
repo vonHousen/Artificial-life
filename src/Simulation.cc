@@ -9,8 +9,6 @@
 #include <include/ALife/RandomGenerator.h>
 
 #include <algorithm>
-#include <random>
-#include <chrono>
 
 Simulation::Simulation():
 	view_(nullptr)

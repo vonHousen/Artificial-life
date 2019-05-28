@@ -54,6 +54,8 @@ public:
 
 private:
 
+	float getRandomTraitValue() const;
+
 	float alertness_;							///< Trait representing alertness, value in range [0.0; 10.0]
 	float sightRange_;							///< Trait representing range of sight, value in range [0.0; 10.0]
 	float stamina_;								///< Trait representing stamina, value in range [0.0; 10.0]

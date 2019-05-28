@@ -3,16 +3,18 @@
  */
 
 #include <include/ALife/Genotype.h>
+#include <include/ALife/RandomGenerator.h>
 
 double Genotype::basicSpeedValue_ = 0.0002;
 
-Genotype::Genotype() :
-	alertness_(5.0),
-	sightRange_(5.0),
-	stamina_(5.0),
-	speed_(5.0),
-	lifespan_(5.0)
-{}
+Genotype::Genotype()
+{
+	alertness_ = getRandomTraitValue();
+	sightRange_ = getRandomTraitValue();
+	stamina_ = getRandomTraitValue();
+	speed_ = getRandomTraitValue();
+	lifespan_ = getRandomTraitValue();
+}
 
 Genotype::Genotype(const Genotype& inheritedGenes) :
 	alertness_(inheritedGenes.alertness_),
@@ -57,4 +59,13 @@ float Genotype::getLifespan() const
 	return	lifespan_;
 }
 
+float Genotype::getRandomTraitValue() const
+{
+	const float MEAN = 5.0;
+	const float STD_DEVIATION = 1.0;
 
+	float value = STD_DEVIATION * RandomGenerator::getInstance()->getSampleNormal() + MEAN;
+
+	//keep the value in [0, 10] range
+	return std::min(10.0f, std::max(0.0f, value));
+}
