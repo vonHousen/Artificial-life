@@ -10,22 +10,38 @@
 
 CarnivoreHunting::CarnivoreHunting(Carnivore* const owner, Simulation* const simulation) :
 	CarnivoreAction(owner, simulation),
-	timeDuration_(0)
+	timeDuration_(0),
+	smelledPray_(nullptr)
 {}
 
 void CarnivoreHunting::act()
 {
+	Vector foodVector;
 	timeDuration_++;
 
 	//Organism is hungry, it needs to find the nearest food
 	Herbivore* pray = simulation_->getNearestPrey(concreteOwner_, owner_->getSightRange());
 
-	//if pray points to nowhere (there are no herbivores) - do nothing
-	if(pray == nullptr)
-		return;
+	if(pray)
+	{
+		//organism now uses sight instead of smell
+		smelledPray_ = nullptr;
 
-	//calculate vector to food
-	auto foodVector = owner_->getPosition() - pray->getPosition();
+		//calculate vector to seen food
+		foodVector = owner_->getPosition() - pray->getPosition();
+
+	} else	//if there are no seen herbivores - try going for smell
+	{
+		if(smelledPray_)
+		{
+			//calculate vector to smelled food
+			foodVector = owner_->getPosition() - smelledPray_->getPosition();
+
+		} else
+			smelledPray_ = this->smellPray();
+
+	}
+
 
 	//if food is near enough - eat it!
 	if(foodVector.getLength() <= 2*Carnivore::getRadius())
@@ -56,4 +72,19 @@ void CarnivoreHunting::goForIt(const Vector &foodVector, Herbivore *pray)
 	} else
 		owner_->setVelocity(intendedVelocity);
 
+}
+
+Herbivore *CarnivoreHunting::smellPray()
+{
+	if(timeDuration_%50 != 0)													// TODO adjust frequency
+		return nullptr;
+
+	const double PRECISION_OF_SMELL = owner_->getAlertness() * 0.1;				// TODO adjust precision
+	const Vector SMELLED_POSITION = Vector();									// TODO randomise location
+	Herbivore* smelledOrganism = simulation_->getOrganismAt(SMELLED_POSITION, PRECISION_OF_SMELL);
+
+	if(smelledOrganism)
+		return smelledOrganism;
+
+	return nullptr;
 }

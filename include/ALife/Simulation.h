@@ -57,11 +57,12 @@ public:
 	Carnivore* getNearestPredator(Herbivore* herbi, double sightRange) const;
 
 	/**
-	 * Getter for Organism at given location.
+	 * Getter for Herbivore at given location.
 	 * @param location - Vector pointing to location of an Organism.
+	 * @param precision - radius defining precision for lookup. It has a default value.
 	 * @return Organism at location / nullptr if not found.
 	 */
-	Organism* getOrganismAt(const Vector&);
+	Herbivore* getOrganismAt(const Vector& location, double precision = 0.0001);
 
 
 private:
