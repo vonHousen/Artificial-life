@@ -9,14 +9,38 @@
 Map::Map()
 {
     const int TILES_ACROSS_DIMENTION = 2.0 / MapTile::getSize() + 0.5;
+
+    const int CAVE_COUNT = 3;
+    caveLocations_.reserve(CAVE_COUNT);
+    caveLocations_.push_back(Vector(0.4, 0.7));
+    caveLocations_.push_back(Vector(-0.6, -0.34));
+    caveLocations_.push_back(Vector(0.65, -0.76));
+
+    const double CAVE_RADIUS = 0.13;
+
     for(int ny = 0; ny < TILES_ACROSS_DIMENTION; ++ny)
     {
         for(int nx = 0; nx < TILES_ACROSS_DIMENTION; ++nx)
         {
-            double posX = -1.0 + nx * MapTile::getSize();
-            double posY = -1.0 + ny * MapTile::getSize();
+            //0.5 is added to nx and ny so as to place the middle of the tile in chosen position
+            double posX = -1.0 + (nx + 0.5) * MapTile::getSize();
+            double posY = -1.0 + (ny + 0.5) * MapTile::getSize();
 
-            tiles_.emplace_back(std::make_shared<MapTile>(TileType::GRASS, Vector(posX, posY)));
+            Vector tilePosition = Vector(posX, posY);
+
+            //Check if tile is inside a cave
+            TileType type = TileType::GRASS;
+            for(auto it = caveLocations_.begin(); it < caveLocations_.end(); ++it)
+            {
+                double distance = (tilePosition - *it).getLength();
+                if(distance < CAVE_RADIUS)
+                {
+                    type = TileType::CAVE;
+                    break;
+                }
+            }
+
+            tiles_.emplace_back(std::make_shared<MapTile>(type, tilePosition));
         }
     }
 }

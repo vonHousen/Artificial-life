@@ -51,6 +51,8 @@ void MapTile::registerView(MapTileView* view)
 
 void MapTile::increaseGrassiness(float value)
 {
+    if(type_ != TileType::GRASS) return;
+    
     grassiness_ += value;
     grassiness_ = std::min(grassiness_, 10.0f);
     if(view_) view_->update();
@@ -58,6 +60,8 @@ void MapTile::increaseGrassiness(float value)
 
 void MapTile::decreaseGrassiness(float value)
 {
+    if(type_ != TileType::GRASS) return;
+
     grassiness_ -= value;
     grassiness_ = std::max(grassiness_, 0.0f);
     if(view_) view_->update();

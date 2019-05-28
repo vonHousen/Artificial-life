@@ -7,7 +7,7 @@ MapTileView::MapTileView(MapTile* const model):
     float size = model->getSize();
     Vector position = model->getPosition();
 
-    setRect(0, 0, size, size);
+    setRect(-0.5 * size, -0.5 * size, size, size);
     setPos(position.getX(), position.getY());
     setPen(Qt::NoPen);
 

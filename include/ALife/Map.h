@@ -5,6 +5,7 @@
 #include <memory>
 
 class MapTile;
+class Vector;
 
 /**
  * Map consisting of MapTiles, that covers simulation's area.
@@ -13,7 +14,7 @@ class MapTile;
 class Map
 {
 public:
-	Map();
+	Map();	//TODO: document
 
 	void update();
 
@@ -21,6 +22,7 @@ public:
 
 private:
 	std::vector<std::shared_ptr<MapTile>> tiles_; ///< vector containing all MapTiles that the map is composed of
+	std::vector<Vector> caveLocations_;
 };
 
 
