@@ -26,13 +26,13 @@ public:
 	 * @param other - Genotype object to be mixed with.
 	 * @return resultant genotype.
 	 */
-	Genotype crossOver(const Genotype& other) const;	// TODO
+	Genotype crossOver(const Genotype& other) const;
 	
 	/**
 	 * Introduces random changes in traits' values, mimicking mutation.
 	 * @return reference to mutated genotype
 	 */
-	Genotype& mutate();									// TODO
+	Genotype& mutate();
 
 	/**
 	 * Getter for individual for every Organism, basic value of calculated speed based on Genotype.
@@ -54,7 +54,10 @@ public:
 
 private:
 
+	Genotype(float alertness, float sightRange, float stamina, float speed, float lifespan);	///< Private constructor that copies trait values, used in crossing-over
+
 	float getRandomTraitValue() const;
+	void perturbTraitValue(float& trait);
 
 	float alertness_;							///< Trait representing alertness, value in range [0.0; 10.0]
 	float sightRange_;							///< Trait representing range of sight, value in range [0.0; 10.0]
