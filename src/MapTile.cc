@@ -49,6 +49,12 @@ void MapTile::registerView(MapTileView* view)
     view_ = view;
 }
 
+void MapTile::reset()
+{
+    grassiness_ = 0;
+    if(view_) view_->update();
+}
+
 void MapTile::increaseGrassiness(float value)
 {
     if(type_ != TileType::GRASS) return;

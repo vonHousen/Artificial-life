@@ -53,6 +53,14 @@ void Map::update()
     }
 }
 
+void Map::reset()
+{
+    for (auto tile : tiles_)
+    {
+        tile->reset();
+    }
+}
+
 const std::vector<std::shared_ptr<MapTile>>& Map::getTiles() const
 {
     return tiles_;

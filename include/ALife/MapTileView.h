@@ -11,6 +11,8 @@ public:
     MapTileView(MapTile* const model);
 
     void update();
+protected:
+    void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget);
 private:
     MapTile* const model_;
 };

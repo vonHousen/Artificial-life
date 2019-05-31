@@ -24,6 +24,8 @@ public:
 
 	void registerView(MapTileView* view);
 
+	void reset();
+
 	void increaseGrassiness(float value);
 	void decreaseGrassiness(float value);
 

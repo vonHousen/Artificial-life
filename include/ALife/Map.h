@@ -17,6 +17,7 @@ public:
 	Map();	//TODO: document
 
 	void update();
+	void reset();
 
 	const std::vector<std::shared_ptr<MapTile>>& getTiles() const;
 

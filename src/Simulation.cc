@@ -150,6 +150,8 @@ void Simulation::reset(int carnivoreCount, int herbivoreCount)
 	herbivores_.clear();
 
 	initializeSimulation(carnivoreCount, herbivoreCount);
+
+	map_.reset();
 }
 
 void Simulation::initializeSimulation(int carnivoreCount, int herbivoreCount)
