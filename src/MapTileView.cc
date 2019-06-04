@@ -11,7 +11,6 @@ MapTileView::MapTileView(MapTile* const model):
     setPos(position.getX(), position.getY());
     setPen(Qt::NoPen);
 
-
     update();   
 }
 

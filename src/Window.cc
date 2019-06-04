@@ -17,7 +17,6 @@ Window::Window(std::shared_ptr<Simulation> simulation, int size, QWidget* parent
     simulation_(std::move(simulation))
 {
     setWindowTitle(tr("Artificial Life"));
-    move(QApplication::desktop()->screen()->rect().center() - rect().center());
 
     qGraphicsScene_ = new QGraphicsScene(this);
     qGraphicsScene_->setSceneRect(-1, -1, 2, 2);
@@ -42,10 +41,7 @@ Window::Window(std::shared_ptr<Simulation> simulation, int size, QWidget* parent
     qLabelHerbivores_->setText("Herbivores: ");
 
     qLabelSetCarnivoresPopulation_ = new QLabel(this);
-    qLabelSetCarnivoresPopulation_->setText("Carnivore population: 10");
-
     qLabelSetHerbivoresPopulation_ = new QLabel(this);
-    qLabelSetHerbivoresPopulation_->setText("Herbivore population: 10");
 
     qSliderCarnivores_ = new QSlider(this);
     qSliderCarnivores_->setOrientation(Qt::Horizontal);
@@ -58,6 +54,9 @@ Window::Window(std::shared_ptr<Simulation> simulation, int size, QWidget* parent
     qSliderHerbivores_->setRange(0, 100);
     qSliderHerbivores_->setValue(10);
     connect(qSliderHerbivores_, SIGNAL(valueChanged(int)), this, SLOT(updateHerbivorePopulationLabel(int)));
+
+    updateCarnivorePopulationLabel(qSliderCarnivores_->value());
+    updateHerbivorePopulationLabel(qSliderHerbivores_->value());
 
     QPushButton* button = new QPushButton(this);
     button->setText("Reset simulation");
@@ -113,6 +112,8 @@ Window::Window(std::shared_ptr<Simulation> simulation, int size, QWidget* parent
     hlayout->addLayout(vlayout);
 
     setLayout(hlayout);
+    adjustSize();
+    move(QApplication::desktop()->screen()->rect().center() - rect().center());
 
     qTimer_ = new QTimer(this);
     connect(qTimer_, SIGNAL(timeout()), this, SLOT(update()));

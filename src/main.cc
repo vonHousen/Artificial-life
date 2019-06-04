@@ -14,7 +14,7 @@ int main(int argc, char* argv[])
 
 	std::shared_ptr<Simulation> simulation = std::make_shared<Simulation>();
 
-	Window window(simulation, 560);
+	Window window(simulation, 640);
 	window.show();
 
 	simulation->initializeSimulation(10, 10);
