@@ -25,7 +25,7 @@ void Needs::decreaseHungerBy(float value)
 void Needs::increaseHungerBy(float value)
 {
 	hunger_ += value;
-	if(hunger_ < 10.0)
+	if(hunger_ > 10.0)
 		hunger_ = 10.0;
 }
 
@@ -76,14 +76,37 @@ void Needs::update()
 {
 	LeadingDesire updatedDesire;
 
-	if(hunger_ >= tiredness_ and hunger_ >= loneliness_)
-		updatedDesire = LeadingDesire::EATING;
+	// periodically increase needs' values
+	constexpr int NORMALIZATION_FACTOR = 200;
+	const int timeAlive = owner_->getTimeAlive();
+	const int interval = static_cast<int>(owner_->getStamina() * NORMALIZATION_FACTOR);
+	const bool isTimeForHigherNeeds = timeAlive % interval == 0;
+	const bool isTimeForIllness = timeAlive % (interval/2)== 0;
 
-	else if(tiredness_ >= hunger_ and tiredness_ >= loneliness_)
+	if(isTimeForHigherNeeds)
+	{
+		increaseLonelinessBy(1);
+		increaseTirednessBy(1);
+		increaseHungerBy(1);
+	}
+
+	// periodically decrease Health if needs are too neglected
+	if (isTimeForIllness and (tiredness_ + loneliness_ + hunger_) > 25)
+		owner_->decreaseHealthByValue(2.0);
+	else if(isTimeForIllness and (tiredness_ > 7.5 or loneliness_ > 7.5 or hunger_ > 7.5))
+		owner_->decreaseHealthByValue(1.0);
+
+
+	// determine the greatest need and set leadingDesire
+	if(tiredness_ >= hunger_ and tiredness_ >= loneliness_)
 		updatedDesire = LeadingDesire::SLEEPING;
 
-	else //if(loneliness_ >= hunger_ and loneliness_ >= tiredness_)
+	else if(loneliness_ >= hunger_ and loneliness_ >= tiredness_)
 		updatedDesire = LeadingDesire::REPRODUCTION;
+
+	else //if(hunger_ >= tiredness_ and hunger_ >= loneliness_)
+		updatedDesire = LeadingDesire::EATING;
+
 
 	if(updatedDesire != leadingDesire_)
 	{

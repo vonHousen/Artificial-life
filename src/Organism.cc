@@ -8,7 +8,7 @@ double Organism::radius_ = 0.015;
 
 Organism::Organism(std::unique_ptr<Genotype> genes, const Vector& position, Simulation* const simulation) :
 	health_			(10.0),
-	timeAlive_		(0),
+	timeAlive_		(1),
 	position_		(position),
 	velocity_		(Vector()),
 	acceleration_	(Vector()),
@@ -95,9 +95,12 @@ double Organism::getRadius()
 	return radius_;
 }
 
-void Organism::setHealth(float health)
+void Organism::decreaseHealthByValue(float value)
 {
-	health_ = health;
+	health_ -= value;
+
+	if(health_ < 0.0)
+		health_ = 0.0;
 }
 
 void Organism::setSimulation(Simulation* const simulation)
@@ -108,4 +111,33 @@ void Organism::setSimulation(Simulation* const simulation)
 LeadingDesire Organism::getSuggestedAction() const
 {
 	return suggestedAction_;
+}
+
+void Organism::move()
+{
+	// Move
+	// deltaS = v*dt + 1/2*a*dt^2
+	// deltaV = a*dt
+	// where dt = 1
+	position_ += velocity_ + acceleration_*0.5;
+	velocity_ += acceleration_;
+}
+
+void Organism::newIteration()
+{
+	++timeAlive_;
+	needs_->update();
+
+	velocity_ = Vector();
+	acceleration_ = Vector();
+}
+
+void Organism::checkAge()
+{
+	constexpr unsigned long int BASIC_LIFESPAN = 10000;
+	constexpr unsigned long int NORMALIZATION_FACTOR = 2000;
+	const unsigned long int PREDICTED_LIFESPAN = BASIC_LIFESPAN + genes_->getLifespan() * NORMALIZATION_FACTOR;
+
+	if(timeAlive_ >= PREDICTED_LIFESPAN)
+		this->decreaseHealthByValue(10.0);
 }
