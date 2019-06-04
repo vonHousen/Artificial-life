@@ -43,13 +43,6 @@ Genotype::Genotype(const Genotype& inheritedGenes) :
 	lifespan_(inheritedGenes.lifespan_)
 {}
 
-Genotype::Genotype(float alertness, float sightRange, float stamina, float speed, float lifespan) :
-	alertness_(alertness),
-	sightRange_(sightRange),
-	stamina_(stamina),
-	speed_(speed),
-	lifespan_(lifespan)
-{}
 
 Genotype Genotype::crossOver(const Genotype& other) const
 {

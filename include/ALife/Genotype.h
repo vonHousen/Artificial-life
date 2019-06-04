@@ -64,8 +64,6 @@ public:
 
 private:
 
-	Genotype(float alertness, float sightRange, float stamina, float speed, float lifespan);	///< Private constructor that copies trait values, used in crossing-over
-
 	float getRandomTraitValue() const;
 	void perturbTraitValue(float& trait);
 
