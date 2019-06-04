@@ -17,6 +17,16 @@ public:
 
 	/**
 	 * A constructor.
+	 * @param alertness - initialised trait representing alertness
+	 * @param sightRange - initialised trait representing range
+	 * @param stamina - initialised trait representing stamina
+	 * @param speed - initialised trait representing speed
+	 * @param lifespan - initialised trait representing lifespan
+	 */
+	Genotype(float alertness, float sightRange, float stamina, float speed, float lifespan);
+
+	/**
+	 * A copying constructor.
 	 * @param inheritedGenes - Genotype representing individual Organism's traits inherited from parents.
 	 */
 	Genotype(const Genotype& inheritedGenes);

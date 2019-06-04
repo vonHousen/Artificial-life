@@ -20,6 +20,8 @@ public:
 	Carnivore(Organism&&) = delete;			///< Deleted moving constructor.
 	virtual ~Carnivore() = default;			///< Default virtual destructor
 
+	virtual void update();					///< flow of the information, called by Simulation
+
 
 	/**
 	 * A constructor.

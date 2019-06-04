@@ -25,6 +25,16 @@ Genotype::Genotype()
 	lifespan_ = getRandomTraitValue();
 }
 
+
+Genotype::Genotype(float alertness, float sightRange, float stamina, float speed, float lifespan) :
+	alertness_(alertness),
+	sightRange_(sightRange),
+	stamina_(stamina),
+	speed_(speed),
+	lifespan_(lifespan)
+{}
+
+
 Genotype::Genotype(const Genotype& inheritedGenes) :
 	alertness_(inheritedGenes.alertness_),
 	sightRange_(inheritedGenes.sightRange_),

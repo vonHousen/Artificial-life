@@ -7,7 +7,7 @@
 #include <include/ALife/Herbivore.h>
 #include <include/ALife/Carnivore.h>
 #include <include/ALife/Vector.h>
-#include "gtest/gtest.h"
+#include <include/googletest/include/gtest/gtest.h>
 #include <iostream>
 #include <cassert>
 
@@ -88,8 +88,10 @@ TEST (ActionsTestSuite, Hunting)
 	}
 
 	EXPECT_TRUE(isEaten);
-	ASSERT_LT(iterationCounter, 2000);	// assert to be eaten in decent time
+	ASSERT_LT(iterationCounter, 2100);	// assert to be eaten in decent time
 
 	dummySimulation.update();
 	EXPECT_EQ(carni->getSuggestedAction(), LeadingDesire::REPRODUCTION);
 }
+
+#include <include/ALife/Window.h>
