@@ -5,13 +5,17 @@
 #include <include/ALife/Herbivore.h>
 #include <include/ALife/Carnivore.h>
 #include <include/ALife/HerbivoreActionFactory.h>
+#include <include/ALife/HerbivoreEating.h>
+#include <include/ALife/MapTile.h>
 #include <include/ALife/Simulation.h>
 #include <include/ALife/Action.h>
 
 
 Herbivore::Herbivore(std::unique_ptr<Genotype> genes, const Vector& position, Simulation* const simulation) :
 	Organism(std::move(genes), position, simulation)
-	{}
+{
+	this->updateAction();
+}
 
 void Herbivore::updateAction()
 {
@@ -20,7 +24,8 @@ void Herbivore::updateAction()
 	switch(suggestedAction_)
 	{
 		case LeadingDesire::EATING:
-			currentAction_ = nullptr;
+			currentAction_ = std::make_unique<HerbivoreEating>(
+					HerbivoreActionFactory::getInstance().produceEatingAction(this, simulation_));
 			break;
 
 		case LeadingDesire::REPRODUCTION:
@@ -28,14 +33,17 @@ void Herbivore::updateAction()
 			break;
 
 		default:
+			currentAction_ = nullptr;
 			break;
 	}
 
 }
 
-void Herbivore::eatIt(const Vector &) // TODO
+void Herbivore::eatIt(MapTile* grass) // TODO
 {
-
+	grass->decreaseGrassiness(1);
+	grass->setBeingEaten(true);
+	this->needs_->decreaseHungerBy(0.25);
 }
 
 double Herbivore::getIndividualSpeedValueAfter(unsigned int time) const

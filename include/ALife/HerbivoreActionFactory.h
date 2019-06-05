@@ -5,6 +5,7 @@
 
 class Herbivore;
 class Simulation;
+class HerbivoreEating;
 
 
 /**
@@ -25,6 +26,8 @@ public:
 	 * @return instance of HerbivoreActionFactory.
 	 */
 	static HerbivoreActionFactory& getInstance();
+
+	HerbivoreEating produceEatingAction(Herbivore* const owner, Simulation* const simulation);
 
 private:
 

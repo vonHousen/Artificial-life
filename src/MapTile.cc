@@ -11,6 +11,7 @@ double MapTile::size_ = 2.0f * Organism::getRadius();
 MapTile::MapTile(TileType type, Vector position): 
     type_(type), 
     position_(position),
+    isBeingEaten_(false),
     view_(nullptr)
 {
     if(type == TileType::CAVE)
@@ -19,7 +20,7 @@ MapTile::MapTile(TileType type, Vector position):
     }
     else //type == TileType::GRASS
     {
-        grassiness_ = 0.0;
+        grassiness_ = 5.0;
     }
 }
 
@@ -44,6 +45,16 @@ double MapTile::getSize()
     return size_;
 }
 
+bool MapTile::isBeingEaten() const
+{
+    return isBeingEaten_;
+}
+
+void MapTile::setBeingEaten(bool value)
+{
+    isBeingEaten_ = value;
+}
+
 void MapTile::registerView(MapTileView* view)
 {
     view_ = view;
@@ -51,7 +62,7 @@ void MapTile::registerView(MapTileView* view)
 
 void MapTile::reset()
 {
-    grassiness_ = 0;
+    grassiness_ = 5.0;
     if(view_) view_->update();
 }
 

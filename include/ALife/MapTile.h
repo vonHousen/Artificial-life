@@ -19,6 +19,9 @@ public:
 	TileType getType() const;
 	Vector getPosition() const;
 	float getGrassiness() const;
+	bool isBeingEaten() const;
+
+	void setBeingEaten(bool value);
 
     static double getSize();
 
@@ -33,6 +36,7 @@ private:
 	TileType type_;
 	Vector position_;
 	float grassiness_;
+	bool isBeingEaten_;
     static double size_;
 	MapTileView* view_;
 };

@@ -56,6 +56,8 @@ public:
 	 */
 	Carnivore* getNearestPredator(Herbivore* herbi, double sightRange) const;
 
+	MapTile* getNearestGrass(Herbivore* herbi);
+
 	/**
 	 * Getter for Herbivore at given location.
 	 * @param location - Vector pointing to location of an Organism.

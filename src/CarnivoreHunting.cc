@@ -28,14 +28,14 @@ void CarnivoreHunting::act()
 		smelledPray_ = nullptr;
 
 		//calculate vector to seen food
-		foodVector = owner_->getPosition() - pray->getPosition();
+		foodVector = pray->getPosition() - owner_->getPosition();
 
 	} else	//if there are no seen herbivores - try going for smell
 	{
 		if(smelledPray_)
 		{
 			//calculate vector to smelled food
-			foodVector = owner_->getPosition() - smelledPray_->getPosition();
+			foodVector = smelledPray_->getPosition() - owner_->getPosition();
 
 		} else
 			smelledPray_ = this->smellPray();
@@ -54,7 +54,7 @@ void CarnivoreHunting::act()
 	}
 }
 
-void CarnivoreHunting::goForIt(const Vector &foodVector, Herbivore *pray)
+void CarnivoreHunting::goForIt(const Vector& foodVector, Herbivore* pray)
 {
 	auto velocity = owner_->getIndividualSpeedValueAfter(timeDuration_);
 
@@ -74,7 +74,7 @@ void CarnivoreHunting::goForIt(const Vector &foodVector, Herbivore *pray)
 
 }
 
-Herbivore *CarnivoreHunting::smellPray()
+Herbivore* CarnivoreHunting::smellPray()
 {
 	if(timeDuration_%50 != 0)													// TODO adjust frequency
 		return nullptr;
@@ -83,8 +83,5 @@ Herbivore *CarnivoreHunting::smellPray()
 	const Vector SMELLED_POSITION = Vector();									// TODO randomise location
 	Herbivore* smelledOrganism = simulation_->getOrganismAt(SMELLED_POSITION, PRECISION_OF_SMELL);
 
-	if(smelledOrganism)
-		return smelledOrganism;
-
-	return nullptr;
+	return smelledOrganism;
 }

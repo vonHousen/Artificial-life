@@ -48,8 +48,8 @@ void Carnivore::eatPray(Herbivore* pray)
 
 double Carnivore::getIndividualSpeedValueAfter(unsigned int time) const
 {
-	const double TIREDNESS_FACTOR = genes_-> getTirednessFactor();
-	const double BASIC_SPEED = genes_-> getBasicSpeed();
+	const double TIREDNESS_FACTOR = genes_->getTirednessFactor();
+	const double BASIC_SPEED = genes_->getBasicSpeed();
 
 	const int INTENDED_RUN_DURATION = 1000 * TIREDNESS_FACTOR;
 	constexpr double PSEUDO_NORMALIZATION_FACTOR = 0.000002;

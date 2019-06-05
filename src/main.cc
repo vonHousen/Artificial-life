@@ -17,7 +17,7 @@ int main(int argc, char* argv[])
 	Window window(simulation, 640);
 	window.show();
 
-	simulation->initializeSimulation(10, 10);
+	simulation->initializeSimulation(0, 1);
 
 	return app.exec();
 }

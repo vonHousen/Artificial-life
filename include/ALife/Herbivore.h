@@ -3,6 +3,7 @@
 #define ARTIFICIAL_LIFE_HERBIVORE_H
 
 class Simulation;
+class MapTile;
 
 #include "Organism.h"
 
@@ -33,10 +34,10 @@ public:
 	virtual void updateAction();			///< after being notified, it uses ActionFactory to update currentAction_.
 
 	/**
-	 * Herbivore eats grass of a position pointed by Vector.
-	 * @param position - position of eaten grass.
+	 * Herbivore eats grass in specified MapTile.
+	 * @param grass - map tile with grass to be eaten.
 	 */
-	virtual void eatIt(const Vector& position);
+	virtual void eatIt(MapTile* grass);
 
 	/**
 	 * Getter for individual for every Organism speed value, but tiredness is also taken into account.

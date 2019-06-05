@@ -45,7 +45,7 @@ Vector Vector::operator+(const Vector& other) const
 
 Vector Vector::operator-(const Vector& other) const
 {
-	return {other.getX() - x_, other.getY() - y_};
+	return {x_ - other.getX(), y_ - other.getY()};
 }
 
 Vector Vector::operator-() const

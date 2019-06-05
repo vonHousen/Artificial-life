@@ -65,3 +65,22 @@ const std::vector<std::shared_ptr<MapTile>>& Map::getTiles() const
 {
     return tiles_;
 }
+
+MapTile* Map::getNearestMapTile(const Vector& position)
+{
+    MapTile* nearestTile = nullptr;
+    double smallestDistance = 2;
+    for (auto tile : tiles_)
+    {
+        if(!tile->isBeingEaten() && tile->getGrassiness() > 5.0)
+        {
+            double distance = (position - tile->getPosition()).getLength();
+            if(distance < smallestDistance)
+            {
+                smallestDistance = distance;
+                nearestTile = tile.get();
+            }
+        }
+    }
+    return nearestTile;
+}
