@@ -5,10 +5,15 @@
 #include <include/ALife/Map.h>
 #include <include/ALife/Vector.h>
 #include <include/ALife/MapTile.h>
+#include <include/ALife/Herbivore.h>
+#include <cmath>
 
 Map::Map()
 {
-    const int TILES_ACROSS_DIMENTION = 2.0 / MapTile::getSize() + 0.5;
+    const int TILES_ACROSS_DIMENTION = std::ceil(2.0 / MapTile::getSize());
+
+    std::cout << "ttjt: " << TILES_ACROSS_DIMENTION << "\n";
+    std::cout << "ttjt: " << MapTile::getSize() << "\n";
 
     const int CAVE_COUNT = 3;
     caveLocations_.reserve(CAVE_COUNT);
@@ -66,15 +71,16 @@ const std::vector<std::shared_ptr<MapTile>>& Map::getTiles() const
     return tiles_;
 }
 
-MapTile* Map::getNearestMapTile(const Vector& position)
+MapTile* Map::getNearestMapTile(const Herbivore* herbi)
 {
     MapTile* nearestTile = nullptr;
     double smallestDistance = 2;
     for (auto tile : tiles_)
-    {
-        if(!tile->isBeingEaten() && tile->getGrassiness() > 5.0)
+    {   
+        const Herbivore* eater = tile->getEater();
+        if(tile->getType() == TileType::GRASS && (!eater || eater == herbi) && tile->getGrassiness() > 5.0)
         {
-            double distance = (position - tile->getPosition()).getLength();
+            double distance = (herbi->getPosition() - tile->getPosition()).getLength();
             if(distance < smallestDistance)
             {
                 smallestDistance = distance;

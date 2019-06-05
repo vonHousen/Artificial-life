@@ -8,6 +8,7 @@
 #include "include/ALife/Vector.h"
 
 class MapTileView;
+class Herbivore;
 
 enum class TileType { GRASS, CAVE };
 
@@ -19,9 +20,9 @@ public:
 	TileType getType() const;
 	Vector getPosition() const;
 	float getGrassiness() const;
-	bool isBeingEaten() const;
 
-	void setBeingEaten(bool value);
+	const Herbivore* getEater() const;
+	void setEater(const Herbivore* eater);
 
     static double getSize();
 
@@ -36,7 +37,7 @@ private:
 	TileType type_;
 	Vector position_;
 	float grassiness_;
-	bool isBeingEaten_;
+	const Herbivore* eater_;		//< Pointer to herbivore that is eating this tile (if it is a grass tile)
     static double size_;
 	MapTileView* view_;
 };

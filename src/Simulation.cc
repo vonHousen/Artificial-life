@@ -110,7 +110,7 @@ Carnivore* Simulation::getNearestPredator(Herbivore* herbi, double sightRange) c
 
 MapTile* Simulation::getNearestGrass(Herbivore* herbi)
 {
-	return map_.getNearestMapTile(herbi->getPosition());
+	return map_.getNearestMapTile(herbi);
 }
 
 void Simulation::update()

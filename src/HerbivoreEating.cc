@@ -8,15 +8,28 @@
 #include <include/ALife/MapTile.h>
 
 HerbivoreEating::HerbivoreEating(Herbivore *const owner, Simulation *const simulation) :
-	HerbivoreAction(owner, simulation)
+	HerbivoreAction(owner, simulation),
+	eatenTile_(nullptr)
 {}
+
+HerbivoreEating::~HerbivoreEating()
+{
+	std::cout << "lalalalaa";
+	if(eatenTile_) eatenTile_->setEater(nullptr);
+}
 
 void HerbivoreEating::act() //TODO
 {
 	//Organism is hungry, it needs to find the nearest food
 	MapTile* grass = simulation_->getNearestGrass(concreteOwner_);
-	
 	if(!grass) return;
+
+	//If organism left previously eaten grass, mark it as free so that
+	//other organisms can eat it
+	if(eatenTile_ && eatenTile_ != grass)
+	{
+		eatenTile_->setEater(nullptr);
+	}
 
 	Vector toGrass = grass->getPosition() - owner_->getPosition();
 
@@ -24,9 +37,10 @@ void HerbivoreEating::act() //TODO
 	auto direction = toGrass.getUnitVector();
 	auto intendedVelocity = direction * speed;
 
-	if(toGrass.getLength() < grass->getSize()*0.5)
+	if(toGrass.getLength() < 0.00001)
 	{
 		concreteOwner_->eatIt(grass);
+		eatenTile_ = grass;
 	}
 	else
 	{

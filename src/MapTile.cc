@@ -6,21 +6,21 @@
 #include <include/ALife/MapTileView.h>
 #include <include/ALife/Organism.h>
 
-double MapTile::size_ = 2.0f * Organism::getRadius();
+double MapTile::size_ = 3.0 * Organism::getRadius();
 
 MapTile::MapTile(TileType type, Vector position): 
     type_(type), 
     position_(position),
-    isBeingEaten_(false),
+    eater_(nullptr),
     view_(nullptr)
 {
     if(type == TileType::CAVE)
     {
-        grassiness_ = 0.0;
+        grassiness_ = -1.0;
     }
     else //type == TileType::GRASS
     {
-        grassiness_ = 5.0;
+        grassiness_ = 10.0;
     }
 }
 
@@ -45,14 +45,14 @@ double MapTile::getSize()
     return size_;
 }
 
-bool MapTile::isBeingEaten() const
+const Herbivore* MapTile::getEater() const
 {
-    return isBeingEaten_;
+    return eater_;
 }
 
-void MapTile::setBeingEaten(bool value)
+void MapTile::setEater(const Herbivore* eater)
 {
-    isBeingEaten_ = value;
+    eater_ = eater;
 }
 
 void MapTile::registerView(MapTileView* view)
@@ -62,7 +62,7 @@ void MapTile::registerView(MapTileView* view)
 
 void MapTile::reset()
 {
-    grassiness_ = 5.0;
+    grassiness_ = 10.0;
     if(view_) view_->update();
 }
 

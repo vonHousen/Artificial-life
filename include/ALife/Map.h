@@ -6,6 +6,7 @@
 
 class MapTile;
 class Vector;
+class Herbivore;
 
 /**
  * Map consisting of MapTiles, that covers simulation's area.
@@ -21,7 +22,7 @@ public:
 
 	const std::vector<std::shared_ptr<MapTile>>& getTiles() const;
 
-	MapTile* getNearestMapTile(const Vector& position);
+	MapTile* getNearestMapTile(const Herbivore* herbi);
 
 private:
 	std::vector<std::shared_ptr<MapTile>> tiles_; ///< vector containing all MapTiles that the map is composed of

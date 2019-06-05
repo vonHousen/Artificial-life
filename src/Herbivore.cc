@@ -41,9 +41,9 @@ void Herbivore::updateAction()
 
 void Herbivore::eatIt(MapTile* grass) // TODO
 {
-	grass->decreaseGrassiness(1);
-	grass->setBeingEaten(true);
-	this->needs_->decreaseHungerBy(0.25);
+	grass->decreaseGrassiness(0.1);
+	grass->setEater(this);
+	this->needs_->decreaseHungerBy(0.005);
 }
 
 double Herbivore::getIndividualSpeedValueAfter(unsigned int time) const
@@ -53,13 +53,10 @@ double Herbivore::getIndividualSpeedValueAfter(unsigned int time) const
 
 void Herbivore::runAwayFrom(Carnivore* danger)
 {
-	if(not danger)
-		return;
-
 	auto velocity = this->getIndividualSpeedValueAfter(0);
 
 
-	auto direction = (danger->getPosition() - this->getPosition()).getUnitVector();
+	auto direction = (this->getPosition() - danger->getPosition()).getUnitVector();
 	auto intendedVelocity = direction * velocity;
 
 	this->setVelocity(intendedVelocity);
