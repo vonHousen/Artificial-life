@@ -7,8 +7,12 @@ MapTileView::MapTileView(MapTile* const model):
     float size = model->getSize();
     Vector position = model->getPosition();
 
+    //Moves anchor point to the center of the rectangle and sets the size
     setRect(-0.5 * size, -0.5 * size, size, size);
+
     setPos(position.getX(), position.getY());
+    
+    //Don't draw the outlines
     setPen(Qt::NoPen);
 
     update();   

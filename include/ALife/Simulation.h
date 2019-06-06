@@ -57,8 +57,8 @@ public:
 	Carnivore* getNearestPredator(Herbivore* herbi, double sightRange) const;
 
 	/**
-	 * //TODO
-	 * @param herbi
+	 * Returns pointer to the nearest eatable grass, represented as a map tile
+	 * @param herbi - Organism that is looking for the grass to eat
 	 * @return
 	 */
 	MapTile* getNearestGrass(Herbivore* herbi);
@@ -84,7 +84,7 @@ private:
 	std::vector<Carnivore*> carnivores_;				///< Data structure for aggregation of Carnivores.
 	std::vector<Herbivore*> herbivores_;				///< Data structure for aggregation of Herbivores.
 
-	Map map_;											///< Map, that covers simulation's area. TODO
+	Map map_;											///< Map, that covers simulation's area.
 	SimulationView* view_;								///< View layer of Simulation class.
 
 };

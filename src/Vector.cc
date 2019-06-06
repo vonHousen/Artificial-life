@@ -5,14 +5,14 @@
  * For example, y = 1.5 in fact is equal to y = -0.5
  */
 
+//For older platforms
+#define _USE_MATH_DEFINES
+
 #include <include/ALife/Vector.h>
 #include <include/ALife/RandomGenerator.h>
 #include <string>
 #include <cmath>
 #include <iomanip>
-
-//For older platforms
-#define _USE_MATH_DEFINES
 
 Vector::Vector(double x, double y)
 {
