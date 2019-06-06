@@ -59,3 +59,27 @@ TEST (SleepingTestSuite, CarnivoreSleeping)
 	ASSERT_LT(positionOfSleeping.getX(), 0.0);
 	ASSERT_EQ(carni->getSuggestedAction(), LeadingDesire::EATING);
 }
+
+/***
+ * Herbivore is born with born-desire : SLEEPING.
+ * Expected movement to the cave and sleeping.
+ */
+TEST (SleepingTestSuite, HerbivoreSleeping)
+{
+	const Vector posHerbi;
+	const Vector expectedCavePosition(0.4, 0.7);
+	Simulation 	dummySimulation;
+	Herbivore*	herbi = new Herbivore(std::make_unique<Genotype>(), posHerbi, &dummySimulation, LeadingDesire::SLEEPING);
+	dummySimulation.addOrganism(herbi);
+	EXPECT_EQ(herbi->getSuggestedAction(), LeadingDesire::SLEEPING);
+
+	const std::pair<Vector,bool> results = performSleeping(dummySimulation, herbi);
+	const Vector positionOfSleeping = results.first;
+	const bool hasOrganismSlept = results.second;
+
+	EXPECT_TRUE(hasOrganismSlept);
+
+	const Vector vecToExpectedCave = expectedCavePosition - positionOfSleeping;
+	ASSERT_NEAR(vecToExpectedCave.getLength(), 0.0, 0.0005);
+	ASSERT_EQ(herbi->getSuggestedAction(), LeadingDesire::EATING);
+}

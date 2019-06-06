@@ -92,3 +92,8 @@ MapTile* Map::getNearestMapTile(const Herbivore* herbi)
     }
     return nearestTile;
 }
+
+std::vector<Vector> Map::getCaveLocations()
+{
+    return caveLocations_;
+}

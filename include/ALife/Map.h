@@ -24,6 +24,12 @@ public:
 
 	MapTile* getNearestMapTile(const Herbivore* herbi);  ///< Returns pointer to the nearest grassy map tile, that is not being eaten by other organism
 
+	/**
+	 * Returns all cave locations in the simulation.
+	 * @return vector<Vector> - vector of positions (centers) of caves.
+	 */
+	std::vector<Vector> getCaveLocations();
+
 private:
 	static const double CAVE_RADIUS; ///< Radius of caves that are placed in this map
 
