@@ -4,6 +4,7 @@
 
 class CarnivoreHunting;
 class CarnivoreSleeping;
+class CarnivorePairing;
 class Carnivore;
 class Simulation;
 
@@ -43,6 +44,14 @@ public:
 	 * @return CarnivoreSleeping - individual action.
 	 */
 	std::unique_ptr<CarnivoreSleeping> produceSleepingAction(Carnivore* const owner, Simulation* const simulation);
+
+	/**
+	 * Produces Action of pairing.
+	 * @param owner - Carnivore "owning" this Action.
+	 * @param simulation - Simulation that Action makes an impact on.
+	 * @return CarnivorePairing - individual action.
+	 */
+	std::unique_ptr<CarnivorePairing> producePairingAction(Carnivore* const owner, Simulation* const simulation);
 
 private:
 
