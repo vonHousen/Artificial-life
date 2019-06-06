@@ -58,7 +58,7 @@ Herbivore* Simulation::getNearestPrey(Carnivore* hunter, double sightRange) cons
 	if(herbivores_.empty())
 		return nullptr;
 
-	Vector foodVector, nearestFoodVector(1, 0);
+	Vector foodVector, nearestFoodVector(1, 1);
 	const double NORMALIZATION_FACTOR = 0.5;
 
 	// set the maximal sight range
