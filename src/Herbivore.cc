@@ -57,11 +57,11 @@ double Herbivore::getIndividualSpeedValueAfter(unsigned int time) const
 
 void Herbivore::runAwayFrom(Carnivore* danger)
 {
-	auto velocity = this->getIndividualSpeedValueAfter(0);
+	const auto velocity = this->getIndividualSpeedValueAfter(0);
 
 
-	auto direction = (this->getPosition() - danger->getPosition()).getUnitVector();
-	auto intendedVelocity = direction * velocity;
+	const auto direction = (this->getPosition() - danger->getPosition()).getUnitVector();
+	const auto intendedVelocity = direction * velocity;
 
 	this->setVelocity(intendedVelocity);
 }

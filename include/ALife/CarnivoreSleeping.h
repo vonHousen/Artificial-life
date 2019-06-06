@@ -5,6 +5,8 @@
 class Vector;
 
 #include "CarnivoreAction.h"
+#include <include/ALife/Vector.h>
+
 
 /**
  * Carnivore's (concrete) Action of sleeping.
@@ -27,6 +29,8 @@ public:
 private:
 
 	unsigned int timeDuration_;					///< Duration of time passed since action has started.
+	unsigned int sleepingTime_;					///< Duration of sleeping time.
+	Vector sleepingPosition_;					///< Location where Carnivore is going to sleep.
 
 };
 

@@ -44,7 +44,7 @@ std::pair<int,bool> performHunting(Simulation& dummySimulation, Carnivore* preda
  */
 TEST (HuntingTestSuite, HuntingBlindPray)
 {
-	Vector 		posHerbi(0.4, 0.4), posCarni(0.5, 0.5);
+	const Vector posHerbi(0.4, 0.4), posCarni(0.5, 0.5);
 	Simulation 	dummySimulation;
 
 	Herbivore* 	herbiBlind = new Herbivore(std::make_unique<Genotype>(5,0,5,5,5), posHerbi, &dummySimulation);
@@ -57,14 +57,13 @@ TEST (HuntingTestSuite, HuntingBlindPray)
 	EXPECT_EQ(dummySimulation.getHerbivoreCount(), 1);
 	EXPECT_EQ(carni->getSuggestedAction(), LeadingDesire::EATING);
 
-	std::pair<int,bool> results = performHunting(dummySimulation, carni);
-	int iterationCounter = results.first;
-	bool isHerbiKilled = results.second;
+	const std::pair<int,bool> results = performHunting(dummySimulation, carni);
+	const int iterationCounter = results.first;
+	const bool isHerbiKilled = results.second;
 
 	EXPECT_TRUE(isHerbiKilled);
 	ASSERT_LT(iterationCounter, 300);	// assert to be eaten in decent time
 
-	dummySimulation.update();
 	EXPECT_EQ(dummySimulation.getCarnivoreCount(), 1);
 	EXPECT_EQ(carni->getSuggestedAction(), LeadingDesire::REPRODUCTION);
 }
@@ -74,7 +73,7 @@ TEST (HuntingTestSuite, HuntingBlindPray)
  */
 TEST (HuntingTestSuite, HuntingSlowerPray)
 {
-	Vector 		posHerbi(0.3, 0.3), posCarni(0.5, 0.5);
+	const Vector posHerbi(0.3, 0.3), posCarni(0.5, 0.5);
 	Simulation 	dummySimulation;
 
 	Herbivore* 	herbiSlow = new Herbivore(std::make_unique<Genotype>(5,9,5,0,5), posHerbi, &dummySimulation);
@@ -83,9 +82,9 @@ TEST (HuntingTestSuite, HuntingSlowerPray)
 	dummySimulation.addOrganism(herbiSlow);
 	dummySimulation.addOrganism(carniFast);
 
-	std::pair<int,bool> results = performHunting(dummySimulation, carniFast);
-	int iterationCounter = results.first;
-	bool isHerbiKilled = results.second;
+	const std::pair<int,bool> results = performHunting(dummySimulation, carniFast);
+	const int iterationCounter = results.first;
+	const bool isHerbiKilled = results.second;
 
 	EXPECT_TRUE(isHerbiKilled);
 	EXPECT_EQ(dummySimulation.getCarnivoreCount(), 1);
@@ -97,7 +96,7 @@ TEST (HuntingTestSuite, HuntingSlowerPray)
  */
 TEST (HuntingTestSuite, HuntingFasterPray)
 {
-	Vector 		posHerbi(0.0, 0.0), posCarni(0.5, 0.5);
+	const Vector posHerbi(0.0, 0.0), posCarni(0.5, 0.5);
 	Simulation 	dummySimulation;
 
 	Herbivore* 	herbiFast = new Herbivore(std::make_unique<Genotype>(5,9,9,5,9), posHerbi, &dummySimulation);
@@ -106,8 +105,8 @@ TEST (HuntingTestSuite, HuntingFasterPray)
 	dummySimulation.addOrganism(herbiFast);
 	dummySimulation.addOrganism(carniSlow);
 
-	std::pair<int,bool> results = performHunting(dummySimulation, carniSlow);
-	bool isHerbiKilled = results.second;
+	const std::pair<int,bool> results = performHunting(dummySimulation, carniSlow);
+	const bool isHerbiKilled = results.second;
 
 	EXPECT_FALSE(isHerbiKilled);
 	EXPECT_EQ(dummySimulation.getHerbivoreCount(), 1);
@@ -127,9 +126,9 @@ TEST (HuntingTestSuite, HuntingWithSmell)
 	dummySimulation.addOrganism(herbiBlind);
 	dummySimulation.addOrganism(carniBlindButFast);
 
-	std::pair<int,bool> results = performHunting(dummySimulation, carniBlindButFast);
-	int iterationCounter = results.first;
-	bool isHerbiKilled = results.second;
+	const std::pair<int,bool> results = performHunting(dummySimulation, carniBlindButFast);
+	const int iterationCounter = results.first;
+	const bool isHerbiKilled = results.second;
 
 	EXPECT_TRUE(isHerbiKilled);
 	EXPECT_EQ(dummySimulation.getCarnivoreCount(), 1);

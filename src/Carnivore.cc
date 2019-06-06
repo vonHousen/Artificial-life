@@ -45,27 +45,35 @@ void Carnivore::eatPray(Herbivore* pray)
 	if(pray)
 	{
 		pray->decreaseHealthByValue(10.0);
-		this->needs_->decreaseHungerBy(5.0);
-		this->needs_->increaseLonelinessBy(2.0);
+		needs_->decreaseHungerBy(5.0);
+		needs_->increaseLonelinessBy(2.0);
+		needs_->update();
 	}
 
 }
 
+void Carnivore::sleepWell()
+{
+	needs_->decreaseTirednessBy(10.0);
+	needs_->increaseHungerBy(5.0);
+	needs_->update();
+}
+
 double Carnivore::getIndividualSpeedValueAfter(unsigned int time) const
 {
-	const double TIREDNESS_FACTOR = genes_->getTirednessFactor();
-	const double BASIC_SPEED = genes_->getBasicSpeed();
+	const double tirednessFactor = genes_->getTirednessFactor();
+	const double basicSpeed = genes_->getBasicSpeed();
 
-	const int INTENDED_RUN_DURATION = 1000 * TIREDNESS_FACTOR;
+	const int intendedRunDuration = 1000 * tirednessFactor;
 	constexpr double PSEUDO_NORMALIZATION_FACTOR = 0.000002;
 	const double speedDeviation =
-			static_cast<double>(INTENDED_RUN_DURATION - static_cast<int>(time)) * PSEUDO_NORMALIZATION_FACTOR;
+			static_cast<double>(intendedRunDuration - static_cast<int>(time)) * PSEUDO_NORMALIZATION_FACTOR;
 
 	//if run takes too long, organism is tired, but is not stopping!
 	if(speedDeviation < -0.5*speedDeviation)
-		return 0.5* BASIC_SPEED;
+		return 0.5* basicSpeed;
 	else
-		return speedDeviation + BASIC_SPEED;
+		return speedDeviation + basicSpeed;
 }
 
 void Carnivore::update()

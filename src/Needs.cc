@@ -4,6 +4,7 @@
 
 #include <include/ALife/Needs.h>
 #include <include/ALife/Organism.h>
+#include <algorithm>
 
 
 Needs::Needs(Organism* const owner, LeadingDesire born_desire) :
@@ -106,15 +107,14 @@ void Needs::update()
 
 
 	// determine the greatest need and set leadingDesire
-	if(tiredness_ >= hunger_ and tiredness_ >= loneliness_)
+	if(std::max({loneliness_, hunger_, tiredness_}) == tiredness_)
 		updatedDesire = LeadingDesire::SLEEPING;
 
-	else if(loneliness_ >= hunger_ and loneliness_ >= tiredness_)
+	else if(std::max({loneliness_, hunger_, tiredness_}) == loneliness_)
 		updatedDesire = LeadingDesire::REPRODUCTION;
 
-	else //if(hunger_ >= tiredness_ and hunger_ >= loneliness_)
+	else //if(std::max({loneliness_, hunger_, tiredness_}) == hunger_)
 		updatedDesire = LeadingDesire::EATING;
-
 
 	if(updatedDesire != leadingDesire_)
 	{

@@ -57,9 +57,9 @@ void CarnivoreHunting::act()
 
 void CarnivoreHunting::goForIt(const Vector& foodVector, Herbivore* pray)
 {
-	auto velocity = owner_->getIndividualSpeedValueAfter(runDuration_++);
+	const auto velocity = owner_->getIndividualSpeedValueAfter(runDuration_++);
 
-	auto direction = foodVector.getUnitVector();
+	const auto direction = foodVector.getUnitVector();
 	auto intendedVelocity = direction * velocity;
 
 	//if Carnivore is about to "jump above" the food when it is moving too fast
@@ -67,7 +67,6 @@ void CarnivoreHunting::goForIt(const Vector& foodVector, Herbivore* pray)
 	{
 		intendedVelocity = direction * (foodVector.getLength() - Carnivore::getRadius());
 		owner_->setVelocity(intendedVelocity);
-		auto foodPosition = foodVector + owner_->getPosition();
 		concreteOwner_->eatPray(pray);
 
 	} else
@@ -80,14 +79,14 @@ Herbivore* CarnivoreHunting::smellPray()
 	if(timeDuration_%40 != 0)
 		return nullptr;
 
-	const double ALERTNESS_CORRECTION_FACTOR = 0.04;
-	const double PRECISION_OF_SMELL = owner_->getAlertness() * ALERTNESS_CORRECTION_FACTOR;
+	constexpr double ALERTNESS_CORRECTION_FACTOR = 0.04;
+	const double precisionOfSmell = owner_->getAlertness() * ALERTNESS_CORRECTION_FACTOR;
 
-	const double COORD_CORRECTION_FACTOR = 2.0;
-	const double X_RAND_COORD = COORD_CORRECTION_FACTOR * RandomGenerator::getInstance()->getSampleUniform();
-	const double Y_RAND_COORD = COORD_CORRECTION_FACTOR * RandomGenerator::getInstance()->getSampleUniform();
+	constexpr double coordCorrectionFactor = 2.0;
+	const double xRandCoord = coordCorrectionFactor * RandomGenerator::getInstance()->getSampleUniform();
+	const double yRandCoord = coordCorrectionFactor * RandomGenerator::getInstance()->getSampleUniform();
 
-	Herbivore* smelledOrganism = simulation_->getOrganismAt(Vector(X_RAND_COORD, Y_RAND_COORD), PRECISION_OF_SMELL);
+	Herbivore* smelledOrganism = simulation_->getOrganismAt(Vector(xRandCoord, yRandCoord), precisionOfSmell);
 
 	return smelledOrganism;
 }

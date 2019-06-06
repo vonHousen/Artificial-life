@@ -40,6 +40,11 @@ public:
 	 * @param pray - eaten Herbivore.
 	 */
 	void eatPray(Herbivore* pray);
+	
+	/**
+	 * Carnivore feel not tired at all, although it is hungry after sleep.
+	 */
+	void sleepWell();
 
 	/**
 	 * Getter for individual for every Organism speed value, but tiredness is also taken into account.
