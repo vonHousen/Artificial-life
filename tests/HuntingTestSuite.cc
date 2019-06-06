@@ -11,6 +11,13 @@
 #include <iostream>
 #include <cassert>
 
+/***
+ * Shared code for all tests for hunting. Performs actual action of hunting.
+ * It assumes that there is only one carnivore and one herbivore on the beginning of the simulation.
+ * @param dummySimulation - Simulation in which hunting takes place.
+ * @param predator - pointer for Carnivore that hunts Carnivore.
+ * @return pair<int,bool> - ( is Herbivore dead? , how many iterations lived Herbivore? )
+ */
 std::pair<int,bool> performHunting(Simulation& dummySimulation, Carnivore* predator)
 {
 	int iterationCounter = 0;
@@ -32,10 +39,11 @@ std::pair<int,bool> performHunting(Simulation& dummySimulation, Carnivore* preda
 	return {iterationCounter, isHerbiDead};
 }
 
+
 /***
  * Easiest hunting: herbivore is completely blind and carnivore is located just nearby it's pray
  */
-TEST (HuntingTestSuite, HuntingBlind)
+TEST (HuntingTestSuite, HuntingBlindPray)
 {
 	Vector 		posHerbi(0.4, 0.4), posCarni(0.5, 0.5);
 	Simulation 	dummySimulation;
