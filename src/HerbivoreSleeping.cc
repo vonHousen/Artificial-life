@@ -19,7 +19,8 @@ HerbivoreSleeping::HerbivoreSleeping(Herbivore* const owner, Simulation* const s
 	const double correctionFactor = RandomGenerator::getInstance()->getSampleUniform();
 	positionInCave *= correctionFactor;
 
-	sleepingPosition_ = Vector::getShortestVectorBetweenPositions(owner_->getPosition(), results.first + positionInCave);
+	sleepingPosition_ = results.first + positionInCave;
+
 }
 
 void HerbivoreSleeping::act()

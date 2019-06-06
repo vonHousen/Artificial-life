@@ -40,7 +40,7 @@ bool Action::goToSleep(unsigned int timeDuration, unsigned int sleepingTime, con
 
 	} else
 	{
-		constexpr unsigned int CORRECTION_FACTOR = 100;
+		constexpr unsigned int CORRECTION_FACTOR = 500;
 		const unsigned int timeToSleepWell = CORRECTION_FACTOR * owner_->getStamina();
 
 		if(sleepingTime >= timeToSleepWell)

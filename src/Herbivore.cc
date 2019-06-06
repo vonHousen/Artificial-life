@@ -30,7 +30,8 @@ void Herbivore::updateAction()
 			break;
 
 		case LeadingDesire::REPRODUCTION:
-			currentAction_ = nullptr;
+			currentAction_ = std::move(
+					HerbivoreActionFactory::getInstance().produceSleepingAction(this, simulation_));
 			break;
 
 		case LeadingDesire::SLEEPING:
