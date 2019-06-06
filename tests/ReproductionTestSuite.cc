@@ -26,6 +26,8 @@ TEST (ReproductionTestSuite, CarnivoreEasyPairing)
 
 	EXPECT_EQ(first->getSuggestedAction(), LeadingDesire::REPRODUCTION);
 	EXPECT_EQ(second->getSuggestedAction(), LeadingDesire::REPRODUCTION);
+	EXPECT_FALSE(first->isParenting());
+	EXPECT_FALSE(second->isParenting());
 	const double beforePairingDistance = Vector::getShortestVectorBetweenPositions(first->getPosition(), second->getPosition()).getLength();
 
 	const Vector positionOfFirst = first->getPosition();
@@ -34,4 +36,6 @@ TEST (ReproductionTestSuite, CarnivoreEasyPairing)
 
 	ASSERT_GT(beforePairingDistance, afterPairingDistance);
 	ASSERT_NEAR(afterPairingDistance, 2*Organism::getRadius(), 0.01);
+	ASSERT_TRUE(first->isParenting());
+	ASSERT_TRUE(second->isParenting());
 }

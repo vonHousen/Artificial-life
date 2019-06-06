@@ -150,3 +150,8 @@ void Organism::sleepWell()
 	needs_->increaseHungerBy(1.0);
 	needs_->update();
 }
+
+bool Organism::isParenting()
+{
+	return isParenting_;
+}

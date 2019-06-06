@@ -88,9 +88,15 @@ public:
 	virtual double getIndividualSpeedValueAfter(unsigned int time) const = 0;
 
 	/**
-	 * Carnivore does not feel tired at all, although it is hungry after sleep.
+	 * Organism does not feel tired at all, although it is hungry after sleep.
 	 */
 	void sleepWell();
+
+	/**
+	 * Decides whether Organism is parenting.
+	 * @return True/False
+	 */
+	bool isParenting();
 
 protected:
 
@@ -100,7 +106,7 @@ protected:
 	Vector 	velocity_;							///< Basic, actual state of the Organism represented by Vector.
 	Vector 	acceleration_;						///< Basic, actual state of the Organism represented by Vector.
 	static double radius_;						///< Basic trait of the Organism, static value for every Organism.
-	bool isParenting_;
+	bool isParenting_;							///< Decides whether Organism is parenting.
 
 	std::unique_ptr<Genotype> 	genes_;			///< Represents individual Organism's traits inherited from parents.
 	std::unique_ptr<Needs> 		needs_;			///< Represents all Organism's physical and psychological Needs.
