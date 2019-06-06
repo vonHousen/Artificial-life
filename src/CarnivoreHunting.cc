@@ -7,10 +7,12 @@
 #include <include/ALife/Herbivore.h>
 #include <include/ALife/Simulation.h>
 #include <include/ALife/Vector.h>
+#include <include/ALife/RandomGenerator.h>
 
 CarnivoreHunting::CarnivoreHunting(Carnivore* const owner, Simulation* const simulation) :
 	CarnivoreAction(owner, simulation),
 	timeDuration_(0),
+	runDuration_(0),
 	smelledPray_(nullptr)
 {}
 
@@ -39,7 +41,6 @@ void CarnivoreHunting::act()
 
 		} else
 			smelledPray_ = this->smellPray();
-
 	}
 
 
@@ -56,7 +57,7 @@ void CarnivoreHunting::act()
 
 void CarnivoreHunting::goForIt(const Vector& foodVector, Herbivore* pray)
 {
-	auto velocity = owner_->getIndividualSpeedValueAfter(timeDuration_);
+	auto velocity = owner_->getIndividualSpeedValueAfter(runDuration_++);
 
 	auto direction = foodVector.getUnitVector();
 	auto intendedVelocity = direction * velocity;
@@ -76,12 +77,17 @@ void CarnivoreHunting::goForIt(const Vector& foodVector, Herbivore* pray)
 
 Herbivore* CarnivoreHunting::smellPray()
 {
-	if(timeDuration_%50 != 0)													// TODO adjust frequency
+	if(timeDuration_%40 != 0)
 		return nullptr;
 
-	const double PRECISION_OF_SMELL = owner_->getAlertness() * 0.1;				// TODO adjust precision
-	const Vector SMELLED_POSITION = Vector();									// TODO randomise location
-	Herbivore* smelledOrganism = simulation_->getOrganismAt(SMELLED_POSITION, PRECISION_OF_SMELL);
+	const double ALERTNESS_CORRECTION_FACTOR = 0.04;
+	const double PRECISION_OF_SMELL = owner_->getAlertness() * ALERTNESS_CORRECTION_FACTOR;
+
+	const double COORD_CORRECTION_FACTOR = 2.0;
+	const double X_RAND_COORD = COORD_CORRECTION_FACTOR * RandomGenerator::getInstance()->getSampleUniform();
+	const double Y_RAND_COORD = COORD_CORRECTION_FACTOR * RandomGenerator::getInstance()->getSampleUniform();
+
+	Herbivore* smelledOrganism = simulation_->getOrganismAt(Vector(X_RAND_COORD, Y_RAND_COORD), PRECISION_OF_SMELL);
 
 	return smelledOrganism;
 }

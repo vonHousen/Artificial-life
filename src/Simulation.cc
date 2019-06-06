@@ -65,8 +65,6 @@ Herbivore* Simulation::getNearestPrey(Carnivore* hunter, double sightRange) cons
 	nearestFoodVector = nearestFoodVector * sightRange * NORMALIZATION_FACTOR;
 	Herbivore* pray = nullptr;
 
-	// TODO add additional organisms for lookup due to alertness (may be random for simplicity?) (not here though)
-
 	for(auto tastyOrganism : herbivores_)
 	{
 		foodVector = Vector::getShortestVectorBetweenPositions(hunter->getPosition(), tastyOrganism->getPosition());
@@ -86,7 +84,7 @@ Carnivore* Simulation::getNearestPredator(Herbivore* herbi, double sightRange) c
 		return nullptr;
 
 	Vector predatorVector, nearestPredatorVector(1, 0);
-	const double NORMALIZATION_FACTOR = 0.5;
+	const double NORMALIZATION_FACTOR = 0.8;
 
 	// set the maximal sight range
 	nearestPredatorVector = nearestPredatorVector * sightRange * NORMALIZATION_FACTOR;
