@@ -15,7 +15,7 @@ enum class TileType { GRASS, CAVE };
 class MapTile
 {
 public:
-	MapTile(TileType type, Vector position);
+	MapTile(TileType type, Vector position); //TODO document
 
 	TileType getType() const;
 	Vector getPosition() const;

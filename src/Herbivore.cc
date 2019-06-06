@@ -20,11 +20,11 @@ Herbivore::Herbivore(std::unique_ptr<Genotype> genes, const Vector& position, Si
 void Herbivore::updateAction()
 {
 	suggestedAction_ = needs_->getLeadingDesire();
-
+	
 	switch(suggestedAction_)
 	{
 		case LeadingDesire::EATING:
-			currentAction_ = std::make_unique<HerbivoreEating>(
+			currentAction_ = std::move(
 					HerbivoreActionFactory::getInstance().produceEatingAction(this, simulation_));
 			break;
 
@@ -39,11 +39,11 @@ void Herbivore::updateAction()
 
 }
 
-void Herbivore::eatIt(MapTile* grass) // TODO
+void Herbivore::eatIt(MapTile* grass)
 {
 	grass->decreaseGrassiness(0.1);
 	grass->setEater(this);
-	this->needs_->decreaseHungerBy(0.005);
+	this->needs_->decreaseHungerBy(0.025);
 }
 
 double Herbivore::getIndividualSpeedValueAfter(unsigned int time) const

@@ -21,7 +21,7 @@ void Carnivore::updateAction()
 	switch(suggestedAction_)
 	{
 		case LeadingDesire::EATING:
-			currentAction_ = std::make_unique<CarnivoreHunting>(
+			currentAction_ = std::move(
 					CarnivoreActionFactory::getInstance().produceEatingAction(this, simulation_)
 					);
 			break;

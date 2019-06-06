@@ -93,5 +93,3 @@ TEST (ActionsTestSuite, Hunting)
 	dummySimulation.update();
 	EXPECT_EQ(carni->getSuggestedAction(), LeadingDesire::REPRODUCTION);
 }
-
-#include <include/ALife/Window.h>

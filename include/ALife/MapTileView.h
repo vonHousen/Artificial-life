@@ -8,7 +8,7 @@ class MapTile;
 class MapTileView : public QGraphicsRectItem
 {
 public:
-    MapTileView(MapTile* const model);
+    MapTileView(MapTile* const model); //TODO document
 
     void update();
 protected:

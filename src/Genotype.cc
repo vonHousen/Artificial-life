@@ -71,7 +71,7 @@ Genotype Genotype::crossOver(const Genotype& other) const
 
 Genotype& Genotype::mutate()
 {
-	int affectedGene = std::ceil(RandomGenerator::getInstance()->getSampleUniform() * 5.0);
+	int affectedGene = std::ceil(RandomGenerator::getInstance()->getSampleUniform() * 10.0);
 	switch(affectedGene)
 	{
 		case 1:
@@ -88,6 +88,8 @@ Genotype& Genotype::mutate()
 			break;
 		case 5:
 			perturbTraitValue(lifespan_);
+			break;
+		default:
 			break;
 	}
 	return *this;
@@ -131,7 +133,7 @@ float Genotype::getLifespan() const
 float Genotype::getRandomTraitValue() const
 {
 	const float MEAN = 5.0;
-	const float STD_DEVIATION = 1.0;
+	const float STD_DEVIATION = 1.5;
 
 	float value = STD_DEVIATION * RandomGenerator::getInstance()->getSampleNormal() + MEAN;
 
@@ -141,6 +143,8 @@ float Genotype::getRandomTraitValue() const
 
 void Genotype::perturbTraitValue(float& trait)
 {
-	trait += RandomGenerator::getInstance()->getSampleNormal() * 0.5;
+	const float STD_DEVIATION = 0.5;
+
+	trait += STD_DEVIATION * RandomGenerator::getInstance()->getSampleNormal();
 	trait = std::min(10.0f, std::max(0.0f, trait));
 }

@@ -11,7 +11,7 @@ HerbivoreActionFactory& HerbivoreActionFactory::getInstance()
 	return instance;
 }
 
-HerbivoreEating HerbivoreActionFactory::produceEatingAction(Herbivore* const owner, Simulation* const simulation)
+std::unique_ptr<HerbivoreEating> HerbivoreActionFactory::produceEatingAction(Herbivore* const owner, Simulation* const simulation)
 {
-	return {owner, simulation};
+	return std::make_unique<HerbivoreEating>(owner, simulation);
 }

@@ -20,7 +20,7 @@ public:
 	Carnivore(Organism&&) = delete;			///< Deleted moving constructor.
 	virtual ~Carnivore() = default;			///< Default virtual destructor
 
-	virtual void update();					///< flow of the information, called by Simulation
+	virtual void update();					///< Flow of the information, called by Simulation
 
 
 	/**
@@ -32,11 +32,11 @@ public:
 	Carnivore(std::unique_ptr<Genotype> genes, const Vector& position, Simulation* const simulation);
 
 
-	virtual void updateAction();			///< after being notified, it uses ActionFactory to update currentAction_.
+	virtual void updateAction();			///< After being notified, it uses ActionFactory to update currentAction_.
 
 	/**
 	 * Carnivore eats a Herbivore.
-	 * @param pray - eaten Organism.
+	 * @param pray - eaten Herbivore.
 	 */
 	void eatPray(Herbivore* pray);
 

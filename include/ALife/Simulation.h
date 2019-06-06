@@ -28,10 +28,10 @@ public:
 	Simulation();										///< A default constructor.
 	~Simulation();										///< A destructor.
 
-	void update();										///< flow of the information upside down.
-	void addOrganism(Carnivore* const);					///< adds concrete Organism (Carnivore) to Simulation.
-	void addOrganism(Herbivore* const);					///< adds concrete Organism (Herbivore) to Simulation.
-	void registerView(SimulationView* const);			///< registers Simulation in View layer.
+	void update();										///< Flow of the information upside down.
+	void addOrganism(Carnivore* const);					///< Adds concrete Organism (Carnivore) to Simulation.
+	void addOrganism(Herbivore* const);					///< Adds concrete Organism (Herbivore) to Simulation.
+	void registerView(SimulationView* const);			///< Registers Simulation in View layer.
 
 	void reset(int carnivoreCount, int herbivoreCount);
 	void initializeSimulation(int carnivoreCount, int herbivoreCount);
@@ -69,8 +69,8 @@ public:
 
 private:
 
-	std::vector<Carnivore*> carnivores_;				///< data structure for aggregation of Carnivores.
-	std::vector<Herbivore*> herbivores_;				///< data structure for aggregation of Herbivores.
+	std::vector<Carnivore*> carnivores_;				///< Data structure for aggregation of Carnivores.
+	std::vector<Herbivore*> herbivores_;				///< Data structure for aggregation of Herbivores.
 
 	Map map_;											///< Map, that covers simulation's area. TODO
 	SimulationView* view_;								///< View layer of Simulation class.

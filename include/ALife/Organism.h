@@ -35,8 +35,8 @@ public:
 	 */
   	Organism(std::unique_ptr<Genotype> genes, const Vector& position, Simulation* const simulation);
 
-	virtual void updateAction() = 0;		///< after being notified, it uses ActionFactory to update currentAction_.
-	virtual void update() = 0;				///< flow of the information, called by Simulation
+	virtual void updateAction() = 0;		///< After being notified, it uses ActionFactory to update currentAction_.
+	virtual void update() = 0;				///< Flow of the information, called by Simulation
 
 	void setAcceleration(const Vector& acceleration);						///< Setter for private trait.
 	void setVelocity(const Vector& velocity);								///< Setter for private trait.
@@ -89,23 +89,23 @@ public:
 
 protected:
 
-	float 	health_;							///< basic, actual trait of the Organism, value in range of [0.0, 10.0].
-	unsigned long int 	timeAlive_;					///< basic, actual trait of the Organism, value of [0.0, inf].
-	Vector 	position_;							///< basic, actual state of the Organism represented by Vector.
-	Vector 	velocity_;							///< basic, actual state of the Organism represented by Vector.
-	Vector 	acceleration_;						///< basic, actual state of the Organism represented by Vector.
-	static double radius_;						///< basic trait of the Organism, static value for every Organism.
+	float 	health_;							///< Basic, actual trait of the Organism, value in range of [0.0, 10.0].
+	unsigned long int 	timeAlive_;				///< Basic, actual trait of the Organism, value of [0.0, inf].
+	Vector 	position_;							///< Basic, actual state of the Organism represented by Vector.
+	Vector 	velocity_;							///< Basic, actual state of the Organism represented by Vector.
+	Vector 	acceleration_;						///< Basic, actual state of the Organism represented by Vector.
+	static double radius_;						///< Basic trait of the Organism, static value for every Organism.
 
-	std::unique_ptr<Genotype> 	genes_;			///< represents individual Organism's traits inherited from parents.
-	std::unique_ptr<Needs> 		needs_;			///< represents all Organism's physical and psychological Needs.
-	std::unique_ptr<Action> 	currentAction_;	///< current Action Organism can perform driven by Needs.
+	std::unique_ptr<Genotype> 	genes_;			///< Represents individual Organism's traits inherited from parents.
+	std::unique_ptr<Needs> 		needs_;			///< Represents all Organism's physical and psychological Needs.
+	std::unique_ptr<Action> 	currentAction_;	///< Current Action Organism can perform driven by Needs.
 
 	Simulation*	simulation_;					///< Simulation that Organism takes part in.
 	LeadingDesire suggestedAction_;				///< LeadingDesire interpreted as suggested Action.
 
 	void move();								///< Organism moves.
 	void newIteration();						///< Sequence of actions at the begging of new iteration.
-	void checkAge();									///< Organism ages.
+	void checkAge();							///< Organism ages.
 
 };
 

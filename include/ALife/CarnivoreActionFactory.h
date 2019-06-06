@@ -6,6 +6,7 @@ class CarnivoreHunting;
 class Carnivore;
 class Simulation;
 
+#include <memory>
 
 /**
  * Factory Design Pattern for Carnivore's Actions. It's a singleton.
@@ -32,7 +33,7 @@ public:
 	 * @param simulation - Simulation that Action makes an impact on.
 	 * @return CarnivoreHunting <=> Eating.
 	 */
-	CarnivoreHunting produceEatingAction(Carnivore* const owner, Simulation* const simulation);
+	std::unique_ptr<CarnivoreHunting> produceEatingAction(Carnivore* const owner, Simulation* const simulation);
 
 private:
 

@@ -15,18 +15,20 @@ class Herbivore;
 class Map
 {
 public:
-	Map();	//TODO: document
+	Map(); ///< A constructor. Creates map tiles of appropriate type that fill the map area.
 
-	void update();
-	void reset();
+	void update(); ///< Updates all map tiles
+	void reset(); ///< Resets all map tiles
 
-	const std::vector<std::shared_ptr<MapTile>>& getTiles() const;
+	const std::vector<std::shared_ptr<MapTile>>& getTiles() const; ///< Returns reference to vector of MapTiles
 
-	MapTile* getNearestMapTile(const Herbivore* herbi);
+	MapTile* getNearestMapTile(const Herbivore* herbi);  ///< Returns pointer to the nearest grassy map tile, that is not being eaten by other organism
 
 private:
-	std::vector<std::shared_ptr<MapTile>> tiles_; ///< vector containing all MapTiles that the map is composed of
-	std::vector<Vector> caveLocations_;
+	static const double CAVE_RADIUS; ///< Radius of caves that are placed in this map
+
+	std::vector<std::shared_ptr<MapTile>> tiles_; ///< Vector containing all MapTiles that the map is composed of
+	std::vector<Vector> caveLocations_; ///< Vector container storing all the locations where caves were placed
 };
 
 

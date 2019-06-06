@@ -8,20 +8,17 @@
 #include <include/ALife/Herbivore.h>
 #include <cmath>
 
+const double Map::CAVE_RADIUS = 0.13;
+
 Map::Map()
 {
     const int TILES_ACROSS_DIMENTION = std::ceil(2.0 / MapTile::getSize());
-
-    std::cout << "ttjt: " << TILES_ACROSS_DIMENTION << "\n";
-    std::cout << "ttjt: " << MapTile::getSize() << "\n";
 
     const int CAVE_COUNT = 3;
     caveLocations_.reserve(CAVE_COUNT);
     caveLocations_.push_back(Vector(0.4, 0.7));
     caveLocations_.push_back(Vector(-0.6, -0.34));
     caveLocations_.push_back(Vector(0.65, -0.76));
-
-    const double CAVE_RADIUS = 0.13;
 
     for(int ny = 0; ny < TILES_ACROSS_DIMENTION; ++ny)
     {
@@ -74,9 +71,14 @@ const std::vector<std::shared_ptr<MapTile>>& Map::getTiles() const
 MapTile* Map::getNearestMapTile(const Herbivore* herbi)
 {
     MapTile* nearestTile = nullptr;
+    //distance to the nearest grassy tile will never be greater than 2
+    //due to simulation's coordinates system nature
     double smallestDistance = 2;
     for (auto tile : tiles_)
     {   
+        //Searched tile must meet certain conditions;
+        //Apart from the obvious ones, it cannot be eaten by herbivore other than the one
+        //that is looking for the food
         const Herbivore* eater = tile->getEater();
         if(tile->getType() == TileType::GRASS && (!eater || eater == herbi) && tile->getGrassiness() > 5.0)
         {

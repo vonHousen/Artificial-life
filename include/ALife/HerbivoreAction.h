@@ -19,6 +19,8 @@ public:
 	 */
 	HerbivoreAction(Herbivore *const owner, Simulation *const simulation);
 
+	virtual ~HerbivoreAction() = default; ///< Default virtual destructor.
+
 	virtual void act() = 0;									///< Universal for all Actions, executes particular Action.
 
 protected:

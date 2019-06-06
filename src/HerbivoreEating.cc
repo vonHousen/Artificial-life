@@ -14,13 +14,12 @@ HerbivoreEating::HerbivoreEating(Herbivore *const owner, Simulation *const simul
 
 HerbivoreEating::~HerbivoreEating()
 {
-	std::cout << "lalalalaa";
 	if(eatenTile_) eatenTile_->setEater(nullptr);
 }
 
-void HerbivoreEating::act() //TODO
+void HerbivoreEating::act()
 {
-	//Organism is hungry, it needs to find the nearest food
+	//Find nearest, grassy map tile
 	MapTile* grass = simulation_->getNearestGrass(concreteOwner_);
 	if(!grass) return;
 
@@ -44,6 +43,7 @@ void HerbivoreEating::act() //TODO
 	}
 	else
 	{
+		//Prevents from passing over grass
 		if(intendedVelocity.getLength() > toGrass.getLength())
 		{
 			intendedVelocity = toGrass;

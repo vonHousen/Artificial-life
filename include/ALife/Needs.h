@@ -46,14 +46,14 @@ public:
 
 private:
 
-	LeadingDesire leadingDesire_;					///< the most desired Action by particular Organism.
+	LeadingDesire leadingDesire_;					///< The most desired Action by particular Organism.
 	Organism* owner_;								///< Organism "owning" this Needs.
 
-	float hunger_;									///< a need for eating, value in range [0; 10].
-	float tiredness_;								///< a need for sleeping, value in range [0; 10].
-	float loneliness_;								///< a need for reproduction, value in range [0; 10].
+	float hunger_;									///< A need for eating, value in range [0; 10].
+	float tiredness_;								///< A need for sleeping, value in range [0; 10].
+	float loneliness_;								///< A need for reproduction, value in range [0; 10].
 
-	void notify() const; 							///< notifies owner when leading desire is changed.
+	void notify() const; 							///< Notifies owner when leading desire is changed.
 
 };
 

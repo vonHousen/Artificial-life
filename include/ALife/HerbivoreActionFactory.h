@@ -7,6 +7,7 @@ class Herbivore;
 class Simulation;
 class HerbivoreEating;
 
+#include <memory>
 
 /**
  * Factory Design Pattern for Herbivore's Actions. It's a singleton
@@ -27,7 +28,7 @@ public:
 	 */
 	static HerbivoreActionFactory& getInstance();
 
-	HerbivoreEating produceEatingAction(Herbivore* const owner, Simulation* const simulation);
+	std::unique_ptr<HerbivoreEating> produceEatingAction(Herbivore* const owner, Simulation* const simulation);
 
 private:
 

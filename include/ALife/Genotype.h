@@ -64,8 +64,8 @@ public:
 
 private:
 
-	float getRandomTraitValue() const;
-	void perturbTraitValue(float& trait);
+	float getRandomTraitValue() const;		///< Generates trait value from normal distribution, keeping it in range [0.0; 10.0]
+	void perturbTraitValue(float& trait);   ///< Perturbs specified trait value by adding small, normally distributed value to it, keeping it in range [0.0; 10.0]
 
 	float alertness_;							///< Trait representing alertness, value in range [0.0; 10.0]
 	float sightRange_;							///< Trait representing range of sight, value in range [0.0; 10.0]
@@ -73,7 +73,7 @@ private:
 	float speed_;								///< Trait representing speed, value in range [0.0; 10.0]
 	float lifespan_;							///< Trait representing lifespan, value in range [0.0; 10.0]
 
-	static double basicSpeedValue_;		///< basic, static value for every Organism, used for calculating actual speed.
+	static double basicSpeedValue_;		///< Basic, static value for every Organism, used for calculating actual speed.
 
 
 };

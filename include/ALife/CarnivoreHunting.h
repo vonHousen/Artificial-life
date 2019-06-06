@@ -22,6 +22,8 @@ public:
 	 */
 	CarnivoreHunting(Carnivore* const owner, Simulation* const simulation);
 
+	virtual ~CarnivoreHunting() = default; ///< Default virtual destructor.
+
 	virtual void act();							///< Universal for all Actions, executes particular Action.
 
 private:
