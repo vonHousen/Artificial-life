@@ -87,6 +87,10 @@ public:
 	 */
 	virtual double getIndividualSpeedValueAfter(unsigned int time) const = 0;
 
+	/**
+	 * Carnivore feel not tired at all, although it is hungry after sleep.
+	 */
+	void sleepWell();
 
 protected:
 

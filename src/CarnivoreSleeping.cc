@@ -23,25 +23,7 @@ CarnivoreSleeping::CarnivoreSleeping(Carnivore* const owner, Simulation* const s
 void CarnivoreSleeping::act()
 {
 	++timeDuration_;
-	constexpr float EPS = 0.001;
 
-	const auto sleepingVector = Vector::getShortestVectorBetweenPositions(owner_->getPosition(), sleepingPosition_);
-
-	if(sleepingVector.getLength() > EPS)
-	{
-		const auto velocity = owner_->getIndividualSpeedValueAfter(timeDuration_);
-
-		const auto direction = sleepingVector.getUnitVector();
-		const auto intendedVelocity = direction * velocity;
-
-		owner_->setVelocity(intendedVelocity);
-
-	} else // if Carnivore is on sleeping position
-	{
-		constexpr unsigned int CORRECTION_FACTOR = 100;
-		const unsigned int timeToSleepWell = CORRECTION_FACTOR * owner_->getStamina();
-
-		if(++sleepingTime_ >= timeToSleepWell)
-			concreteOwner_->sleepWell();
-	}
+	if ( goToSleep(timeDuration_, sleepingTime_, sleepingPosition_) )
+		++sleepingTime_;
 }

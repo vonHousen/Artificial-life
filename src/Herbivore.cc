@@ -6,6 +6,7 @@
 #include <include/ALife/Carnivore.h>
 #include <include/ALife/HerbivoreActionFactory.h>
 #include <include/ALife/HerbivoreEating.h>
+#include <include/ALife/HerbivoreSleeping.h>
 #include <include/ALife/MapTile.h>
 #include <include/ALife/Simulation.h>
 #include <include/ALife/Action.h>
@@ -33,7 +34,8 @@ void Herbivore::updateAction()
 			break;
 
 		case LeadingDesire::SLEEPING:
-			currentAction_ = nullptr;
+			currentAction_ = std::move(
+					HerbivoreActionFactory::getInstance().produceSleepingAction(this, simulation_));
 			break;
 
 		default:

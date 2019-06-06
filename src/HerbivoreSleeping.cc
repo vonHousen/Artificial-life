@@ -26,4 +26,6 @@ void HerbivoreSleeping::act()
 {
 	++timeDuration_;
 
+	if ( goToSleep(timeDuration_, sleepingTime_, sleepingPosition_) )
+		++sleepingTime_;
 }

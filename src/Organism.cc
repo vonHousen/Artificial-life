@@ -141,3 +141,11 @@ void Organism::checkAge()
 	if(timeAlive_ >= PREDICTED_LIFESPAN)
 		this->decreaseHealthByValue(10.0);
 }
+
+
+void Organism::sleepWell()
+{
+	needs_->decreaseTirednessBy(10.0);
+	needs_->increaseHungerBy(5.0);
+	needs_->update();
+}

@@ -52,13 +52,6 @@ void Carnivore::eatPray(Herbivore* pray)
 
 }
 
-void Carnivore::sleepWell()
-{
-	needs_->decreaseTirednessBy(10.0);
-	needs_->increaseHungerBy(5.0);
-	needs_->update();
-}
-
 double Carnivore::getIndividualSpeedValueAfter(unsigned int time) const
 {
 	const double tirednessFactor = genes_->getTirednessFactor();

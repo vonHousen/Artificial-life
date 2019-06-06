@@ -18,7 +18,7 @@ public:
 	 * @param owner - Herbivore "owning" this Action.
 	 * @param simulation - Simulation that Action makes an impact on.
 	 */
-	HerbivoreSleeping(Herbivore *const owner, Simulation *const simulation);
+	HerbivoreSleeping(Herbivore* const owner, Simulation* const simulation);
 
 	virtual ~HerbivoreSleeping() = default;    		///< Default virtual destructor.
 

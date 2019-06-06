@@ -67,7 +67,7 @@ TEST (SleepingTestSuite, CarnivoreSleeping)
 TEST (SleepingTestSuite, HerbivoreSleeping)
 {
 	const Vector posHerbi;
-	const Vector expectedCavePosition(0.4, 0.7);
+	const Vector expectedCavePosition(-0.6, -0.34);
 	Simulation 	dummySimulation;
 	Herbivore*	herbi = new Herbivore(std::make_unique<Genotype>(), posHerbi, &dummySimulation, LeadingDesire::SLEEPING);
 	dummySimulation.addOrganism(herbi);
@@ -80,6 +80,6 @@ TEST (SleepingTestSuite, HerbivoreSleeping)
 	EXPECT_TRUE(hasOrganismSlept);
 
 	const Vector vecToExpectedCave = Vector::getShortestVectorBetweenPositions(expectedCavePosition,positionOfSleeping);
-	ASSERT_NEAR(vecToExpectedCave.getLength(), 0.0, 0.0005);
+	ASSERT_NEAR(vecToExpectedCave.getLength(), 0.0, Map::getCaveRadius());
 	ASSERT_EQ(herbi->getSuggestedAction(), LeadingDesire::EATING);
 }
