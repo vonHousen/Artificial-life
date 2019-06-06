@@ -34,7 +34,7 @@ void CarnivoreHunting::act()
 
 	} else	//if there are no seen herbivores - try going for smell
 	{
-		if(smelledPray_)
+		if(smelledPray_ and smelledPray_->isAlive())
 		{
 			//calculate vector to smelled food
 			foodVector = smelledPray_->getPosition() - owner_->getPosition();
@@ -45,14 +45,13 @@ void CarnivoreHunting::act()
 
 
 	//if food is near enough - eat it!
-	if(foodVector.getLength() <= 2*Carnivore::getRadius())
-	{
+	if(foodVector != Vector() and foodVector.getLength() <= 2*Carnivore::getRadius())
 		concreteOwner_->eatPray(pray);
-	}
-	else //go for it
-	{
+
+	//go for distant pray
+	else if(foodVector != Vector())
 		this->goForIt(foodVector, pray);
-	}
+
 }
 
 void CarnivoreHunting::goForIt(const Vector& foodVector, Herbivore* pray)
