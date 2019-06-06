@@ -32,8 +32,9 @@ public:
 	 * @param genes - Genotype representing individual Organism's traits inherited from parents.
 	 * @param position - Vector pointing to the position of the Organism on map.
 	 * @param simulation - Simulation that Organism takes part in.
+	 * @param desire - First desire Organism is born with. Default value is LeadingDesire::EATING.
 	 */
-  	Organism(std::unique_ptr<Genotype> genes, const Vector& position, Simulation* const simulation);
+  	Organism(std::unique_ptr<Genotype> genes, const Vector& position, Simulation* const simulation, LeadingDesire desire = LeadingDesire::EATING);
 
 	virtual void updateAction() = 0;		///< After being notified, it uses ActionFactory to update currentAction_.
 	virtual void update() = 0;				///< Flow of the information, called by Simulation

@@ -6,7 +6,7 @@
 
 double Organism::radius_ = 0.015;
 
-Organism::Organism(std::unique_ptr<Genotype> genes, const Vector& position, Simulation* const simulation) :
+Organism::Organism(std::unique_ptr<Genotype> genes, const Vector& position, Simulation* const simulation, LeadingDesire desire) :
 	health_			(10.0),
 	timeAlive_		(1),
 	position_		(position),
@@ -14,10 +14,10 @@ Organism::Organism(std::unique_ptr<Genotype> genes, const Vector& position, Simu
 	acceleration_	(Vector()),
 
 	genes_ 			(std::move(genes)),
-	needs_			(std::make_unique<Needs>(this)),
 	currentAction_ 	(nullptr),
 	simulation_ 	(simulation),
-	suggestedAction_(LeadingDesire::EATING)
+	suggestedAction_(desire),
+	needs_			(std::make_unique<Needs>(this, desire))
 {}
 
 bool Organism::isAlive() const

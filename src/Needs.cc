@@ -6,14 +6,22 @@
 #include <include/ALife/Organism.h>
 
 
-Needs::Needs(Organism* const owner) :
+Needs::Needs(Organism* const owner, LeadingDesire born_desire) :
 	owner_(owner),
-	leadingDesire_(LeadingDesire::EATING),
-
-	hunger_(5.0),
+	leadingDesire_(born_desire),
+	hunger_(0.0),
 	tiredness_(0.0),
 	loneliness_(0.0)
-{}
+{
+	if(born_desire == LeadingDesire::EATING)
+		hunger_ = 5.0;
+
+	else if (born_desire == LeadingDesire::REPRODUCTION)
+		loneliness_ = 5.0;
+
+	else //if (born_desire == LeadingDesire::SLEEPING)
+		tiredness_ = 5.0;
+}
 
 void Needs::decreaseHungerBy(float value)
 {

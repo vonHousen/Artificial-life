@@ -11,8 +11,8 @@
 #include <include/ALife/Action.h>
 
 
-Herbivore::Herbivore(std::unique_ptr<Genotype> genes, const Vector& position, Simulation* const simulation) :
-	Organism(std::move(genes), position, simulation)
+Herbivore::Herbivore(std::unique_ptr<Genotype> genes, const Vector& position, Simulation* const simulation, LeadingDesire desire) :
+	Organism(std::move(genes), position, simulation, desire)
 {
 	this->updateAction();
 }
@@ -28,11 +28,11 @@ void Herbivore::updateAction()
 					HerbivoreActionFactory::getInstance().produceEatingAction(this, simulation_));
 			break;
 
-		case LeadingDesire::SLEEPING:
+		case LeadingDesire::REPRODUCTION:
 			currentAction_ = nullptr;
 			break;
 
-		case LeadingDesire::REPRODUCTION:
+		case LeadingDesire::SLEEPING:
 			currentAction_ = nullptr;
 			break;
 

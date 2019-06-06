@@ -22,8 +22,9 @@ public:
 	/**
 	 * A one parameter constructor.
 	 * @param owner - Organism "owning" this Needs.
+	 * @param born_desire - desire Organism is born with.
 	 */
-	explicit Needs(Organism* owner);
+	Needs(Organism* owner, LeadingDesire born_desire);
 
 	void update();									///< flow of the information upside down.
 

@@ -54,7 +54,7 @@ add_executable(A_Tests
         ${PROJECT_CODE}
         tests/HuntingTestSuite.cc
         tests/BasicTestSuite.cc
-        )
+        tests/SleepingTestSuite.cc)
 
 target_link_libraries(Artificial_Life   Qt5::Widgets)
 target_link_libraries(A_Tests           Qt5::Widgets gtest gtest_main)

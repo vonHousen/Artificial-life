@@ -9,14 +9,13 @@
 #include <include/ALife/Vector.h>
 #include <include/googletest/include/gtest/gtest.h>
 #include <iostream>
-#include <cassert>
 
 /***
  * Shared code for all tests for hunting. Performs actual action of hunting.
  * It assumes that there is only one carnivore and one herbivore on the beginning of the simulation.
  * @param dummySimulation - Simulation in which hunting takes place.
  * @param predator - pointer for Carnivore that hunts Carnivore.
- * @return pair<int,bool> - ( is Herbivore killed? , how many iterations Herbivore lived? )
+ * @return pair<int,bool> - ( how many iterations Herbivore lived?, is Herbivore killed? )
  */
 std::pair<int,bool> performHunting(Simulation& dummySimulation, Carnivore* predator)
 {

@@ -9,8 +9,8 @@
 #include <include/ALife/CarnivoreSleeping.h>
 #include <include/ALife/Simulation.h>
 
-Carnivore::Carnivore(std::unique_ptr<Genotype> genes, const Vector& position, Simulation* const simulation) :
-		Organism(std::move(genes), position, simulation)
+Carnivore::Carnivore(std::unique_ptr<Genotype> genes, const Vector& position, Simulation* const simulation, LeadingDesire desire) :
+		Organism(std::move(genes), position, simulation, desire)
 {
 	this->updateAction();
 }
@@ -26,13 +26,13 @@ void Carnivore::updateAction()
 					CarnivoreActionFactory::getInstance().produceEatingAction(this, simulation_));
 			break;
 
+		case LeadingDesire::REPRODUCTION:
+			currentAction_ = nullptr;
+			break;
+
 		case LeadingDesire::SLEEPING:
 			currentAction_ = std::move(
 					CarnivoreActionFactory::getInstance().produceSleepingAction(this, simulation_));
-			break;
-
-		case LeadingDesire::REPRODUCTION:
-			currentAction_ = nullptr;
 			break;
 
 		default:
