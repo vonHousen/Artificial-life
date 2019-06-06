@@ -229,3 +229,20 @@ void Simulation::initializeSimulation(int carnivoreCount, int herbivoreCount)
 		addOrganism(new Herbivore(std::move(genes), Vector(organismX, organismY), this));
 	}
 }
+
+std::pair<Vector, double> Simulation::getNearestCave(const Herbivore* herbi)
+{
+	const Vector herbiPosition = herbi->getPosition();
+	const auto caveVec = map_.getCaveLocations();
+	std::pair<Vector, double> nearestCave(Vector(1,1), 2.0);
+
+	std::for_each(caveVec.begin(), caveVec.end(),
+			[&nearestCave, herbiPosition](const auto cave)
+			{
+				const auto distance = Vector::getShortestVectorBetweenPositions(herbiPosition, cave).getLength();
+				if(distance < nearestCave.second)
+					nearestCave = {cave, distance};
+			} );
+
+	return {nearestCave.first, Map::getCaveRadius()};
+}

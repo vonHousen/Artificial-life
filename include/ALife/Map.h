@@ -30,6 +30,8 @@ public:
 	 */
 	std::vector<Vector> getCaveLocations();
 
+	static double getCaveRadius();	///< Getter for Cave radius.
+
 private:
 	static const double CAVE_RADIUS; ///< Radius of caves that are placed in this map
 

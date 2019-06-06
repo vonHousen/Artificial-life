@@ -14,10 +14,10 @@ CarnivoreSleeping::CarnivoreSleeping(Carnivore* const owner, Simulation* const s
 		sleepingTime_(0)
 {
 	constexpr int CORRECTION_FACTOR = 2;
-	const double X_RAND_COORD = - RandomGenerator::getInstance()->getSampleUniform();
-	const double Y_RAND_COORD = CORRECTION_FACTOR * RandomGenerator::getInstance()->getSampleUniform();
+	const double xRandCoord = - RandomGenerator::getInstance()->getSampleUniform();
+	const double yRandCoord = CORRECTION_FACTOR * RandomGenerator::getInstance()->getSampleUniform();
 
-	sleepingPosition_ = Vector(X_RAND_COORD, Y_RAND_COORD);
+	sleepingPosition_ = Vector(xRandCoord, yRandCoord);
 }
 
 void CarnivoreSleeping::act()
@@ -25,7 +25,7 @@ void CarnivoreSleeping::act()
 	++timeDuration_;
 	constexpr float EPS = 0.001;
 
-	const auto sleepingVector = sleepingPosition_ - owner_->getPosition();
+	const auto sleepingVector = Vector::getShortestVectorBetweenPositions(owner_->getPosition(), sleepingPosition_);
 
 	if(sleepingVector.getLength() > EPS)
 	{

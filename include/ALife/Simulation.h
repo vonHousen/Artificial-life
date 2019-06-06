@@ -56,7 +56,19 @@ public:
 	 */
 	Carnivore* getNearestPredator(Herbivore* herbi, double sightRange) const;
 
+	/**
+	 * //TODO
+	 * @param herbi
+	 * @return
+	 */
 	MapTile* getNearestGrass(Herbivore* herbi);
+
+	/**
+	 * Getter for the nearest Cave for given herbi.
+	 * @param herbi - Herbivore looking for the nearest Cave.
+	 * @return std::pair<Vector, double> : position of Cave, radius of Cave.
+	 */
+	std::pair<Vector,double> getNearestCave(const Herbivore* herbi);
 
 	/**
 	 * Getter for Herbivore at given location.

@@ -79,7 +79,7 @@ TEST (SleepingTestSuite, HerbivoreSleeping)
 
 	EXPECT_TRUE(hasOrganismSlept);
 
-	const Vector vecToExpectedCave = expectedCavePosition - positionOfSleeping;
+	const Vector vecToExpectedCave = Vector::getShortestVectorBetweenPositions(expectedCavePosition,positionOfSleeping);
 	ASSERT_NEAR(vecToExpectedCave.getLength(), 0.0, 0.0005);
 	ASSERT_EQ(herbi->getSuggestedAction(), LeadingDesire::EATING);
 }

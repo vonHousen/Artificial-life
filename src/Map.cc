@@ -97,3 +97,8 @@ std::vector<Vector> Map::getCaveLocations()
 {
     return caveLocations_;
 }
+
+double Map::getCaveRadius()
+{
+	return CAVE_RADIUS;
+}

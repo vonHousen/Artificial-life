@@ -6,6 +6,7 @@
  */
 
 #include <include/ALife/Vector.h>
+#include <include/ALife/RandomGenerator.h>
 #include <string>
 #include <cmath>
 #include <iomanip>
@@ -130,4 +131,18 @@ double Vector::wrapCoordinateAround(double value) const
 Vector Vector::getUnitVector() const
 {
 	return *this * (1.0/(this->getLength()));
+}
+
+Vector Vector::getRandomVector(double length)
+{
+	constexpr double X_CORRECTION = 2;
+	constexpr double SHIFT = 0.5;
+
+	const double xRandCoord = length * X_CORRECTION * ( RandomGenerator::getInstance()->getSampleUniform() - SHIFT );
+	double yRandCoord = sqrt(length*length - xRandCoord*xRandCoord);
+
+	if(RandomGenerator::getInstance()->getSampleUniform() > 0.5) // probability: 0.5
+		yRandCoord *= -1;
+
+	return {xRandCoord, yRandCoord};
 }
