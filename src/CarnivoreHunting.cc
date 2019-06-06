@@ -30,14 +30,14 @@ void CarnivoreHunting::act()
 		smelledPray_ = nullptr;
 
 		//calculate vector to seen food
-		foodVector = pray->getPosition() - owner_->getPosition();
+		foodVector = Vector::getShortestVectorBetweenPositions(owner_->getPosition(), pray->getPosition());
 
 	} else	//if there are no seen herbivores - try going for smell
 	{
 		if(smelledPray_ and smelledPray_->isAlive())
 		{
 			//calculate vector to smelled food
-			foodVector = smelledPray_->getPosition() - owner_->getPosition();
+			foodVector = Vector::getShortestVectorBetweenPositions(owner_->getPosition(), smelledPray_->getPosition());
 
 		} else
 			smelledPray_ = this->smellPray();
@@ -48,7 +48,7 @@ void CarnivoreHunting::act()
 	if(foodVector != Vector() and foodVector.getLength() <= 2*Carnivore::getRadius())
 		concreteOwner_->eatPray(pray);
 
-	//go for distant pray
+		//go for distant pray
 	else if(foodVector != Vector())
 		this->goForIt(foodVector, pray);
 
@@ -70,7 +70,6 @@ void CarnivoreHunting::goForIt(const Vector& foodVector, Herbivore* pray)
 
 	} else
 		owner_->setVelocity(intendedVelocity);
-
 }
 
 Herbivore* CarnivoreHunting::smellPray()
@@ -85,7 +84,7 @@ Herbivore* CarnivoreHunting::smellPray()
 	const double xRandCoord = coordCorrectionFactor * RandomGenerator::getInstance()->getSampleUniform();
 	const double yRandCoord = coordCorrectionFactor * RandomGenerator::getInstance()->getSampleUniform();
 
-	Herbivore* smelledOrganism = simulation_->getOrganismAt(Vector(xRandCoord, yRandCoord), precisionOfSmell);
+	Herbivore* smelledOrganism = simulation_->getHerbivoreAt(Vector(xRandCoord, yRandCoord), precisionOfSmell);
 
 	return smelledOrganism;
 }

@@ -58,7 +58,7 @@ Herbivore* Simulation::getNearestPrey(Carnivore* hunter, double sightRange) cons
 	if(herbivores_.empty())
 		return nullptr;
 
-	Vector foodVector, nearestFoodVector(1, 1);
+	Vector foodVector, nearestFoodVector(1, 0);
 	const double NORMALIZATION_FACTOR = 0.5;
 
 	// set the maximal sight range
@@ -153,12 +153,25 @@ void Simulation::update()
 		view_->update();
 }
 
-Herbivore* Simulation::getOrganismAt(const Vector& position,  double precision)
+Herbivore* Simulation::getHerbivoreAt(const Vector& position, double precision)
 {
 	if (precision <= 0.0)
 		return nullptr;
 
 	for(auto organism : herbivores_)
+		if(fabs(organism->getPosition().getX() - position.getX()) < precision and
+		   fabs(organism->getPosition().getY() - position.getY()) < precision)
+			return organism;
+
+	return nullptr;
+}
+
+Carnivore* Simulation::getCarnivoreAt(const Vector& position,  double precision)
+{
+	if (precision <= 0.0)
+		return nullptr;
+
+	for(auto organism : carnivores_)
 		if(fabs(organism->getPosition().getX() - position.getX()) < precision and
 		   fabs(organism->getPosition().getY() - position.getY()) < precision)
 			return organism;
@@ -245,4 +258,37 @@ std::pair<Vector, double> Simulation::getNearestCave(const Herbivore* herbi)
 			} );
 
 	return {nearestCave.first, Map::getCaveRadius()};
+}
+
+Carnivore* Simulation::getBestSeenPartner(const Carnivore* lonelyCarnivore)
+{
+	if(carnivores_.empty())
+		return nullptr;
+
+	Vector partnerVector, nearestPartnerVector(1, 0);
+
+	// set the maximal sight range
+	nearestPartnerVector = nearestPartnerVector * lonelyCarnivore->getSightRange();
+	Carnivore* partner = nullptr;
+	double bestFitnessFunVal = 0.0;
+
+	// look for potential partner
+	for(const auto potentialPartner : carnivores_)
+	{
+		partnerVector = Vector::getShortestVectorBetweenPositions(
+				lonelyCarnivore->getPosition(), potentialPartner->getPosition());
+
+		if(partnerVector.getLength() <= nearestPartnerVector.getLength()
+		   and potentialPartner->getSuggestedAction() == LeadingDesire::REPRODUCTION
+		   and not potentialPartner->isParenting()
+		   and potentialPartner != lonelyCarnivore
+		   and potentialPartner->getTimeAlive() > bestFitnessFunVal)
+		{
+			nearestPartnerVector = partnerVector;
+			partner = potentialPartner;
+			bestFitnessFunVal = partner->getLifespan();
+		}
+	}
+
+	return partner;
 }

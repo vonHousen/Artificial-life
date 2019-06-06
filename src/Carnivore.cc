@@ -18,6 +18,9 @@ Carnivore::Carnivore(std::unique_ptr<Genotype> genes, const Vector& position, Si
 
 void Carnivore::updateAction()
 {
+	if(this->isParenting())
+		return;
+
 	suggestedAction_ = needs_->getLeadingDesire();
 
 	switch(suggestedAction_)
@@ -85,5 +88,9 @@ void Carnivore::update()
 void Carnivore::pairWith(Carnivore* partner)
 {
 	isParenting_ = true;
+	currentAction_ = nullptr;
+
+	if(!partner->isParenting())
+		partner->pairWith(this);
 }
 

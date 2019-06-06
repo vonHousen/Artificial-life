@@ -27,8 +27,23 @@ public:
 	virtual void act();							///< Universal for all Actions, executes particular Action.
 
 private:
-
 	unsigned int timeDuration_;					///< Duration of time passed since action has started.
+	unsigned int runDuration_;					///< Duration of time passed since running has started.
+	Carnivore* smelledPartner_;					///< Carnivore theoretically out of plain sight, but targeted with smell
+
+	/**
+	 * Method is a realisation of going for pointed Carnivore.
+	 * @param partnerVector - Vector pointing from "owning" Carnivore to matched partner - Carnivore.
+	 * @param matchedPartner - matched partner Carnivore to be followed by owner.
+	 */
+	void goForIt(const Vector& partnerVector, Carnivore* matchedPartner);
+
+	/**
+	 * Carnivore may try to locate partner by smelling it
+	 * @return pointer to Carnivore partner / nullptr if not found
+	 */
+	Carnivore* smellPartner();
+
 
 };
 
