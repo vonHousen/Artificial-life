@@ -12,6 +12,7 @@ Organism::Organism(std::unique_ptr<Genotype> genes, const Vector& position, Simu
 	position_		(position),
 	velocity_		(Vector()),
 	acceleration_	(Vector()),
+	isParenting_	(false),
 
 	genes_ 			(std::move(genes)),
 	currentAction_ 	(nullptr),

@@ -90,3 +90,8 @@ void Herbivore::update()
 	this->move();
 	this->checkAge();
 }
+
+void Herbivore::pairWith(Herbivore* partner)
+{
+	isParenting_ = true;
+}

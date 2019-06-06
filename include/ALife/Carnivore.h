@@ -48,6 +48,7 @@ public:
 	 */
 	virtual double getIndividualSpeedValueAfter(unsigned int time) const;
 
+	void pairWith(Carnivore* partner);
 };
 
 

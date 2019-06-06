@@ -81,3 +81,8 @@ void Carnivore::update()
 	this->checkAge();
 }
 
+void Carnivore::pairWith(Carnivore* partner)
+{
+	isParenting_ = true;
+}
+
