@@ -58,4 +58,13 @@ TEST (BasicTestSuite, VectorBasicOperations)
 
 	experimental *= 2;
 	EXPECT_EQ(experimental, Vector(2.0, 2.0));	//in fact both vectors are: (0.0, 0.0)
+
+	experimental = Vector::getRandomVector(1.0);
+	EXPECT_NEAR(experimental.getLength(), 1.0, 0.01);
+
+	experimental = Vector::getRandomVector(0.5);
+	EXPECT_NEAR(experimental.getLength(), 0.5, 0.01);
+
+	Vector experimentalSecond = Vector::getRandomVector(0.5);
+	EXPECT_FALSE(experimental == experimentalSecond);
 }
