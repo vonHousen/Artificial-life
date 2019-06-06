@@ -5,6 +5,7 @@ set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
 set(PROJECT_CODE
+                                        include/ALife/LeadingDesire.h
         src/Vector.cc                   include/ALife/Vector.h
         src/RandomGenerator.cc          include/ALife/RandomGenerator.h
         src/Window.cc                   include/ALife/Window.h
@@ -28,8 +29,7 @@ set(PROJECT_CODE
         src/OrganismView.cc             include/ALife/OrganismView.h
         src/CarnivoreView.cc            include/ALife/CarnivoreView.h
         src/HerbivoreView.cc            include/ALife/HerbivoreView.h
-                                        include/ALife/LeadingDesire.h
-
+        src/CarnivoreSleeping.cc        include/ALife/CarnivoreSleeping.h
         )
 
 find_package(Qt5Widgets CONFIG REQUIRED)

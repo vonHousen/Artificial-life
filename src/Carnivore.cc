@@ -6,6 +6,7 @@
 #include <include/ALife/Herbivore.h>
 #include <include/ALife/CarnivoreActionFactory.h>
 #include <include/ALife/CarnivoreHunting.h>
+#include <include/ALife/CarnivoreSleeping.h>
 #include <include/ALife/Simulation.h>
 
 Carnivore::Carnivore(std::unique_ptr<Genotype> genes, const Vector& position, Simulation* const simulation) :
@@ -22,8 +23,12 @@ void Carnivore::updateAction()
 	{
 		case LeadingDesire::EATING:
 			currentAction_ = std::move(
-					CarnivoreActionFactory::getInstance().produceEatingAction(this, simulation_)
-					);
+					CarnivoreActionFactory::getInstance().produceEatingAction(this, simulation_));
+			break;
+
+		case LeadingDesire::SLEEPING:
+			currentAction_ = std::move(
+					CarnivoreActionFactory::getInstance().produceSleepingAction(this, simulation_));
 			break;
 
 		case LeadingDesire::REPRODUCTION:

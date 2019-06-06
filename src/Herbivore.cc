@@ -28,6 +28,10 @@ void Herbivore::updateAction()
 					HerbivoreActionFactory::getInstance().produceEatingAction(this, simulation_));
 			break;
 
+		case LeadingDesire::SLEEPING:
+			currentAction_ = nullptr;
+			break;
+
 		case LeadingDesire::REPRODUCTION:
 			currentAction_ = nullptr;
 			break;
@@ -48,7 +52,7 @@ void Herbivore::eatIt(MapTile* grass)
 
 double Herbivore::getIndividualSpeedValueAfter(unsigned int time) const
 {
-	return genes_->getBasicSpeed();		// TODO
+	return genes_->getBasicSpeed();
 }
 
 void Herbivore::runAwayFrom(Carnivore* danger)
