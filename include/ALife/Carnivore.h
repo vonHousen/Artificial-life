@@ -32,6 +32,7 @@ public:
 	 */
 	Carnivore(std::unique_ptr<Genotype> genes, const Vector& position, Simulation* const simulation, LeadingDesire desire = LeadingDesire::EATING);
 
+	Carnivore* reproduceWith(const Carnivore* other) const;
 
 	virtual void updateAction();			///< After being notified, it uses ActionFactory to update currentAction_.
 

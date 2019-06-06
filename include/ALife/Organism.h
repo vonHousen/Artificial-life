@@ -51,6 +51,12 @@ public:
 	bool isAlive() const;
 
 	/**
+	 * Decides if an Organism is going to have a child after reproduction.
+	 * @return True/False.
+	 */
+	bool isParenting() const;
+
+	/**
 	 * Getter for a position of an Organism.
 	 * @return Vector pointing to the position of the Organism on map.
 	 */
@@ -91,6 +97,8 @@ public:
 	 * Carnivore does not feel tired at all, although it is hungry after sleep.
 	 */
 	void sleepWell();
+
+	void finishParenting();
 
 protected:
 

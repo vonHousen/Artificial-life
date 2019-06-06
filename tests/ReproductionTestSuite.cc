@@ -35,3 +35,28 @@ TEST (ReproductionTestSuite, CarnivoreEasyPairing)
 	ASSERT_GT(beforePairingDistance, afterPairingDistance);
 	ASSERT_NEAR(afterPairingDistance, 2*Organism::getRadius(), 0.01);
 }
+
+/**
+ * Two Carnivores are close to each other
+ * Expected start of parenting
+ */
+TEST (ReproductionTestSuite, CarnivoreParenting)
+{
+	const Vector posFirst(0.5, 0.5), posSecond(0.4999, 0.4999);
+	Simulation 	dummySimulation;
+	Carnivore*	first = new Carnivore(std::make_unique<Genotype>(), posFirst, &dummySimulation, LeadingDesire::REPRODUCTION);
+	Carnivore*	second = new Carnivore(std::make_unique<Genotype>(), posSecond, &dummySimulation, LeadingDesire::REPRODUCTION);
+	dummySimulation.addOrganism(first);
+	dummySimulation.addOrganism(second);
+
+	EXPECT_EQ(first->getSuggestedAction(), LeadingDesire::REPRODUCTION);
+	EXPECT_EQ(second->getSuggestedAction(), LeadingDesire::REPRODUCTION);
+	
+	EXPECT_EQ(first->isParenting(), false);
+	EXPECT_EQ(second->isParenting(), false);
+
+	first->pairWith(second);
+
+	EXPECT_EQ(first->isParenting(), true);
+	EXPECT_EQ(second->isParenting(), true);
+}

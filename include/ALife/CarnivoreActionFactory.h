@@ -2,10 +2,11 @@
 #ifndef ARTIFICIAL_LIFE_CARNIVOREACTIONFACTORY_H
 #define ARTIFICIAL_LIFE_CARNIVOREACTIONFACTORY_H
 
-class CarnivoreHunting;
-class CarnivoreSleeping;
 class Carnivore;
 class Simulation;
+class CarnivoreHunting;
+class CarnivoreSleeping;
+class CarnivoreParenting;
 
 #include <memory>
 
@@ -44,6 +45,8 @@ public:
 	 */
 	std::unique_ptr<CarnivoreSleeping> produceSleepingAction(Carnivore* const owner, Simulation* const simulation);
 
+
+	std::unique_ptr<CarnivoreParenting> produceParentingAction(Carnivore* const owner, Simulation* const simulation, Carnivore* partner);
 private:
 
 	CarnivoreActionFactory() = default;		///< Private default constructor - according to Singleton design pattern.

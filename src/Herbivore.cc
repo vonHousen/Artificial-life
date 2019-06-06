@@ -7,6 +7,7 @@
 #include <include/ALife/HerbivoreActionFactory.h>
 #include <include/ALife/HerbivoreEating.h>
 #include <include/ALife/HerbivoreSleeping.h>
+#include <include/ALife/HerbivoreParenting.h>
 #include <include/ALife/MapTile.h>
 #include <include/ALife/Simulation.h>
 #include <include/ALife/Action.h>
@@ -16,6 +17,14 @@ Herbivore::Herbivore(std::unique_ptr<Genotype> genes, const Vector& position, Si
 	Organism(std::move(genes), position, simulation, desire)
 {
 	this->updateAction();
+}
+
+Herbivore* Herbivore::reproduceWith(const Herbivore* other) const
+{
+	Genotype childGenotype = genes_->crossOver(*other->genes_).mutate();
+	Vector childPosition = position_;
+
+	return new Herbivore(std::make_unique<Genotype>(childGenotype), childPosition, simulation_);
 }
 
 void Herbivore::updateAction()
@@ -94,4 +103,10 @@ void Herbivore::update()
 void Herbivore::pairWith(Herbivore* partner)
 {
 	isParenting_ = true;
+	currentAction_ = std::move(
+				HerbivoreActionFactory::getInstance().produceParentingAction(this, simulation_, partner));
+	if(!partner->isParenting())
+	{
+		partner->pairWith(this);
+	}
 }

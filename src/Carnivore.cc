@@ -4,15 +4,24 @@
 
 #include <include/ALife/Carnivore.h>
 #include <include/ALife/Herbivore.h>
+#include <include/ALife/Simulation.h>
 #include <include/ALife/CarnivoreActionFactory.h>
 #include <include/ALife/CarnivoreHunting.h>
 #include <include/ALife/CarnivoreSleeping.h>
-#include <include/ALife/Simulation.h>
+#include <include/ALife/CarnivoreParenting.h>
 
 Carnivore::Carnivore(std::unique_ptr<Genotype> genes, const Vector& position, Simulation* const simulation, LeadingDesire desire) :
 		Organism(std::move(genes), position, simulation, desire)
 {
 	this->updateAction();
+}
+
+Carnivore* Carnivore::reproduceWith(const Carnivore* other) const
+{
+	Genotype childGenotype = genes_->crossOver(*other->genes_).mutate();
+	Vector childPosition = position_;
+
+	return new Carnivore(std::make_unique<Genotype>(childGenotype), childPosition, simulation_);
 }
 
 void Carnivore::updateAction()
@@ -84,5 +93,11 @@ void Carnivore::update()
 void Carnivore::pairWith(Carnivore* partner)
 {
 	isParenting_ = true;
+	currentAction_ = std::move(
+			CarnivoreActionFactory::getInstance().produceParentingAction(this, simulation_, partner));
+	if(!partner->isParenting())
+	{
+		partner->pairWith(this);
+	}
 }
 

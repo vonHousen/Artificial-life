@@ -26,6 +26,11 @@ bool Organism::isAlive() const
 	return health_ > 0.0;
 }
 
+bool Organism::isParenting() const
+{
+	return isParenting_;
+}
+
 const Vector& Organism::getPosition() const
 {
 	return position_;
@@ -148,5 +153,13 @@ void Organism::sleepWell()
 {
 	needs_->decreaseTirednessBy(10.0);
 	needs_->increaseHungerBy(1.0);
+	needs_->update();
+}
+
+void Organism::finishParenting()
+{
+	isParenting_ = false;
+	needs_->decreaseLonelinessBy(10);
+	needs_->increaseTirednessBy(1);
 	needs_->update();
 }

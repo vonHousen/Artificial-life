@@ -153,7 +153,7 @@ void Simulation::update()
 		view_->update();
 }
 
-Herbivore* Simulation::getOrganismAt(const Vector& position,  double precision)
+Herbivore* Simulation::getOrganismAt(const Vector& position, double precision)
 {
 	if (precision <= 0.0)
 		return nullptr;
@@ -245,4 +245,48 @@ std::pair<Vector, double> Simulation::getNearestCave(const Herbivore* herbi)
 			} );
 
 	return {nearestCave.first, Map::getCaveRadius()};
+}
+
+void Simulation::produceBabies(const Carnivore* parentA, const Carnivore* parentB)
+{
+	float avgLifespan = 0.5 * (parentA->getLifespan() + parentB->getLifespan());
+	
+	float bestLifespan = 0.0;
+	for(auto carni : carnivores_)
+	{
+		if(carni->getLifespan() > bestLifespan)
+			bestLifespan = carni->getLifespan();
+	}
+
+	float fitness = avgLifespan / bestLifespan;
+
+	//Adding 0.5 to round result to nearest integer
+	unsigned int numChildren = 1 + 2.0 * fitness + 0.5;
+
+	for(unsigned int i = 0; i < numChildren; ++i)
+	{
+		addOrganism(parentA->reproduceWith(parentB));
+	}
+}
+
+void Simulation::produceBabies(const Herbivore* parentA, const Herbivore* parentB)
+{
+	float avgLifespan = 0.5 * (parentA->getLifespan() + parentB->getLifespan());
+	
+	float bestLifespan = 0.0;
+	for(auto herbi : herbivores_)
+	{
+		if(herbi->getLifespan() > bestLifespan)
+			bestLifespan = herbi->getLifespan();
+	}
+
+	float fitness = avgLifespan / bestLifespan;
+
+	//Adding 0.5 to round result to nearest integer
+	unsigned int numChildren = 1 + 2.0 * fitness + 0.5;
+
+	for(unsigned int i = 0; i < numChildren; ++i)
+	{
+		addOrganism(parentA->reproduceWith(parentB));
+	}
 }

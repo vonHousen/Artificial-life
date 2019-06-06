@@ -78,6 +78,8 @@ public:
 	 */
 	Herbivore* getOrganismAt(const Vector& location, double precision = 0.0001);
 
+	void produceBabies(const Carnivore* parentA, const Carnivore* parentB);
+	void produceBabies(const Herbivore* parentA, const Herbivore* parentB);
 
 private:
 
