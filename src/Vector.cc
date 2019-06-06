@@ -11,6 +11,9 @@
 #include <cmath>
 #include <iomanip>
 
+//For older platforms
+#define _USE_MATH_DEFINES
+
 Vector::Vector(double x, double y)
 {
 	x_ = wrapCoordinateAround(x);
@@ -135,14 +138,7 @@ Vector Vector::getUnitVector() const
 
 Vector Vector::getRandomVector(double length)
 {
-	constexpr double X_CORRECTION = 2;
-	constexpr double SHIFT = 0.5;
-
-	const double xRandCoord = length * X_CORRECTION * ( RandomGenerator::getInstance()->getSampleUniform() - SHIFT );
-	double yRandCoord = sqrt(length*length - xRandCoord*xRandCoord);
-
-	if(RandomGenerator::getInstance()->getSampleUniform() > 0.5) // probability: 0.5
-		yRandCoord *= -1;
-
-	return {xRandCoord, yRandCoord};
+	//Generate random angle and transform from polar to cartesian coordinates
+	const double phi = 2.0 * M_PI * RandomGenerator::getInstance()->getSampleUniform();
+	return Vector(length * std::cos(phi), length * std::sin(phi));
 }

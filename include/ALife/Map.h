@@ -26,11 +26,11 @@ public:
 
 	/**
 	 * Returns all cave locations in the simulation.
-	 * @return vector<Vector> - vector of positions (centers) of caves.
+	 * @return const vector<Vector>& - vector of positions (centers) of caves.
 	 */
-	std::vector<Vector> getCaveLocations();
+	const std::vector<Vector>& getCaveLocations();
 
-	static double getCaveRadius();	///< Getter for Cave radius.
+	static double getCaveRadius();	///< Getter for cave radius.
 
 private:
 	static const double CAVE_RADIUS; ///< Radius of caves that are placed in this map

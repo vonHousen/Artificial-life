@@ -48,7 +48,7 @@ protected:
 	Simulation* const simulation_;							///< Simulation that Action makes an impact on.
 
 	/**
-	 * Organism go to sleep.
+	 * Organism goes to sleep.
 	 * @param timeDuration - how long this action takes.
 	 * @param sleepingTime - how long Organisms is already sleeping.
 	 * @param location - where Organism want to go to sleep.
