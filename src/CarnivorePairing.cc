@@ -11,7 +11,6 @@
 CarnivorePairing::CarnivorePairing(Carnivore* const owner, Simulation* const simulation) :
 		CarnivoreAction(owner, simulation),
 		timeDuration_(0),
-		runDuration_(0),
 		smelledPartner_(nullptr)
 {}
 
@@ -56,7 +55,7 @@ void CarnivorePairing::act()
 
 void CarnivorePairing::goForIt(const Vector& partnerVector, Carnivore* matchedPartner)
 {
-	const auto velocity = owner_->getIndividualSpeedValueAfter(runDuration_++);
+	const auto velocity = owner_->getIndividualSpeedValueAfter(owner_->getTimeAlive());
 
 	const auto direction = partnerVector.getUnitVector();
 	auto intendedVelocity = direction * velocity;

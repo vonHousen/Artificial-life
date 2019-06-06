@@ -28,7 +28,6 @@ public:
 
 private:
 	unsigned int timeDuration_;					///< Duration of time passed since action has started.
-	unsigned int runDuration_;					///< Duration of time passed since running has started.
 	Carnivore* smelledPartner_;					///< Carnivore theoretically out of plain sight, but targeted with smell
 
 	/**
