@@ -51,8 +51,9 @@ add_executable(Artificial_Life
 
 add_executable(A_Tests
         tests/main_test.cc
-        tests/Tests.cc tests/Tests.h
         ${PROJECT_CODE}
+        tests/HuntingTestSuite.cc
+        tests/BasicTestSuite.cc
         )
 
 target_link_libraries(Artificial_Life   Qt5::Widgets)

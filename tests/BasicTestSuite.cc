@@ -1,5 +1,5 @@
 /**
- * Class for aggregating all tests
+ * File aggregating tests from BasicTestSuite
  */
 
 #include <include/ALife/Simulation.h>
@@ -58,38 +58,4 @@ TEST (BasicTestSuite, VectorBasicOperations)
 
 	experimental *= 2;
 	EXPECT_EQ(experimental, Vector(2.0, 2.0));	//in fact both vectors are: (0.0, 0.0)
-}
-
-TEST (ActionsTestSuite, Hunting)
-{
-	Vector 		posHerbi(-0.5, -0.5), posCarni(0.5, 0.5);
-	Simulation 	dummySimulation;
-	Herbivore* 	herbi = new Herbivore(std::make_unique<Genotype>(), posHerbi, &dummySimulation);
-	Carnivore*	carni = new Carnivore(std::make_unique<Genotype>(), posCarni, &dummySimulation);
-
-	dummySimulation.addOrganism(herbi);
-	dummySimulation.addOrganism(carni);
-
-	dummySimulation.update();
-	EXPECT_EQ(dummySimulation.getHerbivoreCount(), 1);
-	EXPECT_EQ(carni->getSuggestedAction(), LeadingDesire::EATING);
-
-
-	int iterationCounter = 0;
-	bool isEaten = false;
-	for( ; iterationCounter<9999; ++iterationCounter)
-	{
-		dummySimulation.update();
-		if (dummySimulation.getHerbivoreCount() < 1)
-		{
-			isEaten = true;
-			break;
-		}
-	}
-
-	EXPECT_TRUE(isEaten);
-	ASSERT_LT(iterationCounter, 2100);	// assert to be eaten in decent time
-
-	dummySimulation.update();
-	EXPECT_EQ(carni->getSuggestedAction(), LeadingDesire::REPRODUCTION);
 }
