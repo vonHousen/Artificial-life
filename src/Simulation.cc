@@ -37,6 +37,11 @@ void Simulation::addOrganism(Herbivore* const newOrganism)
 	if(view_) view_->notifyWhenOrganismAdded(newOrganism);
 }
 
+void Simulation::addOrganismToQueue(Herbivore* const newOrganism)
+{
+	herbivoresToAdd_.push_back(newOrganism);
+}
+
 void Simulation::registerView(SimulationView* const simulationView)
 {
 	view_ = simulationView;
@@ -149,6 +154,12 @@ void Simulation::update()
 			delete herbivore;
 		}
 	}
+
+	for(auto newHerbi : herbivoresToAdd_)
+	{
+		addOrganism(newHerbi);
+	}
+	herbivoresToAdd_.clear();
 
 	if(view_)
 		view_->update();

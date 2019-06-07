@@ -31,6 +31,7 @@ public:
 	void update();										///< Flow of the information upside down.
 	void addOrganism(Carnivore* const);					///< Adds concrete Organism (Carnivore) to Simulation.
 	void addOrganism(Herbivore* const);					///< Adds concrete Organism (Herbivore) to Simulation.
+	void addOrganismToQueue(Herbivore* const);
 	void registerView(SimulationView* const);			///< Registers Simulation in View layer.
 
 	void reset(int carnivoreCount, int herbivoreCount);
@@ -120,6 +121,7 @@ private:
 
 	std::vector<Carnivore*> carnivores_;				///< Data structure for aggregation of Carnivores.
 	std::vector<Herbivore*> herbivores_;				///< Data structure for aggregation of Herbivores.
+	std::vector<Herbivore*> herbivoresToAdd_;			///< Data structure for aggregation of Herbivores.
 
 	Map map_;											///< Map, that covers simulation's area.
 	SimulationView* view_;								///< View layer of Simulation class.

@@ -59,7 +59,7 @@ void Herbivore::eatIt(MapTile* grass)
 {
 	grass->decreaseGrassiness(0.1);
 	grass->setEater(this);
-	this->needs_->decreaseHungerBy(0.025);
+	needs_->decreaseHungerBy(0.025);
 }
 
 double Herbivore::getIndividualSpeedValueAfter(unsigned int time) const
@@ -102,7 +102,12 @@ void Herbivore::update()
 
 void Herbivore::pairWith(Herbivore* partner)
 {
-	isParenting_ = true;
-	partner->isParenting_ = true;
+	const Vector birthPlace = partner->getPosition();
+	const Genotype childGenotype = genes_->crossOver(*partner->genes_).mutate();
 
+
+	simulation_->addOrganismToQueue(new Herbivore(std::make_unique<Genotype>(childGenotype), birthPlace, simulation_));
+
+	needs_->decreaseLonelinessBy(10);
+	needs_->increaseTirednessBy(3);
 }
