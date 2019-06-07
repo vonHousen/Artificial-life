@@ -142,7 +142,7 @@ void Window::update()
     {
         StatisticsVisitor stats;
         simulation_->getStatistics(stats);
-        speciesStatisitcsView_->updateInfo(stats);
+        speciesStatisitcsView_->updateInfo(stats, simulation_->getSimulationTime());
     }
 }
 

@@ -12,9 +12,10 @@ class SpeciesStatisticsWidget : public QWidget
 public:
     explicit SpeciesStatisticsWidget(Window* window);
 
-    void updateInfo(const StatisticsVisitor& stats);
+    void updateInfo(const StatisticsVisitor& stats, float simulationTime);
 private:
-    Window* window_;
+
+    QLabel* qSimulationTime_;
 
     QLabel* qCarnivoresName_;
     QLabel* qCarnivoresHealth_;
