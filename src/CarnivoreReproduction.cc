@@ -11,12 +11,16 @@
 CarnivoreReproduction::CarnivoreReproduction(Carnivore* const owner, Simulation* const simulation) :
 		CarnivoreAction(owner, simulation),
 		timeDuration_(0)
-{}
+{
+	constexpr unsigned int NORMALISATION_FACTOR = 500;
+	expectedBirthTime_ = owner_->getSpeed() * NORMALISATION_FACTOR;
+}
 
 void CarnivoreReproduction::act()
 {
 	++timeDuration_;
 	Vector partnerVector;
+
 
 	Carnivore* matchedPartner = simulation_->getBestSeenPartner(concreteOwner_);
 
@@ -27,7 +31,7 @@ void CarnivoreReproduction::act()
 				Vector::getShortestVectorBetweenPositions(owner_->getPosition(), matchedPartner->getPosition());
 
 		//if partner is near enough - pair with it!
-		if (partnerVector.getLength() <= 2 * Carnivore::getRadius())
+		if (partnerVector.getLength() <= 2 * Carnivore::getRadius() and timeDuration_ > expectedBirthTime_)
 		{
 			simulation_->produceBabies(concreteOwner_, matchedPartner);
 			concreteOwner_->finishReproduction();
@@ -51,9 +55,12 @@ void CarnivoreReproduction::goForIt(const Vector& partnerVector, Carnivore* matc
 	{
 		intendedVelocity = direction * (partnerVector.getLength() - Carnivore::getRadius());
 		owner_->setVelocity(intendedVelocity);
-		simulation_->produceBabies(concreteOwner_, matchedPartner);
-		concreteOwner_->finishReproduction();
-		matchedPartner->finishReproduction();
+		if(timeDuration_ > expectedBirthTime_)
+		{
+			simulation_->produceBabies(concreteOwner_, matchedPartner);
+			concreteOwner_->finishReproduction();
+			matchedPartner->finishReproduction();
+		}
 	} else
 		owner_->setVelocity(intendedVelocity);
 }

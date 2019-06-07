@@ -24,10 +24,10 @@ public:
 
 	virtual ~CarnivoreReproduction() = default; 		///< Default virtual destructor.
 
-	virtual void act();							///< Universal for all Actions, executes particular Action.
+	virtual void act();								///< Universal for all Actions, executes particular Action.
 
 private:
-	unsigned int timeDuration_;					///< Duration of time passed since action has started.
+	unsigned int timeDuration_;						///< Duration of time passed since action has started.
 
 	/**
 	 * Method is a realisation of going for pointed Carnivore.
@@ -36,7 +36,7 @@ private:
 	 */
 	void goForIt(const Vector& partnerVector, Carnivore* matchedPartner);
 
-
+	unsigned int expectedBirthTime_;			///< Birth is predicted to happen after this time.
 };
 
 #endif //ARTIFICIAL_LIFE_CARNIVOREREPRODUCTION_H
