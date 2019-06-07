@@ -55,7 +55,7 @@ TEST (ReproductionTestSuite, CarnivoreEasyPairing)
 }
 
 /***
- * Two Carnivores are far one from another - needed smelling
+ * Two Carnivores are far one from another
  * Expected movement to each other reproduction.
  */
 TEST (ReproductionTestSuite, CarnivoreBlindPairing)

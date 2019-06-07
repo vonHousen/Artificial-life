@@ -37,12 +37,6 @@ private:
 	 */
 	void goForIt(const Vector& partnerVector, Carnivore* matchedPartner);
 
-	/**
-	 * Carnivore may try to locate partner by smelling it
-	 * @return pointer to Carnivore partner / nullptr if not found
-	 */
-	Carnivore* smellPartner();
-
 
 };
 

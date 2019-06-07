@@ -266,22 +266,14 @@ Carnivore* Simulation::getBestSeenPartner(const Carnivore* lonelyCarnivore)
 	if(carnivores_.empty())
 		return nullptr;
 
-	Vector partnerVector, nearestPartnerVector(1, 0);
-
 	// set the maximal sight range
-	const double normalizationFactor = 0.04 * lonelyCarnivore->getSightRange() + 0.2;
-	nearestPartnerVector = nearestPartnerVector * normalizationFactor;
 	Carnivore* partner = nullptr;
 	double bestFitnessFunVal = 0.0;
 
 	// look for potential partner
 	for(const auto potentialPartner : carnivores_)
 	{
-		partnerVector = Vector::getShortestVectorBetweenPositions(
-				lonelyCarnivore->getPosition(), potentialPartner->getPosition());
-
-		if(partnerVector.getLength() <= nearestPartnerVector.getLength()
-		   and potentialPartner->getSuggestedAction() == LeadingDesire::REPRODUCTION
+		if(potentialPartner->getSuggestedAction() == LeadingDesire::REPRODUCTION
 		   and not potentialPartner->isParenting()
 		   and potentialPartner != lonelyCarnivore
 		   and potentialPartner->getTimeAlive() > bestFitnessFunVal)

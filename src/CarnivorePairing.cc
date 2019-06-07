@@ -30,27 +30,14 @@ void CarnivorePairing::act()
 		partnerVector =
 				Vector::getShortestVectorBetweenPositions(owner_->getPosition(), matchedPartner->getPosition());
 
-	} else //if there are no seen carnivores - try going for smell
-	{
-		if(smelledPartner_ and smelledPartner_->isAlive())
-		{
-			//calculate vector to smelled food
-			partnerVector =
-					Vector::getShortestVectorBetweenPositions(owner_->getPosition(), smelledPartner_->getPosition());
+		//if partner is near enough - pair with it!
+		if (partnerVector.getLength() <= 2 * Carnivore::getRadius())
+			concreteOwner_->pairWith(matchedPartner);
 
-		} else
-			smelledPartner_ = this->smellPartner();
+			//go for distant partner
+		else if (partnerVector != Vector())
+			this->goForIt(partnerVector, matchedPartner);
 	}
-
-
-	//if partner is near enough - pair with it!
-	if(partnerVector != Vector() and partnerVector.getLength() <= 2*Carnivore::getRadius())
-		concreteOwner_->pairWith(matchedPartner);
-
-		//go for distant partner
-	else if(partnerVector != Vector())
-		this->goForIt(partnerVector, matchedPartner);
-
 }
 
 void CarnivorePairing::goForIt(const Vector& partnerVector, Carnivore* matchedPartner)
@@ -69,28 +56,4 @@ void CarnivorePairing::goForIt(const Vector& partnerVector, Carnivore* matchedPa
 
 	} else
 		owner_->setVelocity(intendedVelocity);
-}
-
-Carnivore* CarnivorePairing::smellPartner()
-{
-	if(timeDuration_%40 != 0)
-		return nullptr;
-
-	constexpr double ALERTNESS_CORRECTION_FACTOR = 0.05;
-	const double precisionOfSmell = owner_->getAlertness() * ALERTNESS_CORRECTION_FACTOR;
-
-	constexpr double coordCorrectionFactor = 2.0;
-	const double xRandCoord = coordCorrectionFactor * RandomGenerator::getInstance()->getSampleUniform();
-	const double yRandCoord = coordCorrectionFactor * RandomGenerator::getInstance()->getSampleUniform();
-
-	Carnivore* smelledOrganism = simulation_->getCarnivoreAt(Vector(xRandCoord, yRandCoord), precisionOfSmell);
-	if( smelledOrganism != nullptr
-		and smelledOrganism->getSuggestedAction() == LeadingDesire::REPRODUCTION
-	    and not smelledOrganism->isParenting()
-	    and smelledOrganism != owner_)
-
-		return smelledOrganism;
-
-	else
-		return nullptr;
 }
