@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.4)
 project(Artificial_Life)
-
+set(CMAKE_BUILD_TYPE Debug)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
@@ -34,6 +34,8 @@ set(PROJECT_CODE
         src/HerbivoreView.cc            include/ALife/HerbivoreView.h
         src/CarnivoreSleeping.cc        include/ALife/CarnivoreSleeping.h
         src/HerbivoreSleeping.cc        include/ALife/HerbivoreSleeping.h
+        src/CarnivoreReproduction.cc    include/ALife/CarnivoreReproduction.h
+        src/HerbivoreReproduction.cc    include/ALife/HerbivoreReproduction.h
         )
 
 find_package(Qt5Widgets CONFIG REQUIRED)
@@ -58,7 +60,9 @@ add_executable(A_Tests
         ${PROJECT_CODE}
         tests/HuntingTestSuite.cc
         tests/BasicTestSuite.cc
-        tests/SleepingTestSuite.cc)
+        tests/SleepingTestSuite.cc
+        tests/ReproductionTestSuite.cc
+        )
 
 target_link_libraries(Artificial_Life   Qt5::Widgets)
 target_link_libraries(A_Tests           Qt5::Widgets gtest gtest_main)

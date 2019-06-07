@@ -2,10 +2,11 @@
 #ifndef ARTIFICIAL_LIFE_CARNIVOREACTIONFACTORY_H
 #define ARTIFICIAL_LIFE_CARNIVOREACTIONFACTORY_H
 
-class CarnivoreHunting;
-class CarnivoreSleeping;
 class Carnivore;
 class Simulation;
+class CarnivoreHunting;
+class CarnivoreSleeping;
+class CarnivoreReproduction;
 
 #include <memory>
 
@@ -43,6 +44,14 @@ public:
 	 * @return CarnivoreSleeping - individual action.
 	 */
 	std::unique_ptr<CarnivoreSleeping> produceSleepingAction(Carnivore* const owner, Simulation* const simulation);
+
+	/**
+	 * Produces Action of reproduction.
+	 * @param owner - Carnivore "owning" this Action.
+	 * @param simulation - Simulation that Action makes an impact on.
+	 * @return CarnivoreReproduction - individual action.
+	 */
+	std::unique_ptr<CarnivoreReproduction> produceReproductionAction(Carnivore* const owner, Simulation* const simulation);
 
 private:
 

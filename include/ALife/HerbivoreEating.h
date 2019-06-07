@@ -21,7 +21,7 @@ public:
 	 */
 	HerbivoreEating(Herbivore *const owner, Simulation *const simulation);
 
-	virtual ~HerbivoreEating();  ///< Virtual destructor. Changes state of eaten tile, so that it can be eaten by other organisms
+	virtual ~HerbivoreEating();  							///< Virtual destructor. Changes state of eaten tile, so that it can be eaten by other organisms
 
 	virtual void act();										///< Universal for all Actions, executes particular Action.
 private:

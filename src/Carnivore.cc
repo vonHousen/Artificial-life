@@ -4,9 +4,11 @@
 
 #include <include/ALife/Carnivore.h>
 #include <include/ALife/Herbivore.h>
+#include <include/ALife/Simulation.h>
 #include <include/ALife/CarnivoreActionFactory.h>
 #include <include/ALife/CarnivoreHunting.h>
 #include <include/ALife/CarnivoreSleeping.h>
+#include <include/ALife/CarnivoreReproduction.h>
 #include <include/ALife/Simulation.h>
 #include <include/ALife/StatisticsVisitor.h>
 
@@ -19,6 +21,14 @@ Carnivore::Carnivore(std::unique_ptr<Genotype> genes, const Vector& position, Si
 void Carnivore::accept(StatisticsVisitor& visitor) const
 {
 	visitor.visit(*this);
+}
+
+Carnivore* Carnivore::reproduceWith(const Carnivore* other) const
+{
+	Genotype childGenotype = genes_->crossOver(*other->genes_).mutate();
+	Vector childPosition = position_;
+
+	return new Carnivore(std::make_unique<Genotype>(childGenotype), childPosition, simulation_);
 }
 
 void Carnivore::updateAction()
@@ -34,7 +44,7 @@ void Carnivore::updateAction()
 
 		case LeadingDesire::REPRODUCTION:
 			currentAction_ = std::move(
-					CarnivoreActionFactory::getInstance().produceSleepingAction(this, simulation_));
+					CarnivoreActionFactory::getInstance().produceReproductionAction(this, simulation_));
 			break;
 
 		case LeadingDesire::SLEEPING:
@@ -87,3 +97,7 @@ void Carnivore::update()
 	this->checkAge();
 }
 
+bool Carnivore::isHidden()
+{
+	return false;
+}

@@ -34,6 +34,8 @@ public:
 	void update();										///< Flow of the information upside down.
 	void addOrganism(Carnivore* const);					///< Adds concrete Organism (Carnivore) to Simulation.
 	void addOrganism(Herbivore* const);					///< Adds concrete Organism (Herbivore) to Simulation.
+	void addOrganismToQueue(Carnivore* const);
+	void addOrganismToQueue(Herbivore* const);
 	void registerView(SimulationView* const);			///< Registers Simulation in View layer.
 
 	void reset(int carnivoreCount, int herbivoreCount);
@@ -71,7 +73,7 @@ public:
 	 * @param herbi - Herbivore looking for the nearest Cave.
 	 * @return std::pair<Vector, double> : position of Cave, radius of Cave.
 	 */
-	std::pair<Vector,double> getNearestCave(const Herbivore* herbi);
+	std::pair<Vector, double> getNearestCave(const Herbivore* herbi);
 
 	/**
 	 * Getter for Herbivore at given location.
@@ -79,17 +81,70 @@ public:
 	 * @param precision - radius defining precision for lookup. It has a default value.
 	 * @return Organism at location / nullptr if not found.
 	 */
-	Herbivore* getOrganismAt(const Vector& location, double precision = 0.0001);
+	Herbivore* getHerbivoreAt(const Vector& location, double precision = 0.0001);
 
+	/**
+	 * Getter for Carnivore at given location.
+	 * @param location - Vector pointing to location of an Organism.
+	 * @param precision - radius defining precision for lookup. It has a default value.
+	 * @return Organism at location / nullptr if not found.
+	 */
+	Carnivore* getCarnivoreAt(const Vector& location, double precision = 0.0001);
+
+	/**
+	 * Getter for the nearest Carnivore partner-to-be in sight range.
+	 * @param lonelyCarnivore - Carnivore looking for partner to reproduce.
+	 * @return Carnivore pointer for partner / nullptr if not found.
+	 */
+	Carnivore* getBestSeenPartner(const Carnivore* lonelyCarnivore);
+
+	/**
+	 * Getter for the nearest Herbivore partner-to-be in sight range.
+	 * @param lonelyHerbivore - Herbivore looking for partner to reproduce.
+	 * @return Herbivore pointer for partner / nullptr if not found.
+	 */
+	Herbivore* getBestSeenPartner(const Herbivore* lonelyHerbivore);
+
+	/**
+	 * Produces some number of children, depending on parents' fittness
+	 * and adds them to the simulation.
+	 * @param parentA - First parent
+	 * @param parentA - Second parent
+	 */
+	void produceBabies(const Carnivore* parentA, const Carnivore* parentB);
+
+	/**
+	 * Produces some number of children, depending on parents' fittness
+	 * and adds them to the simulation.
+	 * @param parentA - First parent
+	 * @param parentA - Second parent
+	 */
+	void produceBabies(const Herbivore* parentA, const Herbivore* parentB);
+
+	/**
+	 * Decides if herbi is in Cave area.
+	 * @param herbi - Herbivore.
+	 * @return True / False.
+	 */
+	bool isInCave(const Herbivore* herbi);
+
+	/**
+	 * Getter for timeDuration_ .
+	 * @return time passed since the beginning of the simulation.
+	 */
+	unsigned int getSimulationTime();
 
 private:
 
 	std::vector<Carnivore*> carnivores_;				///< Data structure for aggregation of Carnivores.
 	std::vector<Herbivore*> herbivores_;				///< Data structure for aggregation of Herbivores.
+	std::vector<Carnivore*> carnivoresToAdd_;			///< Data structure for aggregation of Carnivores.
+	std::vector<Herbivore*> herbivoresToAdd_;			///< Data structure for aggregation of Herbivores.
 
 	Map map_;											///< Map, that covers simulation's area.
 	SimulationView* view_;								///< View layer of Simulation class.
 
+	unsigned int timeDuration_;							///< Time passed since the beginning of the simulation.
 };
 
 

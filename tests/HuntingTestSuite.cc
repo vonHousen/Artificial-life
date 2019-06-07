@@ -132,5 +132,5 @@ TEST (HuntingTestSuite, HuntingWithSmell)
 
 	EXPECT_TRUE(isHerbiKilled);
 	EXPECT_EQ(dummySimulation.getCarnivoreCount(), 1);
-	ASSERT_LT(iterationCounter, 2000);	// assert to be eaten in decent time
+	ASSERT_LT(iterationCounter, 3000);	// assert to be eaten in decent time
 }

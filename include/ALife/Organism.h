@@ -91,9 +91,20 @@ public:
 	virtual double getIndividualSpeedValueAfter(unsigned int time) const = 0;
 
 	/**
-	 * Carnivore does not feel tired at all, although it is hungry after sleep.
+	 * Organism does not feel tired at all, although it is hungry after sleep.
 	 */
 	void sleepWell();
+
+	/**
+	 * Finalizes reproduction action, fulfilling organism's needs
+	 */
+	void finishReproduction();
+
+	/**
+	 * Defines if Organism is hidden.
+	 * @return True / False.
+	 */
+	virtual bool isHidden() = 0;
 
 protected:
 

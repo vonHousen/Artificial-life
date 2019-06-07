@@ -33,6 +33,13 @@ public:
 	Herbivore(std::unique_ptr<Genotype> genes, const Vector& position, Simulation* const simulation, LeadingDesire desire = LeadingDesire::EATING);
 
 	virtual void accept(StatisticsVisitor& visitor) const;
+	
+	/**
+	 * Creates new Herbivore due to reproduction with supplied organism
+	 * @param other - pointer to the partner in reproduction
+	 * @return pointer to new Herbivore
+	 */
+	Herbivore* reproduceWith(const Herbivore* other) const;
 
 	virtual void updateAction();			///< after being notified, it uses ActionFactory to update currentAction_.
 
@@ -49,6 +56,22 @@ public:
 	 */
 	virtual double getIndividualSpeedValueAfter(unsigned int time) const;
 
+	/**
+	 * Herbivore, when on Cave area, can hide in it.
+	 */
+	void hide();
+
+	/**
+	 * Herbivore, after coming out from Cave, is no longer hidden.
+	 */
+	void unhide();
+
+	/**
+	 * Defines if Herbivore is hidden in Cave.
+	 * @return True / False.
+	 */
+	virtual bool isHidden();
+
 private:
 
 	/**
@@ -56,6 +79,8 @@ private:
 	 * @param danger - pointer for the nearest Carnivore.
 	 */
 	void runAwayFrom(Carnivore* danger);
+
+	bool isHidden_;							///< Defines if Herbivore is hidden in Cave.
 
 };
 

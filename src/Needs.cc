@@ -87,8 +87,11 @@ void Needs::update()
 
 	// periodically increase needs' values
 	constexpr int NORMALIZATION_FACTOR = 200;
-	const int timeAlive = owner_->getTimeAlive();
-	const int interval = static_cast<int>(owner_->getStamina() * NORMALIZATION_FACTOR);
+	const unsigned int timeAlive = owner_->getTimeAlive();
+	unsigned int interval = static_cast<int>(owner_->getStamina() * NORMALIZATION_FACTOR);
+	if(interval == 0)
+		interval = 50;
+
 	const bool isTimeForHigherNeeds = timeAlive % interval == 0;
 	const bool isTimeForIllness = timeAlive % (interval/2)== 0;
 
@@ -114,7 +117,18 @@ void Needs::update()
 		updatedDesire = LeadingDesire::REPRODUCTION;
 
 	else //if(std::max({loneliness_, hunger_, tiredness_}) == hunger_)
-		updatedDesire = LeadingDesire::EATING;
+	{
+		if (hunger_ < 7.0 and owner_->isHidden())
+		{
+			if(std::max({loneliness_, tiredness_}) == tiredness_)
+				updatedDesire = LeadingDesire::SLEEPING;
+
+			else
+				updatedDesire = LeadingDesire::REPRODUCTION;
+
+		} else
+			updatedDesire = LeadingDesire::EATING;
+	}
 
 	if(updatedDesire != leadingDesire_)
 	{

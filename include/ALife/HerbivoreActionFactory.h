@@ -7,6 +7,7 @@ class Herbivore;
 class Simulation;
 class HerbivoreEating;
 class HerbivoreSleeping;
+class HerbivoreReproduction;
 
 #include <memory>
 
@@ -38,6 +39,15 @@ public:
 	 * @return HerbivoreSleeping - individual action.
 	 */
 	std::unique_ptr<HerbivoreSleeping> produceSleepingAction(Herbivore* const owner, Simulation* const simulation);
+
+	/**
+	 * Produces Action of reproduction.
+	 * @param owner - Herbivore "owning" this Action.
+	 * @param simulation - Simulation that Action makes an impact on.
+	 * @return HerbivoreReproduction- individual action.
+	 */
+	std::unique_ptr<HerbivoreReproduction> produceReproductionAction(Herbivore* const owner, Simulation* const simulation);
+
 
 private:
 

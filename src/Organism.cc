@@ -149,3 +149,10 @@ void Organism::sleepWell()
 	needs_->increaseHungerBy(1.0);
 	needs_->update();
 }
+
+void Organism::finishReproduction()
+{
+	needs_->decreaseLonelinessBy(10);
+	needs_->increaseTirednessBy(1);
+	needs_->update();
+}
