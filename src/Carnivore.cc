@@ -98,11 +98,15 @@ void Carnivore::update()
 void Carnivore::pairWith(Carnivore* partner)
 {
 	isParenting_ = true;
-	currentAction_ = std::move(
-			CarnivoreActionFactory::getInstance().produceParentingAction(this, simulation_, partner));
-	if(!partner->isParenting())
-	{
-		partner->pairWith(this);
-	}
+	std::unique_ptr<CarnivoreParenting> action = std::move(CarnivoreActionFactory::getInstance().produceParentingAction(this, simulation_, partner));
+	std::unique_ptr<CarnivoreParenting> actionForPartner = action->getCopyForPartner();
+	currentAction_ = std::move(action);
+	partner->acceptPairing(this, std::move(actionForPartner));
+}
+
+void Carnivore::acceptPairing(Carnivore* partner, std::unique_ptr<CarnivoreParenting> action)
+{
+	isParenting_ = true;
+	currentAction_ = std::move(action);
 }
 

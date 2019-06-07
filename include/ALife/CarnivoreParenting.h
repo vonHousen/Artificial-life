@@ -3,6 +3,7 @@
 
 #include "CarnivoreAction.h"
 #include <include/ALife/Vector.h>
+#include <memory>
 
 /**
  * Carnivore's (concrete) Action - parenting
@@ -21,8 +22,12 @@ public:
 
 	virtual ~CarnivoreParenting() = default; ///< Default virtual destructor
 
+	virtual std::unique_ptr<CarnivoreParenting> getCopyForPartner();
+
 	virtual void act();										///< Universal for all Actions, executes particular Action.
 private:
+	CarnivoreParenting(Carnivore *const owner, Simulation *const simulation, Carnivore* partner, const Vector& birthLocation);
+
     Carnivore* partner_;	///< Partner in reproduction
 	Vector birthLocation_;  ///< Location in which children will be borned
 };

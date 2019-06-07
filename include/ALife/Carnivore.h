@@ -3,6 +3,7 @@
 #define ARTIFICIAL_LIFE_CARNIVORE_H
 
 class Simulation;
+class CarnivoreParenting;
 
 #include "Organism.h"
 
@@ -55,6 +56,8 @@ public:
 	virtual double getIndividualSpeedValueAfter(unsigned int time) const;
 
 	void pairWith(Carnivore* partner);
+
+	void acceptPairing(Carnivore* partner, std::unique_ptr<CarnivoreParenting> action);
 };
 
 

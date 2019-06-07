@@ -17,6 +17,17 @@ CarnivoreParenting::CarnivoreParenting(Carnivore *const owner, Simulation *const
     birthLocation_ = Vector(locationX, locationY);
 }
 
+CarnivoreParenting::CarnivoreParenting(Carnivore *const owner, Simulation *const simulation, Carnivore* partner, const Vector& birthLocation):
+    CarnivoreAction(owner, simulation),
+    partner_(partner),
+    birthLocation_(birthLocation)
+{}
+
+std::unique_ptr<CarnivoreParenting> CarnivoreParenting::getCopyForPartner()
+{
+    return std::unique_ptr<CarnivoreParenting>(new CarnivoreParenting(partner_, simulation_, concreteOwner_, birthLocation_));
+}
+
 void CarnivoreParenting::act()
 {
     Vector organismPosition = owner_->getPosition();
