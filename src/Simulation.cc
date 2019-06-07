@@ -11,7 +11,8 @@
 #include <algorithm>
 
 Simulation::Simulation():
-	view_(nullptr)
+	view_(nullptr),
+	timeDuration_(0)
 {}
 
 Simulation::~Simulation()
@@ -132,6 +133,8 @@ MapTile* Simulation::getNearestGrass(Herbivore* herbi)
 
 void Simulation::update()
 {
+	++timeDuration_;
+
 	map_.update();
 
 	for(auto carnivoreIterator = carnivores_.begin(); carnivoreIterator != carnivores_.end();)
@@ -399,4 +402,9 @@ bool Simulation::isInCave(const Herbivore* herbi)
 	}
 
 	return isInCave;
+}
+
+unsigned int Simulation::getSimulationTime()
+{
+	return timeDuration_;
 }

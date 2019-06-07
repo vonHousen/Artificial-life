@@ -125,6 +125,12 @@ public:
 	 */
 	bool isInCave(const Herbivore* herbi);
 
+	/**
+	 * Getter for timeDuration_ .
+	 * @return time passed since the beginning of the simulation.
+	 */
+	unsigned int getSimulationTime();
+
 private:
 
 	std::vector<Carnivore*> carnivores_;				///< Data structure for aggregation of Carnivores.
@@ -135,6 +141,7 @@ private:
 	Map map_;											///< Map, that covers simulation's area.
 	SimulationView* view_;								///< View layer of Simulation class.
 
+	unsigned int timeDuration_;							///< Time passed since the beginning of the simulation.
 };
 
 
