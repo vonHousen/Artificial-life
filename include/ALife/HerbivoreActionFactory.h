@@ -40,7 +40,13 @@ public:
 	 */
 	std::unique_ptr<HerbivoreSleeping> produceSleepingAction(Herbivore* const owner, Simulation* const simulation);
 
-	//TODO
+	/**
+	 * Produces Action of parenting.
+	 * @param owner - Herbivore "owning" this Action.
+	 * @param simulation - Simulation that Action makes an impact on.
+	 * @param partner - Partner in reproduction; second parent
+	 * @return HerbivoreParenting - individual action.
+	 */
 	std::unique_ptr<HerbivoreParenting> produceParentingAction(Herbivore* const owner, Simulation* const simulation, Herbivore* partner);
 
 private:

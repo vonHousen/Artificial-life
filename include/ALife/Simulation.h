@@ -78,7 +78,20 @@ public:
 	 */
 	Herbivore* getOrganismAt(const Vector& location, double precision = 0.0001);
 
+	/**
+	 * Produces some number of children, depending on parents' fittness
+	 * and adds them to the simulation.
+	 * @param parentA - First parent
+	 * @param parentA - Second parent
+	 */
 	void produceBabies(const Carnivore* parentA, const Carnivore* parentB);
+
+	/**
+	 * Produces some number of children, depending on parents' fittness
+	 * and adds them to the simulation.
+	 * @param parentA - First parent
+	 * @param parentA - Second parent
+	 */
 	void produceBabies(const Herbivore* parentA, const Herbivore* parentB);
 
 private:

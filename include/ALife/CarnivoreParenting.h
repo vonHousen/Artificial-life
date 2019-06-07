@@ -23,8 +23,8 @@ public:
 
 	virtual void act();										///< Universal for all Actions, executes particular Action.
 private:
-    Carnivore* partner_;
-	Vector birthLocation_;
+    Carnivore* partner_;	///< Partner in reproduction
+	Vector birthLocation_;  ///< Location in which children will be borned
 };
 
 #endif //ARTIFICIAL_LIFE_CARNIVOREPARENTING_H

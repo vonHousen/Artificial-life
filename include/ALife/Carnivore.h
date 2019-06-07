@@ -32,6 +32,11 @@ public:
 	 */
 	Carnivore(std::unique_ptr<Genotype> genes, const Vector& position, Simulation* const simulation, LeadingDesire desire = LeadingDesire::EATING);
 
+	/**
+	 * Creates new Carnivore due to reproduction with supplied organism
+	 * @param other - pointer to the partner in reproduction
+	 * @return pointer to new Carnivore
+	 */
 	Carnivore* reproduceWith(const Carnivore* other) const;
 
 	virtual void updateAction();			///< After being notified, it uses ActionFactory to update currentAction_.

@@ -32,6 +32,11 @@ public:
 	 */
 	Herbivore(std::unique_ptr<Genotype> genes, const Vector& position, Simulation* const simulation, LeadingDesire desire = LeadingDesire::EATING);
 
+	/**
+	 * Creates new Herbivore due to reproduction with supplied organism
+	 * @param other - pointer to the partner in reproduction
+	 * @return pointer to new Herbivore
+	 */
 	Herbivore* reproduceWith(const Herbivore* other) const;
 
 	virtual void updateAction();			///< after being notified, it uses ActionFactory to update currentAction_.
@@ -49,7 +54,10 @@ public:
 	 */
 	virtual double getIndividualSpeedValueAfter(unsigned int time) const;
 
-	//TODO
+	/**
+	 * Starts parenting action with specified action.
+	 * @param partner - partner in reproduction
+	 */
 	void pairWith(Herbivore* partner);
 
 private:

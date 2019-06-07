@@ -20,7 +20,7 @@ public:
 
 	virtual ~HerbivoreParenting() = default; ///< Default virtual destructor
 
-	virtual void act();										///< Universal for all Actions, executes particular Action.
+	virtual void act();			///< Universal for all Actions, executes particular Action.
 private:
     Herbivore* partner_;
 };
