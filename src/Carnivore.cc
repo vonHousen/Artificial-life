@@ -7,11 +7,17 @@
 #include <include/ALife/CarnivoreActionFactory.h>
 #include <include/ALife/CarnivoreHunting.h>
 #include <include/ALife/Simulation.h>
+#include <include/ALife/StatisticsVisitor.h>
 
 Carnivore::Carnivore(std::unique_ptr<Genotype> genes, const Vector& position, Simulation* const simulation) :
 		Organism(std::move(genes), position, simulation)
 {
 	this->updateAction();
+}
+
+void Carnivore::accept(StatisticsVisitor& visitor) const
+{
+	visitor.visit(*this);
 }
 
 void Carnivore::updateAction()

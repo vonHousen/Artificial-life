@@ -6,11 +6,17 @@
 #include <include/ALife/HerbivoreActionFactory.h>
 #include <include/ALife/Simulation.h>
 #include <include/ALife/Action.h>
+#include <include/ALife/StatisticsVisitor.h>
 
 
 Herbivore::Herbivore(std::unique_ptr<Genotype> genes, const Vector& position, Simulation* const simulation) :
 	Organism(std::move(genes), position, simulation)
 {}
+
+void Herbivore::accept(StatisticsVisitor& visitor) const
+{
+	visitor.visit(*this);
+}
 
 void Herbivore::updateAction() // TODO
 {

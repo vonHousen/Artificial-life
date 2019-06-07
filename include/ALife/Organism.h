@@ -3,6 +3,7 @@
 #define ARTIFICIAL_LIFE_ORGANISM_H
 
 class Simulation;
+class StatisticsVisitor;
 
 #include <memory>
 #include "Action.h"
@@ -34,6 +35,8 @@ public:
 	 * @param simulation - Simulation that Organism takes part in.
 	 */
   	Organism(std::unique_ptr<Genotype> genes, const Vector& position, Simulation* const simulation);
+
+	virtual void accept(StatisticsVisitor& visitor) const = 0;
 
 	virtual void updateAction() = 0;		///< after being notified, it uses ActionFactory to update currentAction_.
 

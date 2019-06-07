@@ -23,6 +23,15 @@ Simulation::~Simulation()
 		delete organism;
 }
 
+void Simulation::getStatistics(StatisticsVisitor& stats) const
+{
+	for(auto organism : carnivores_)
+		organism->accept(stats);
+
+	for(auto organism : herbivores_)
+		organism->accept(stats);
+}
+
 void Simulation::addOrganism(Carnivore* const newOrganism)
 {
 	newOrganism->setSimulation(this);

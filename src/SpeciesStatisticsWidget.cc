@@ -1,6 +1,7 @@
 
 #include <include/ALife/SpeciesStatisticsWidget.h>
 #include <include/ALife/Window.h>
+#include <include/ALife/StatisticsVisitor.h>
 
 SpeciesStatisticsWidget::SpeciesStatisticsWidget(Window* window):
     window_(window)
@@ -51,23 +52,23 @@ SpeciesStatisticsWidget::SpeciesStatisticsWidget(Window* window):
     hide();
 }
 
-void SpeciesStatisticsWidget::updateInfo()
+void SpeciesStatisticsWidget::updateInfo(const StatisticsVisitor& stats)
 {
-    qCarnivoresName_->setText(QString("Carnivores:"));
-    qCarnivoresHealth_->setText(QString("Health: "));
-    qCarnivoresTimeAlive_->setText(QString("Time alive: "));
-    qCarnivoresAlertness_->setText(QString("Alertness: "));
-    qCarnivoresSightRange_->setText(QString("Sight range: "));
-    qCarnivoresStamina_->setText(QString("Stamina: "));
-    qCarnivoresSpeed_->setText(QString("Speed: "));
-    qCarnivoresLifespan_->setText(QString("Lifespan: "));
+    qCarnivoresName_->setText(QString("Carnivores: ") + QString::number(stats.getCarnivoreCount()));
+    qCarnivoresHealth_->setText(QString("Health: ") + QString::number(stats.getAvgCarnivoreHealth()));
+    qCarnivoresTimeAlive_->setText(QString("Time alive: ") + QString::number(stats.getAvgCarnivoreTimeAlive()));
+    qCarnivoresAlertness_->setText(QString("Alertness: ") + QString::number(stats.getAvgCarnivoreAlertness()));
+    qCarnivoresSightRange_->setText(QString("Sight range: ") + QString::number(stats.getAvgCarnivoreSightRange()));
+    qCarnivoresStamina_->setText(QString("Stamina: ") + QString::number(stats.getAvgCarnivoreStamina()));
+    qCarnivoresSpeed_->setText(QString("Speed: ") + QString::number(stats.getAvgCarnivoreSpeed()));
+    qCarnivoresLifespan_->setText(QString("Lifespan: ") + QString::number(stats.getAvgCarnivoreLifespan()));
     
-    qHerbivoresName_->setText(QString("Herbivores:"));
-    qHerbivoresHealth_->setText(QString("Health: "));
-    qHerbivoresTimeAlive_->setText(QString("Time alive: "));
-    qHerbivoresAlertness_->setText(QString("Alertness: "));
-    qHerbivoresSightRange_->setText(QString("Sight range: "));
-    qHerbivoresStamina_->setText(QString("Stamina: "));
-    qHerbivoresSpeed_->setText(QString("Speed: "));
-    qHerbivoresLifespan_->setText(QString("Lifespan: "));
+    qHerbivoresName_->setText(QString("Herbivores: ") + QString::number(stats.getHerbivoreCount()));
+    qHerbivoresHealth_->setText(QString("Health: ") + QString::number(stats.getAvgHerbivoreHealth()));
+    qHerbivoresTimeAlive_->setText(QString("Time alive: ") + QString::number(stats.getAvgHerbivoreTimeAlive()));
+    qHerbivoresAlertness_->setText(QString("Alertness: ") + QString::number(stats.getAvgHerbivoreAlertness()));
+    qHerbivoresSightRange_->setText(QString("Sight range: ") + QString::number(stats.getAvgHerbivoreSightRange()));
+    qHerbivoresStamina_->setText(QString("Stamina: ") + QString::number(stats.getAvgHerbivoreStamina()));
+    qHerbivoresSpeed_->setText(QString("Speed: ") + QString::number(stats.getAvgHerbivoreSpeed()));
+    qHerbivoresLifespan_->setText(QString("Lifespan: ") + QString::number(stats.getAvgHerbivoreLifespan()));
 }

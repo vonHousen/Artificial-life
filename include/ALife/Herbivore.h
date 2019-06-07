@@ -29,6 +29,8 @@ public:
 	 */
 	Herbivore(std::unique_ptr<Genotype> genes, const Vector& position, Simulation* const simulation);
 
+	virtual void accept(StatisticsVisitor& visitor) const;
+
 	virtual void updateAction();			///< after being notified, it uses ActionFactory to update currentAction_.
 
 	/**

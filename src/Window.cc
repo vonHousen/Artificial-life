@@ -10,6 +10,7 @@
 #include <include/ALife/Organism.h>
 #include <include/ALife/StatisticsWidget.h>
 #include <include/ALife/SpeciesStatisticsWidget.h>
+#include <include/ALife/StatisticsVisitor.h>
 
 Window::Window(std::shared_ptr<Simulation> simulation, int size, QWidget* parent): 
     QWidget(parent), 
@@ -115,8 +116,8 @@ void Window::showOrganismInfo(Organism* const organism, OrganismView* const orga
     selectedOrganismView_ = organismView;
     
     statisitcsView_->updateIndividualInfo(organism);
-    statisitcsView_->show();
     speciesStatisitcsView_->hide();
+    statisitcsView_->show();
 }
 
 void Window::unselectDeletedView(OrganismView* const organismView)
@@ -157,7 +158,12 @@ void Window::update()
 {
     simulation_->update();
     if(selectedOrganism_) statisitcsView_->updateIndividualInfo(selectedOrganism_);
-    else speciesStatisitcsView_->updateInfo();
+    else
+    {
+        StatisticsVisitor stats;
+        simulation_->getStatistics(stats);
+        speciesStatisitcsView_->updateInfo(stats);
+    }
 }
 
 void Window::updateCarnivorePopulationLabel(int value)

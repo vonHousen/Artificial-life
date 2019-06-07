@@ -3,6 +3,7 @@
 
 class Window;
 class Organism;
+class StatisticsVisitor;
 
 #include <QtWidgets>
 
@@ -11,7 +12,7 @@ class SpeciesStatisticsWidget : public QWidget
 public:
     explicit SpeciesStatisticsWidget(Window* window);
 
-    void updateInfo();
+    void updateInfo(const StatisticsVisitor& stats);
 private:
     Window* window_;
 
