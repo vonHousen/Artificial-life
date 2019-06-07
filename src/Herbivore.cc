@@ -14,7 +14,8 @@
 
 
 Herbivore::Herbivore(std::unique_ptr<Genotype> genes, const Vector& position, Simulation* const simulation, LeadingDesire desire) :
-	Organism(std::move(genes), position, simulation, desire)
+	Organism(std::move(genes), position, simulation, desire),
+	isHidden_(false)
 {
 	this->updateAction();
 }
@@ -86,7 +87,7 @@ void Herbivore::update()
 	Carnivore* danger = simulation_->getNearestPredator(this, this->getSightRange());
 
 	// do actions only if not chased by predator
-	if(danger)
+	if(danger and not this->isHidden())
 	{
 		this->runAwayFrom(danger);
 
@@ -98,4 +99,19 @@ void Herbivore::update()
 
 	this->move();
 	this->checkAge();
+}
+
+void Herbivore::hide()
+{
+	isHidden_ = true;
+}
+
+void Herbivore::unhide()
+{
+	isHidden_ = false;
+}
+
+bool Herbivore::isHidden()
+{
+	return isHidden_;
 }

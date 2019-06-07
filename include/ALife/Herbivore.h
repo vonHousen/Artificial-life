@@ -54,6 +54,22 @@ public:
 	 */
 	virtual double getIndividualSpeedValueAfter(unsigned int time) const;
 
+	/**
+	 * Herbivore, when on Cave area, can hide in it.
+	 */
+	void hide();
+
+	/**
+	 * Herbivore, after coming out from Cave, is no longer hidden.
+	 */
+	void unhide();
+
+	/**
+	 * Defines if Herbivore is hidden in Cave.
+	 * @return True / False.
+	 */
+	bool isHidden();
+
 private:
 
 	/**
@@ -61,6 +77,8 @@ private:
 	 * @param danger - pointer for the nearest Carnivore.
 	 */
 	void runAwayFrom(Carnivore* danger);
+
+	bool isHidden_;							///< Defines if Herbivore is hidden in Cave.
 
 };
 

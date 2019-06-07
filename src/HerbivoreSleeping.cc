@@ -28,5 +28,18 @@ void HerbivoreSleeping::act()
 	++timeDuration_;
 
 	if (goToSleep(timeDuration_, sleepingTime_, sleepingPosition_))
+	{
 		++sleepingTime_;
+		if(not concreteOwner_->isHidden())
+			concreteOwner_->hide();
+	} else
+	{
+		if(concreteOwner_->isHidden())
+			concreteOwner_->unhide();
+	}
+}
+
+HerbivoreSleeping::~HerbivoreSleeping()
+{
+	concreteOwner_->unhide();
 }

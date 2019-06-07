@@ -20,7 +20,7 @@ public:
 	 */
 	HerbivoreSleeping(Herbivore* const owner, Simulation* const simulation);
 
-	virtual ~HerbivoreSleeping() = default;    		///< Default virtual destructor.
+	virtual ~HerbivoreSleeping();    		///< Default virtual destructor.
 
 	virtual void act();                            	///< Universal for all Actions, executes particular Action.
 

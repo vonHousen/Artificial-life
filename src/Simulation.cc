@@ -84,7 +84,9 @@ Herbivore* Simulation::getNearestPrey(Carnivore* hunter, double sightRange) cons
 	for(auto tastyOrganism : herbivores_)
 	{
 		foodVector = Vector::getShortestVectorBetweenPositions(hunter->getPosition(), tastyOrganism->getPosition());
-		if(foodVector.getLength() <= nearestFoodVector.getLength() and tastyOrganism->isAlive())
+		if(foodVector.getLength() <= nearestFoodVector.getLength()
+			and not tastyOrganism->isHidden()
+			and tastyOrganism->isAlive())
 		{
 			nearestFoodVector = foodVector;
 			pray = tastyOrganism;
