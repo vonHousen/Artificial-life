@@ -47,6 +47,15 @@ public:
 
 
 	std::unique_ptr<CarnivoreParenting> produceParentingAction(Carnivore* const owner, Simulation* const simulation, Carnivore* partner);
+	
+	/**
+	 * Produces Action of pairing.
+	 * @param owner - Carnivore "owning" this Action.
+	 * @param simulation - Simulation that Action makes an impact on.
+	 * @return CarnivorePairing - individual action.
+	 */
+	std::unique_ptr<CarnivorePairing> producePairingAction(Carnivore* const owner, Simulation* const simulation);
+
 private:
 
 	CarnivoreActionFactory() = default;		///< Private default constructor - according to Singleton design pattern.

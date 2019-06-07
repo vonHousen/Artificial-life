@@ -58,11 +58,11 @@ Herbivore* Simulation::getNearestPrey(Carnivore* hunter, double sightRange) cons
 	if(herbivores_.empty())
 		return nullptr;
 
-	Vector foodVector, nearestFoodVector(1, 1);
-	const double NORMALIZATION_FACTOR = 0.5;
+	Vector foodVector, nearestFoodVector(1, 0);
+	const double normalizationFactor = 0.04 * sightRange + 0.2;
 
 	// set the maximal sight range
-	nearestFoodVector = nearestFoodVector * sightRange * NORMALIZATION_FACTOR;
+	nearestFoodVector = nearestFoodVector * normalizationFactor;
 	Herbivore* pray = nullptr;
 
 	for(auto tastyOrganism : herbivores_)
@@ -84,10 +84,10 @@ Carnivore* Simulation::getNearestPredator(Herbivore* herbi, double sightRange) c
 		return nullptr;
 
 	Vector predatorVector, nearestPredatorVector(1, 0);
-	const double NORMALIZATION_FACTOR = 0.8;
+	const double normalizationFactor = 0.04 * sightRange + 0.1;
 
 	// set the maximal sight range
-	nearestPredatorVector = nearestPredatorVector * sightRange * NORMALIZATION_FACTOR;
+	nearestPredatorVector = nearestPredatorVector * normalizationFactor;
 	Carnivore* predator = nullptr;
 
 	// TODO add additional organisms for lookup due to alertness (may be random for simplicity?) (not here though)
@@ -95,6 +95,7 @@ Carnivore* Simulation::getNearestPredator(Herbivore* herbi, double sightRange) c
 	for(auto scaryHunter : carnivores_)
 	{
 		predatorVector = Vector::getShortestVectorBetweenPositions(herbi->getPosition(), scaryHunter->getPosition());
+
 		if(predatorVector.getLength() <= nearestPredatorVector.getLength()
 			and scaryHunter->getSuggestedAction() == LeadingDesire::EATING)
 		{
@@ -153,12 +154,25 @@ void Simulation::update()
 		view_->update();
 }
 
-Herbivore* Simulation::getOrganismAt(const Vector& position, double precision)
+Herbivore* Simulation::getHerbivoreAt(const Vector& position, double precision)
 {
 	if (precision <= 0.0)
 		return nullptr;
 
 	for(auto organism : herbivores_)
+		if(fabs(organism->getPosition().getX() - position.getX()) < precision and
+		   fabs(organism->getPosition().getY() - position.getY()) < precision)
+			return organism;
+
+	return nullptr;
+}
+
+Carnivore* Simulation::getCarnivoreAt(const Vector& position,  double precision)
+{
+	if (precision <= 0.0)
+		return nullptr;
+
+	for(auto organism : carnivores_)
 		if(fabs(organism->getPosition().getX() - position.getX()) < precision and
 		   fabs(organism->getPosition().getY() - position.getY()) < precision)
 			return organism;
@@ -289,4 +303,29 @@ void Simulation::produceBabies(const Herbivore* parentA, const Herbivore* parent
 	{
 		addOrganism(parentA->reproduceWith(parentB));
 	}
+}
+
+Carnivore* Simulation::getBestSeenPartner(const Carnivore* lonelyCarnivore)
+{
+	if(carnivores_.empty())
+		return nullptr;
+
+	// set the maximal sight range
+	Carnivore* partner = nullptr;
+	double bestFitnessFunVal = 0.0;
+
+	// look for potential partner
+	for(const auto potentialPartner : carnivores_)
+	{
+		if(potentialPartner->getSuggestedAction() == LeadingDesire::REPRODUCTION
+		   and not potentialPartner->isParenting()
+		   and potentialPartner != lonelyCarnivore
+		   and potentialPartner->getTimeAlive() > bestFitnessFunVal)
+		{
+			partner = potentialPartner;
+			bestFitnessFunVal = partner->getLifespan();
+		}
+	}
+
+	return partner;
 }
