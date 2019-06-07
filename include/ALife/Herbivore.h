@@ -68,7 +68,7 @@ public:
 	 * Defines if Herbivore is hidden in Cave.
 	 * @return True / False.
 	 */
-	bool isHidden();
+	virtual bool isHidden();
 
 private:
 

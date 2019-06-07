@@ -11,7 +11,8 @@
 HerbivoreSleeping::HerbivoreSleeping(Herbivore* const owner, Simulation* const simulation) :
 		HerbivoreAction(owner, simulation),
 		timeDuration_(0),
-		sleepingTime_(0)
+		sleepingTime_(0),
+		tiredness_(owner->getTiredness())
 {
 	const auto results = simulation_->getNearestCave(concreteOwner_);
 	Vector positionInCave = Vector::getRandomVector(results.second);
@@ -27,7 +28,7 @@ void HerbivoreSleeping::act()
 {
 	++timeDuration_;
 
-	if (goToSleep(timeDuration_, sleepingTime_, sleepingPosition_))
+	if (goToSleep(timeDuration_, sleepingTime_, sleepingPosition_, tiredness_))
 	{
 		++sleepingTime_;
 		if(not concreteOwner_->isHidden())

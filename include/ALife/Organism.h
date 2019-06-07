@@ -97,6 +97,12 @@ public:
 	 */
 	void finishReproduction();
 
+	/**
+	 * Defines if Organism is hidden.
+	 * @return True / False.
+	 */
+	virtual bool isHidden() = 0;
+
 protected:
 
 	float 	health_;							///< Basic, actual trait of the Organism, value in range of [0.0, 10.0].

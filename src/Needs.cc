@@ -117,7 +117,18 @@ void Needs::update()
 		updatedDesire = LeadingDesire::REPRODUCTION;
 
 	else //if(std::max({loneliness_, hunger_, tiredness_}) == hunger_)
-		updatedDesire = LeadingDesire::EATING;
+	{
+		if (hunger_ < 7.0 and owner_->isHidden())
+		{
+			if(std::max({loneliness_, tiredness_}) == tiredness_)
+				updatedDesire = LeadingDesire::SLEEPING;
+
+			else
+				updatedDesire = LeadingDesire::REPRODUCTION;
+
+		} else
+			updatedDesire = LeadingDesire::EATING;
+	}
 
 	if(updatedDesire != leadingDesire_)
 	{

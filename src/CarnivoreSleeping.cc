@@ -11,7 +11,8 @@
 CarnivoreSleeping::CarnivoreSleeping(Carnivore* const owner, Simulation* const simulation) :
 		CarnivoreAction(owner, simulation),
 		timeDuration_(0),
-		sleepingTime_(0)
+		sleepingTime_(0),
+		tiredness_(owner->getTiredness())
 {
 	constexpr int CORRECTION_FACTOR = 2;
 	const double xRandCoord = - RandomGenerator::getInstance()->getSampleUniform();
@@ -24,6 +25,6 @@ void CarnivoreSleeping::act()
 {
 	++timeDuration_;
 
-	if ( goToSleep(timeDuration_, sleepingTime_, sleepingPosition_) )
+	if ( goToSleep(timeDuration_, sleepingTime_, sleepingPosition_, tiredness_) )
 		++sleepingTime_;
 }

@@ -30,6 +30,7 @@ private:
 
 	unsigned int timeDuration_;					///< Duration of time passed since action has started.
 	unsigned int sleepingTime_;					///< Duration of sleeping time.
+	const double tiredness_;					///< Tiredness level when started sleeping action.
 	Vector sleepingPosition_;					///< Location where Carnivore is going to sleep.
 
 };

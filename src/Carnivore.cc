@@ -90,3 +90,8 @@ void Carnivore::update()
 	this->move();
 	this->checkAge();
 }
+
+bool Carnivore::isHidden()
+{
+	return false;
+}

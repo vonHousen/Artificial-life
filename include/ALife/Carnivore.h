@@ -53,6 +53,12 @@ public:
 	 * @return individual speed value.
 	 */
 	virtual double getIndividualSpeedValueAfter(unsigned int time) const;
+
+	/**
+	 * Defines if Organism is hidden.
+	 * @return True / False.
+	 */
+	virtual bool isHidden();
 };
 
 
