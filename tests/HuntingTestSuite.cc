@@ -134,3 +134,36 @@ TEST (HuntingTestSuite, HuntingWithSmell)
 	EXPECT_EQ(dummySimulation.getCarnivoreCount(), 1);
 	ASSERT_LT(iterationCounter, 3000);	// assert to be eaten in decent time
 }
+
+/***
+ * Expected eating grass by Herbivore.
+ */
+TEST (HuntingTestSuite, GrassEating)
+{
+	Vector 		posHerbi(0.0, 0.0);
+	Simulation 	dummySimulation;
+
+	Herbivore* 	herbi = new Herbivore(std::make_unique<Genotype>(), posHerbi, &dummySimulation);
+
+	dummySimulation.addOrganism(herbi);
+
+	int iterationCounter = 0;
+	bool isHerbiFull = false;
+
+	for( ; iterationCounter<9999; ++iterationCounter)
+	{
+		dummySimulation.update();
+		if(dummySimulation.getHerbivoreCount() < 1)
+			break;
+
+		else if (herbi->getSuggestedAction() != LeadingDesire::EATING)
+		{
+			isHerbiFull = true;
+			break;
+		}
+	}
+
+	EXPECT_TRUE(isHerbiFull);
+	ASSERT_LT(iterationCounter, 3000);	// assert to finish in decent time
+}
+
