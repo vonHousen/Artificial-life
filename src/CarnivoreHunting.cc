@@ -77,7 +77,7 @@ Herbivore* CarnivoreHunting::smellPray()
 	if(timeDuration_%40 != 0)
 		return nullptr;
 
-	constexpr double ALERTNESS_CORRECTION_FACTOR = 0.04;
+	constexpr double ALERTNESS_CORRECTION_FACTOR = 0.03;
 	const double precisionOfSmell = owner_->getAlertness() * ALERTNESS_CORRECTION_FACTOR;
 
 	constexpr double coordCorrectionFactor = 2.0;

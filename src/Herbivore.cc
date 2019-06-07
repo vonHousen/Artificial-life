@@ -86,7 +86,7 @@ void Herbivore::runAwayFrom(Carnivore* danger)
 	const auto caveDirection = caveVec.getUnitVector();
 
 	constexpr double MINIMAL_DISTANCE_TO_CAVE = 0.1;
-	constexpr double CAVE_WEIGHT = 1.5;
+	constexpr double CAVE_WEIGHT = 300;
 	const double hidingWeight =
 			caveVec.getLength() < MINIMAL_DISTANCE_TO_CAVE ?
 				CAVE_WEIGHT* runDirection.getLength() / caveVec.getLength() : 0.0;
