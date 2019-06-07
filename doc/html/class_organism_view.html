@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Artificial-Life
-   &#160;<span id="projectnumber">v0.6</span>
+   &#160;<span id="projectnumber">v1.0</span>
    </div>
   </td>
  </tr>
@@ -94,7 +94,7 @@ $(document).ready(function(){initNavTree('class_organism_view.html','');});
 </div><!--header-->
 <div class="contents">
 
-<p>Base class for Organisms' views, whose objects are added to <a class="el" href="class_simulation.html" title="Main class responsible for simulation.">Simulation</a> view.  
+<p>Base class for Organisms' views, whose objects are added to <a class="el" href="class_simulation.html" title="Main class responsible for simulation.">Simulation</a> view to be displayed.  
  <a href="class_organism_view.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for OrganismView:</div>
@@ -109,18 +109,30 @@ Inheritance diagram for OrganismView:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad794762ab8f190e0c9db13405bc5d6df"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism_view.html#ad794762ab8f190e0c9db13405bc5d6df">OrganismView</a> (<a class="el" href="class_organism.html">Organism</a> *const model)</td></tr>
-<tr class="separator:ad794762ab8f190e0c9db13405bc5d6df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad596c089fbf9091bbbe1369f2903646d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism_view.html#ad596c089fbf9091bbbe1369f2903646d">OrganismView</a> (<a class="el" href="class_organism.html">Organism</a> *const model, <a class="el" href="class_simulation_view.html">SimulationView</a> *const owner)</td></tr>
+<tr class="memdesc:ad596c089fbf9091bbbe1369f2903646d"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constructor.  <a href="#ad596c089fbf9091bbbe1369f2903646d">More...</a><br /></td></tr>
+<tr class="separator:ad596c089fbf9091bbbe1369f2903646d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8f0e04484123a6787a386d6ef89febb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism_view.html#aa8f0e04484123a6787a386d6ef89febb">~OrganismView</a> ()</td></tr>
+<tr class="memdesc:aa8f0e04484123a6787a386d6ef89febb"><td class="mdescLeft">&#160;</td><td class="mdescRight">A destructor. Notifies simulation view that it was deleted so that information on corresponding organism won't be shown.  <a href="#aa8f0e04484123a6787a386d6ef89febb">More...</a><br /></td></tr>
+<tr class="separator:aa8f0e04484123a6787a386d6ef89febb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f9ba78e239559929190d1d4ef99db0a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism_view.html#a3f9ba78e239559929190d1d4ef99db0a">mousePressEvent</a> (QGraphicsSceneMouseEvent *event)</td></tr>
+<tr class="memdesc:a3f9ba78e239559929190d1d4ef99db0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler for mouse pressing event. Selects this view and informs simulation view that some organism was clicked.  <a href="#a3f9ba78e239559929190d1d4ef99db0a">More...</a><br /></td></tr>
+<tr class="separator:a3f9ba78e239559929190d1d4ef99db0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac61cfbd815b97bbff610915e04e3c0e2"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism_view.html#ac61cfbd815b97bbff610915e04e3c0e2">unselect</a> ()</td></tr>
+<tr class="memdesc:ac61cfbd815b97bbff610915e04e3c0e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unselects this view. Called when user selects other organism or clicks on black space.  <a href="#ac61cfbd815b97bbff610915e04e3c0e2">More...</a><br /></td></tr>
+<tr class="separator:ac61cfbd815b97bbff610915e04e3c0e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1856c146294f2daf7ee7b6aa6f89dc0f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism_view.html#a1856c146294f2daf7ee7b6aa6f89dc0f">update</a> ()</td></tr>
+<tr class="memdesc:a1856c146294f2daf7ee7b6aa6f89dc0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates position to match owner's location. Called by <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a>.  <a href="#a1856c146294f2daf7ee7b6aa6f89dc0f">More...</a><br /></td></tr>
 <tr class="separator:a1856c146294f2daf7ee7b6aa6f89dc0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Base class for Organisms' views, whose objects are added to <a class="el" href="class_simulation.html" title="Main class responsible for simulation.">Simulation</a> view. </p>
+<div class="textblock"><p>Base class for Organisms' views, whose objects are added to <a class="el" href="class_simulation.html" title="Main class responsible for simulation.">Simulation</a> view to be displayed. </p>
+<p>It is derived from QGraphicsEllipseItem so as to be added to QGraphicsScene. </p>
 
-<p class="definition">Definition at line <a class="el" href="_organism_view_8h_source.html#l00013">13</a> of file <a class="el" href="_organism_view_8h_source.html">OrganismView.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_organism_view_8h_source.html#l00015">15</a> of file <a class="el" href="_organism_view_8h_source.html">OrganismView.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ad794762ab8f190e0c9db13405bc5d6df"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad794762ab8f190e0c9db13405bc5d6df">&#9670;&nbsp;</a></span>OrganismView()</h2>
+<a id="ad596c089fbf9091bbbe1369f2903646d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad596c089fbf9091bbbe1369f2903646d">&#9670;&nbsp;</a></span>OrganismView()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -129,15 +141,107 @@ Public Member Functions</h2></td></tr>
           <td class="memname">OrganismView::OrganismView </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_organism.html">Organism</a> *const&#160;</td>
-          <td class="paramname"><em>model</em></td><td>)</td>
+          <td class="paramname"><em>model</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_simulation_view.html">SimulationView</a> *const&#160;</td>
+          <td class="paramname"><em>owner</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">model</td><td>- <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a> related to this view, that will be displayed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa8f0e04484123a6787a386d6ef89febb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8f0e04484123a6787a386d6ef89febb">&#9670;&nbsp;</a></span>~OrganismView()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">OrganismView::~OrganismView </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>A destructor. Notifies simulation view that it was deleted so that information on corresponding organism won't be shown. </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a3f9ba78e239559929190d1d4ef99db0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f9ba78e239559929190d1d4ef99db0a">&#9670;&nbsp;</a></span>mousePressEvent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void OrganismView::mousePressEvent </td>
+          <td>(</td>
+          <td class="paramtype">QGraphicsSceneMouseEvent *&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Handler for mouse pressing event. Selects this view and informs simulation view that some organism was clicked. </p>
+
+</div>
+</div>
+<a id="ac61cfbd815b97bbff610915e04e3c0e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac61cfbd815b97bbff610915e04e3c0e2">&#9670;&nbsp;</a></span>unselect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void OrganismView::unselect </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Unselects this view. Called when user selects other organism or clicks on black space. </p>
+
+</div>
+</div>
 <a id="a1856c146294f2daf7ee7b6aa6f89dc0f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1856c146294f2daf7ee7b6aa6f89dc0f">&#9670;&nbsp;</a></span>update()</h2>
 
@@ -160,6 +264,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Updates position to match owner's location. Called by <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a>. </p>
 
 </div>
 </div>

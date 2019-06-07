@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Artificial-Life
-   &#160;<span id="projectnumber">v0.6</span>
+   &#160;<span id="projectnumber">v1.0</span>
    </div>
   </td>
  </tr>
@@ -112,9 +112,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab52dd78133f830579bf87d5fce186d0c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_carnivore_action_factory.html">CarnivoreActionFactory</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_carnivore_action_factory.html#ab52dd78133f830579bf87d5fce186d0c">operator=</a> (<a class="el" href="class_carnivore_action_factory.html">CarnivoreActionFactory</a> &amp;&amp;)=delete</td></tr>
 <tr class="memdesc:ab52dd78133f830579bf87d5fce186d0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted moving assignment operator.  <a href="#ab52dd78133f830579bf87d5fce186d0c">More...</a><br /></td></tr>
 <tr class="separator:ab52dd78133f830579bf87d5fce186d0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56fb0a7ede1ad204b9cf69f0e4c8d427"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_carnivore_hunting.html">CarnivoreHunting</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_carnivore_action_factory.html#a56fb0a7ede1ad204b9cf69f0e4c8d427">produceEatingAction</a> (<a class="el" href="class_carnivore.html">Carnivore</a> *const owner, <a class="el" href="class_simulation.html">Simulation</a> *const simulation)</td></tr>
-<tr class="memdesc:a56fb0a7ede1ad204b9cf69f0e4c8d427"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produces <a class="el" href="class_action.html" title="Abstract class for all types of Actions Organism can perform driven by Needs.">Action</a> of eating (finding food).  <a href="#a56fb0a7ede1ad204b9cf69f0e4c8d427">More...</a><br /></td></tr>
-<tr class="separator:a56fb0a7ede1ad204b9cf69f0e4c8d427"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0533a5df0e6fc070021f9122d8cf9e20"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="class_carnivore_hunting.html">CarnivoreHunting</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_carnivore_action_factory.html#a0533a5df0e6fc070021f9122d8cf9e20">produceEatingAction</a> (<a class="el" href="class_carnivore.html">Carnivore</a> *const owner, <a class="el" href="class_simulation.html">Simulation</a> *const simulation)</td></tr>
+<tr class="memdesc:a0533a5df0e6fc070021f9122d8cf9e20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produces <a class="el" href="class_action.html" title="Abstract class for all types of Actions Organism can perform driven by Needs.">Action</a> of eating (finding food).  <a href="#a0533a5df0e6fc070021f9122d8cf9e20">More...</a><br /></td></tr>
+<tr class="separator:a0533a5df0e6fc070021f9122d8cf9e20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72dfff87ad600f8224d4110e236fa3be"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="class_carnivore_sleeping.html">CarnivoreSleeping</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_carnivore_action_factory.html#a72dfff87ad600f8224d4110e236fa3be">produceSleepingAction</a> (<a class="el" href="class_carnivore.html">Carnivore</a> *const owner, <a class="el" href="class_simulation.html">Simulation</a> *const simulation)</td></tr>
+<tr class="memdesc:a72dfff87ad600f8224d4110e236fa3be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produces <a class="el" href="class_action.html" title="Abstract class for all types of Actions Organism can perform driven by Needs.">Action</a> of sleeping.  <a href="#a72dfff87ad600f8224d4110e236fa3be">More...</a><br /></td></tr>
+<tr class="separator:a72dfff87ad600f8224d4110e236fa3be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29a79f08564a94d01d58c4291374962c"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="class_carnivore_reproduction.html">CarnivoreReproduction</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_carnivore_action_factory.html#a29a79f08564a94d01d58c4291374962c">produceReproductionAction</a> (<a class="el" href="class_carnivore.html">Carnivore</a> *const owner, <a class="el" href="class_simulation.html">Simulation</a> *const simulation)</td></tr>
+<tr class="memdesc:a29a79f08564a94d01d58c4291374962c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produces <a class="el" href="class_action.html" title="Abstract class for all types of Actions Organism can perform driven by Needs.">Action</a> of reproduction.  <a href="#a29a79f08564a94d01d58c4291374962c">More...</a><br /></td></tr>
+<tr class="separator:a29a79f08564a94d01d58c4291374962c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -126,7 +132,7 @@ Static Public Member Functions</h2></td></tr>
 <div class="textblock"><p>Factory Design Pattern for <a class="el" href="class_carnivore.html" title="Concrete species of an Organism (derives from it)">Carnivore</a>'s Actions. </p>
 <p>It's a singleton. </p>
 
-<p class="definition">Definition at line <a class="el" href="_carnivore_action_factory_8h_source.html#l00014">14</a> of file <a class="el" href="_carnivore_action_factory_8h_source.html">CarnivoreActionFactory.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_carnivore_action_factory_8h_source.html#l00017">17</a> of file <a class="el" href="_carnivore_action_factory_8h_source.html">CarnivoreActionFactory.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a1243c3e80f4bd27263fc8cbebb3308b5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1243c3e80f4bd27263fc8cbebb3308b5">&#9670;&nbsp;</a></span>CarnivoreActionFactory() <span class="overload">[1/2]</span></h2>
@@ -269,14 +275,14 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a56fb0a7ede1ad204b9cf69f0e4c8d427"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a56fb0a7ede1ad204b9cf69f0e4c8d427">&#9670;&nbsp;</a></span>produceEatingAction()</h2>
+<a id="a0533a5df0e6fc070021f9122d8cf9e20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0533a5df0e6fc070021f9122d8cf9e20">&#9670;&nbsp;</a></span>produceEatingAction()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_carnivore_hunting.html">CarnivoreHunting</a> CarnivoreActionFactory::produceEatingAction </td>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="class_carnivore_hunting.html">CarnivoreHunting</a>&gt; CarnivoreActionFactory::produceEatingAction </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_carnivore.html">Carnivore</a> *const&#160;</td>
           <td class="paramname"><em>owner</em>, </td>
@@ -304,6 +310,82 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_carnivore_hunting.html" title="Carnivore&#39;s (concrete) Action of eating (finding food) called hunting.">CarnivoreHunting</a> &lt;=&gt; Eating. </dd></dl>
+
+</div>
+</div>
+<a id="a29a79f08564a94d01d58c4291374962c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29a79f08564a94d01d58c4291374962c">&#9670;&nbsp;</a></span>produceReproductionAction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="class_carnivore_reproduction.html">CarnivoreReproduction</a>&gt; CarnivoreActionFactory::produceReproductionAction </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_carnivore.html">Carnivore</a> *const&#160;</td>
+          <td class="paramname"><em>owner</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_simulation.html">Simulation</a> *const&#160;</td>
+          <td class="paramname"><em>simulation</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Produces <a class="el" href="class_action.html" title="Abstract class for all types of Actions Organism can perform driven by Needs.">Action</a> of reproduction. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">owner</td><td>- <a class="el" href="class_carnivore.html" title="Concrete species of an Organism (derives from it)">Carnivore</a> "owning" this <a class="el" href="class_action.html" title="Abstract class for all types of Actions Organism can perform driven by Needs.">Action</a>. </td></tr>
+    <tr><td class="paramname">simulation</td><td>- <a class="el" href="class_simulation.html" title="Main class responsible for simulation.">Simulation</a> that <a class="el" href="class_action.html" title="Abstract class for all types of Actions Organism can perform driven by Needs.">Action</a> makes an impact on. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_carnivore_reproduction.html" title="Carnivore&#39;s (concrete) Action of reproduction.">CarnivoreReproduction</a> - individual action. </dd></dl>
+
+</div>
+</div>
+<a id="a72dfff87ad600f8224d4110e236fa3be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72dfff87ad600f8224d4110e236fa3be">&#9670;&nbsp;</a></span>produceSleepingAction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="class_carnivore_sleeping.html">CarnivoreSleeping</a>&gt; CarnivoreActionFactory::produceSleepingAction </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_carnivore.html">Carnivore</a> *const&#160;</td>
+          <td class="paramname"><em>owner</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_simulation.html">Simulation</a> *const&#160;</td>
+          <td class="paramname"><em>simulation</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Produces <a class="el" href="class_action.html" title="Abstract class for all types of Actions Organism can perform driven by Needs.">Action</a> of sleeping. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">owner</td><td>- <a class="el" href="class_carnivore.html" title="Concrete species of an Organism (derives from it)">Carnivore</a> "owning" this <a class="el" href="class_action.html" title="Abstract class for all types of Actions Organism can perform driven by Needs.">Action</a>. </td></tr>
+    <tr><td class="paramname">simulation</td><td>- <a class="el" href="class_simulation.html" title="Main class responsible for simulation.">Simulation</a> that <a class="el" href="class_action.html" title="Abstract class for all types of Actions Organism can perform driven by Needs.">Action</a> makes an impact on. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_carnivore_sleeping.html" title="Carnivore&#39;s (concrete) Action of sleeping.">CarnivoreSleeping</a> - individual action. </dd></dl>
 
 </div>
 </div>

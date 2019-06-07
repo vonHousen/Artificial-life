@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Artificial-Life
-   &#160;<span id="projectnumber">v0.6</span>
+   &#160;<span id="projectnumber">v1.0</span>
    </div>
   </td>
  </tr>
@@ -88,6 +88,7 @@ $(document).ready(function(){initNavTree('class_vector.html','');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#friends">Friends</a> &#124;
 <a href="class_vector-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -142,6 +143,15 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ad5435d0dbad5336fe4df23e6ab081612"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e5e4749640f1d3bb8eedd31fb94c59e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector.html#a3e5e4749640f1d3bb8eedd31fb94c59e">operator!=</a> (const <a class="el" href="class_vector.html">Vector</a> &amp;other) const</td></tr>
 <tr class="separator:a3e5e4749640f1d3bb8eedd31fb94c59e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a11216c3f19f35fa3df9e3c4a9daa8e7f"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_vector.html">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector.html#a11216c3f19f35fa3df9e3c4a9daa8e7f">getShortestVectorBetweenPositions</a> (const <a class="el" href="class_vector.html">Vector</a> &amp;first, const <a class="el" href="class_vector.html">Vector</a> &amp;second)</td></tr>
+<tr class="memdesc:a11216c3f19f35fa3df9e3c4a9daa8e7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for the shortest <a class="el" href="class_vector.html" title="Vector - version in 2D: a geometric object that has magnitude and direction.">Vector</a> directing from one position to the other one.  <a href="#a11216c3f19f35fa3df9e3c4a9daa8e7f">More...</a><br /></td></tr>
+<tr class="separator:a11216c3f19f35fa3df9e3c4a9daa8e7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a096c598ab56c1264951aced3ad59adee"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_vector.html">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector.html#a096c598ab56c1264951aced3ad59adee">getRandomVector</a> (double length)</td></tr>
+<tr class="memdesc:a096c598ab56c1264951aced3ad59adee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for the random <a class="el" href="class_vector.html" title="Vector - version in 2D: a geometric object that has magnitude and direction.">Vector</a> of given length.  <a href="#a096c598ab56c1264951aced3ad59adee">More...</a><br /></td></tr>
+<tr class="separator:a096c598ab56c1264951aced3ad59adee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
@@ -229,6 +239,87 @@ Friends</h2></td></tr>
 
 <p>Getter for shortest length of family of Vectors. </p>
 <dl class="section return"><dt>Returns</dt><dd>length of a <a class="el" href="class_vector.html" title="Vector - version in 2D: a geometric object that has magnitude and direction.">Vector</a>. </dd></dl>
+
+</div>
+</div>
+<a id="a096c598ab56c1264951aced3ad59adee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a096c598ab56c1264951aced3ad59adee">&#9670;&nbsp;</a></span>getRandomVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="class_vector.html">Vector</a> Vector::getRandomVector </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>length</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Getter for the random <a class="el" href="class_vector.html" title="Vector - version in 2D: a geometric object that has magnitude and direction.">Vector</a> of given length. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">length</td><td>- length of random <a class="el" href="class_vector.html" title="Vector - version in 2D: a geometric object that has magnitude and direction.">Vector</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>random <a class="el" href="class_vector.html" title="Vector - version in 2D: a geometric object that has magnitude and direction.">Vector</a>. </dd></dl>
+
+</div>
+</div>
+<a id="a11216c3f19f35fa3df9e3c4a9daa8e7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11216c3f19f35fa3df9e3c4a9daa8e7f">&#9670;&nbsp;</a></span>getShortestVectorBetweenPositions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="class_vector.html">Vector</a> Vector::getShortestVectorBetweenPositions </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_vector.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>first</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_vector.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>second</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Getter for the shortest <a class="el" href="class_vector.html" title="Vector - version in 2D: a geometric object that has magnitude and direction.">Vector</a> directing from one position to the other one. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">first</td><td>- <a class="el" href="class_vector.html" title="Vector - version in 2D: a geometric object that has magnitude and direction.">Vector</a> of a position from which is calculated resulting <a class="el" href="class_vector.html" title="Vector - version in 2D: a geometric object that has magnitude and direction.">Vector</a>. </td></tr>
+    <tr><td class="paramname">second</td><td>- <a class="el" href="class_vector.html" title="Vector - version in 2D: a geometric object that has magnitude and direction.">Vector</a> of a position to which is calculated resulting <a class="el" href="class_vector.html" title="Vector - version in 2D: a geometric object that has magnitude and direction.">Vector</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>shortest <a class="el" href="class_vector.html" title="Vector - version in 2D: a geometric object that has magnitude and direction.">Vector</a> between two positions. </dd></dl>
 
 </div>
 </div>

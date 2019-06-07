@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Artificial-Life
-   &#160;<span id="projectnumber">v0.6</span>
+   &#160;<span id="projectnumber">v1.0</span>
    </div>
   </td>
  </tr>
@@ -111,9 +111,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:adafe52ff2a5a1ac5822343668c9bf3e8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_needs.html">Needs</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_needs.html#adafe52ff2a5a1ac5822343668c9bf3e8">operator=</a> (<a class="el" href="class_needs.html">Needs</a> &amp;&amp;)=delete</td></tr>
 <tr class="memdesc:adafe52ff2a5a1ac5822343668c9bf3e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted moving assignment operator.  <a href="#adafe52ff2a5a1ac5822343668c9bf3e8">More...</a><br /></td></tr>
 <tr class="separator:adafe52ff2a5a1ac5822343668c9bf3e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe28879d2bc37da4d36528beebc00e7b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_needs.html#afe28879d2bc37da4d36528beebc00e7b">Needs</a> (<a class="el" href="class_organism.html">Organism</a> *owner)</td></tr>
-<tr class="memdesc:afe28879d2bc37da4d36528beebc00e7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">A one parameter constructor.  <a href="#afe28879d2bc37da4d36528beebc00e7b">More...</a><br /></td></tr>
-<tr class="separator:afe28879d2bc37da4d36528beebc00e7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d91f9ffaacb57312b4cf0d6b57b5494"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_needs.html#a5d91f9ffaacb57312b4cf0d6b57b5494">Needs</a> (<a class="el" href="class_organism.html">Organism</a> *owner, <a class="el" href="_leading_desire_8h.html#ab6527d5af31297d6f2d1f44d82250a05">LeadingDesire</a> born_desire)</td></tr>
+<tr class="memdesc:a5d91f9ffaacb57312b4cf0d6b57b5494"><td class="mdescLeft">&#160;</td><td class="mdescRight">A one parameter constructor.  <a href="#a5d91f9ffaacb57312b4cf0d6b57b5494">More...</a><br /></td></tr>
+<tr class="separator:a5d91f9ffaacb57312b4cf0d6b57b5494"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9c1a1c42eb8e26e2244b1b1094ae27b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_needs.html#aa9c1a1c42eb8e26e2244b1b1094ae27b">update</a> ()</td></tr>
 <tr class="memdesc:aa9c1a1c42eb8e26e2244b1b1094ae27b"><td class="mdescLeft">&#160;</td><td class="mdescRight">flow of the information upside down.  <a href="#aa9c1a1c42eb8e26e2244b1b1094ae27b">More...</a><br /></td></tr>
 <tr class="separator:aa9c1a1c42eb8e26e2244b1b1094ae27b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -135,6 +135,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1363f8abdcbe40d70ae7074a9acc638f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_needs.html#a1363f8abdcbe40d70ae7074a9acc638f">increaseTirednessBy</a> (float value)</td></tr>
 <tr class="memdesc:a1363f8abdcbe40d70ae7074a9acc638f"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a> is tired after reproduction.  <a href="#a1363f8abdcbe40d70ae7074a9acc638f">More...</a><br /></td></tr>
 <tr class="separator:a1363f8abdcbe40d70ae7074a9acc638f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95fb7f206ed3bdd750c70c497a81cc36"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_needs.html#a95fb7f206ed3bdd750c70c497a81cc36">getHunger</a> () const</td></tr>
+<tr class="memdesc:a95fb7f206ed3bdd750c70c497a81cc36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for value representing how hungry the organism is.  <a href="#a95fb7f206ed3bdd750c70c497a81cc36">More...</a><br /></td></tr>
+<tr class="separator:a95fb7f206ed3bdd750c70c497a81cc36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc230aa05bf838eb05344c579c5ac791"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_needs.html#abc230aa05bf838eb05344c579c5ac791">getTiredness</a> () const</td></tr>
+<tr class="memdesc:abc230aa05bf838eb05344c579c5ac791"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for value representing how tired the organism is.  <a href="#abc230aa05bf838eb05344c579c5ac791">More...</a><br /></td></tr>
+<tr class="separator:abc230aa05bf838eb05344c579c5ac791"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4feb6faf7c451409a85e7d549cd27ac"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_needs.html#ae4feb6faf7c451409a85e7d549cd27ac">getLoneliness</a> () const</td></tr>
+<tr class="memdesc:ae4feb6faf7c451409a85e7d549cd27ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for value representing how lonely the organism is.  <a href="#ae4feb6faf7c451409a85e7d549cd27ac">More...</a><br /></td></tr>
+<tr class="separator:ae4feb6faf7c451409a85e7d549cd27ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8272bd367aa5b19a5f56b62be9b366cc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_leading_desire_8h.html#ab6527d5af31297d6f2d1f44d82250a05">LeadingDesire</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_needs.html#a8272bd367aa5b19a5f56b62be9b366cc">getLeadingDesire</a> () const</td></tr>
 <tr class="memdesc:a8272bd367aa5b19a5f56b62be9b366cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for LeadingDesire.  <a href="#a8272bd367aa5b19a5f56b62be9b366cc">More...</a><br /></td></tr>
 <tr class="separator:a8272bd367aa5b19a5f56b62be9b366cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -200,34 +209,37 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="afe28879d2bc37da4d36528beebc00e7b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afe28879d2bc37da4d36528beebc00e7b">&#9670;&nbsp;</a></span>Needs() <span class="overload">[3/3]</span></h2>
+<a id="a5d91f9ffaacb57312b4cf0d6b57b5494"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d91f9ffaacb57312b4cf0d6b57b5494">&#9670;&nbsp;</a></span>Needs() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">Needs::Needs </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_organism.html">Organism</a> *&#160;</td>
-          <td class="paramname"><em>owner</em></td><td>)</td>
+          <td class="paramname"><em>owner</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="_leading_desire_8h.html#ab6527d5af31297d6f2d1f44d82250a05">LeadingDesire</a>&#160;</td>
+          <td class="paramname"><em>born_desire</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>A one parameter constructor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">owner</td><td>- <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a> "owning" this <a class="el" href="class_needs.html" title="Represents all Organism&#39;s physical and psychological Needs - it implicitly impacts Organism&#39;s Actions...">Needs</a>. </td></tr>
+    <tr><td class="paramname">born_desire</td><td>- desire <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a> is born with. </td></tr>
   </table>
   </dd>
 </dl>
@@ -295,6 +307,25 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a95fb7f206ed3bdd750c70c497a81cc36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95fb7f206ed3bdd750c70c497a81cc36">&#9670;&nbsp;</a></span>getHunger()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Needs::getHunger </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getter for value representing how hungry the organism is. </p>
+
+</div>
+</div>
 <a id="a8272bd367aa5b19a5f56b62be9b366cc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8272bd367aa5b19a5f56b62be9b366cc">&#9670;&nbsp;</a></span>getLeadingDesire()</h2>
 
@@ -312,6 +343,44 @@ Public Member Functions</h2></td></tr>
 
 <p>Getter for LeadingDesire. </p>
 <dl class="section return"><dt>Returns</dt><dd>LeadingDesire </dd></dl>
+
+</div>
+</div>
+<a id="ae4feb6faf7c451409a85e7d549cd27ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4feb6faf7c451409a85e7d549cd27ac">&#9670;&nbsp;</a></span>getLoneliness()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Needs::getLoneliness </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getter for value representing how lonely the organism is. </p>
+
+</div>
+</div>
+<a id="abc230aa05bf838eb05344c579c5ac791"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc230aa05bf838eb05344c579c5ac791">&#9670;&nbsp;</a></span>getTiredness()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Needs::getTiredness </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getter for value representing how tired the organism is. </p>
 
 </div>
 </div>

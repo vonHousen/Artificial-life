@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['eatit',['eatIt',['../class_carnivore.html#a3d7e17e8269a8418b1a99fbd17b139a7',1,'Carnivore::eatIt()'],['../class_herbivore.html#a86622436b20bef1b2d58061f335a8a57',1,'Herbivore::eatIt()'],['../class_organism.html#a75b50d26fe67c4063ed8baaa51cae2f2',1,'Organism::eatIt()']]]
+  ['eatit',['eatIt',['../class_herbivore.html#ac8332a5927a1da3d72f3bfb4bb3c3e20',1,'Herbivore']]],
+  ['eatpray',['eatPray',['../class_carnivore.html#ae763cd8e028d62b50f016ff109162b0d',1,'Carnivore']]]
 ];

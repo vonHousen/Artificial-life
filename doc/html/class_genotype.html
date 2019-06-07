@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Artificial-Life
-   &#160;<span id="projectnumber">v0.6</span>
+   &#160;<span id="projectnumber">v1.0</span>
    </div>
   </td>
  </tr>
@@ -102,13 +102,39 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a48f1317f3fb66a15007be37eac4c5c34"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_genotype.html#a48f1317f3fb66a15007be37eac4c5c34">Genotype</a> ()</td></tr>
 <tr class="memdesc:a48f1317f3fb66a15007be37eac4c5c34"><td class="mdescLeft">&#160;</td><td class="mdescRight">A default constructor.  <a href="#a48f1317f3fb66a15007be37eac4c5c34">More...</a><br /></td></tr>
 <tr class="separator:a48f1317f3fb66a15007be37eac4c5c34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79b9275b87776901f6e7d134ca53653d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_genotype.html#a79b9275b87776901f6e7d134ca53653d">Genotype</a> (float alertness, float sightRange, float stamina, float speed, float lifespan)</td></tr>
+<tr class="memdesc:a79b9275b87776901f6e7d134ca53653d"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constructor.  <a href="#a79b9275b87776901f6e7d134ca53653d">More...</a><br /></td></tr>
+<tr class="separator:a79b9275b87776901f6e7d134ca53653d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb2f13f36c9ebc4bc1b4dfacf9054816"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_genotype.html#abb2f13f36c9ebc4bc1b4dfacf9054816">Genotype</a> (const <a class="el" href="class_genotype.html">Genotype</a> &amp;inheritedGenes)</td></tr>
-<tr class="memdesc:abb2f13f36c9ebc4bc1b4dfacf9054816"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constructor.  <a href="#abb2f13f36c9ebc4bc1b4dfacf9054816">More...</a><br /></td></tr>
+<tr class="memdesc:abb2f13f36c9ebc4bc1b4dfacf9054816"><td class="mdescLeft">&#160;</td><td class="mdescRight">A copying constructor.  <a href="#abb2f13f36c9ebc4bc1b4dfacf9054816">More...</a><br /></td></tr>
 <tr class="separator:abb2f13f36c9ebc4bc1b4dfacf9054816"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a67ce0a2d5d25b292263623d6312095c5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_genotype.html">Genotype</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_genotype.html#a67ce0a2d5d25b292263623d6312095c5">crossOver</a> (const <a class="el" href="class_genotype.html">Genotype</a> &amp;other) const</td></tr>
+<tr class="memdesc:a67ce0a2d5d25b292263623d6312095c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that creates a new <a class="el" href="class_genotype.html" title="Genotype represents individual Organism&#39;s traits inherited from parents.">Genotype</a> object by mixing this object with provided genotype.  <a href="#a67ce0a2d5d25b292263623d6312095c5">More...</a><br /></td></tr>
 <tr class="separator:a67ce0a2d5d25b292263623d6312095c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a044d503b653829057b31080a05bc75"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_genotype.html">Genotype</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_genotype.html#a0a044d503b653829057b31080a05bc75">mutate</a> ()</td></tr>
+<tr class="memdesc:a0a044d503b653829057b31080a05bc75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Introduces random changes in traits' values, mimicking mutation.  <a href="#a0a044d503b653829057b31080a05bc75">More...</a><br /></td></tr>
 <tr class="separator:a0a044d503b653829057b31080a05bc75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81b712b793924ed98887b5245a1f3370"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_genotype.html#a81b712b793924ed98887b5245a1f3370">getBasicSpeed</a> () const</td></tr>
+<tr class="memdesc:a81b712b793924ed98887b5245a1f3370"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for individual for every <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a>, basic value of calculated speed based on <a class="el" href="class_genotype.html" title="Genotype represents individual Organism&#39;s traits inherited from parents.">Genotype</a>.  <a href="#a81b712b793924ed98887b5245a1f3370">More...</a><br /></td></tr>
+<tr class="separator:a81b712b793924ed98887b5245a1f3370"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadae8952a2e8ce0dd40a49deb2488888"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_genotype.html#aadae8952a2e8ce0dd40a49deb2488888">getTirednessFactor</a> () const</td></tr>
+<tr class="memdesc:aadae8952a2e8ce0dd40a49deb2488888"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for individual for every <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a> tiredness factor based on <a class="el" href="class_genotype.html" title="Genotype represents individual Organism&#39;s traits inherited from parents.">Genotype</a>.  <a href="#aadae8952a2e8ce0dd40a49deb2488888">More...</a><br /></td></tr>
+<tr class="separator:aadae8952a2e8ce0dd40a49deb2488888"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa46bc8dc4b2aefc2894234a8427dbd98"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_genotype.html#aa46bc8dc4b2aefc2894234a8427dbd98">getAlertness</a> () const</td></tr>
+<tr class="memdesc:aa46bc8dc4b2aefc2894234a8427dbd98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for alertness trait.  <a href="#aa46bc8dc4b2aefc2894234a8427dbd98">More...</a><br /></td></tr>
+<tr class="separator:aa46bc8dc4b2aefc2894234a8427dbd98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6469f6cf9f92c9709e47d37cf6ec0c1a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_genotype.html#a6469f6cf9f92c9709e47d37cf6ec0c1a">getSightRange</a> () const</td></tr>
+<tr class="memdesc:a6469f6cf9f92c9709e47d37cf6ec0c1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for sight range trait.  <a href="#a6469f6cf9f92c9709e47d37cf6ec0c1a">More...</a><br /></td></tr>
+<tr class="separator:a6469f6cf9f92c9709e47d37cf6ec0c1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab53bbbd3ac0d3b50a34b683c664e8d74"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_genotype.html#ab53bbbd3ac0d3b50a34b683c664e8d74">getStamina</a> () const</td></tr>
+<tr class="memdesc:ab53bbbd3ac0d3b50a34b683c664e8d74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for stamina trait.  <a href="#ab53bbbd3ac0d3b50a34b683c664e8d74">More...</a><br /></td></tr>
+<tr class="separator:ab53bbbd3ac0d3b50a34b683c664e8d74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a988b4e47bc892a79abcd01609c10ed99"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_genotype.html#a988b4e47bc892a79abcd01609c10ed99">getSpeed</a> () const</td></tr>
+<tr class="memdesc:a988b4e47bc892a79abcd01609c10ed99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for speed trait.  <a href="#a988b4e47bc892a79abcd01609c10ed99">More...</a><br /></td></tr>
+<tr class="separator:a988b4e47bc892a79abcd01609c10ed99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adac1dcf822ab550b0866cd733f3eb79b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_genotype.html#adac1dcf822ab550b0866cd733f3eb79b">getLifespan</a> () const</td></tr>
+<tr class="memdesc:adac1dcf822ab550b0866cd733f3eb79b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for lifespan trait.  <a href="#adac1dcf822ab550b0866cd733f3eb79b">More...</a><br /></td></tr>
+<tr class="separator:adac1dcf822ab550b0866cd733f3eb79b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="class_genotype.html" title="Genotype represents individual Organism&#39;s traits inherited from parents.">Genotype</a> represents individual <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a>'s traits inherited from parents. </p>
@@ -116,7 +142,7 @@ Public Member Functions</h2></td></tr>
 <p class="definition">Definition at line <a class="el" href="_genotype_8h_source.html#l00009">9</a> of file <a class="el" href="_genotype_8h_source.html">Genotype.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a48f1317f3fb66a15007be37eac4c5c34"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a48f1317f3fb66a15007be37eac4c5c34">&#9670;&nbsp;</a></span>Genotype() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a48f1317f3fb66a15007be37eac4c5c34">&#9670;&nbsp;</a></span>Genotype() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -134,8 +160,66 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a79b9275b87776901f6e7d134ca53653d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79b9275b87776901f6e7d134ca53653d">&#9670;&nbsp;</a></span>Genotype() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Genotype::Genotype </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>alertness</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>sightRange</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>stamina</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>speed</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>lifespan</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">alertness</td><td>- initialised trait representing alertness </td></tr>
+    <tr><td class="paramname">sightRange</td><td>- initialised trait representing range </td></tr>
+    <tr><td class="paramname">stamina</td><td>- initialised trait representing stamina </td></tr>
+    <tr><td class="paramname">speed</td><td>- initialised trait representing speed </td></tr>
+    <tr><td class="paramname">lifespan</td><td>- initialised trait representing lifespan </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="abb2f13f36c9ebc4bc1b4dfacf9054816"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abb2f13f36c9ebc4bc1b4dfacf9054816">&#9670;&nbsp;</a></span>Genotype() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#abb2f13f36c9ebc4bc1b4dfacf9054816">&#9670;&nbsp;</a></span>Genotype() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -150,7 +234,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>A constructor. </p>
+<p>A copying constructor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">inheritedGenes</td><td>- <a class="el" href="class_genotype.html" title="Genotype represents individual Organism&#39;s traits inherited from parents.">Genotype</a> representing individual <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a>'s traits inherited from parents. </td></tr>
@@ -177,6 +261,150 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Function that creates a new <a class="el" href="class_genotype.html" title="Genotype represents individual Organism&#39;s traits inherited from parents.">Genotype</a> object by mixing this object with provided genotype. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>- <a class="el" href="class_genotype.html" title="Genotype represents individual Organism&#39;s traits inherited from parents.">Genotype</a> object to be mixed with. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>resultant genotype. </dd></dl>
+
+</div>
+</div>
+<a id="aa46bc8dc4b2aefc2894234a8427dbd98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa46bc8dc4b2aefc2894234a8427dbd98">&#9670;&nbsp;</a></span>getAlertness()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Genotype::getAlertness </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getter for alertness trait. </p>
+
+</div>
+</div>
+<a id="a81b712b793924ed98887b5245a1f3370"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81b712b793924ed98887b5245a1f3370">&#9670;&nbsp;</a></span>getBasicSpeed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Genotype::getBasicSpeed </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getter for individual for every <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a>, basic value of calculated speed based on <a class="el" href="class_genotype.html" title="Genotype represents individual Organism&#39;s traits inherited from parents.">Genotype</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>individual, basic value of speed (avg: 0.001). </dd></dl>
+
+</div>
+</div>
+<a id="adac1dcf822ab550b0866cd733f3eb79b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adac1dcf822ab550b0866cd733f3eb79b">&#9670;&nbsp;</a></span>getLifespan()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Genotype::getLifespan </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getter for lifespan trait. </p>
+
+</div>
+</div>
+<a id="a6469f6cf9f92c9709e47d37cf6ec0c1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6469f6cf9f92c9709e47d37cf6ec0c1a">&#9670;&nbsp;</a></span>getSightRange()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Genotype::getSightRange </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getter for sight range trait. </p>
+
+</div>
+</div>
+<a id="a988b4e47bc892a79abcd01609c10ed99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a988b4e47bc892a79abcd01609c10ed99">&#9670;&nbsp;</a></span>getSpeed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Genotype::getSpeed </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getter for speed trait. </p>
+
+</div>
+</div>
+<a id="ab53bbbd3ac0d3b50a34b683c664e8d74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab53bbbd3ac0d3b50a34b683c664e8d74">&#9670;&nbsp;</a></span>getStamina()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Genotype::getStamina </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getter for stamina trait. </p>
+
+</div>
+</div>
+<a id="aadae8952a2e8ce0dd40a49deb2488888"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadae8952a2e8ce0dd40a49deb2488888">&#9670;&nbsp;</a></span>getTirednessFactor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Genotype::getTirednessFactor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getter for individual for every <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a> tiredness factor based on <a class="el" href="class_genotype.html" title="Genotype represents individual Organism&#39;s traits inherited from parents.">Genotype</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>individual tiredness value (avg: 0.5) </dd></dl>
+
 </div>
 </div>
 <a id="a0a044d503b653829057b31080a05bc75"></a>
@@ -193,6 +421,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Introduces random changes in traits' values, mimicking mutation. </p>
+<dl class="section return"><dt>Returns</dt><dd>reference to mutated genotype </dd></dl>
 
 </div>
 </div>

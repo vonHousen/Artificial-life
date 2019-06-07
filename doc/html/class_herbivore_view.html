@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Artificial-Life
-   &#160;<span id="projectnumber">v0.6</span>
+   &#160;<span id="projectnumber">v1.0</span>
    </div>
   </td>
  </tr>
@@ -102,18 +102,30 @@ Inheritance diagram for HerbivoreView:</div>
  <div class="center">
   <img src="class_herbivore_view.png" usemap="#HerbivoreView_map" alt=""/>
   <map id="HerbivoreView_map" name="HerbivoreView_map">
-<area href="class_organism_view.html" title="Base class for Organisms&#39; views, whose objects are added to Simulation view." alt="OrganismView" shape="rect" coords="0,56,132,80"/>
+<area href="class_organism_view.html" title="Base class for Organisms&#39; views, whose objects are added to Simulation view to be displayed." alt="OrganismView" shape="rect" coords="0,56,132,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a354b75358ccddbeae25b85a5d814a5ad"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_herbivore_view.html#a354b75358ccddbeae25b85a5d814a5ad">HerbivoreView</a> (<a class="el" href="class_herbivore.html">Herbivore</a> *const model)</td></tr>
-<tr class="separator:a354b75358ccddbeae25b85a5d814a5ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f242c9fe8e14725a86e8ff68764434f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_herbivore_view.html#a3f242c9fe8e14725a86e8ff68764434f">HerbivoreView</a> (<a class="el" href="class_herbivore.html">Herbivore</a> *const model, <a class="el" href="class_simulation_view.html">SimulationView</a> *const owner)</td></tr>
+<tr class="memdesc:a3f242c9fe8e14725a86e8ff68764434f"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constructor.  <a href="#a3f242c9fe8e14725a86e8ff68764434f">More...</a><br /></td></tr>
+<tr class="separator:a3f242c9fe8e14725a86e8ff68764434f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_organism_view"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_organism_view')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_organism_view.html">OrganismView</a></td></tr>
-<tr class="memitem:ad794762ab8f190e0c9db13405bc5d6df inherit pub_methods_class_organism_view"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism_view.html#ad794762ab8f190e0c9db13405bc5d6df">OrganismView</a> (<a class="el" href="class_organism.html">Organism</a> *const model)</td></tr>
-<tr class="separator:ad794762ab8f190e0c9db13405bc5d6df inherit pub_methods_class_organism_view"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad596c089fbf9091bbbe1369f2903646d inherit pub_methods_class_organism_view"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism_view.html#ad596c089fbf9091bbbe1369f2903646d">OrganismView</a> (<a class="el" href="class_organism.html">Organism</a> *const model, <a class="el" href="class_simulation_view.html">SimulationView</a> *const owner)</td></tr>
+<tr class="memdesc:ad596c089fbf9091bbbe1369f2903646d inherit pub_methods_class_organism_view"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constructor.  <a href="class_organism_view.html#ad596c089fbf9091bbbe1369f2903646d">More...</a><br /></td></tr>
+<tr class="separator:ad596c089fbf9091bbbe1369f2903646d inherit pub_methods_class_organism_view"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8f0e04484123a6787a386d6ef89febb inherit pub_methods_class_organism_view"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism_view.html#aa8f0e04484123a6787a386d6ef89febb">~OrganismView</a> ()</td></tr>
+<tr class="memdesc:aa8f0e04484123a6787a386d6ef89febb inherit pub_methods_class_organism_view"><td class="mdescLeft">&#160;</td><td class="mdescRight">A destructor. Notifies simulation view that it was deleted so that information on corresponding organism won't be shown.  <a href="class_organism_view.html#aa8f0e04484123a6787a386d6ef89febb">More...</a><br /></td></tr>
+<tr class="separator:aa8f0e04484123a6787a386d6ef89febb inherit pub_methods_class_organism_view"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f9ba78e239559929190d1d4ef99db0a inherit pub_methods_class_organism_view"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism_view.html#a3f9ba78e239559929190d1d4ef99db0a">mousePressEvent</a> (QGraphicsSceneMouseEvent *event)</td></tr>
+<tr class="memdesc:a3f9ba78e239559929190d1d4ef99db0a inherit pub_methods_class_organism_view"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler for mouse pressing event. Selects this view and informs simulation view that some organism was clicked.  <a href="class_organism_view.html#a3f9ba78e239559929190d1d4ef99db0a">More...</a><br /></td></tr>
+<tr class="separator:a3f9ba78e239559929190d1d4ef99db0a inherit pub_methods_class_organism_view"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac61cfbd815b97bbff610915e04e3c0e2 inherit pub_methods_class_organism_view"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism_view.html#ac61cfbd815b97bbff610915e04e3c0e2">unselect</a> ()</td></tr>
+<tr class="memdesc:ac61cfbd815b97bbff610915e04e3c0e2 inherit pub_methods_class_organism_view"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unselects this view. Called when user selects other organism or clicks on black space.  <a href="class_organism_view.html#ac61cfbd815b97bbff610915e04e3c0e2">More...</a><br /></td></tr>
+<tr class="separator:ac61cfbd815b97bbff610915e04e3c0e2 inherit pub_methods_class_organism_view"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1856c146294f2daf7ee7b6aa6f89dc0f inherit pub_methods_class_organism_view"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism_view.html#a1856c146294f2daf7ee7b6aa6f89dc0f">update</a> ()</td></tr>
+<tr class="memdesc:a1856c146294f2daf7ee7b6aa6f89dc0f inherit pub_methods_class_organism_view"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates position to match owner's location. Called by <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a>.  <a href="class_organism_view.html#a1856c146294f2daf7ee7b6aa6f89dc0f">More...</a><br /></td></tr>
 <tr class="separator:a1856c146294f2daf7ee7b6aa6f89dc0f inherit pub_methods_class_organism_view"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -121,8 +133,8 @@ Public Member Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="_herbivore_view_8h_source.html#l00013">13</a> of file <a class="el" href="_herbivore_view_8h_source.html">HerbivoreView.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a354b75358ccddbeae25b85a5d814a5ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a354b75358ccddbeae25b85a5d814a5ad">&#9670;&nbsp;</a></span>HerbivoreView()</h2>
+<a id="a3f242c9fe8e14725a86e8ff68764434f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f242c9fe8e14725a86e8ff68764434f">&#9670;&nbsp;</a></span>HerbivoreView()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -131,11 +143,29 @@ Public Member Functions</h2></td></tr>
           <td class="memname">HerbivoreView::HerbivoreView </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_herbivore.html">Herbivore</a> *const&#160;</td>
-          <td class="paramname"><em>model</em></td><td>)</td>
+          <td class="paramname"><em>model</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="class_simulation_view.html">SimulationView</a> *const&#160;</td>
+          <td class="paramname"><em>owner</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>A constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">model</td><td>- <a class="el" href="class_herbivore.html" title="Concrete species of an Organism (derives from it)">Herbivore</a> related to this view, that will be displayed. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

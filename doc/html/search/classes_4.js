@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['map',['Map',['../class_map.html',1,'']]],
-  ['maptile',['MapTile',['../class_map_tile.html',1,'']]]
+  ['individualstatisticswidget',['IndividualStatisticsWidget',['../class_individual_statistics_widget.html',1,'']]]
 ];

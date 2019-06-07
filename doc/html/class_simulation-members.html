@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Artificial-Life
-   &#160;<span id="projectnumber">v0.6</span>
+   &#160;<span id="projectnumber">v1.0</span>
    </div>
   </td>
  </tr>
@@ -95,15 +95,28 @@ $(document).ready(function(){initNavTree('class_simulation.html','');});
 <table class="directory">
   <tr class="even"><td class="entry"><a class="el" href="class_simulation.html#accf1f1d216dbcf51b778dd5dcb26cf85">addOrganism</a>(Carnivore *const)</td><td class="entry"><a class="el" href="class_simulation.html">Simulation</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_simulation.html#a2531e6d2cb12bec37338b7862d140ee9">addOrganism</a>(Herbivore *const)</td><td class="entry"><a class="el" href="class_simulation.html">Simulation</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_simulation.html#a40a1120c07a3cee94f701841fd3240bd">addOrganismToQueue</a>(Carnivore *const)</td><td class="entry"><a class="el" href="class_simulation.html">Simulation</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_simulation.html#a96405cce08f75363bd71e6b84fde5468">addOrganismToQueue</a>(Herbivore *const)</td><td class="entry"><a class="el" href="class_simulation.html">Simulation</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_simulation.html#a678fd49141dda2b493042ffa52be699d">getBestSeenPartner</a>(const Carnivore *lonelyCarnivore)</td><td class="entry"><a class="el" href="class_simulation.html">Simulation</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_simulation.html#a7e4bb8b80cafe34e3b47e9641073e40a">getBestSeenPartner</a>(const Herbivore *lonelyHerbivore)</td><td class="entry"><a class="el" href="class_simulation.html">Simulation</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_simulation.html#afa341d55569ed52ea6de9e4dc7d76caf">getCarnivoreCount</a>() const</td><td class="entry"><a class="el" href="class_simulation.html">Simulation</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_simulation.html#ac668504de35c5a6ae121a400c0b8cc52">getHerbivoreCount</a>() const</td><td class="entry"><a class="el" href="class_simulation.html">Simulation</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_simulation.html#abd45e18a927171fed42961bf7fae749f">getNearestFoodLocation</a>(Herbivore *hungryHerbivore) const</td><td class="entry"><a class="el" href="class_simulation.html">Simulation</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_simulation.html#afd1cef0d98a7a9b93f6da82adf495877">getHerbivoreAt</a>(const Vector &amp;location)</td><td class="entry"><a class="el" href="class_simulation.html">Simulation</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_simulation.html#ad4e308886bb6ab1adfdd20a68de646c0">getVectorToNearestPrey</a>(Carnivore *hungryCarnivore) const</td><td class="entry"><a class="el" href="class_simulation.html">Simulation</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_simulation.html#ae89a6985df8684d07509cbb30e7a56c2">getHerbivoreAt</a>(const Vector &amp;location, double precision=0.0001)</td><td class="entry"><a class="el" href="class_simulation.html">Simulation</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_simulation.html#ac668504de35c5a6ae121a400c0b8cc52">getHerbivoreCount</a>() const</td><td class="entry"><a class="el" href="class_simulation.html">Simulation</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_simulation.html#a214a4dc8ff8067597e194fa66ad8bc78">getNearestCave</a>(const Herbivore *herbi)</td><td class="entry"><a class="el" href="class_simulation.html">Simulation</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_simulation.html#a88e8b4a0f63447dbe0c7db4da8e6f35c">getNearestGrass</a>(Herbivore *herbi)</td><td class="entry"><a class="el" href="class_simulation.html">Simulation</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_simulation.html#a2639aa71129cbae5faf9507c3a7441b9">getNearestPredator</a>(Herbivore *herbi, double sightRange) const</td><td class="entry"><a class="el" href="class_simulation.html">Simulation</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_simulation.html#af2dad0c97cf42f97ab6a375a47f60718">getNearestPrey</a>(Carnivore *hungryCarnivore, double sightRange) const</td><td class="entry"><a class="el" href="class_simulation.html">Simulation</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_simulation.html#ae7c628abe6922ccc73ce1637dab1d888">getSimulationTime</a>()</td><td class="entry"><a class="el" href="class_simulation.html">Simulation</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_simulation.html#a1642b6aad5e6f509956cfbe09118a878">getStatistics</a>(StatisticsVisitor &amp;stats) const</td><td class="entry"><a class="el" href="class_simulation.html">Simulation</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_simulation.html#accb77299bd900b77bb9af4370467dafe">initializeSimulation</a>(int carnivoreCount, int herbivoreCount)</td><td class="entry"><a class="el" href="class_simulation.html">Simulation</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_simulation.html#ad41c17881acf52f2f0a6d9618c333500">isInCave</a>(const Herbivore *herbi)</td><td class="entry"><a class="el" href="class_simulation.html">Simulation</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_simulation.html#a6833ffc0c163f89fd2774a54c7341328">produceBabies</a>(const Carnivore *parentA, const Carnivore *parentB)</td><td class="entry"><a class="el" href="class_simulation.html">Simulation</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_simulation.html#ab914726467c952ff0dc8e1ca9651821e">produceBabies</a>(const Herbivore *parentA, const Herbivore *parentB)</td><td class="entry"><a class="el" href="class_simulation.html">Simulation</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_simulation.html#a9815c1165c14ddef78605400bb0dde71">registerView</a>(SimulationView *const)</td><td class="entry"><a class="el" href="class_simulation.html">Simulation</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_simulation.html#a5b224cc5b36bcc8eb29689aff223de41">Simulation</a>()</td><td class="entry"><a class="el" href="class_simulation.html">Simulation</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_simulation.html#a05f768b6836615170f1c43c6c0787fe8">update</a>()</td><td class="entry"><a class="el" href="class_simulation.html">Simulation</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_simulation.html#a80fad3f57dfaf195a36f7bc49bc88279">~Simulation</a>()</td><td class="entry"><a class="el" href="class_simulation.html">Simulation</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_simulation.html#a3cae976b89c04953711d6e2d0742695b">reset</a>(int carnivoreCount, int herbivoreCount)</td><td class="entry"><a class="el" href="class_simulation.html">Simulation</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_simulation.html#a5b224cc5b36bcc8eb29689aff223de41">Simulation</a>()</td><td class="entry"><a class="el" href="class_simulation.html">Simulation</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_simulation.html#a05f768b6836615170f1c43c6c0787fe8">update</a>()</td><td class="entry"><a class="el" href="class_simulation.html">Simulation</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_simulation.html#a80fad3f57dfaf195a36f7bc49bc88279">~Simulation</a>()</td><td class="entry"><a class="el" href="class_simulation.html">Simulation</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

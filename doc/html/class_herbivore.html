@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Artificial-Life
-   &#160;<span id="projectnumber">v0.6</span>
+   &#160;<span id="projectnumber">v1.0</span>
    </div>
   </td>
  </tr>
@@ -120,18 +120,35 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a36cbb6a800411d31d95b1bb600153b1f"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_herbivore.html#a36cbb6a800411d31d95b1bb600153b1f">~Herbivore</a> ()=default</td></tr>
 <tr class="memdesc:a36cbb6a800411d31d95b1bb600153b1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default virtual destructor.  <a href="#a36cbb6a800411d31d95b1bb600153b1f">More...</a><br /></td></tr>
 <tr class="separator:a36cbb6a800411d31d95b1bb600153b1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b4393e3cab663fca71e024f7fee815d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_herbivore.html#a8b4393e3cab663fca71e024f7fee815d">Herbivore</a> (std::unique_ptr&lt; <a class="el" href="class_genotype.html">Genotype</a> &gt; genes, const <a class="el" href="class_vector.html">Vector</a> &amp;position, <a class="el" href="class_simulation.html">Simulation</a> *const simulation)</td></tr>
-<tr class="memdesc:a8b4393e3cab663fca71e024f7fee815d"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constructor.  <a href="#a8b4393e3cab663fca71e024f7fee815d">More...</a><br /></td></tr>
-<tr class="separator:a8b4393e3cab663fca71e024f7fee815d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15954ee253eaab5db2910cc4d61076a2"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_herbivore.html#a15954ee253eaab5db2910cc4d61076a2">update</a> ()</td></tr>
+<tr class="memdesc:a15954ee253eaab5db2910cc4d61076a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">flow of the information, called by <a class="el" href="class_simulation.html" title="Main class responsible for simulation.">Simulation</a>  <a href="#a15954ee253eaab5db2910cc4d61076a2">More...</a><br /></td></tr>
+<tr class="separator:a15954ee253eaab5db2910cc4d61076a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70d72a1432e7b8652ec0a2d644c41b8b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_herbivore.html#a70d72a1432e7b8652ec0a2d644c41b8b">Herbivore</a> (std::unique_ptr&lt; <a class="el" href="class_genotype.html">Genotype</a> &gt; genes, const <a class="el" href="class_vector.html">Vector</a> &amp;position, <a class="el" href="class_simulation.html">Simulation</a> *const simulation, <a class="el" href="_leading_desire_8h.html#ab6527d5af31297d6f2d1f44d82250a05">LeadingDesire</a> desire=<a class="el" href="_leading_desire_8h.html#ab6527d5af31297d6f2d1f44d82250a05ab604ffc1f7d6e07bfa1b0415a19ce2ea">LeadingDesire::EATING</a>)</td></tr>
+<tr class="memdesc:a70d72a1432e7b8652ec0a2d644c41b8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constructor.  <a href="#a70d72a1432e7b8652ec0a2d644c41b8b">More...</a><br /></td></tr>
+<tr class="separator:a70d72a1432e7b8652ec0a2d644c41b8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a832b0fb7c5465be33dd4123f8cf23d22"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_herbivore.html#a832b0fb7c5465be33dd4123f8cf23d22">accept</a> (<a class="el" href="class_statistics_visitor.html">StatisticsVisitor</a> &amp;visitor) const</td></tr>
+<tr class="separator:a832b0fb7c5465be33dd4123f8cf23d22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6f971691694d24bb6c450a388740f0f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_herbivore.html">Herbivore</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_herbivore.html#ab6f971691694d24bb6c450a388740f0f">reproduceWith</a> (const <a class="el" href="class_herbivore.html">Herbivore</a> *other) const</td></tr>
+<tr class="memdesc:ab6f971691694d24bb6c450a388740f0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates new <a class="el" href="class_herbivore.html" title="Concrete species of an Organism (derives from it)">Herbivore</a> due to reproduction with supplied organism.  <a href="#ab6f971691694d24bb6c450a388740f0f">More...</a><br /></td></tr>
+<tr class="separator:ab6f971691694d24bb6c450a388740f0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0db14715ba6d17b5a38787b8e4471e2"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_herbivore.html#ae0db14715ba6d17b5a38787b8e4471e2">updateAction</a> ()</td></tr>
 <tr class="memdesc:ae0db14715ba6d17b5a38787b8e4471e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">after being notified, it uses ActionFactory to update currentAction_.  <a href="#ae0db14715ba6d17b5a38787b8e4471e2">More...</a><br /></td></tr>
 <tr class="separator:ae0db14715ba6d17b5a38787b8e4471e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15954ee253eaab5db2910cc4d61076a2"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_herbivore.html#a15954ee253eaab5db2910cc4d61076a2">update</a> ()</td></tr>
-<tr class="memdesc:a15954ee253eaab5db2910cc4d61076a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">flow of the information upside down.  <a href="#a15954ee253eaab5db2910cc4d61076a2">More...</a><br /></td></tr>
-<tr class="separator:a15954ee253eaab5db2910cc4d61076a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86622436b20bef1b2d58061f335a8a57"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_herbivore.html#a86622436b20bef1b2d58061f335a8a57">eatIt</a> (const <a class="el" href="class_vector.html">Vector</a> &amp;)</td></tr>
-<tr class="memdesc:a86622436b20bef1b2d58061f335a8a57"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_herbivore.html" title="Concrete species of an Organism (derives from it)">Herbivore</a> eats grass of a position pointed by <a class="el" href="class_vector.html" title="Vector - version in 2D: a geometric object that has magnitude and direction.">Vector</a>.  <a href="#a86622436b20bef1b2d58061f335a8a57">More...</a><br /></td></tr>
-<tr class="separator:a86622436b20bef1b2d58061f335a8a57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8332a5927a1da3d72f3bfb4bb3c3e20"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_herbivore.html#ac8332a5927a1da3d72f3bfb4bb3c3e20">eatIt</a> (<a class="el" href="class_map_tile.html">MapTile</a> *grass)</td></tr>
+<tr class="memdesc:ac8332a5927a1da3d72f3bfb4bb3c3e20"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_herbivore.html" title="Concrete species of an Organism (derives from it)">Herbivore</a> eats grass in specified <a class="el" href="class_map_tile.html" title="Class representing tile that the map is consisting of.">MapTile</a>.  <a href="#ac8332a5927a1da3d72f3bfb4bb3c3e20">More...</a><br /></td></tr>
+<tr class="separator:ac8332a5927a1da3d72f3bfb4bb3c3e20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8362400e848937ecd4ceedefecfc5865"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_herbivore.html#a8362400e848937ecd4ceedefecfc5865">getIndividualSpeedValueAfter</a> (unsigned int time) const</td></tr>
+<tr class="memdesc:a8362400e848937ecd4ceedefecfc5865"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for individual for every <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a> speed value, but tiredness is also taken into account.  <a href="#a8362400e848937ecd4ceedefecfc5865">More...</a><br /></td></tr>
+<tr class="separator:a8362400e848937ecd4ceedefecfc5865"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa879fd44e24b2834244c08452f2077f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_herbivore.html#afa879fd44e24b2834244c08452f2077f">hide</a> ()</td></tr>
+<tr class="memdesc:afa879fd44e24b2834244c08452f2077f"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_herbivore.html" title="Concrete species of an Organism (derives from it)">Herbivore</a>, when on Cave area, can hide in it.  <a href="#afa879fd44e24b2834244c08452f2077f">More...</a><br /></td></tr>
+<tr class="separator:afa879fd44e24b2834244c08452f2077f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28f9d26e240d68d8f88fa0a43da9747e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_herbivore.html#a28f9d26e240d68d8f88fa0a43da9747e">unhide</a> ()</td></tr>
+<tr class="memdesc:a28f9d26e240d68d8f88fa0a43da9747e"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_herbivore.html" title="Concrete species of an Organism (derives from it)">Herbivore</a>, after coming out from Cave, is no longer hidden.  <a href="#a28f9d26e240d68d8f88fa0a43da9747e">More...</a><br /></td></tr>
+<tr class="separator:a28f9d26e240d68d8f88fa0a43da9747e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ccbd3ebb55c92cbda136ea5adaad6d4"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_herbivore.html#a6ccbd3ebb55c92cbda136ea5adaad6d4">isHidden</a> ()</td></tr>
+<tr class="memdesc:a6ccbd3ebb55c92cbda136ea5adaad6d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines if <a class="el" href="class_herbivore.html" title="Concrete species of an Organism (derives from it)">Herbivore</a> is hidden in Cave.  <a href="#a6ccbd3ebb55c92cbda136ea5adaad6d4">More...</a><br /></td></tr>
+<tr class="separator:a6ccbd3ebb55c92cbda136ea5adaad6d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_organism"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_organism')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_organism.html">Organism</a></td></tr>
 <tr class="memitem:a7e8eaf6251908a797f8e4a2f30560730 inherit pub_methods_class_organism"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism.html#a7e8eaf6251908a797f8e4a2f30560730">Organism</a> ()=delete</td></tr>
 <tr class="memdesc:a7e8eaf6251908a797f8e4a2f30560730 inherit pub_methods_class_organism"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted default constructor.  <a href="class_organism.html#a7e8eaf6251908a797f8e4a2f30560730">More...</a><br /></td></tr>
@@ -151,18 +168,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a82b1e73fd4a2154030afbdfcca29a4f3 inherit pub_methods_class_organism"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism.html#a82b1e73fd4a2154030afbdfcca29a4f3">~Organism</a> ()=default</td></tr>
 <tr class="memdesc:a82b1e73fd4a2154030afbdfcca29a4f3 inherit pub_methods_class_organism"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default virtual destructor.  <a href="class_organism.html#a82b1e73fd4a2154030afbdfcca29a4f3">More...</a><br /></td></tr>
 <tr class="separator:a82b1e73fd4a2154030afbdfcca29a4f3 inherit pub_methods_class_organism"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad82925ff7f587936b9f8cfd4efac6ae1 inherit pub_methods_class_organism"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism.html#ad82925ff7f587936b9f8cfd4efac6ae1">Organism</a> (std::unique_ptr&lt; <a class="el" href="class_genotype.html">Genotype</a> &gt; genes, const <a class="el" href="class_vector.html">Vector</a> &amp;position, <a class="el" href="class_simulation.html">Simulation</a> *const simulation)</td></tr>
-<tr class="memdesc:ad82925ff7f587936b9f8cfd4efac6ae1 inherit pub_methods_class_organism"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constructor.  <a href="class_organism.html#ad82925ff7f587936b9f8cfd4efac6ae1">More...</a><br /></td></tr>
-<tr class="separator:ad82925ff7f587936b9f8cfd4efac6ae1 inherit pub_methods_class_organism"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a390c259e0812f52bd345a1a89db60f79 inherit pub_methods_class_organism"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism.html#a390c259e0812f52bd345a1a89db60f79">setAcceleration</a> (const <a class="el" href="class_vector.html">Vector</a> &amp;acceleration)</td></tr>
-<tr class="memdesc:a390c259e0812f52bd345a1a89db60f79 inherit pub_methods_class_organism"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setter for private trait.  <a href="class_organism.html#a390c259e0812f52bd345a1a89db60f79">More...</a><br /></td></tr>
-<tr class="separator:a390c259e0812f52bd345a1a89db60f79 inherit pub_methods_class_organism"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63c8fa64da3edfb6d85e2228d5b57ae6 inherit pub_methods_class_organism"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism.html#a63c8fa64da3edfb6d85e2228d5b57ae6">Organism</a> (std::unique_ptr&lt; <a class="el" href="class_genotype.html">Genotype</a> &gt; genes, const <a class="el" href="class_vector.html">Vector</a> &amp;position, <a class="el" href="class_simulation.html">Simulation</a> *const simulation, <a class="el" href="_leading_desire_8h.html#ab6527d5af31297d6f2d1f44d82250a05">LeadingDesire</a> desire=<a class="el" href="_leading_desire_8h.html#ab6527d5af31297d6f2d1f44d82250a05ab604ffc1f7d6e07bfa1b0415a19ce2ea">LeadingDesire::EATING</a>)</td></tr>
+<tr class="memdesc:a63c8fa64da3edfb6d85e2228d5b57ae6 inherit pub_methods_class_organism"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constructor.  <a href="class_organism.html#a63c8fa64da3edfb6d85e2228d5b57ae6">More...</a><br /></td></tr>
+<tr class="separator:a63c8fa64da3edfb6d85e2228d5b57ae6 inherit pub_methods_class_organism"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a27a7b6933070f40ba5fe1485db17de5e inherit pub_methods_class_organism"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism.html#a27a7b6933070f40ba5fe1485db17de5e">setVelocity</a> (const <a class="el" href="class_vector.html">Vector</a> &amp;velocity)</td></tr>
 <tr class="memdesc:a27a7b6933070f40ba5fe1485db17de5e inherit pub_methods_class_organism"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setter for private trait.  <a href="class_organism.html#a27a7b6933070f40ba5fe1485db17de5e">More...</a><br /></td></tr>
 <tr class="separator:a27a7b6933070f40ba5fe1485db17de5e inherit pub_methods_class_organism"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af771442cdd40d8f135a7f4a4f71d653b inherit pub_methods_class_organism"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism.html#af771442cdd40d8f135a7f4a4f71d653b">setHealth</a> (float health)</td></tr>
-<tr class="memdesc:af771442cdd40d8f135a7f4a4f71d653b inherit pub_methods_class_organism"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setter for private trait.  <a href="class_organism.html#af771442cdd40d8f135a7f4a4f71d653b">More...</a><br /></td></tr>
-<tr class="separator:af771442cdd40d8f135a7f4a4f71d653b inherit pub_methods_class_organism"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad812c1d80b894b287a50b65ec39c2b2a inherit pub_methods_class_organism"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism.html#ad812c1d80b894b287a50b65ec39c2b2a">decreaseHealthByValue</a> (float value)</td></tr>
+<tr class="memdesc:ad812c1d80b894b287a50b65ec39c2b2a inherit pub_methods_class_organism"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decreases health by given value.  <a href="class_organism.html#ad812c1d80b894b287a50b65ec39c2b2a">More...</a><br /></td></tr>
+<tr class="separator:ad812c1d80b894b287a50b65ec39c2b2a inherit pub_methods_class_organism"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c4486904803426a3fd09ac8df54b30d inherit pub_methods_class_organism"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism.html#a9c4486904803426a3fd09ac8df54b30d">setSimulation</a> (<a class="el" href="class_simulation.html">Simulation</a> *const simulation)</td></tr>
 <tr class="memdesc:a9c4486904803426a3fd09ac8df54b30d inherit pub_methods_class_organism"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setter for private trait.  <a href="class_organism.html#a9c4486904803426a3fd09ac8df54b30d">More...</a><br /></td></tr>
 <tr class="separator:a9c4486904803426a3fd09ac8df54b30d inherit pub_methods_class_organism"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -172,9 +186,45 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aac6678d3edfa64bcb831025886a9850e inherit pub_methods_class_organism"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_vector.html">Vector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism.html#aac6678d3edfa64bcb831025886a9850e">getPosition</a> () const</td></tr>
 <tr class="memdesc:aac6678d3edfa64bcb831025886a9850e inherit pub_methods_class_organism"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for a position of an <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a>.  <a href="class_organism.html#aac6678d3edfa64bcb831025886a9850e">More...</a><br /></td></tr>
 <tr class="separator:aac6678d3edfa64bcb831025886a9850e inherit pub_methods_class_organism"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc6d68fb12501b76eb753569644bc7c4 inherit pub_methods_class_organism"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism.html#adc6d68fb12501b76eb753569644bc7c4">getHealth</a> () const</td></tr>
+<tr class="memdesc:adc6d68fb12501b76eb753569644bc7c4 inherit pub_methods_class_organism"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for organism's trait.  <a href="class_organism.html#adc6d68fb12501b76eb753569644bc7c4">More...</a><br /></td></tr>
+<tr class="separator:adc6d68fb12501b76eb753569644bc7c4 inherit pub_methods_class_organism"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a295f26e7896844586ba810e19df50d61 inherit pub_methods_class_organism"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism.html#a295f26e7896844586ba810e19df50d61">getTimeAlive</a> () const</td></tr>
+<tr class="memdesc:a295f26e7896844586ba810e19df50d61 inherit pub_methods_class_organism"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns value indicating for how long the organism is alive.  <a href="class_organism.html#a295f26e7896844586ba810e19df50d61">More...</a><br /></td></tr>
+<tr class="separator:a295f26e7896844586ba810e19df50d61 inherit pub_methods_class_organism"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9c2f465a60554e838bca4533dc088e5 inherit pub_methods_class_organism"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism.html#af9c2f465a60554e838bca4533dc088e5">getAlertness</a> () const</td></tr>
+<tr class="memdesc:af9c2f465a60554e838bca4533dc088e5 inherit pub_methods_class_organism"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for organism's trait.  <a href="class_organism.html#af9c2f465a60554e838bca4533dc088e5">More...</a><br /></td></tr>
+<tr class="separator:af9c2f465a60554e838bca4533dc088e5 inherit pub_methods_class_organism"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d88e8ffee2a8b1a8ab2090d01c58ade inherit pub_methods_class_organism"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism.html#a8d88e8ffee2a8b1a8ab2090d01c58ade">getSightRange</a> () const</td></tr>
+<tr class="memdesc:a8d88e8ffee2a8b1a8ab2090d01c58ade inherit pub_methods_class_organism"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for organism's trait.  <a href="class_organism.html#a8d88e8ffee2a8b1a8ab2090d01c58ade">More...</a><br /></td></tr>
+<tr class="separator:a8d88e8ffee2a8b1a8ab2090d01c58ade inherit pub_methods_class_organism"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeee055b1cc941085116ddb9c2d880e61 inherit pub_methods_class_organism"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism.html#aeee055b1cc941085116ddb9c2d880e61">getStamina</a> () const</td></tr>
+<tr class="memdesc:aeee055b1cc941085116ddb9c2d880e61 inherit pub_methods_class_organism"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for organism's trait.  <a href="class_organism.html#aeee055b1cc941085116ddb9c2d880e61">More...</a><br /></td></tr>
+<tr class="separator:aeee055b1cc941085116ddb9c2d880e61 inherit pub_methods_class_organism"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c9860f1bbfb271bde14ba1510af4d87 inherit pub_methods_class_organism"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism.html#a6c9860f1bbfb271bde14ba1510af4d87">getSpeed</a> () const</td></tr>
+<tr class="memdesc:a6c9860f1bbfb271bde14ba1510af4d87 inherit pub_methods_class_organism"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for organism's trait.  <a href="class_organism.html#a6c9860f1bbfb271bde14ba1510af4d87">More...</a><br /></td></tr>
+<tr class="separator:a6c9860f1bbfb271bde14ba1510af4d87 inherit pub_methods_class_organism"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc50570cb22357637553deb47f1544ec inherit pub_methods_class_organism"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism.html#adc50570cb22357637553deb47f1544ec">getLifespan</a> () const</td></tr>
+<tr class="memdesc:adc50570cb22357637553deb47f1544ec inherit pub_methods_class_organism"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for organism's trait.  <a href="class_organism.html#adc50570cb22357637553deb47f1544ec">More...</a><br /></td></tr>
+<tr class="separator:adc50570cb22357637553deb47f1544ec inherit pub_methods_class_organism"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a528c8755dff6ba2400bc9bb4d3384ba0 inherit pub_methods_class_organism"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism.html#a528c8755dff6ba2400bc9bb4d3384ba0">getHunger</a> () const</td></tr>
+<tr class="memdesc:a528c8755dff6ba2400bc9bb4d3384ba0 inherit pub_methods_class_organism"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for organism's trait.  <a href="class_organism.html#a528c8755dff6ba2400bc9bb4d3384ba0">More...</a><br /></td></tr>
+<tr class="separator:a528c8755dff6ba2400bc9bb4d3384ba0 inherit pub_methods_class_organism"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd80340ca288aa631f5e5af8a7ee4794 inherit pub_methods_class_organism"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism.html#afd80340ca288aa631f5e5af8a7ee4794">getTiredness</a> () const</td></tr>
+<tr class="memdesc:afd80340ca288aa631f5e5af8a7ee4794 inherit pub_methods_class_organism"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for organism's trait.  <a href="class_organism.html#afd80340ca288aa631f5e5af8a7ee4794">More...</a><br /></td></tr>
+<tr class="separator:afd80340ca288aa631f5e5af8a7ee4794 inherit pub_methods_class_organism"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0949b36d463e5c6bcef802f02951ea82 inherit pub_methods_class_organism"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism.html#a0949b36d463e5c6bcef802f02951ea82">getLoneliness</a> () const</td></tr>
+<tr class="memdesc:a0949b36d463e5c6bcef802f02951ea82 inherit pub_methods_class_organism"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for organism's trait.  <a href="class_organism.html#a0949b36d463e5c6bcef802f02951ea82">More...</a><br /></td></tr>
+<tr class="separator:a0949b36d463e5c6bcef802f02951ea82 inherit pub_methods_class_organism"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb751afcce5dbd2b1498778f32a5a1d5 inherit pub_methods_class_organism"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_leading_desire_8h.html#ab6527d5af31297d6f2d1f44d82250a05">LeadingDesire</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism.html#afb751afcce5dbd2b1498778f32a5a1d5">getSuggestedAction</a> () const</td></tr>
 <tr class="memdesc:afb751afcce5dbd2b1498778f32a5a1d5 inherit pub_methods_class_organism"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for a suggested <a class="el" href="class_action.html" title="Abstract class for all types of Actions Organism can perform driven by Needs.">Action</a> equal to LeadingDesire.  <a href="class_organism.html#afb751afcce5dbd2b1498778f32a5a1d5">More...</a><br /></td></tr>
 <tr class="separator:afb751afcce5dbd2b1498778f32a5a1d5 inherit pub_methods_class_organism"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1d3fcaef767a25e50bf58f69aa22f5d inherit pub_methods_class_organism"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism.html#ab1d3fcaef767a25e50bf58f69aa22f5d">sleepWell</a> ()</td></tr>
+<tr class="memdesc:ab1d3fcaef767a25e50bf58f69aa22f5d inherit pub_methods_class_organism"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a> does not feel tired at all, although it is hungry after sleep.  <a href="class_organism.html#ab1d3fcaef767a25e50bf58f69aa22f5d">More...</a><br /></td></tr>
+<tr class="separator:ab1d3fcaef767a25e50bf58f69aa22f5d inherit pub_methods_class_organism"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1e649057d20b015231a03db6c08d600 inherit pub_methods_class_organism"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism.html#ad1e649057d20b015231a03db6c08d600">finishReproduction</a> ()</td></tr>
+<tr class="memdesc:ad1e649057d20b015231a03db6c08d600 inherit pub_methods_class_organism"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finalizes reproduction action, fulfilling organism's needs.  <a href="class_organism.html#ad1e649057d20b015231a03db6c08d600">More...</a><br /></td></tr>
+<tr class="separator:ad1e649057d20b015231a03db6c08d600 inherit pub_methods_class_organism"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -182,30 +232,40 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:abc3f193549ae759791750a1f038cc50d inherit pub_static_methods_class_organism"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism.html#abc3f193549ae759791750a1f038cc50d">getRadius</a> ()</td></tr>
 <tr class="memdesc:abc3f193549ae759791750a1f038cc50d inherit pub_static_methods_class_organism"><td class="mdescLeft">&#160;</td><td class="mdescRight">Static getter for a radius.  <a href="class_organism.html#abc3f193549ae759791750a1f038cc50d">More...</a><br /></td></tr>
 <tr class="separator:abc3f193549ae759791750a1f038cc50d inherit pub_static_methods_class_organism"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_methods_class_organism"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_class_organism')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="class_organism.html">Organism</a></td></tr>
+<tr class="memitem:a87511d1ea5f980e5f9d54b4138c9e684 inherit pro_methods_class_organism"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism.html#a87511d1ea5f980e5f9d54b4138c9e684">move</a> ()</td></tr>
+<tr class="memdesc:a87511d1ea5f980e5f9d54b4138c9e684 inherit pro_methods_class_organism"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a> moves.  <a href="class_organism.html#a87511d1ea5f980e5f9d54b4138c9e684">More...</a><br /></td></tr>
+<tr class="separator:a87511d1ea5f980e5f9d54b4138c9e684 inherit pro_methods_class_organism"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a614f96a83a2146fcd3e02ff2057a51dc inherit pro_methods_class_organism"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism.html#a614f96a83a2146fcd3e02ff2057a51dc">newIteration</a> ()</td></tr>
+<tr class="memdesc:a614f96a83a2146fcd3e02ff2057a51dc inherit pro_methods_class_organism"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sequence of actions at the begging of new iteration.  <a href="class_organism.html#a614f96a83a2146fcd3e02ff2057a51dc">More...</a><br /></td></tr>
+<tr class="separator:a614f96a83a2146fcd3e02ff2057a51dc inherit pro_methods_class_organism"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accba468235566deb641d48385ed42325 inherit pro_methods_class_organism"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism.html#accba468235566deb641d48385ed42325">checkAge</a> ()</td></tr>
+<tr class="memdesc:accba468235566deb641d48385ed42325 inherit pro_methods_class_organism"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a> ages.  <a href="class_organism.html#accba468235566deb641d48385ed42325">More...</a><br /></td></tr>
+<tr class="separator:accba468235566deb641d48385ed42325 inherit pro_methods_class_organism"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_organism"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_organism')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_organism.html">Organism</a></td></tr>
 <tr class="memitem:ad96cafe6669639fb394a77bb506af93d inherit pro_attribs_class_organism"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism.html#ad96cafe6669639fb394a77bb506af93d">health_</a></td></tr>
-<tr class="memdesc:ad96cafe6669639fb394a77bb506af93d inherit pro_attribs_class_organism"><td class="mdescLeft">&#160;</td><td class="mdescRight">basic trait of the <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a>, value in range of [0.0, 10.0].  <a href="class_organism.html#ad96cafe6669639fb394a77bb506af93d">More...</a><br /></td></tr>
+<tr class="memdesc:ad96cafe6669639fb394a77bb506af93d inherit pro_attribs_class_organism"><td class="mdescLeft">&#160;</td><td class="mdescRight">Basic, actual trait of the <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a>, value in range of [0.0, 10.0].  <a href="class_organism.html#ad96cafe6669639fb394a77bb506af93d">More...</a><br /></td></tr>
 <tr class="separator:ad96cafe6669639fb394a77bb506af93d inherit pro_attribs_class_organism"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb275f48e740daf9019f3e1db8255d4d inherit pro_attribs_class_organism"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism.html#aeb275f48e740daf9019f3e1db8255d4d">timeAlive_</a></td></tr>
-<tr class="memdesc:aeb275f48e740daf9019f3e1db8255d4d inherit pro_attribs_class_organism"><td class="mdescLeft">&#160;</td><td class="mdescRight">basic trait of the <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a>, value of [0.0, inf].  <a href="class_organism.html#aeb275f48e740daf9019f3e1db8255d4d">More...</a><br /></td></tr>
-<tr class="separator:aeb275f48e740daf9019f3e1db8255d4d inherit pro_attribs_class_organism"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a190d19ad06d2c5bf3e473161215fa2b2 inherit pro_attribs_class_organism"><td class="memItemLeft" align="right" valign="top">unsigned long int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism.html#a190d19ad06d2c5bf3e473161215fa2b2">timeAlive_</a></td></tr>
+<tr class="memdesc:a190d19ad06d2c5bf3e473161215fa2b2 inherit pro_attribs_class_organism"><td class="mdescLeft">&#160;</td><td class="mdescRight">Basic, actual trait of the <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a>, value of [0.0, inf].  <a href="class_organism.html#a190d19ad06d2c5bf3e473161215fa2b2">More...</a><br /></td></tr>
+<tr class="separator:a190d19ad06d2c5bf3e473161215fa2b2 inherit pro_attribs_class_organism"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa541428cca23c687e8a2124c7d7bfb7 inherit pro_attribs_class_organism"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vector.html">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism.html#aaa541428cca23c687e8a2124c7d7bfb7">position_</a></td></tr>
-<tr class="memdesc:aaa541428cca23c687e8a2124c7d7bfb7 inherit pro_attribs_class_organism"><td class="mdescLeft">&#160;</td><td class="mdescRight">basic state of the <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a> represented by <a class="el" href="class_vector.html" title="Vector - version in 2D: a geometric object that has magnitude and direction.">Vector</a>.  <a href="class_organism.html#aaa541428cca23c687e8a2124c7d7bfb7">More...</a><br /></td></tr>
+<tr class="memdesc:aaa541428cca23c687e8a2124c7d7bfb7 inherit pro_attribs_class_organism"><td class="mdescLeft">&#160;</td><td class="mdescRight">Basic, actual state of the <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a> represented by <a class="el" href="class_vector.html" title="Vector - version in 2D: a geometric object that has magnitude and direction.">Vector</a>.  <a href="class_organism.html#aaa541428cca23c687e8a2124c7d7bfb7">More...</a><br /></td></tr>
 <tr class="separator:aaa541428cca23c687e8a2124c7d7bfb7 inherit pro_attribs_class_organism"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e1b711d4fc43e0bfe320353d6506882 inherit pro_attribs_class_organism"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vector.html">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism.html#a8e1b711d4fc43e0bfe320353d6506882">velocity_</a></td></tr>
-<tr class="memdesc:a8e1b711d4fc43e0bfe320353d6506882 inherit pro_attribs_class_organism"><td class="mdescLeft">&#160;</td><td class="mdescRight">basic state of the <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a> represented by <a class="el" href="class_vector.html" title="Vector - version in 2D: a geometric object that has magnitude and direction.">Vector</a>.  <a href="class_organism.html#a8e1b711d4fc43e0bfe320353d6506882">More...</a><br /></td></tr>
+<tr class="memdesc:a8e1b711d4fc43e0bfe320353d6506882 inherit pro_attribs_class_organism"><td class="mdescLeft">&#160;</td><td class="mdescRight">Basic, actual state of the <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a> represented by <a class="el" href="class_vector.html" title="Vector - version in 2D: a geometric object that has magnitude and direction.">Vector</a>.  <a href="class_organism.html#a8e1b711d4fc43e0bfe320353d6506882">More...</a><br /></td></tr>
 <tr class="separator:a8e1b711d4fc43e0bfe320353d6506882 inherit pro_attribs_class_organism"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a655a727e60f34af604bc06cad43093bd inherit pro_attribs_class_organism"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vector.html">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism.html#a655a727e60f34af604bc06cad43093bd">acceleration_</a></td></tr>
-<tr class="memdesc:a655a727e60f34af604bc06cad43093bd inherit pro_attribs_class_organism"><td class="mdescLeft">&#160;</td><td class="mdescRight">basic state of the <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a> represented by <a class="el" href="class_vector.html" title="Vector - version in 2D: a geometric object that has magnitude and direction.">Vector</a>.  <a href="class_organism.html#a655a727e60f34af604bc06cad43093bd">More...</a><br /></td></tr>
+<tr class="memdesc:a655a727e60f34af604bc06cad43093bd inherit pro_attribs_class_organism"><td class="mdescLeft">&#160;</td><td class="mdescRight">Basic, actual state of the <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a> represented by <a class="el" href="class_vector.html" title="Vector - version in 2D: a geometric object that has magnitude and direction.">Vector</a>.  <a href="class_organism.html#a655a727e60f34af604bc06cad43093bd">More...</a><br /></td></tr>
 <tr class="separator:a655a727e60f34af604bc06cad43093bd inherit pro_attribs_class_organism"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae45d5b68da1110e9cec52dd724bfa4ae inherit pro_attribs_class_organism"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="class_genotype.html">Genotype</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism.html#ae45d5b68da1110e9cec52dd724bfa4ae">genes_</a></td></tr>
-<tr class="memdesc:ae45d5b68da1110e9cec52dd724bfa4ae inherit pro_attribs_class_organism"><td class="mdescLeft">&#160;</td><td class="mdescRight">represents individual <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a>'s traits inherited from parents.  <a href="class_organism.html#ae45d5b68da1110e9cec52dd724bfa4ae">More...</a><br /></td></tr>
+<tr class="memdesc:ae45d5b68da1110e9cec52dd724bfa4ae inherit pro_attribs_class_organism"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents individual <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a>'s traits inherited from parents.  <a href="class_organism.html#ae45d5b68da1110e9cec52dd724bfa4ae">More...</a><br /></td></tr>
 <tr class="separator:ae45d5b68da1110e9cec52dd724bfa4ae inherit pro_attribs_class_organism"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a63cd54f2156fd8bd0e9bb5db333abe96 inherit pro_attribs_class_organism"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="class_needs.html">Needs</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism.html#a63cd54f2156fd8bd0e9bb5db333abe96">needs_</a></td></tr>
-<tr class="memdesc:a63cd54f2156fd8bd0e9bb5db333abe96 inherit pro_attribs_class_organism"><td class="mdescLeft">&#160;</td><td class="mdescRight">represents all <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a>'s physical and psychological <a class="el" href="class_needs.html" title="Represents all Organism&#39;s physical and psychological Needs - it implicitly impacts Organism&#39;s Actions...">Needs</a>.  <a href="class_organism.html#a63cd54f2156fd8bd0e9bb5db333abe96">More...</a><br /></td></tr>
+<tr class="memdesc:a63cd54f2156fd8bd0e9bb5db333abe96 inherit pro_attribs_class_organism"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents all <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a>'s physical and psychological <a class="el" href="class_needs.html" title="Represents all Organism&#39;s physical and psychological Needs - it implicitly impacts Organism&#39;s Actions...">Needs</a>.  <a href="class_organism.html#a63cd54f2156fd8bd0e9bb5db333abe96">More...</a><br /></td></tr>
 <tr class="separator:a63cd54f2156fd8bd0e9bb5db333abe96 inherit pro_attribs_class_organism"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2fe262f59411e39f5216ed471a7c6a3c inherit pro_attribs_class_organism"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="class_action.html">Action</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism.html#a2fe262f59411e39f5216ed471a7c6a3c">currentAction_</a></td></tr>
-<tr class="memdesc:a2fe262f59411e39f5216ed471a7c6a3c inherit pro_attribs_class_organism"><td class="mdescLeft">&#160;</td><td class="mdescRight">current <a class="el" href="class_action.html" title="Abstract class for all types of Actions Organism can perform driven by Needs.">Action</a> <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a> can perform driven by <a class="el" href="class_needs.html" title="Represents all Organism&#39;s physical and psychological Needs - it implicitly impacts Organism&#39;s Actions...">Needs</a>.  <a href="class_organism.html#a2fe262f59411e39f5216ed471a7c6a3c">More...</a><br /></td></tr>
+<tr class="memdesc:a2fe262f59411e39f5216ed471a7c6a3c inherit pro_attribs_class_organism"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current <a class="el" href="class_action.html" title="Abstract class for all types of Actions Organism can perform driven by Needs.">Action</a> <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a> can perform driven by <a class="el" href="class_needs.html" title="Represents all Organism&#39;s physical and psychological Needs - it implicitly impacts Organism&#39;s Actions...">Needs</a>.  <a href="class_organism.html#a2fe262f59411e39f5216ed471a7c6a3c">More...</a><br /></td></tr>
 <tr class="separator:a2fe262f59411e39f5216ed471a7c6a3c inherit pro_attribs_class_organism"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ee63e00a87d5542106ee5a515d84417 inherit pro_attribs_class_organism"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_simulation.html">Simulation</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism.html#a9ee63e00a87d5542106ee5a515d84417">simulation_</a></td></tr>
 <tr class="memdesc:a9ee63e00a87d5542106ee5a515d84417 inherit pro_attribs_class_organism"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_simulation.html" title="Main class responsible for simulation.">Simulation</a> that <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a> takes part in.  <a href="class_organism.html#a9ee63e00a87d5542106ee5a515d84417">More...</a><br /></td></tr>
@@ -215,13 +275,13 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:aef4316b3b75449c9b25346cfa3d1cc7a inherit pro_attribs_class_organism"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_static_attribs_class_organism"><td colspan="2" onclick="javascript:toggleInherit('pro_static_attribs_class_organism')"><img src="closed.png" alt="-"/>&#160;Static Protected Attributes inherited from <a class="el" href="class_organism.html">Organism</a></td></tr>
 <tr class="memitem:a6cbd4aa0b0550c562c10c1a38a7c80ac inherit pro_static_attribs_class_organism"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_organism.html#a6cbd4aa0b0550c562c10c1a38a7c80ac">radius_</a></td></tr>
-<tr class="memdesc:a6cbd4aa0b0550c562c10c1a38a7c80ac inherit pro_static_attribs_class_organism"><td class="mdescLeft">&#160;</td><td class="mdescRight">basic trait of the <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a>, static value for every <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a>.  <a href="class_organism.html#a6cbd4aa0b0550c562c10c1a38a7c80ac">More...</a><br /></td></tr>
+<tr class="memdesc:a6cbd4aa0b0550c562c10c1a38a7c80ac inherit pro_static_attribs_class_organism"><td class="mdescLeft">&#160;</td><td class="mdescRight">Basic trait of the <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a>, static value for every <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a>.  <a href="class_organism.html#a6cbd4aa0b0550c562c10c1a38a7c80ac">More...</a><br /></td></tr>
 <tr class="separator:a6cbd4aa0b0550c562c10c1a38a7c80ac inherit pro_static_attribs_class_organism"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Concrete species of an <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a> (derives from it) </p>
 
-<p class="definition">Definition at line <a class="el" href="_herbivore_8h_source.html#l00014">14</a> of file <a class="el" href="_herbivore_8h_source.html">Herbivore.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_herbivore_8h_source.html#l00015">15</a> of file <a class="el" href="_herbivore_8h_source.html">Herbivore.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a88123d920805fceaa5f5e01edeff830e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a88123d920805fceaa5f5e01edeff830e">&#9670;&nbsp;</a></span>Herbivore() <span class="overload">[1/4]</span></h2>
@@ -333,8 +393,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a8b4393e3cab663fca71e024f7fee815d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8b4393e3cab663fca71e024f7fee815d">&#9670;&nbsp;</a></span>Herbivore() <span class="overload">[4/4]</span></h2>
+<a id="a70d72a1432e7b8652ec0a2d644c41b8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70d72a1432e7b8652ec0a2d644c41b8b">&#9670;&nbsp;</a></span>Herbivore() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -355,7 +415,13 @@ Additional Inherited Members</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="class_simulation.html">Simulation</a> *const&#160;</td>
-          <td class="paramname"><em>simulation</em>&#160;</td>
+          <td class="paramname"><em>simulation</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_leading_desire_8h.html#ab6527d5af31297d6f2d1f44d82250a05">LeadingDesire</a>&#160;</td>
+          <td class="paramname"><em>desire</em> = <code><a class="el" href="_leading_desire_8h.html#ab6527d5af31297d6f2d1f44d82250a05ab604ffc1f7d6e07bfa1b0415a19ce2ea">LeadingDesire::EATING</a></code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -371,6 +437,7 @@ Additional Inherited Members</h2></td></tr>
     <tr><td class="paramname">genes</td><td>- <a class="el" href="class_genotype.html" title="Genotype represents individual Organism&#39;s traits inherited from parents.">Genotype</a> representing individual <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a>'s traits inherited from parents. </td></tr>
     <tr><td class="paramname">position</td><td>- <a class="el" href="class_vector.html" title="Vector - version in 2D: a geometric object that has magnitude and direction.">Vector</a> pointing to the position of the <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a> on map. </td></tr>
     <tr><td class="paramname">simulation</td><td>- <a class="el" href="class_simulation.html" title="Main class responsible for simulation.">Simulation</a> that <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a> takes part in. </td></tr>
+    <tr><td class="paramname">desire</td><td>- First desire <a class="el" href="class_herbivore.html" title="Concrete species of an Organism (derives from it)">Herbivore</a> is born with. Default value is <a class="el" href="_leading_desire_8h.html#ab6527d5af31297d6f2d1f44d82250a05ab604ffc1f7d6e07bfa1b0415a19ce2ea">LeadingDesire::EATING</a>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -378,8 +445,36 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a86622436b20bef1b2d58061f335a8a57"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a86622436b20bef1b2d58061f335a8a57">&#9670;&nbsp;</a></span>eatIt()</h2>
+<a id="a832b0fb7c5465be33dd4123f8cf23d22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a832b0fb7c5465be33dd4123f8cf23d22">&#9670;&nbsp;</a></span>accept()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Herbivore::accept </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_statistics_visitor.html">StatisticsVisitor</a> &amp;&#160;</td>
+          <td class="paramname"><em>visitor</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_organism.html#aa1473f4e7b18dfd09ef5cf5b9fae64ac">Organism</a>.</p>
+
+</div>
+</div>
+<a id="ac8332a5927a1da3d72f3bfb4bb3c3e20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8332a5927a1da3d72f3bfb4bb3c3e20">&#9670;&nbsp;</a></span>eatIt()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -390,7 +485,96 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">virtual void Herbivore::eatIt </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_vector.html">Vector</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_map_tile.html">MapTile</a> *&#160;</td>
+          <td class="paramname"><em>grass</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_herbivore.html" title="Concrete species of an Organism (derives from it)">Herbivore</a> eats grass in specified <a class="el" href="class_map_tile.html" title="Class representing tile that the map is consisting of.">MapTile</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">grass</td><td>- map tile with grass to be eaten. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8362400e848937ecd4ceedefecfc5865"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8362400e848937ecd4ceedefecfc5865">&#9670;&nbsp;</a></span>getIndividualSpeedValueAfter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual double Herbivore::getIndividualSpeedValueAfter </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>time</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Getter for individual for every <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a> speed value, but tiredness is also taken into account. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">time</td><td>passed after beginning of performed movement. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>individual speed value. </dd></dl>
+
+<p>Implements <a class="el" href="class_organism.html#aab2e507b09cd246839a2e6ac3327d961">Organism</a>.</p>
+
+</div>
+</div>
+<a id="afa879fd44e24b2834244c08452f2077f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa879fd44e24b2834244c08452f2077f">&#9670;&nbsp;</a></span>hide()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Herbivore::hide </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_herbivore.html" title="Concrete species of an Organism (derives from it)">Herbivore</a>, when on Cave area, can hide in it. </p>
+
+</div>
+</div>
+<a id="a6ccbd3ebb55c92cbda136ea5adaad6d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ccbd3ebb55c92cbda136ea5adaad6d4">&#9670;&nbsp;</a></span>isHidden()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool Herbivore::isHidden </td>
+          <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -402,15 +586,56 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="class_herbivore.html" title="Concrete species of an Organism (derives from it)">Herbivore</a> eats grass of a position pointed by <a class="el" href="class_vector.html" title="Vector - version in 2D: a geometric object that has magnitude and direction.">Vector</a>. </p>
+<p>Defines if <a class="el" href="class_herbivore.html" title="Concrete species of an Organism (derives from it)">Herbivore</a> is hidden in Cave. </p>
+<dl class="section return"><dt>Returns</dt><dd>True / False. </dd></dl>
+
+<p>Implements <a class="el" href="class_organism.html#a52bb059f3c0c39cc894f9288912f79cb">Organism</a>.</p>
+
+</div>
+</div>
+<a id="ab6f971691694d24bb6c450a388740f0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6f971691694d24bb6c450a388740f0f">&#9670;&nbsp;</a></span>reproduceWith()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_herbivore.html">Herbivore</a>* Herbivore::reproduceWith </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_herbivore.html">Herbivore</a> *&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates new <a class="el" href="class_herbivore.html" title="Concrete species of an Organism (derives from it)">Herbivore</a> due to reproduction with supplied organism. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">position</td><td>- position of eaten <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a>. </td></tr>
+    <tr><td class="paramname">other</td><td>- pointer to the partner in reproduction </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>pointer to new <a class="el" href="class_herbivore.html" title="Concrete species of an Organism (derives from it)">Herbivore</a> </dd></dl>
 
-<p>Implements <a class="el" href="class_organism.html#a75b50d26fe67c4063ed8baaa51cae2f2">Organism</a>.</p>
+</div>
+</div>
+<a id="a28f9d26e240d68d8f88fa0a43da9747e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28f9d26e240d68d8f88fa0a43da9747e">&#9670;&nbsp;</a></span>unhide()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Herbivore::unhide </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_herbivore.html" title="Concrete species of an Organism (derives from it)">Herbivore</a>, after coming out from Cave, is no longer hidden. </p>
 
 </div>
 </div>
@@ -437,7 +662,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>flow of the information upside down. </p>
+<p>flow of the information, called by <a class="el" href="class_simulation.html" title="Main class responsible for simulation.">Simulation</a> </p>
 
 <p>Implements <a class="el" href="class_organism.html#a0d7326bd82ab259cf555c852560595ff">Organism</a>.</p>
 

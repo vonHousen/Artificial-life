@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Artificial-Life
-   &#160;<span id="projectnumber">v0.6</span>
+   &#160;<span id="projectnumber">v1.0</span>
    </div>
   </td>
  </tr>
@@ -88,6 +88,7 @@ $(document).ready(function(){initNavTree('class_window.html','');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="class_window-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Window Class Reference</div>  </div>
@@ -106,16 +107,27 @@ Inheritance diagram for Window:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a65a6ef89b7ea9b2802de77238119cec6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_window.html#a65a6ef89b7ea9b2802de77238119cec6">Window</a> (std::shared_ptr&lt; <a class="el" href="class_simulation.html">Simulation</a> &gt; simulation, int size, QWidget *parent=0)</td></tr>
+<tr class="memdesc:a65a6ef89b7ea9b2802de77238119cec6"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constructor.  <a href="#a65a6ef89b7ea9b2802de77238119cec6">More...</a><br /></td></tr>
 <tr class="separator:a65a6ef89b7ea9b2802de77238119cec6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a245d821e6016fa1f6970ccbbedd635f6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_window.html#a245d821e6016fa1f6970ccbbedd635f6">~Window</a> ()</td></tr>
+<tr class="memdesc:a245d821e6016fa1f6970ccbbedd635f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">A destructor.  <a href="#a245d821e6016fa1f6970ccbbedd635f6">More...</a><br /></td></tr>
 <tr class="separator:a245d821e6016fa1f6970ccbbedd635f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba3552061b80b62fd8aea49e0e172a07"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_window.html#aba3552061b80b62fd8aea49e0e172a07">updateOrganismCount</a> ()</td></tr>
-<tr class="separator:aba3552061b80b62fd8aea49e0e172a07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9be0519df85bd0733bdeaf600cf45287"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_window.html#a9be0519df85bd0733bdeaf600cf45287">showOrganismInfo</a> (<a class="el" href="class_organism.html">Organism</a> *const organism, <a class="el" href="class_organism_view.html">OrganismView</a> *const organismView)</td></tr>
+<tr class="memdesc:a9be0519df85bd0733bdeaf600cf45287"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays information about selected organism on the window.  <a href="#a9be0519df85bd0733bdeaf600cf45287">More...</a><br /></td></tr>
+<tr class="separator:a9be0519df85bd0733bdeaf600cf45287"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb8dc9404c6258f0ae276ad49b287188"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_window.html#adb8dc9404c6258f0ae276ad49b287188">unselectDeletedView</a> (<a class="el" href="class_organism_view.html">OrganismView</a> *const organismView)</td></tr>
+<tr class="separator:adb8dc9404c6258f0ae276ad49b287188"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a6964f09bbda0a0049deb996b1cb183e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_window.html#a6964f09bbda0a0049deb996b1cb183e1">mousePressEvent</a> (QMouseEvent *event)</td></tr>
+<tr class="memdesc:a6964f09bbda0a0049deb996b1cb183e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler for mouse pressing event. Responsible for unselecting selected <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a>.  <a href="#a6964f09bbda0a0049deb996b1cb183e1">More...</a><br /></td></tr>
+<tr class="separator:a6964f09bbda0a0049deb996b1cb183e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Main window to display <a class="el" href="class_simulation.html" title="Main class responsible for simulation.">Simulation</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_window_8h_source.html#l00014">14</a> of file <a class="el" href="_window_8h_source.html">Window.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_window_8h_source.html#l00018">18</a> of file <a class="el" href="_window_8h_source.html">Window.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a65a6ef89b7ea9b2802de77238119cec6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a65a6ef89b7ea9b2802de77238119cec6">&#9670;&nbsp;</a></span>Window()</h2>
@@ -157,6 +169,16 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>A constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">simulation</td><td>- Pointer to simulation that this window will display </td></tr>
+    <tr><td class="paramname">size</td><td>- Size of the simulation view </td></tr>
+    <tr><td class="paramname">parent</td><td>- Pointer to QWidget that contains this window </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a245d821e6016fa1f6970ccbbedd635f6"></a>
@@ -174,19 +196,80 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>A destructor. </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="aba3552061b80b62fd8aea49e0e172a07"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aba3552061b80b62fd8aea49e0e172a07">&#9670;&nbsp;</a></span>updateOrganismCount()</h2>
+<a id="a6964f09bbda0a0049deb996b1cb183e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6964f09bbda0a0049deb996b1cb183e1">&#9670;&nbsp;</a></span>mousePressEvent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Window::mousePressEvent </td>
+          <td>(</td>
+          <td class="paramtype">QMouseEvent *&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Handler for mouse pressing event. Responsible for unselecting selected <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a>. </p>
+
+</div>
+</div>
+<a id="a9be0519df85bd0733bdeaf600cf45287"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9be0519df85bd0733bdeaf600cf45287">&#9670;&nbsp;</a></span>showOrganismInfo()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Window::updateOrganismCount </td>
+          <td class="memname">void Window::showOrganismInfo </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="class_organism.html">Organism</a> *const&#160;</td>
+          <td class="paramname"><em>organism</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_organism_view.html">OrganismView</a> *const&#160;</td>
+          <td class="paramname"><em>organismView</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Displays information about selected organism on the window. </p>
+
+</div>
+</div>
+<a id="adb8dc9404c6258f0ae276ad49b287188"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb8dc9404c6258f0ae276ad49b287188">&#9670;&nbsp;</a></span>unselectDeletedView()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Window::unselectDeletedView </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_organism_view.html">OrganismView</a> *const&#160;</td>
+          <td class="paramname"><em>organismView</em></td><td>)</td>
           <td></td>
         </tr>
       </table>

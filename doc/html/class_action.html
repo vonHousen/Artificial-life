@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Artificial-Life
-   &#160;<span id="projectnumber">v0.6</span>
+   &#160;<span id="projectnumber">v1.0</span>
    </div>
   </td>
  </tr>
@@ -88,6 +88,7 @@ $(document).ready(function(){initNavTree('class_action.html','');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_action-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -103,10 +104,14 @@ Inheritance diagram for Action:</div>
  <div class="center">
   <img src="class_action.png" usemap="#Action_map" alt=""/>
   <map id="Action_map" name="Action_map">
-<area href="class_carnivore_action.html" title="Carnivore&#39;s (concrete) Action - Strategy Design Pattern." alt="CarnivoreAction" shape="rect" coords="0,56,112,80"/>
-<area href="class_herbivore_action.html" title="Herbivore&#39;s (concrete) Action - Strategy Design Pattern." alt="HerbivoreAction" shape="rect" coords="122,56,234,80"/>
-<area href="class_carnivore_hunting.html" title="Carnivore&#39;s (concrete) Action of eating (finding food) called hunting." alt="CarnivoreHunting" shape="rect" coords="0,112,112,136"/>
-<area href="class_herbivore_eating.html" title="Herbivore&#39;s (concrete) Action - eating." alt="HerbivoreEating" shape="rect" coords="122,112,234,136"/>
+<area href="class_carnivore_action.html" title="Carnivore&#39;s (concrete) Action - Strategy Design Pattern." alt="CarnivoreAction" shape="rect" coords="154,56,298,80"/>
+<area href="class_herbivore_action.html" title="Herbivore&#39;s (concrete) Action - Strategy Design Pattern." alt="HerbivoreAction" shape="rect" coords="616,56,760,80"/>
+<area href="class_carnivore_hunting.html" title="Carnivore&#39;s (concrete) Action of eating (finding food) called hunting." alt="CarnivoreHunting" shape="rect" coords="0,112,144,136"/>
+<area href="class_carnivore_reproduction.html" title="Carnivore&#39;s (concrete) Action of reproduction." alt="CarnivoreReproduction" shape="rect" coords="154,112,298,136"/>
+<area href="class_carnivore_sleeping.html" title="Carnivore&#39;s (concrete) Action of sleeping." alt="CarnivoreSleeping" shape="rect" coords="308,112,452,136"/>
+<area href="class_herbivore_eating.html" title="Herbivore&#39;s (concrete) Action - eating." alt="HerbivoreEating" shape="rect" coords="462,112,606,136"/>
+<area href="class_herbivore_reproduction.html" title="Herbivore&#39;s (concrete) Action of reproduction." alt="HerbivoreReproduction" shape="rect" coords="616,112,760,136"/>
+<area href="class_herbivore_sleeping.html" title="Herbivore&#39;s (concrete) Action of sleeping." alt="HerbivoreSleeping" shape="rect" coords="770,112,914,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -121,9 +126,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5cec5250edaefd41b7713deaace9eb78"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a5cec5250edaefd41b7713deaace9eb78">Action</a> (<a class="el" href="class_herbivore.html">Herbivore</a> *const owner, <a class="el" href="class_simulation.html">Simulation</a> *const simulation)</td></tr>
 <tr class="memdesc:a5cec5250edaefd41b7713deaace9eb78"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constructor.  <a href="#a5cec5250edaefd41b7713deaace9eb78">More...</a><br /></td></tr>
 <tr class="separator:a5cec5250edaefd41b7713deaace9eb78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfc040fdc62410622a0e3835a713740f"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#abfc040fdc62410622a0e3835a713740f">~Action</a> ()=default</td></tr>
+<tr class="memdesc:abfc040fdc62410622a0e3835a713740f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default virtual destructor.  <a href="#abfc040fdc62410622a0e3835a713740f">More...</a><br /></td></tr>
+<tr class="separator:abfc040fdc62410622a0e3835a713740f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab863afe2f6a1638f29ceb1e6118cf9aa"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#ab863afe2f6a1638f29ceb1e6118cf9aa">act</a> ()=0</td></tr>
 <tr class="memdesc:ab863afe2f6a1638f29ceb1e6118cf9aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Universal for all Actions, executes particular <a class="el" href="class_action.html" title="Abstract class for all types of Actions Organism can perform driven by Needs.">Action</a>.  <a href="#ab863afe2f6a1638f29ceb1e6118cf9aa">More...</a><br /></td></tr>
 <tr class="separator:ab863afe2f6a1638f29ceb1e6118cf9aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a54cb372cd5635cfff4b2b925e42df0ef"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a54cb372cd5635cfff4b2b925e42df0ef">goToSleep</a> (unsigned int timeDuration, unsigned int sleepingTime, const <a class="el" href="class_vector.html">Vector</a> &amp;location, double tiredness)</td></tr>
+<tr class="memdesc:a54cb372cd5635cfff4b2b925e42df0ef"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a> goes to sleep.  <a href="#a54cb372cd5635cfff4b2b925e42df0ef">More...</a><br /></td></tr>
+<tr class="separator:a54cb372cd5635cfff4b2b925e42df0ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -137,7 +151,7 @@ Protected Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Abstract class for all types of Actions <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a> can perform driven by <a class="el" href="class_needs.html" title="Represents all Organism&#39;s physical and psychological Needs - it implicitly impacts Organism&#39;s Actions...">Needs</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_action_8h_source.html#l00014">14</a> of file <a class="el" href="_action_8h_source.html">Action.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_action_8h_source.html#l00015">15</a> of file <a class="el" href="_action_8h_source.html">Action.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a9b6e53c27af5584a2de138503c1e956a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9b6e53c27af5584a2de138503c1e956a">&#9670;&nbsp;</a></span>Action() <span class="overload">[1/3]</span></h2>
@@ -250,6 +264,33 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="abfc040fdc62410622a0e3835a713740f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfc040fdc62410622a0e3835a713740f">&#9670;&nbsp;</a></span>~Action()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual Action::~Action </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Default virtual destructor. </p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="ab863afe2f6a1638f29ceb1e6118cf9aa"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab863afe2f6a1638f29ceb1e6118cf9aa">&#9670;&nbsp;</a></span>act()</h2>
@@ -276,7 +317,67 @@ Protected Attributes</h2></td></tr>
 
 <p>Universal for all Actions, executes particular <a class="el" href="class_action.html" title="Abstract class for all types of Actions Organism can perform driven by Needs.">Action</a>. </p>
 
-<p>Implemented in <a class="el" href="class_carnivore_action.html#a212f96aa2c4f8da75dfbb6a82f4c4e68">CarnivoreAction</a>, <a class="el" href="class_carnivore_hunting.html#a274515a1a3d1763d5b96f5b543b9e8fa">CarnivoreHunting</a>, <a class="el" href="class_herbivore_action.html#a3ab46c9cb07673f317a5d2e90f2b308e">HerbivoreAction</a>, and <a class="el" href="class_herbivore_eating.html#a7493afac1a8cfc3017cff4ef2ebb7875">HerbivoreEating</a>.</p>
+<p>Implemented in <a class="el" href="class_carnivore_hunting.html#a274515a1a3d1763d5b96f5b543b9e8fa">CarnivoreHunting</a>, <a class="el" href="class_carnivore_reproduction.html#a6aa890a1425a432b881c384de7e6554b">CarnivoreReproduction</a>, <a class="el" href="class_carnivore_sleeping.html#a40f447ea604040e68325bc90489a03f5">CarnivoreSleeping</a>, <a class="el" href="class_herbivore_reproduction.html#a819a17653d7b5e041a35d14a729bba7b">HerbivoreReproduction</a>, <a class="el" href="class_herbivore_eating.html#a7493afac1a8cfc3017cff4ef2ebb7875">HerbivoreEating</a>, <a class="el" href="class_herbivore_sleeping.html#a9520f5df1a397aa3ed57c094f5f6408d">HerbivoreSleeping</a>, <a class="el" href="class_carnivore_action.html#a212f96aa2c4f8da75dfbb6a82f4c4e68">CarnivoreAction</a>, and <a class="el" href="class_herbivore_action.html#a3ab46c9cb07673f317a5d2e90f2b308e">HerbivoreAction</a>.</p>
+
+</div>
+</div>
+<a id="a54cb372cd5635cfff4b2b925e42df0ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54cb372cd5635cfff4b2b925e42df0ef">&#9670;&nbsp;</a></span>goToSleep()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Action::goToSleep </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>timeDuration</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>sleepingTime</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_vector.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>location</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>tiredness</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a> goes to sleep. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timeDuration</td><td>- how long this action takes. </td></tr>
+    <tr><td class="paramname">sleepingTime</td><td>- how long Organisms is already sleeping. </td></tr>
+    <tr><td class="paramname">location</td><td>- where <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a> want to go to sleep. </td></tr>
+    <tr><td class="paramname">tiredness</td><td>- defines how much <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a> was tired when going to sleep. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>bool - is <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a> sleeping? </dd></dl>
 
 </div>
 </div>
@@ -303,7 +404,7 @@ Protected Attributes</h2></td></tr>
 
 <p><a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a> "owning" this <a class="el" href="class_action.html" title="Abstract class for all types of Actions Organism can perform driven by Needs.">Action</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_action_8h_source.html#l00045">45</a> of file <a class="el" href="_action_8h_source.html">Action.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_action_8h_source.html#l00048">48</a> of file <a class="el" href="_action_8h_source.html">Action.h</a>.</p>
 
 </div>
 </div>
@@ -329,7 +430,7 @@ Protected Attributes</h2></td></tr>
 
 <p><a class="el" href="class_simulation.html" title="Main class responsible for simulation.">Simulation</a> that <a class="el" href="class_action.html" title="Abstract class for all types of Actions Organism can perform driven by Needs.">Action</a> makes an impact on. </p>
 
-<p class="definition">Definition at line <a class="el" href="_action_8h_source.html#l00046">46</a> of file <a class="el" href="_action_8h_source.html">Action.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_action_8h_source.html#l00049">49</a> of file <a class="el" href="_action_8h_source.html">Action.h</a>.</p>
 
 </div>
 </div>

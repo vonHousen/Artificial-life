@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Artificial-Life
-   &#160;<span id="projectnumber">v0.6</span>
+   &#160;<span id="projectnumber">v1.0</span>
    </div>
   </td>
  </tr>
@@ -112,6 +112,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a63aa7cb1886a99433b5541eba60e26ac"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_herbivore_eating.html#a63aa7cb1886a99433b5541eba60e26ac">HerbivoreEating</a> (<a class="el" href="class_herbivore.html">Herbivore</a> *const owner, <a class="el" href="class_simulation.html">Simulation</a> *const simulation)</td></tr>
 <tr class="memdesc:a63aa7cb1886a99433b5541eba60e26ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constructor.  <a href="#a63aa7cb1886a99433b5541eba60e26ac">More...</a><br /></td></tr>
 <tr class="separator:a63aa7cb1886a99433b5541eba60e26ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa18d111c7b81944473326b3b7c102ce"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_herbivore_eating.html#aaa18d111c7b81944473326b3b7c102ce">~HerbivoreEating</a> ()</td></tr>
+<tr class="memdesc:aaa18d111c7b81944473326b3b7c102ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor. Changes state of eaten tile, so that it can be eaten by other organisms.  <a href="#aaa18d111c7b81944473326b3b7c102ce">More...</a><br /></td></tr>
+<tr class="separator:aaa18d111c7b81944473326b3b7c102ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7493afac1a8cfc3017cff4ef2ebb7875"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_herbivore_eating.html#a7493afac1a8cfc3017cff4ef2ebb7875">act</a> ()</td></tr>
 <tr class="memdesc:a7493afac1a8cfc3017cff4ef2ebb7875"><td class="mdescLeft">&#160;</td><td class="mdescRight">Universal for all Actions, executes particular <a class="el" href="class_action.html" title="Abstract class for all types of Actions Organism can perform driven by Needs.">Action</a>.  <a href="#a7493afac1a8cfc3017cff4ef2ebb7875">More...</a><br /></td></tr>
 <tr class="separator:a7493afac1a8cfc3017cff4ef2ebb7875"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -119,6 +122,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a650ebfbba8b81784abbaa25f2b253727 inherit pub_methods_class_herbivore_action"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_herbivore_action.html#a650ebfbba8b81784abbaa25f2b253727">HerbivoreAction</a> (<a class="el" href="class_herbivore.html">Herbivore</a> *const owner, <a class="el" href="class_simulation.html">Simulation</a> *const simulation)</td></tr>
 <tr class="memdesc:a650ebfbba8b81784abbaa25f2b253727 inherit pub_methods_class_herbivore_action"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constructor.  <a href="class_herbivore_action.html#a650ebfbba8b81784abbaa25f2b253727">More...</a><br /></td></tr>
 <tr class="separator:a650ebfbba8b81784abbaa25f2b253727 inherit pub_methods_class_herbivore_action"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4d69234ef1eea1c7de8ca8005297e15 inherit pub_methods_class_herbivore_action"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_herbivore_action.html#af4d69234ef1eea1c7de8ca8005297e15">~HerbivoreAction</a> ()=default</td></tr>
+<tr class="memdesc:af4d69234ef1eea1c7de8ca8005297e15 inherit pub_methods_class_herbivore_action"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default virtual destructor.  <a href="class_herbivore_action.html#af4d69234ef1eea1c7de8ca8005297e15">More...</a><br /></td></tr>
+<tr class="separator:af4d69234ef1eea1c7de8ca8005297e15 inherit pub_methods_class_herbivore_action"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_action"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_action')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_action.html">Action</a></td></tr>
 <tr class="memitem:a9b6e53c27af5584a2de138503c1e956a inherit pub_methods_class_action"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a9b6e53c27af5584a2de138503c1e956a">Action</a> (<a class="el" href="class_organism.html">Organism</a> *const owner, <a class="el" href="class_simulation.html">Simulation</a> *const simulation)</td></tr>
 <tr class="memdesc:a9b6e53c27af5584a2de138503c1e956a inherit pub_methods_class_action"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constructor.  <a href="class_action.html#a9b6e53c27af5584a2de138503c1e956a">More...</a><br /></td></tr>
@@ -129,9 +135,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5cec5250edaefd41b7713deaace9eb78 inherit pub_methods_class_action"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a5cec5250edaefd41b7713deaace9eb78">Action</a> (<a class="el" href="class_herbivore.html">Herbivore</a> *const owner, <a class="el" href="class_simulation.html">Simulation</a> *const simulation)</td></tr>
 <tr class="memdesc:a5cec5250edaefd41b7713deaace9eb78 inherit pub_methods_class_action"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constructor.  <a href="class_action.html#a5cec5250edaefd41b7713deaace9eb78">More...</a><br /></td></tr>
 <tr class="separator:a5cec5250edaefd41b7713deaace9eb78 inherit pub_methods_class_action"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfc040fdc62410622a0e3835a713740f inherit pub_methods_class_action"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#abfc040fdc62410622a0e3835a713740f">~Action</a> ()=default</td></tr>
+<tr class="memdesc:abfc040fdc62410622a0e3835a713740f inherit pub_methods_class_action"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default virtual destructor.  <a href="class_action.html#abfc040fdc62410622a0e3835a713740f">More...</a><br /></td></tr>
+<tr class="separator:abfc040fdc62410622a0e3835a713740f inherit pub_methods_class_action"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_methods_class_action"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_class_action')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="class_action.html">Action</a></td></tr>
+<tr class="memitem:a54cb372cd5635cfff4b2b925e42df0ef inherit pro_methods_class_action"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a54cb372cd5635cfff4b2b925e42df0ef">goToSleep</a> (unsigned int timeDuration, unsigned int sleepingTime, const <a class="el" href="class_vector.html">Vector</a> &amp;location, double tiredness)</td></tr>
+<tr class="memdesc:a54cb372cd5635cfff4b2b925e42df0ef inherit pro_methods_class_action"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a> goes to sleep.  <a href="class_action.html#a54cb372cd5635cfff4b2b925e42df0ef">More...</a><br /></td></tr>
+<tr class="separator:a54cb372cd5635cfff4b2b925e42df0ef inherit pro_methods_class_action"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_herbivore_action"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_herbivore_action')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_herbivore_action.html">HerbivoreAction</a></td></tr>
 <tr class="memitem:a025f3b0af9b4e3821b8d674d50f76839 inherit pro_attribs_class_herbivore_action"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_herbivore.html">Herbivore</a> *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_herbivore_action.html#a025f3b0af9b4e3821b8d674d50f76839">concreteOwner_</a></td></tr>
 <tr class="memdesc:a025f3b0af9b4e3821b8d674d50f76839 inherit pro_attribs_class_herbivore_action"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_herbivore.html" title="Concrete species of an Organism (derives from it)">Herbivore</a> "owning" this <a class="el" href="class_action.html" title="Abstract class for all types of Actions Organism can perform driven by Needs.">Action</a>.  <a href="class_herbivore_action.html#a025f3b0af9b4e3821b8d674d50f76839">More...</a><br /></td></tr>
@@ -147,7 +160,7 @@ Additional Inherited Members</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="class_herbivore.html" title="Concrete species of an Organism (derives from it)">Herbivore</a>'s (concrete) <a class="el" href="class_action.html" title="Abstract class for all types of Actions Organism can perform driven by Needs.">Action</a> - eating. </p>
 
-<p class="definition">Definition at line <a class="el" href="_herbivore_eating_8h_source.html#l00011">11</a> of file <a class="el" href="_herbivore_eating_8h_source.html">HerbivoreEating.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_herbivore_eating_8h_source.html#l00013">13</a> of file <a class="el" href="_herbivore_eating_8h_source.html">HerbivoreEating.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a63aa7cb1886a99433b5541eba60e26ac"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a63aa7cb1886a99433b5541eba60e26ac">&#9670;&nbsp;</a></span>HerbivoreEating()</h2>
@@ -183,6 +196,33 @@ Additional Inherited Members</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="aaa18d111c7b81944473326b3b7c102ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa18d111c7b81944473326b3b7c102ce">&#9670;&nbsp;</a></span>~HerbivoreEating()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual HerbivoreEating::~HerbivoreEating </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Virtual destructor. Changes state of eaten tile, so that it can be eaten by other organisms. </p>
 
 </div>
 </div>

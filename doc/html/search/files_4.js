@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['leadingdesire_2eh',['LeadingDesire.h',['../_leading_desire_8h.html',1,'']]]
+  ['individualstatisticswidget_2eh',['IndividualStatisticsWidget.h',['../_individual_statistics_widget_8h.html',1,'']]]
 ];

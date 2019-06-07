@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Artificial-Life
-   &#160;<span id="projectnumber">v0.6</span>
+   &#160;<span id="projectnumber">v1.0</span>
    </div>
   </td>
  </tr>
@@ -86,19 +86,330 @@ $(document).ready(function(){initNavTree('class_map_tile.html','');});
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="class_map_tile-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">MapTile Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="class_map_tile.html" title="MapTile TODO.">MapTile</a> TODO.  
+<p>Class representing tile that the map is consisting of.  
  <a href="class_map_tile.html#details">More...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a4d327aa926817ea6d3f83d5890ebe4f0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_tile.html#a4d327aa926817ea6d3f83d5890ebe4f0">MapTile</a> (<a class="el" href="_map_tile_8h.html#ac9e486ec80ccfdb28a4f4837d419c9f1">TileType</a> type, <a class="el" href="class_vector.html">Vector</a> position)</td></tr>
+<tr class="memdesc:a4d327aa926817ea6d3f83d5890ebe4f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constructor.  <a href="#a4d327aa926817ea6d3f83d5890ebe4f0">More...</a><br /></td></tr>
+<tr class="separator:a4d327aa926817ea6d3f83d5890ebe4f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3dcf3f84471905ceac4cab126255926"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_map_tile_8h.html#ac9e486ec80ccfdb28a4f4837d419c9f1">TileType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_tile.html#ab3dcf3f84471905ceac4cab126255926">getType</a> () const</td></tr>
+<tr class="memdesc:ab3dcf3f84471905ceac4cab126255926"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for the tile type.  <a href="#ab3dcf3f84471905ceac4cab126255926">More...</a><br /></td></tr>
+<tr class="separator:ab3dcf3f84471905ceac4cab126255926"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a299b875639ffa922e013e9a74a7672a0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vector.html">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_tile.html#a299b875639ffa922e013e9a74a7672a0">getPosition</a> () const</td></tr>
+<tr class="memdesc:a299b875639ffa922e013e9a74a7672a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for the position of the tile.  <a href="#a299b875639ffa922e013e9a74a7672a0">More...</a><br /></td></tr>
+<tr class="separator:a299b875639ffa922e013e9a74a7672a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39910c553f283b42b3ab32e6a117ee5e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_tile.html#a39910c553f283b42b3ab32e6a117ee5e">getGrassiness</a> () const</td></tr>
+<tr class="memdesc:a39910c553f283b42b3ab32e6a117ee5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for the grassiness value.  <a href="#a39910c553f283b42b3ab32e6a117ee5e">More...</a><br /></td></tr>
+<tr class="separator:a39910c553f283b42b3ab32e6a117ee5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77f848a2420f2a43a75c1e64d1c4d8c4"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_herbivore.html">Herbivore</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_tile.html#a77f848a2420f2a43a75c1e64d1c4d8c4">getEater</a> () const</td></tr>
+<tr class="memdesc:a77f848a2420f2a43a75c1e64d1c4d8c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns pointer to the <a class="el" href="class_herbivore.html" title="Concrete species of an Organism (derives from it)">Herbivore</a> that is eating this tile (or null pointer if it's not being eaten)  <a href="#a77f848a2420f2a43a75c1e64d1c4d8c4">More...</a><br /></td></tr>
+<tr class="separator:a77f848a2420f2a43a75c1e64d1c4d8c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac03e4fa1dfab43087c13c430fb78e3b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_tile.html#ac03e4fa1dfab43087c13c430fb78e3b7">setEater</a> (const <a class="el" href="class_herbivore.html">Herbivore</a> *eater)</td></tr>
+<tr class="memdesc:ac03e4fa1dfab43087c13c430fb78e3b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the eater of this tile.  <a href="#ac03e4fa1dfab43087c13c430fb78e3b7">More...</a><br /></td></tr>
+<tr class="separator:ac03e4fa1dfab43087c13c430fb78e3b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a588c600ac90bb6b7a636089543f3c8c1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_tile.html#a588c600ac90bb6b7a636089543f3c8c1">registerView</a> (<a class="el" href="class_map_tile_view.html">MapTileView</a> *view)</td></tr>
+<tr class="memdesc:a588c600ac90bb6b7a636089543f3c8c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers the view for this tile, so that it will be informed about changing state.  <a href="#a588c600ac90bb6b7a636089543f3c8c1">More...</a><br /></td></tr>
+<tr class="separator:a588c600ac90bb6b7a636089543f3c8c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d03a3cc9709c04d31afd3464c1ce26a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_tile.html#a9d03a3cc9709c04d31afd3464c1ce26a">reset</a> ()</td></tr>
+<tr class="memdesc:a9d03a3cc9709c04d31afd3464c1ce26a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the states of the tile to default one.  <a href="#a9d03a3cc9709c04d31afd3464c1ce26a">More...</a><br /></td></tr>
+<tr class="separator:a9d03a3cc9709c04d31afd3464c1ce26a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9df182a7e3348c352f04f88d8f1027e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_tile.html#ab9df182a7e3348c352f04f88d8f1027e">increaseGrassiness</a> (float value)</td></tr>
+<tr class="memdesc:ab9df182a7e3348c352f04f88d8f1027e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increases grassiness if this tile is of grassy type, keeping the value in range [0.0; 10.0].  <a href="#ab9df182a7e3348c352f04f88d8f1027e">More...</a><br /></td></tr>
+<tr class="separator:ab9df182a7e3348c352f04f88d8f1027e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a8c7e6aa2da1f6143b2a509624742f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_tile.html#a9a8c7e6aa2da1f6143b2a509624742f8">decreaseGrassiness</a> (float value)</td></tr>
+<tr class="memdesc:a9a8c7e6aa2da1f6143b2a509624742f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decreases grassiness if this tile is of grassy type, keeping the value in range [0.0; 10.0].  <a href="#a9a8c7e6aa2da1f6143b2a509624742f8">More...</a><br /></td></tr>
+<tr class="separator:a9a8c7e6aa2da1f6143b2a509624742f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a807dcfeaf15e6e918be208c346e64e85"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_tile.html#a807dcfeaf15e6e918be208c346e64e85">getSize</a> ()</td></tr>
+<tr class="memdesc:a807dcfeaf15e6e918be208c346e64e85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the size of tiles.  <a href="#a807dcfeaf15e6e918be208c346e64e85">More...</a><br /></td></tr>
+<tr class="separator:a807dcfeaf15e6e918be208c346e64e85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="class_map_tile.html" title="MapTile TODO.">MapTile</a> TODO. </p>
+<div class="textblock"><p>Class representing tile that the map is consisting of. </p>
+<p>It is either a cave type of tile, or a grassy tile. </p>
 
-<p class="definition">Definition at line <a class="el" href="_map_8h_source.html#l00012">12</a> of file <a class="el" href="_map_8h_source.html">Map.h</a>.</p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="_map_8h_source.html">Map.h</a></li>
+<p class="definition">Definition at line <a class="el" href="_map_tile_8h_source.html#l00024">24</a> of file <a class="el" href="_map_tile_8h_source.html">MapTile.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a4d327aa926817ea6d3f83d5890ebe4f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d327aa926817ea6d3f83d5890ebe4f0">&#9670;&nbsp;</a></span>MapTile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MapTile::MapTile </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_map_tile_8h.html#ac9e486ec80ccfdb28a4f4837d419c9f1">TileType</a>&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_vector.html">Vector</a>&#160;</td>
+          <td class="paramname"><em>position</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A constructor. </p>
+<p>Creates tile of specified type in a specified position. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>- type of the tile </td></tr>
+    <tr><td class="paramname">position</td><td>- position of the center of the tile </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a9a8c7e6aa2da1f6143b2a509624742f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a8c7e6aa2da1f6143b2a509624742f8">&#9670;&nbsp;</a></span>decreaseGrassiness()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MapTile::decreaseGrassiness </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Decreases grassiness if this tile is of grassy type, keeping the value in range [0.0; 10.0]. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>- value by which to decrease the grassiness </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a77f848a2420f2a43a75c1e64d1c4d8c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77f848a2420f2a43a75c1e64d1c4d8c4">&#9670;&nbsp;</a></span>getEater()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="class_herbivore.html">Herbivore</a>* MapTile::getEater </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns pointer to the <a class="el" href="class_herbivore.html" title="Concrete species of an Organism (derives from it)">Herbivore</a> that is eating this tile (or null pointer if it's not being eaten) </p>
+<dl class="section return"><dt>Returns</dt><dd>pointer to the eating <a class="el" href="class_herbivore.html" title="Concrete species of an Organism (derives from it)">Herbivore</a> </dd></dl>
+
+</div>
+</div>
+<a id="a39910c553f283b42b3ab32e6a117ee5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39910c553f283b42b3ab32e6a117ee5e">&#9670;&nbsp;</a></span>getGrassiness()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float MapTile::getGrassiness </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getter for the grassiness value. </p>
+
+</div>
+</div>
+<a id="a299b875639ffa922e013e9a74a7672a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a299b875639ffa922e013e9a74a7672a0">&#9670;&nbsp;</a></span>getPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_vector.html">Vector</a> MapTile::getPosition </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getter for the position of the tile. </p>
+
+</div>
+</div>
+<a id="a807dcfeaf15e6e918be208c346e64e85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a807dcfeaf15e6e918be208c346e64e85">&#9670;&nbsp;</a></span>getSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static double MapTile::getSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the size of tiles. </p>
+
+</div>
+</div>
+<a id="ab3dcf3f84471905ceac4cab126255926"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3dcf3f84471905ceac4cab126255926">&#9670;&nbsp;</a></span>getType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_map_tile_8h.html#ac9e486ec80ccfdb28a4f4837d419c9f1">TileType</a> MapTile::getType </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getter for the tile type. </p>
+
+</div>
+</div>
+<a id="ab9df182a7e3348c352f04f88d8f1027e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9df182a7e3348c352f04f88d8f1027e">&#9670;&nbsp;</a></span>increaseGrassiness()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MapTile::increaseGrassiness </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Increases grassiness if this tile is of grassy type, keeping the value in range [0.0; 10.0]. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>- value by which to increase the grassiness </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a588c600ac90bb6b7a636089543f3c8c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a588c600ac90bb6b7a636089543f3c8c1">&#9670;&nbsp;</a></span>registerView()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MapTile::registerView </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_map_tile_view.html">MapTileView</a> *&#160;</td>
+          <td class="paramname"><em>view</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Registers the view for this tile, so that it will be informed about changing state. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">view</td><td>- pointer to the map tile view that will observe this tile </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9d03a3cc9709c04d31afd3464c1ce26a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d03a3cc9709c04d31afd3464c1ce26a">&#9670;&nbsp;</a></span>reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MapTile::reset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Resets the states of the tile to default one. </p>
+
+</div>
+</div>
+<a id="ac03e4fa1dfab43087c13c430fb78e3b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac03e4fa1dfab43087c13c430fb78e3b7">&#9670;&nbsp;</a></span>setEater()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MapTile::setEater </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_herbivore.html">Herbivore</a> *&#160;</td>
+          <td class="paramname"><em>eater</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the eater of this tile. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">eater</td><td>- pointer to the <a class="el" href="class_herbivore.html" title="Concrete species of an Organism (derives from it)">Herbivore</a> that eats this tile </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="_map_tile_8h_source.html">MapTile.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

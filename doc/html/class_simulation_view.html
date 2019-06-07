@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Artificial-Life
-   &#160;<span id="projectnumber">v0.6</span>
+   &#160;<span id="projectnumber">v1.0</span>
    </div>
   </td>
  </tr>
@@ -99,28 +99,43 @@ $(document).ready(function(){initNavTree('class_simulation_view.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad881e208d985411d92028b49d7ef4b8f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulation_view.html#ad881e208d985411d92028b49d7ef4b8f">SimulationView</a> (<a class="el" href="class_window.html">Window</a> *const, QGraphicsScene *const, <a class="el" href="class_simulation.html">Simulation</a> *const)</td></tr>
-<tr class="separator:ad881e208d985411d92028b49d7ef4b8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31b110ac6841035476dcee816aa77d56"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulation_view.html#a31b110ac6841035476dcee816aa77d56">SimulationView</a> (<a class="el" href="class_window.html">Window</a> *const window, QGraphicsScene *const qGraphicsScene, <a class="el" href="class_simulation.html">Simulation</a> *const model)</td></tr>
+<tr class="memdesc:a31b110ac6841035476dcee816aa77d56"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constructor.  <a href="#a31b110ac6841035476dcee816aa77d56">More...</a><br /></td></tr>
+<tr class="separator:a31b110ac6841035476dcee816aa77d56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ccb9a29e3632431bba5a686da61d8a9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulation_view.html#a7ccb9a29e3632431bba5a686da61d8a9">~SimulationView</a> ()</td></tr>
+<tr class="memdesc:a7ccb9a29e3632431bba5a686da61d8a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">A destructor.  <a href="#a7ccb9a29e3632431bba5a686da61d8a9">More...</a><br /></td></tr>
 <tr class="separator:a7ccb9a29e3632431bba5a686da61d8a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a49e5afd64cd7889c044f5ee6cc146b9b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulation_view.html#a49e5afd64cd7889c044f5ee6cc146b9b">update</a> ()</td></tr>
+<tr class="memdesc:a49e5afd64cd7889c044f5ee6cc146b9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updated views contained in simulation to match the models' states. Called by <a class="el" href="class_simulation.html" title="Main class responsible for simulation.">Simulation</a>.  <a href="#a49e5afd64cd7889c044f5ee6cc146b9b">More...</a><br /></td></tr>
 <tr class="separator:a49e5afd64cd7889c044f5ee6cc146b9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0bb0cfa967c31d2380e9044c498b1c5d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulation_view.html#a0bb0cfa967c31d2380e9044c498b1c5d">notifyWhenOrganismAdded</a> (<a class="el" href="class_carnivore.html">Carnivore</a> *const)</td></tr>
-<tr class="separator:a0bb0cfa967c31d2380e9044c498b1c5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a994e1ec89f9dbc350e3d41c5002d190b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulation_view.html#a994e1ec89f9dbc350e3d41c5002d190b">notifyWhenOrganismAdded</a> (<a class="el" href="class_herbivore.html">Herbivore</a> *const)</td></tr>
-<tr class="separator:a994e1ec89f9dbc350e3d41c5002d190b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1fa445951ba07b893c3d11d162a33423"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulation_view.html#a1fa445951ba07b893c3d11d162a33423">notifyWhenOrganismRemoved</a> (<a class="el" href="class_carnivore.html">Carnivore</a> *const)</td></tr>
-<tr class="separator:a1fa445951ba07b893c3d11d162a33423"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05604bfaf7b1becedcbc96e62ef5e394"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulation_view.html#a05604bfaf7b1becedcbc96e62ef5e394">notifyWhenOrganismRemoved</a> (<a class="el" href="class_herbivore.html">Herbivore</a> *const)</td></tr>
-<tr class="separator:a05604bfaf7b1becedcbc96e62ef5e394"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab48718e0c8f959ed6519d2e6ab0e6a2f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulation_view.html#ab48718e0c8f959ed6519d2e6ab0e6a2f">createViewsForMap</a> (<a class="el" href="class_map.html">Map</a> *const map)</td></tr>
+<tr class="separator:ab48718e0c8f959ed6519d2e6ab0e6a2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2be320fb1f1688011298a7788a83e880"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulation_view.html#a2be320fb1f1688011298a7788a83e880">notifyWhenOrganismAdded</a> (<a class="el" href="class_carnivore.html">Carnivore</a> *const organismToAdd)</td></tr>
+<tr class="memdesc:a2be320fb1f1688011298a7788a83e880"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called to notify that <a class="el" href="class_carnivore.html" title="Concrete species of an Organism (derives from it)">Carnivore</a> object was added to simulation.  <a href="#a2be320fb1f1688011298a7788a83e880">More...</a><br /></td></tr>
+<tr class="separator:a2be320fb1f1688011298a7788a83e880"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84d7807c900b273a0083a92a51e62c07"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulation_view.html#a84d7807c900b273a0083a92a51e62c07">notifyWhenOrganismAdded</a> (<a class="el" href="class_herbivore.html">Herbivore</a> *const organismToAdd)</td></tr>
+<tr class="memdesc:a84d7807c900b273a0083a92a51e62c07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called to notify that <a class="el" href="class_herbivore.html" title="Concrete species of an Organism (derives from it)">Herbivore</a> object was added to simulation.  <a href="#a84d7807c900b273a0083a92a51e62c07">More...</a><br /></td></tr>
+<tr class="separator:a84d7807c900b273a0083a92a51e62c07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c27caeb964a8639682245b1f3d31fbd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulation_view.html#a5c27caeb964a8639682245b1f3d31fbd">notifyWhenOrganismRemoved</a> (<a class="el" href="class_carnivore.html">Carnivore</a> *const organismToRemove)</td></tr>
+<tr class="memdesc:a5c27caeb964a8639682245b1f3d31fbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called to notify that <a class="el" href="class_carnivore.html" title="Concrete species of an Organism (derives from it)">Carnivore</a> object was removed from simulation.  <a href="#a5c27caeb964a8639682245b1f3d31fbd">More...</a><br /></td></tr>
+<tr class="separator:a5c27caeb964a8639682245b1f3d31fbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2113075045ff61b717f8aaf42e6d4ae6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulation_view.html#a2113075045ff61b717f8aaf42e6d4ae6">notifyWhenOrganismRemoved</a> (<a class="el" href="class_herbivore.html">Herbivore</a> *const organismToRemove)</td></tr>
+<tr class="memdesc:a2113075045ff61b717f8aaf42e6d4ae6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called to notify that <a class="el" href="class_herbivore.html" title="Concrete species of an Organism (derives from it)">Herbivore</a> object was removed from simulation.  <a href="#a2113075045ff61b717f8aaf42e6d4ae6">More...</a><br /></td></tr>
+<tr class="separator:a2113075045ff61b717f8aaf42e6d4ae6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca1ee50da601c2e6ebaf205dcd68e876"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulation_view.html#aca1ee50da601c2e6ebaf205dcd68e876">notifyWhenOrganismClicked</a> (<a class="el" href="class_organism.html">Organism</a> *const organism, <a class="el" href="class_organism_view.html">OrganismView</a> *const view) const</td></tr>
+<tr class="memdesc:aca1ee50da601c2e6ebaf205dcd68e876"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called to notify that <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a> view was clicked by user.  <a href="#aca1ee50da601c2e6ebaf205dcd68e876">More...</a><br /></td></tr>
+<tr class="separator:aca1ee50da601c2e6ebaf205dcd68e876"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0f465154cab1faa6276b39b8c9d4021"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulation_view.html#ad0f465154cab1faa6276b39b8c9d4021">notifyWhenSelectedViewDeleted</a> (<a class="el" href="class_organism_view.html">OrganismView</a> *const view) const</td></tr>
+<tr class="memdesc:ad0f465154cab1faa6276b39b8c9d4021"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called to notify that selected organism's view was deleted.  <a href="#ad0f465154cab1faa6276b39b8c9d4021">More...</a><br /></td></tr>
+<tr class="separator:ad0f465154cab1faa6276b39b8c9d4021"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class responsible for visual representation of the simulation. </p>
 
-<p class="definition">Definition at line <a class="el" href="_simulation_view_8h_source.html#l00020">20</a> of file <a class="el" href="_simulation_view_8h_source.html">SimulationView.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_simulation_view_8h_source.html#l00024">24</a> of file <a class="el" href="_simulation_view_8h_source.html">SimulationView.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ad881e208d985411d92028b49d7ef4b8f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad881e208d985411d92028b49d7ef4b8f">&#9670;&nbsp;</a></span>SimulationView()</h2>
+<a id="a31b110ac6841035476dcee816aa77d56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31b110ac6841035476dcee816aa77d56">&#9670;&nbsp;</a></span>SimulationView()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -128,20 +143,20 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">SimulationView::SimulationView </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_window.html">Window</a> * const&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramtype"><a class="el" href="class_window.html">Window</a> *const&#160;</td>
+          <td class="paramname"><em>window</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">QGraphicsScene * const&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramtype">QGraphicsScene *const&#160;</td>
+          <td class="paramname"><em>qGraphicsScene</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_simulation.html">Simulation</a> * const&#160;</td>
-          <td class="paramname">&#160;</td>
+          <td class="paramtype"><a class="el" href="class_simulation.html">Simulation</a> *const&#160;</td>
+          <td class="paramname"><em>model</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -150,6 +165,16 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>A constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">window</td><td>- Pointer to window on which the simulation will be displayed. </td></tr>
+    <tr><td class="paramname">qGraphicsScene</td><td>- Pointer to Qt's scene, where objects to be displayed are being added. </td></tr>
+    <tr><td class="paramname">model</td><td>- Pointer to simulation that will be displayed. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -168,11 +193,31 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>A destructor. </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a0bb0cfa967c31d2380e9044c498b1c5d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0bb0cfa967c31d2380e9044c498b1c5d">&#9670;&nbsp;</a></span>notifyWhenOrganismAdded() <span class="overload">[1/2]</span></h2>
+<a id="ab48718e0c8f959ed6519d2e6ab0e6a2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab48718e0c8f959ed6519d2e6ab0e6a2f">&#9670;&nbsp;</a></span>createViewsForMap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SimulationView::createViewsForMap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_map.html">Map</a> *const&#160;</td>
+          <td class="paramname"><em>map</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2be320fb1f1688011298a7788a83e880"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2be320fb1f1688011298a7788a83e880">&#9670;&nbsp;</a></span>notifyWhenOrganismAdded() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -180,17 +225,25 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void SimulationView::notifyWhenOrganismAdded </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_carnivore.html">Carnivore</a> * const&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="class_carnivore.html">Carnivore</a> *const&#160;</td>
+          <td class="paramname"><em>organismToAdd</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>Called to notify that <a class="el" href="class_carnivore.html" title="Concrete species of an Organism (derives from it)">Carnivore</a> object was added to simulation. </p>
+<p>Creates view related to new organism and adds it to this view. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">organismToAdd</td><td>- Pointer to <a class="el" href="class_carnivore.html" title="Concrete species of an Organism (derives from it)">Carnivore</a> that was added to simulation </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
-<a id="a994e1ec89f9dbc350e3d41c5002d190b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a994e1ec89f9dbc350e3d41c5002d190b">&#9670;&nbsp;</a></span>notifyWhenOrganismAdded() <span class="overload">[2/2]</span></h2>
+<a id="a84d7807c900b273a0083a92a51e62c07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84d7807c900b273a0083a92a51e62c07">&#9670;&nbsp;</a></span>notifyWhenOrganismAdded() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -198,17 +251,62 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void SimulationView::notifyWhenOrganismAdded </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_herbivore.html">Herbivore</a> * const&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="class_herbivore.html">Herbivore</a> *const&#160;</td>
+          <td class="paramname"><em>organismToAdd</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>Called to notify that <a class="el" href="class_herbivore.html" title="Concrete species of an Organism (derives from it)">Herbivore</a> object was added to simulation. </p>
+<p>Creates view related to new organism and adds it to this view. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">organismToAdd</td><td>- Pointer to <a class="el" href="class_herbivore.html" title="Concrete species of an Organism (derives from it)">Herbivore</a> that was added to simulation </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
-<a id="a1fa445951ba07b893c3d11d162a33423"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1fa445951ba07b893c3d11d162a33423">&#9670;&nbsp;</a></span>notifyWhenOrganismRemoved() <span class="overload">[1/2]</span></h2>
+<a id="aca1ee50da601c2e6ebaf205dcd68e876"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca1ee50da601c2e6ebaf205dcd68e876">&#9670;&nbsp;</a></span>notifyWhenOrganismClicked()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SimulationView::notifyWhenOrganismClicked </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_organism.html">Organism</a> *const&#160;</td>
+          <td class="paramname"><em>organism</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_organism_view.html">OrganismView</a> *const&#160;</td>
+          <td class="paramname"><em>view</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Called to notify that <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a> view was clicked by user. </p>
+<p>Presents information about selected organism. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">organism</td><td>- Pointer to selected <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a> </td></tr>
+    <tr><td class="paramname">view</td><td>- Pointer to view corresponding to selected <a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5c27caeb964a8639682245b1f3d31fbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c27caeb964a8639682245b1f3d31fbd">&#9670;&nbsp;</a></span>notifyWhenOrganismRemoved() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -216,17 +314,25 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void SimulationView::notifyWhenOrganismRemoved </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_carnivore.html">Carnivore</a> * const&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="class_carnivore.html">Carnivore</a> *const&#160;</td>
+          <td class="paramname"><em>organismToRemove</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>Called to notify that <a class="el" href="class_carnivore.html" title="Concrete species of an Organism (derives from it)">Carnivore</a> object was removed from simulation. </p>
+<p>Removes view related to removed organism. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">organismToAdd</td><td>- Pointer to <a class="el" href="class_carnivore.html" title="Concrete species of an Organism (derives from it)">Carnivore</a> that was removed from simulation </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
-<a id="a05604bfaf7b1becedcbc96e62ef5e394"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a05604bfaf7b1becedcbc96e62ef5e394">&#9670;&nbsp;</a></span>notifyWhenOrganismRemoved() <span class="overload">[2/2]</span></h2>
+<a id="a2113075045ff61b717f8aaf42e6d4ae6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2113075045ff61b717f8aaf42e6d4ae6">&#9670;&nbsp;</a></span>notifyWhenOrganismRemoved() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -234,12 +340,46 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void SimulationView::notifyWhenOrganismRemoved </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_herbivore.html">Herbivore</a> * const&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="class_herbivore.html">Herbivore</a> *const&#160;</td>
+          <td class="paramname"><em>organismToRemove</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Called to notify that <a class="el" href="class_herbivore.html" title="Concrete species of an Organism (derives from it)">Herbivore</a> object was removed from simulation. </p>
+<p>Removes view related to removed organism. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">organismToAdd</td><td>- Pointer to <a class="el" href="class_herbivore.html" title="Concrete species of an Organism (derives from it)">Herbivore</a> that was removed from simulation </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad0f465154cab1faa6276b39b8c9d4021"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0f465154cab1faa6276b39b8c9d4021">&#9670;&nbsp;</a></span>notifyWhenSelectedViewDeleted()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SimulationView::notifyWhenSelectedViewDeleted </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_organism_view.html">OrganismView</a> *const&#160;</td>
+          <td class="paramname"><em>view</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Called to notify that selected organism's view was deleted. </p>
+<p>Causes to stop showing information related to this organism. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">view</td><td>- Pointer to removed view </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -257,6 +397,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Updated views contained in simulation to match the models' states. Called by <a class="el" href="class_simulation.html" title="Main class responsible for simulation.">Simulation</a>. </p>
 
 </div>
 </div>

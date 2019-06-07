@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Artificial-Life
-   &#160;<span id="projectnumber">v0.6</span>
+   &#160;<span id="projectnumber">v1.0</span>
    </div>
   </td>
  </tr>
@@ -103,8 +103,10 @@ Inheritance diagram for CarnivoreAction:</div>
  <div class="center">
   <img src="class_carnivore_action.png" usemap="#CarnivoreAction_map" alt=""/>
   <map id="CarnivoreAction_map" name="CarnivoreAction_map">
-<area href="class_action.html" title="Abstract class for all types of Actions Organism can perform driven by Needs." alt="Action" shape="rect" coords="0,0,112,24"/>
-<area href="class_carnivore_hunting.html" title="Carnivore&#39;s (concrete) Action of eating (finding food) called hunting." alt="CarnivoreHunting" shape="rect" coords="0,112,112,136"/>
+<area href="class_action.html" title="Abstract class for all types of Actions Organism can perform driven by Needs." alt="Action" shape="rect" coords="154,0,298,24"/>
+<area href="class_carnivore_hunting.html" title="Carnivore&#39;s (concrete) Action of eating (finding food) called hunting." alt="CarnivoreHunting" shape="rect" coords="0,112,144,136"/>
+<area href="class_carnivore_reproduction.html" title="Carnivore&#39;s (concrete) Action of reproduction." alt="CarnivoreReproduction" shape="rect" coords="154,112,298,136"/>
+<area href="class_carnivore_sleeping.html" title="Carnivore&#39;s (concrete) Action of sleeping." alt="CarnivoreSleeping" shape="rect" coords="308,112,452,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -113,6 +115,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac364aaef8ca8951d5e33c72b01e6c7f6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_carnivore_action.html#ac364aaef8ca8951d5e33c72b01e6c7f6">CarnivoreAction</a> (<a class="el" href="class_carnivore.html">Carnivore</a> *const owner, <a class="el" href="class_simulation.html">Simulation</a> *const simulation)</td></tr>
 <tr class="memdesc:ac364aaef8ca8951d5e33c72b01e6c7f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constructor.  <a href="#ac364aaef8ca8951d5e33c72b01e6c7f6">More...</a><br /></td></tr>
 <tr class="separator:ac364aaef8ca8951d5e33c72b01e6c7f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a277bad6f6af6ce542e63251fc97d6229"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_carnivore_action.html#a277bad6f6af6ce542e63251fc97d6229">~CarnivoreAction</a> ()=default</td></tr>
+<tr class="memdesc:a277bad6f6af6ce542e63251fc97d6229"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default virtual destructor.  <a href="#a277bad6f6af6ce542e63251fc97d6229">More...</a><br /></td></tr>
+<tr class="separator:a277bad6f6af6ce542e63251fc97d6229"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a212f96aa2c4f8da75dfbb6a82f4c4e68"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_carnivore_action.html#a212f96aa2c4f8da75dfbb6a82f4c4e68">act</a> ()=0</td></tr>
 <tr class="memdesc:a212f96aa2c4f8da75dfbb6a82f4c4e68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Universal for all Actions, executes particular <a class="el" href="class_action.html" title="Abstract class for all types of Actions Organism can perform driven by Needs.">Action</a>.  <a href="#a212f96aa2c4f8da75dfbb6a82f4c4e68">More...</a><br /></td></tr>
 <tr class="separator:a212f96aa2c4f8da75dfbb6a82f4c4e68"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -126,6 +131,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5cec5250edaefd41b7713deaace9eb78 inherit pub_methods_class_action"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a5cec5250edaefd41b7713deaace9eb78">Action</a> (<a class="el" href="class_herbivore.html">Herbivore</a> *const owner, <a class="el" href="class_simulation.html">Simulation</a> *const simulation)</td></tr>
 <tr class="memdesc:a5cec5250edaefd41b7713deaace9eb78 inherit pub_methods_class_action"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constructor.  <a href="class_action.html#a5cec5250edaefd41b7713deaace9eb78">More...</a><br /></td></tr>
 <tr class="separator:a5cec5250edaefd41b7713deaace9eb78 inherit pub_methods_class_action"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfc040fdc62410622a0e3835a713740f inherit pub_methods_class_action"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#abfc040fdc62410622a0e3835a713740f">~Action</a> ()=default</td></tr>
+<tr class="memdesc:abfc040fdc62410622a0e3835a713740f inherit pub_methods_class_action"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default virtual destructor.  <a href="class_action.html#abfc040fdc62410622a0e3835a713740f">More...</a><br /></td></tr>
+<tr class="separator:abfc040fdc62410622a0e3835a713740f inherit pub_methods_class_action"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -139,6 +147,13 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:ae1cea11a98ae70ea04a8f9807ba2e157 inherit pro_attribs_class_action"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_simulation.html">Simulation</a> *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#ae1cea11a98ae70ea04a8f9807ba2e157">simulation_</a></td></tr>
 <tr class="memdesc:ae1cea11a98ae70ea04a8f9807ba2e157 inherit pro_attribs_class_action"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_simulation.html" title="Main class responsible for simulation.">Simulation</a> that <a class="el" href="class_action.html" title="Abstract class for all types of Actions Organism can perform driven by Needs.">Action</a> makes an impact on.  <a href="class_action.html#ae1cea11a98ae70ea04a8f9807ba2e157">More...</a><br /></td></tr>
 <tr class="separator:ae1cea11a98ae70ea04a8f9807ba2e157 inherit pro_attribs_class_action"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_methods_class_action"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_class_action')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="class_action.html">Action</a></td></tr>
+<tr class="memitem:a54cb372cd5635cfff4b2b925e42df0ef inherit pro_methods_class_action"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a54cb372cd5635cfff4b2b925e42df0ef">goToSleep</a> (unsigned int timeDuration, unsigned int sleepingTime, const <a class="el" href="class_vector.html">Vector</a> &amp;location, double tiredness)</td></tr>
+<tr class="memdesc:a54cb372cd5635cfff4b2b925e42df0ef inherit pro_methods_class_action"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_organism.html" title="Abstract (base) class for both species.">Organism</a> goes to sleep.  <a href="class_action.html#a54cb372cd5635cfff4b2b925e42df0ef">More...</a><br /></td></tr>
+<tr class="separator:a54cb372cd5635cfff4b2b925e42df0ef inherit pro_methods_class_action"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="class_carnivore.html" title="Concrete species of an Organism (derives from it)">Carnivore</a>'s (concrete) <a class="el" href="class_action.html" title="Abstract class for all types of Actions Organism can perform driven by Needs.">Action</a> - Strategy Design Pattern. </p>
@@ -182,6 +197,33 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a277bad6f6af6ce542e63251fc97d6229"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a277bad6f6af6ce542e63251fc97d6229">&#9670;&nbsp;</a></span>~CarnivoreAction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual CarnivoreAction::~CarnivoreAction </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Default virtual destructor. </p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a212f96aa2c4f8da75dfbb6a82f4c4e68"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a212f96aa2c4f8da75dfbb6a82f4c4e68">&#9670;&nbsp;</a></span>act()</h2>
@@ -210,7 +252,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="class_action.html#ab863afe2f6a1638f29ceb1e6118cf9aa">Action</a>.</p>
 
-<p>Implemented in <a class="el" href="class_carnivore_hunting.html#a274515a1a3d1763d5b96f5b543b9e8fa">CarnivoreHunting</a>.</p>
+<p>Implemented in <a class="el" href="class_carnivore_hunting.html#a274515a1a3d1763d5b96f5b543b9e8fa">CarnivoreHunting</a>, <a class="el" href="class_carnivore_reproduction.html#a6aa890a1425a432b881c384de7e6554b">CarnivoreReproduction</a>, and <a class="el" href="class_carnivore_sleeping.html#a40f447ea604040e68325bc90489a03f5">CarnivoreSleeping</a>.</p>
 
 </div>
 </div>
@@ -237,7 +279,7 @@ Protected Attributes</h2></td></tr>
 
 <p><a class="el" href="class_carnivore.html" title="Concrete species of an Organism (derives from it)">Carnivore</a> "owning" this <a class="el" href="class_action.html" title="Abstract class for all types of Actions Organism can perform driven by Needs.">Action</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_carnivore_action_8h_source.html#l00026">26</a> of file <a class="el" href="_carnivore_action_8h_source.html">CarnivoreAction.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_carnivore_action_8h_source.html#l00028">28</a> of file <a class="el" href="_carnivore_action_8h_source.html">CarnivoreAction.h</a>.</p>
 
 </div>
 </div>

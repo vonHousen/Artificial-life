@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Artificial-Life
-   &#160;<span id="projectnumber">v0.6</span>
+   &#160;<span id="projectnumber">v1.0</span>
    </div>
   </td>
  </tr>
@@ -87,19 +87,194 @@ $(document).ready(function(){initNavTree('class_map.html','');});
 
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="class_map-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Map Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="class_map.html" title="Map TODO.">Map</a> TODO.  
+<p><a class="el" href="class_map.html" title="Map consisting of MapTiles, that covers simulation&#39;s area.">Map</a> consisting of MapTiles, that covers simulation's area.  
  <a href="class_map.html#details">More...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a0f5ad0fd4563497b4214038cbca8b582"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map.html#a0f5ad0fd4563497b4214038cbca8b582">Map</a> ()</td></tr>
+<tr class="memdesc:a0f5ad0fd4563497b4214038cbca8b582"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constructor. Creates map tiles of appropriate type that fill the map area.  <a href="#a0f5ad0fd4563497b4214038cbca8b582">More...</a><br /></td></tr>
+<tr class="separator:a0f5ad0fd4563497b4214038cbca8b582"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab12643cc3a8d5e48f566c1abb571e9bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map.html#ab12643cc3a8d5e48f566c1abb571e9bf">update</a> ()</td></tr>
+<tr class="memdesc:ab12643cc3a8d5e48f566c1abb571e9bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates all map tiles.  <a href="#ab12643cc3a8d5e48f566c1abb571e9bf">More...</a><br /></td></tr>
+<tr class="separator:ab12643cc3a8d5e48f566c1abb571e9bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a904c445fdce79257fedeba09070cf88a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map.html#a904c445fdce79257fedeba09070cf88a">reset</a> ()</td></tr>
+<tr class="memdesc:a904c445fdce79257fedeba09070cf88a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets all map tiles.  <a href="#a904c445fdce79257fedeba09070cf88a">More...</a><br /></td></tr>
+<tr class="separator:a904c445fdce79257fedeba09070cf88a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27d533017c4fe687d29705f8b49cd74b"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_map_tile.html">MapTile</a> &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map.html#a27d533017c4fe687d29705f8b49cd74b">getTiles</a> () const</td></tr>
+<tr class="memdesc:a27d533017c4fe687d29705f8b49cd74b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns reference to vector of MapTiles.  <a href="#a27d533017c4fe687d29705f8b49cd74b">More...</a><br /></td></tr>
+<tr class="separator:a27d533017c4fe687d29705f8b49cd74b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45db4351c991a47ce76f576a4f3253f6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_map_tile.html">MapTile</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map.html#a45db4351c991a47ce76f576a4f3253f6">getNearestMapTile</a> (const <a class="el" href="class_herbivore.html">Herbivore</a> *herbi)</td></tr>
+<tr class="memdesc:a45db4351c991a47ce76f576a4f3253f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns pointer to the nearest grassy map tile, that is not being eaten by other organism.  <a href="#a45db4351c991a47ce76f576a4f3253f6">More...</a><br /></td></tr>
+<tr class="separator:a45db4351c991a47ce76f576a4f3253f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f7cd5942a00eb635f8330181c041c9e"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="class_vector.html">Vector</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map.html#a6f7cd5942a00eb635f8330181c041c9e">getCaveLocations</a> ()</td></tr>
+<tr class="memdesc:a6f7cd5942a00eb635f8330181c041c9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns all cave locations in the simulation.  <a href="#a6f7cd5942a00eb635f8330181c041c9e">More...</a><br /></td></tr>
+<tr class="separator:a6f7cd5942a00eb635f8330181c041c9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:adc1a0ef40a31a5f914bd7c4c2512d0db"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map.html#adc1a0ef40a31a5f914bd7c4c2512d0db">getCaveRadius</a> ()</td></tr>
+<tr class="memdesc:adc1a0ef40a31a5f914bd7c4c2512d0db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for cave radius.  <a href="#adc1a0ef40a31a5f914bd7c4c2512d0db">More...</a><br /></td></tr>
+<tr class="separator:adc1a0ef40a31a5f914bd7c4c2512d0db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="class_map.html" title="Map TODO.">Map</a> TODO. </p>
+<div class="textblock"><p><a class="el" href="class_map.html" title="Map consisting of MapTiles, that covers simulation&#39;s area.">Map</a> consisting of MapTiles, that covers simulation's area. </p>
 
-<p class="definition">Definition at line <a class="el" href="_map_8h_source.html#l00022">22</a> of file <a class="el" href="_map_8h_source.html">Map.h</a>.</p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
+<p class="definition">Definition at line <a class="el" href="_map_8h_source.html#l00015">15</a> of file <a class="el" href="_map_8h_source.html">Map.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a0f5ad0fd4563497b4214038cbca8b582"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f5ad0fd4563497b4214038cbca8b582">&#9670;&nbsp;</a></span>Map()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Map::Map </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A constructor. Creates map tiles of appropriate type that fill the map area. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a6f7cd5942a00eb635f8330181c041c9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f7cd5942a00eb635f8330181c041c9e">&#9670;&nbsp;</a></span>getCaveLocations()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt;<a class="el" href="class_vector.html">Vector</a>&gt;&amp; Map::getCaveLocations </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns all cave locations in the simulation. </p>
+<dl class="section return"><dt>Returns</dt><dd>const vector&lt;Vector&gt;&amp; - vector of positions (centers) of caves. </dd></dl>
+
+</div>
+</div>
+<a id="adc1a0ef40a31a5f914bd7c4c2512d0db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc1a0ef40a31a5f914bd7c4c2512d0db">&#9670;&nbsp;</a></span>getCaveRadius()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static double Map::getCaveRadius </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Getter for cave radius. </p>
+
+</div>
+</div>
+<a id="a45db4351c991a47ce76f576a4f3253f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45db4351c991a47ce76f576a4f3253f6">&#9670;&nbsp;</a></span>getNearestMapTile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_map_tile.html">MapTile</a>* Map::getNearestMapTile </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_herbivore.html">Herbivore</a> *&#160;</td>
+          <td class="paramname"><em>herbi</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns pointer to the nearest grassy map tile, that is not being eaten by other organism. </p>
+
+</div>
+</div>
+<a id="a27d533017c4fe687d29705f8b49cd74b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27d533017c4fe687d29705f8b49cd74b">&#9670;&nbsp;</a></span>getTiles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt;std::shared_ptr&lt;<a class="el" href="class_map_tile.html">MapTile</a>&gt; &gt;&amp; Map::getTiles </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns reference to vector of MapTiles. </p>
+
+</div>
+</div>
+<a id="a904c445fdce79257fedeba09070cf88a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a904c445fdce79257fedeba09070cf88a">&#9670;&nbsp;</a></span>reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Map::reset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Resets all map tiles. </p>
+
+</div>
+</div>
+<a id="ab12643cc3a8d5e48f566c1abb571e9bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab12643cc3a8d5e48f566c1abb571e9bf">&#9670;&nbsp;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Map::update </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Updates all map tiles. </p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="_map_8h_source.html">Map.h</a></li>
 </ul>
 </div><!-- contents -->

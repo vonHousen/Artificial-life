@@ -1,8 +1,12 @@
 var searchData=
 [
-  ['needs',['Needs',['../class_needs.html',1,'Needs'],['../class_needs.html#aca51a6c14bb1243566d4372558d07bad',1,'Needs::Needs(const Needs &amp;)=delete'],['../class_needs.html#abbff649e24ab1a16c006ce5e38a85f8c',1,'Needs::Needs(Needs &amp;&amp;)=delete'],['../class_needs.html#afe28879d2bc37da4d36528beebc00e7b',1,'Needs::Needs(Organism *owner)']]],
-  ['needs_2eh',['Needs.h',['../_needs_8h.html',1,'']]],
-  ['needs_5f',['needs_',['../class_organism.html#a63cd54f2156fd8bd0e9bb5db333abe96',1,'Organism']]],
-  ['notifywhenorganismadded',['notifyWhenOrganismAdded',['../class_simulation_view.html#a0bb0cfa967c31d2380e9044c498b1c5d',1,'SimulationView::notifyWhenOrganismAdded(Carnivore *const)'],['../class_simulation_view.html#a994e1ec89f9dbc350e3d41c5002d190b',1,'SimulationView::notifyWhenOrganismAdded(Herbivore *const)']]],
-  ['notifywhenorganismremoved',['notifyWhenOrganismRemoved',['../class_simulation_view.html#a1fa445951ba07b893c3d11d162a33423',1,'SimulationView::notifyWhenOrganismRemoved(Carnivore *const)'],['../class_simulation_view.html#a05604bfaf7b1becedcbc96e62ef5e394',1,'SimulationView::notifyWhenOrganismRemoved(Herbivore *const)']]]
+  ['map',['Map',['../class_map.html',1,'Map'],['../class_map.html#a0f5ad0fd4563497b4214038cbca8b582',1,'Map::Map()']]],
+  ['map_2eh',['Map.h',['../_map_8h.html',1,'']]],
+  ['maptile',['MapTile',['../class_map_tile.html',1,'MapTile'],['../class_map_tile.html#a4d327aa926817ea6d3f83d5890ebe4f0',1,'MapTile::MapTile()']]],
+  ['maptile_2eh',['MapTile.h',['../_map_tile_8h.html',1,'']]],
+  ['maptileview',['MapTileView',['../class_map_tile_view.html',1,'MapTileView'],['../class_map_tile_view.html#a9c9cf36d6b99ce162fbb109bf3c2b0e6',1,'MapTileView::MapTileView()']]],
+  ['maptileview_2eh',['MapTileView.h',['../_map_tile_view_8h.html',1,'']]],
+  ['mousepressevent',['mousePressEvent',['../class_organism_view.html#a3f9ba78e239559929190d1d4ef99db0a',1,'OrganismView::mousePressEvent()'],['../class_window.html#a6964f09bbda0a0049deb996b1cb183e1',1,'Window::mousePressEvent()']]],
+  ['move',['move',['../class_organism.html#a87511d1ea5f980e5f9d54b4138c9e684',1,'Organism']]],
+  ['mutate',['mutate',['../class_genotype.html#a0a044d503b653829057b31080a05bc75',1,'Genotype']]]
 ];
