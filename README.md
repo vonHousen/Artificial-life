@@ -50,4 +50,5 @@ Moreover, sometimes it's also required from user to execute `cmake` tool with op
 -DCMAKE_PREFIX_PATH="C:\Qt\Qt5.12.3\5.12.3\mingw73_64\lib\cmake"
 ```
 
-
+## Class diagram [UML]
+![Screenshot](doc/class_diagram.png)
