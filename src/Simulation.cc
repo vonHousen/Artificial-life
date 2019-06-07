@@ -382,3 +382,21 @@ Herbivore* Simulation::getBestSeenPartner(const Herbivore* lonelyHerbivore)	//TO
 
 	return partner;
 }
+
+bool Simulation::isInCave(const Herbivore* herbi)
+{
+	bool isInCave = false;
+	const auto caves = this->map_.getCaveLocations();
+	const auto caveRadius = Map::getCaveRadius();
+
+	for(const auto cave : caves)
+	{
+		if(Vector::getShortestVectorBetweenPositions(cave, herbi->getPosition()).getLength() < caveRadius)
+		{
+			isInCave = true;
+			break;
+		}
+	}
+
+	return isInCave;
+}

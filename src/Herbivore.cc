@@ -11,6 +11,7 @@
 #include <include/ALife/MapTile.h>
 #include <include/ALife/Simulation.h>
 #include <include/ALife/Action.h>
+#include <include/ALife/RandomGenerator.h>
 
 
 Herbivore::Herbivore(std::unique_ptr<Genotype> genes, const Vector& position, Simulation* const simulation, LeadingDesire desire) :
@@ -72,8 +73,25 @@ void Herbivore::runAwayFrom(Carnivore* danger)
 {
 	const auto velocity = this->getIndividualSpeedValueAfter(0);
 
+	const auto runVec = Vector::getShortestVectorBetweenPositions(danger->getPosition(), this->getPosition());
+	const auto runDirection = runVec.getUnitVector();
 
-	const auto direction = (this->getPosition() - danger->getPosition()).getUnitVector();
+	const auto results = simulation_->getNearestCave(this);
+	Vector positionInCave = Vector::getRandomVector(results.second);
+	const double correctionFactor = RandomGenerator::getInstance()->getSampleUniform();
+	positionInCave *= correctionFactor;
+
+	const auto caveVec =
+			Vector::getShortestVectorBetweenPositions(this->getPosition(), results.first + positionInCave);
+	const auto caveDirection = caveVec.getUnitVector();
+
+	constexpr double MINIMAL_DISTANCE_TO_CAVE = 0.1;
+	constexpr double CAVE_WEIGHT = 1.5;
+	const double hidingWeight =
+			caveVec.getLength() < MINIMAL_DISTANCE_TO_CAVE ?
+				CAVE_WEIGHT* runDirection.getLength() / caveVec.getLength() : 0.0;
+	const auto direction = (caveDirection * hidingWeight + runDirection).getUnitVector();
+
 	const auto intendedVelocity = direction * velocity;
 
 	this->setVelocity(intendedVelocity);
@@ -98,6 +116,12 @@ void Herbivore::update()
 	}
 
 	this->move();
+
+	if(simulation_->isInCave(this))
+		hide();
+	else
+		unhide();
+
 	this->checkAge();
 }
 

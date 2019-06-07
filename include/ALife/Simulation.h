@@ -118,6 +118,13 @@ public:
 	 */
 	void produceBabies(const Herbivore* parentA, const Herbivore* parentB);
 
+	/**
+	 * Decides if herbi is in Cave area.
+	 * @param herbi - Herbivore.
+	 * @return True / False.
+	 */
+	bool isInCave(const Herbivore* herbi);
+
 private:
 
 	std::vector<Carnivore*> carnivores_;				///< Data structure for aggregation of Carnivores.
