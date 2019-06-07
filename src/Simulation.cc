@@ -118,8 +118,6 @@ Carnivore* Simulation::getNearestPredator(Herbivore* herbi, double sightRange) c
 	nearestPredatorVector = nearestPredatorVector * normalizationFactor;
 	Carnivore* predator = nullptr;
 
-	// TODO add additional organisms for lookup due to alertness (may be random for simplicity?) (not here though)
-
 	for(auto scaryHunter : carnivores_)
 	{
 		predatorVector = Vector::getShortestVectorBetweenPositions(herbi->getPosition(), scaryHunter->getPosition());
@@ -371,7 +369,7 @@ Carnivore* Simulation::getBestSeenPartner(const Carnivore* lonelyCarnivore)
 	return partner;
 }
 
-Herbivore* Simulation::getBestSeenPartner(const Herbivore* lonelyHerbivore)	//TODO make it a template for unification of code
+Herbivore* Simulation::getBestSeenPartner(const Herbivore* lonelyHerbivore)
 {
 	if(herbivores_.empty())
 		return nullptr;

@@ -13,7 +13,7 @@ HerbivoreReproduction::HerbivoreReproduction(Herbivore* const owner, Simulation*
 		timeDuration_(0)
 {}
 
-void HerbivoreReproduction::act()	// TODO use templates to unify code with Carnivores
+void HerbivoreReproduction::act()
 {
 	++timeDuration_;
 	Vector partnerVector;

@@ -15,6 +15,7 @@ class Vector;
 class Action
 {
 public:
+
 	/**
 	 * A constructor.
 	 *
@@ -39,7 +40,7 @@ public:
 	 */
 	Action(Herbivore* const owner, Simulation* const simulation);
 
-	virtual ~Action() = default; ///< Default virtual destructor.
+	virtual ~Action() = default; 							///< Default virtual destructor.
 
 	virtual void act() = 0;									///< Universal for all Actions, executes particular Action.
 
