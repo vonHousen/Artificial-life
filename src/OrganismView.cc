@@ -13,7 +13,7 @@ OrganismView::OrganismView(Organism* const model, SimulationView* const owner):
     isSelected_(false)
 {
     Vector position = model_->getPosition();
-    float radius = model_->getRadius();
+    float radius = Organism::getRadius();
 
     setRect(-radius, -radius, 2.0*radius, 2.0*radius);
     setPos(position.getX(), position.getY());

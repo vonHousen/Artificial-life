@@ -4,7 +4,7 @@
 MapTileView::MapTileView(MapTile* const model):
     model_(model)
 {
-    float size = model->getSize();
+    float size = MapTile::getSize();
     Vector position = model->getPosition();
 
     //Moves anchor point to the center of the rectangle and sets the size
