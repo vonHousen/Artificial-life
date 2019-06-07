@@ -7,7 +7,6 @@
 #include <include/ALife/HerbivoreActionFactory.h>
 #include <include/ALife/HerbivoreEating.h>
 #include <include/ALife/HerbivoreSleeping.h>
-#include <include/ALife/HerbivoreParenting.h>
 #include <include/ALife/HerbivorePairing.h>
 #include <include/ALife/MapTile.h>
 #include <include/ALife/Simulation.h>
@@ -104,10 +103,6 @@ void Herbivore::update()
 void Herbivore::pairWith(Herbivore* partner)
 {
 	isParenting_ = true;
-	currentAction_ = std::move(
-				HerbivoreActionFactory::getInstance().produceParentingAction(this, simulation_, partner));
-	if(!partner->isParenting())
-	{
-		partner->pairWith(this);
-	}
+	partner->isParenting_ = true;
+
 }

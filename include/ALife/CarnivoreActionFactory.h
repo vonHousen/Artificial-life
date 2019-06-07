@@ -46,9 +46,6 @@ public:
 	 */
 	std::unique_ptr<CarnivoreSleeping> produceSleepingAction(Carnivore* const owner, Simulation* const simulation);
 
-
-	std::unique_ptr<CarnivoreParenting> produceParentingAction(Carnivore* const owner, Simulation* const simulation, Carnivore* partner);
-	
 	/**
 	 * Produces Action of pairing.
 	 * @param owner - Carnivore "owning" this Action.

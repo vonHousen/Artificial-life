@@ -88,7 +88,10 @@ void Needs::update()
 	// periodically increase needs' values
 	constexpr int NORMALIZATION_FACTOR = 200;
 	const unsigned int timeAlive = owner_->getTimeAlive();
-	const unsigned int interval = static_cast<int>(owner_->getStamina() * NORMALIZATION_FACTOR);
+	unsigned int interval = static_cast<int>(owner_->getStamina() * NORMALIZATION_FACTOR);
+	if(interval == 0)
+		interval = 50;
+
 	const bool isTimeForHigherNeeds = timeAlive % interval == 0;
 	const bool isTimeForIllness = timeAlive % (interval/2)== 0;
 

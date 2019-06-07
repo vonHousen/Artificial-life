@@ -5,7 +5,6 @@
 #include <include/ALife/CarnivoreActionFactory.h>
 #include <include/ALife/CarnivoreHunting.h>
 #include <include/ALife/CarnivoreSleeping.h>
-#include <include/ALife/CarnivoreParenting.h>
 #include <include/ALife/CarnivorePairing.h>
 
 CarnivoreActionFactory& CarnivoreActionFactory::getInstance()
@@ -24,12 +23,6 @@ std::unique_ptr<CarnivoreSleeping>
 CarnivoreActionFactory::produceSleepingAction(Carnivore* const owner, Simulation* const simulation)
 {
 	return std::make_unique<CarnivoreSleeping>(owner, simulation);
-}
-
-std::unique_ptr<CarnivoreParenting>
-CarnivoreActionFactory::produceParentingAction(Carnivore* const owner, Simulation* const simulation, Carnivore* partner)
-{
-	return std::make_unique<CarnivoreParenting>(owner, simulation, partner);
 }
 
 std::unique_ptr<CarnivorePairing>

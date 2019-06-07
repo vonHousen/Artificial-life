@@ -8,7 +8,6 @@
 #include <include/ALife/CarnivoreActionFactory.h>
 #include <include/ALife/CarnivoreHunting.h>
 #include <include/ALife/CarnivoreSleeping.h>
-#include <include/ALife/CarnivoreParenting.h>
 #include <include/ALife/CarnivorePairing.h>
 #include <include/ALife/Simulation.h>
 
@@ -98,15 +97,5 @@ void Carnivore::update()
 void Carnivore::pairWith(Carnivore* partner)
 {
 	isParenting_ = true;
-	std::unique_ptr<CarnivoreParenting> action = std::move(CarnivoreActionFactory::getInstance().produceParentingAction(this, simulation_, partner));
-	std::unique_ptr<CarnivoreParenting> actionForPartner = action->getCopyForPartner();
-	currentAction_ = std::move(action);
-	partner->acceptPairing(this, std::move(actionForPartner));
+	partner->isParenting_ = true;
 }
-
-void Carnivore::acceptPairing(Carnivore* partner, std::unique_ptr<CarnivoreParenting> action)
-{
-	isParenting_ = true;
-	currentAction_ = std::move(action);
-}
-
