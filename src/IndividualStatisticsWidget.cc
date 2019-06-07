@@ -1,23 +1,24 @@
 
-#include <include/ALife/StatisticsWidget.h>
+#include <include/ALife/IndividualStatisticsWidget.h>
 #include <include/ALife/Window.h>
 #include <include/ALife/Organism.h>
 
-StatisticsWidget::StatisticsWidget(Window* window):
-    window_(window)
+IndividualStatisticsWidget::IndividualStatisticsWidget(Window* window)
 {
-    qOrganismHealth_ = new QLabel(window);
-    qOrganismTimeAlive_ = new QLabel(window);
-    qOrganismAlertness_ = new QLabel(window);
-    qOrganismSightRange_ = new QLabel(window);
-    qOrganismStamina_ = new QLabel(window);
-    qOrganismSpeed_ = new QLabel(window);
-    qOrganismLifespan_ = new QLabel(window);
-    qOrganismHunger_ = new QLabel(window);
-    qOrganismTiredness_ = new QLabel(window);
-    qOrganismLoneliness_ = new QLabel(window);
+    setParent(window);
 
-    QVBoxLayout* vlayout = new QVBoxLayout();
+    qOrganismHealth_ = new QLabel(this);
+    qOrganismTimeAlive_ = new QLabel(this);
+    qOrganismAlertness_ = new QLabel(this);
+    qOrganismSightRange_ = new QLabel(this);
+    qOrganismStamina_ = new QLabel(this);
+    qOrganismSpeed_ = new QLabel(this);
+    qOrganismLifespan_ = new QLabel(this);
+    qOrganismHunger_ = new QLabel(this);
+    qOrganismTiredness_ = new QLabel(this);
+    qOrganismLoneliness_ = new QLabel(this);
+
+    QVBoxLayout* vlayout = new QVBoxLayout(this);
     vlayout->setSpacing(10);
     vlayout->setAlignment(Qt::AlignTop);
 
@@ -36,7 +37,7 @@ StatisticsWidget::StatisticsWidget(Window* window):
     hide();
 }
 
-void StatisticsWidget::updateIndividualInfo(const Organism* organism)
+void IndividualStatisticsWidget::updateIndividualInfo(const Organism* organism)
 {
     qOrganismHealth_->setText(QString("Health: ") + QString::number(organism->getHealth()));
     qOrganismTimeAlive_->setText(QString("Time alive: ") + QString::number(organism->getTimeAlive()));

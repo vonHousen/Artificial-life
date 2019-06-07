@@ -8,7 +8,7 @@
 #include "SimulationView.h"
 
 class OrganismView;
-class StatisticsWidget;
+class IndividualStatisticsWidget;
 class SpeciesStatisticsWidget;
 
 /**
@@ -29,7 +29,6 @@ public:
     explicit Window(std::shared_ptr<Simulation> simulation, int size, QWidget* parent = 0);
     ~Window();                                          ///< A destructor.
 
-    void updateOrganismCount();                         ///< Updates labels what show population of organisms. Called by Simulation.
     void showOrganismInfo(Organism* const organism, OrganismView* const organismView);    ///< Displays information about selected organism on the window.
     void unselectDeletedView(OrganismView* const organismView);
 protected:
@@ -50,15 +49,12 @@ private:
     std::shared_ptr<Simulation> simulation_;            ///< Simulation that is being displayed
     std::unique_ptr<SimulationView> simulationView_;    ///< View for simulation 
     
-    QLabel* qLabelCarnivores_;                          ///< Label that shows current population of Carnivores
-    QLabel* qLabelHerbivores_;                          ///< Label that shows current population of Herbivores
-    
     QLabel* qLabelSetCarnivoresPopulation_;             ///< Label that shows position of slider that controls population of Carnivores that will be created on reset
     QLabel* qLabelSetHerbivoresPopulation_;             ///< Label that shows position of slider that controls population of Herbivores that will be created on reset
     QSlider* qSliderCarnivores_;                        ///< Slider that controls population of Carnivores that will be created on reset
     QSlider* qSliderHerbivores_;                        ///< Slider that controls population of Hernivores that will be created on reset
     
-    StatisticsWidget* statisitcsView_;
+    IndividualStatisticsWidget* statisitcsView_;
     SpeciesStatisticsWidget* speciesStatisitcsView_;
 };
 

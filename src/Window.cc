@@ -8,7 +8,7 @@
 #include <include/ALife/Simulation.h>
 #include <include/ALife/OrganismView.h>
 #include <include/ALife/Organism.h>
-#include <include/ALife/StatisticsWidget.h>
+#include <include/ALife/IndividualStatisticsWidget.h>
 #include <include/ALife/SpeciesStatisticsWidget.h>
 #include <include/ALife/StatisticsVisitor.h>
 
@@ -37,12 +37,6 @@ Window::Window(std::shared_ptr<Simulation> simulation, int size, QWidget* parent
     qGraphicsView_->translate(1, 1);
     qGraphicsView_->scale(size*0.5, -size*0.5);
 
-    qLabelCarnivores_ = new QLabel(this);
-    qLabelCarnivores_->setText("Carnivores: ");
-
-    qLabelHerbivores_ = new QLabel(this);
-    qLabelHerbivores_->setText("Herbivores: ");
-
     qLabelSetCarnivoresPopulation_ = new QLabel(this);
     qLabelSetHerbivoresPopulation_ = new QLabel(this);
 
@@ -70,11 +64,6 @@ Window::Window(std::shared_ptr<Simulation> simulation, int size, QWidget* parent
     vlayout->setMargin(10);
     vlayout->setAlignment(Qt::AlignTop);
 
-    //Labels indicating population of organisms in simulation
-    vlayout->addWidget(qLabelCarnivores_);
-    vlayout->addWidget(qLabelHerbivores_);
-    vlayout->addSpacing(10);
-
     //Controls related to simulation reset feature
     vlayout->addWidget(qLabelSetCarnivoresPopulation_);
     vlayout->addWidget(qSliderCarnivores_);
@@ -84,7 +73,7 @@ Window::Window(std::shared_ptr<Simulation> simulation, int size, QWidget* parent
     vlayout->addSpacing(10);
 
     //Add statistics view
-    statisitcsView_ = new StatisticsWidget(this);
+    statisitcsView_ = new IndividualStatisticsWidget(this);
     vlayout->addWidget(statisitcsView_);
 
     //Add statistics view
@@ -127,15 +116,6 @@ void Window::unselectDeletedView(OrganismView* const organismView)
 
     statisitcsView_->hide();
     speciesStatisitcsView_->show();
-}
-
-void Window::updateOrganismCount()
-{
-    int carnivores = simulation_->getCarnivoreCount();
-    int herbivores = simulation_->getHerbivoreCount();
-
-    qLabelCarnivores_->setText(QString("Carnivores: ") + QString::number(carnivores));
-    qLabelHerbivores_->setText(QString("Herbivores: ") + QString::number(herbivores));
 }
 
 void Window::mousePressEvent(QMouseEvent* event)

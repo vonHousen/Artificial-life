@@ -1,20 +1,18 @@
-#ifndef ARTIFICIAL_LIFE_STATISTICSWIDGET_H
-#define ARTIFICIAL_LIFE_STATISTICSWIDGET_H
+#ifndef ARTIFICIAL_LIFE_INDIVIDUALSTATISTICSWIDGET_H
+#define ARTIFICIAL_LIFE_INDIVIDUALSTATISTICSWIDGET_H
 
 class Window;
 class Organism;
 
 #include <QtWidgets>
 
-class StatisticsWidget : public QWidget
+class IndividualStatisticsWidget : public QWidget
 {
 public:
-    explicit StatisticsWidget(Window* window);
+    explicit IndividualStatisticsWidget(Window* window);
 
     void updateIndividualInfo(const Organism* organism);
 private:
-    Window* window_;
-
     QLabel* qOrganismHealth_;                           ///< Label indicating selected organism's health
     QLabel* qOrganismTimeAlive_;                        ///< Label indicating how long selected organism is alive
     QLabel* qOrganismAlertness_;                        ///< Label indicating selected organism's alertness
@@ -27,4 +25,4 @@ private:
     QLabel* qOrganismLoneliness_;                       ///< Label indicating selected organism's loneliness
 };
 
-#endif //ARTIFICIAL_LIFE_STATISTICSWIDGET_H
+#endif //ARTIFICIAL_LIFE_INDIVIDUALSTATISTICSWIDGET_H
