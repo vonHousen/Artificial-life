@@ -16,7 +16,7 @@ public:
      * A constructor. Creates view for supplied MapTile.
      * @param model - pointer to the MapTile that this view represents
      */
-    MapTileView(MapTile* const model);
+    explicit MapTileView(MapTile* const model);
 
     void update(); ///< Updates tile's color, based on changed grassines
 protected:

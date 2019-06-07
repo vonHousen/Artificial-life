@@ -207,19 +207,6 @@ Herbivore* Simulation::getHerbivoreAt(const Vector& position, double precision)
 	return nullptr;
 }
 
-Carnivore* Simulation::getCarnivoreAt(const Vector& position,  double precision)
-{
-	if (precision <= 0.0)
-		return nullptr;
-
-	for(auto organism : carnivores_)
-		if(fabs(organism->getPosition().getX() - position.getX()) < precision and
-		   fabs(organism->getPosition().getY() - position.getY()) < precision)
-			return organism;
-
-	return nullptr;
-}
-
 void Simulation::reset(int carnivoreCount, int herbivoreCount)
 {
 	for(auto organism : carnivores_)

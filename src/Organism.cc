@@ -80,11 +80,6 @@ float Organism::getLoneliness() const
 	return needs_->getLoneliness();
 }
 
-void Organism::setAcceleration(const Vector& acceleration)
-{
-	acceleration_ = acceleration;
-}
-
 void Organism::setVelocity(const Vector& velocity)
 {
 	velocity_ = velocity;

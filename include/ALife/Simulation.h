@@ -84,14 +84,6 @@ public:
 	Herbivore* getHerbivoreAt(const Vector& location, double precision = 0.0001);
 
 	/**
-	 * Getter for Carnivore at given location.
-	 * @param location - Vector pointing to location of an Organism.
-	 * @param precision - radius defining precision for lookup. It has a default value.
-	 * @return Organism at location / nullptr if not found.
-	 */
-	Carnivore* getCarnivoreAt(const Vector& location, double precision = 0.0001);
-
-	/**
 	 * Getter for the nearest Carnivore partner-to-be in sight range.
 	 * @param lonelyCarnivore - Carnivore looking for partner to reproduce.
 	 * @return Carnivore pointer for partner / nullptr if not found.

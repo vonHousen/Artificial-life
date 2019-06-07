@@ -42,7 +42,6 @@ public:
 	virtual void updateAction() = 0;		///< After being notified, it uses ActionFactory to update currentAction_.
 	virtual void update() = 0;				///< Flow of the information, called by Simulation
 
-	void setAcceleration(const Vector& acceleration);						///< Setter for private trait.
 	void setVelocity(const Vector& velocity);								///< Setter for private trait.
 	void decreaseHealthByValue(float value);								///< Decreases health by given value.
 	void setSimulation(Simulation* const simulation);						///< Setter for private trait.
