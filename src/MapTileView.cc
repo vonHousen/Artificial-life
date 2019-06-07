@@ -7,8 +7,12 @@ MapTileView::MapTileView(MapTile* const model):
     float size = model->getSize();
     Vector position = model->getPosition();
 
+    //Moves anchor point to the center of the rectangle and sets the size
     setRect(-0.5 * size, -0.5 * size, size, size);
+
     setPos(position.getX(), position.getY());
+    
+    //Don't draw the outlines
     setPen(Qt::NoPen);
 
     update();   
@@ -18,6 +22,8 @@ void MapTileView::update()
 {
     if(model_->getType() == TileType::GRASS)
     {
+        //Linear interpolation between brown and green
+        //the more grass the greener the tile
         float interpolationFactor = model_->getGrassiness() / 10.0f;
         int r = 45 * interpolationFactor + (1.0 - interpolationFactor) * 40;
         int g = 153 * interpolationFactor + (1.0 - interpolationFactor) * 10;
@@ -33,7 +39,7 @@ void MapTileView::update()
 
 void MapTileView::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget)
 {
-    //Turn off antialiasing to prevent drawing semi-transparent lines that causes 
+    //Turn off antialiasing to prevent drawing semi-transparent lines that caused 
     //visual artifacts seen as grid lines
     painter->setRenderHint(QPainter::Antialiasing, false);
     QGraphicsRectItem::paint(painter, option, widget);

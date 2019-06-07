@@ -5,7 +5,11 @@
  * For example, y = 1.5 in fact is equal to y = -0.5
  */
 
+//For older platforms
+#define _USE_MATH_DEFINES
+
 #include <include/ALife/Vector.h>
+#include <include/ALife/RandomGenerator.h>
 #include <string>
 #include <cmath>
 #include <iomanip>
@@ -45,7 +49,7 @@ Vector Vector::operator+(const Vector& other) const
 
 Vector Vector::operator-(const Vector& other) const
 {
-	return {other.getX() - x_, other.getY() - y_};
+	return {x_ - other.getX(), y_ - other.getY()};
 }
 
 Vector Vector::operator-() const
@@ -130,4 +134,11 @@ double Vector::wrapCoordinateAround(double value) const
 Vector Vector::getUnitVector() const
 {
 	return *this * (1.0/(this->getLength()));
+}
+
+Vector Vector::getRandomVector(double length)
+{
+	//Generate random angle and transform from polar to cartesian coordinates
+	const double phi = 2.0 * M_PI * RandomGenerator::getInstance()->getSampleUniform();
+	return Vector(length * std::cos(phi), length * std::sin(phi));
 }

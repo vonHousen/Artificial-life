@@ -3,6 +3,7 @@
 #define ARTIFICIAL_LIFE_CARNIVOREHUNTING_H
 
 class Vector;
+class Herbivore;
 
 #include "CarnivoreAction.h"
 
@@ -21,11 +22,15 @@ public:
 	 */
 	CarnivoreHunting(Carnivore* const owner, Simulation* const simulation);
 
-	virtual void act();										///< Universal for all Actions, executes particular Action.
+	virtual ~CarnivoreHunting() = default; ///< Default virtual destructor.
+
+	virtual void act();							///< Universal for all Actions, executes particular Action.
 
 private:
 
-	unsigned int timeDuration_;								///< Duration of time passed since action has started.
+	unsigned int timeDuration_;					///< Duration of time passed since action has started.
+	unsigned int runDuration_;					///< Duration of time passed since running has started.
+	Herbivore* smelledPray_;					///< Herbivore theoretically out of plain sight, but targeted with smell
 
 	/**
 	 * Method is a realisation of going for pointed Herbivore.
@@ -33,6 +38,12 @@ private:
 	 * @param pray - tasty Herbivore to be followed by Carnivore.
 	 */
 	void goForIt(const Vector& foodVector, Herbivore* pray);
+
+	/**
+	 * Predator may try to locate pray by smelling it
+	 * @return pointer to Herbivore / nullptr if not found
+	 */
+	Herbivore* smellPray();
 
 };
 

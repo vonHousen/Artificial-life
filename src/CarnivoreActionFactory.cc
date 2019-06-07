@@ -4,6 +4,7 @@
 
 #include <include/ALife/CarnivoreActionFactory.h>
 #include <include/ALife/CarnivoreHunting.h>
+#include <include/ALife/CarnivoreSleeping.h>
 
 CarnivoreActionFactory& CarnivoreActionFactory::getInstance()
 {
@@ -11,7 +12,12 @@ CarnivoreActionFactory& CarnivoreActionFactory::getInstance()
 	return instance;
 }
 
-CarnivoreHunting CarnivoreActionFactory::produceEatingAction(Carnivore* const owner, Simulation* const simulation)
+std::unique_ptr<CarnivoreHunting> CarnivoreActionFactory::produceEatingAction(Carnivore* const owner, Simulation* const simulation)
 {
-	return {owner, simulation};
+	return std::make_unique<CarnivoreHunting>(owner, simulation);
+}
+
+std::unique_ptr<CarnivoreSleeping> CarnivoreActionFactory::produceSleepingAction(Carnivore* const owner,
+																				 Simulation* const simulation){
+	return std::make_unique<CarnivoreSleeping>(owner, simulation);
 }

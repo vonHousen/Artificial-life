@@ -17,6 +17,16 @@ public:
 
 	/**
 	 * A constructor.
+	 * @param alertness - initialised trait representing alertness
+	 * @param sightRange - initialised trait representing range
+	 * @param stamina - initialised trait representing stamina
+	 * @param speed - initialised trait representing speed
+	 * @param lifespan - initialised trait representing lifespan
+	 */
+	Genotype(float alertness, float sightRange, float stamina, float speed, float lifespan);
+
+	/**
+	 * A copying constructor.
 	 * @param inheritedGenes - Genotype representing individual Organism's traits inherited from parents.
 	 */
 	Genotype(const Genotype& inheritedGenes);
@@ -54,10 +64,8 @@ public:
 
 private:
 
-	Genotype(float alertness, float sightRange, float stamina, float speed, float lifespan);	///< Private constructor that copies trait values, used in crossing-over
-
-	float getRandomTraitValue() const;
-	void perturbTraitValue(float& trait);
+	float getRandomTraitValue() const;		///< Generates trait value from normal distribution, keeping it in range [0.0; 10.0]
+	void perturbTraitValue(float& trait);   ///< Perturbs specified trait value by adding small, normally distributed value to it, keeping it in range [0.0; 10.0]
 
 	float alertness_;							///< Trait representing alertness, value in range [0.0; 10.0]
 	float sightRange_;							///< Trait representing range of sight, value in range [0.0; 10.0]
@@ -65,7 +73,7 @@ private:
 	float speed_;								///< Trait representing speed, value in range [0.0; 10.0]
 	float lifespan_;							///< Trait representing lifespan, value in range [0.0; 10.0]
 
-	static double basicSpeedValue_;		///< basic, static value for every Organism, used for calculating actual speed.
+	static double basicSpeedValue_;		///< Basic, static value for every Organism, used for calculating actual speed.
 
 
 };

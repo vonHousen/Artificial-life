@@ -52,6 +52,13 @@ public:
 	 */
 	static Vector getShortestVectorBetweenPositions(const Vector& first, const Vector& second);
 
+	/**
+	 * Getter for the random Vector of given length.
+	 * @param length - length of random Vector.
+	 * @return random Vector.
+	 */
+	static Vector getRandomVector(double length);
+
 	Vector operator+(const Vector& other) const;
 	Vector operator-(const Vector& other) const;
 	Vector operator-() const;

@@ -6,11 +6,12 @@
 #include <include/ALife/Herbivore.h>
 #include <include/ALife/CarnivoreActionFactory.h>
 #include <include/ALife/CarnivoreHunting.h>
+#include <include/ALife/CarnivoreSleeping.h>
 #include <include/ALife/Simulation.h>
 #include <include/ALife/StatisticsVisitor.h>
 
-Carnivore::Carnivore(std::unique_ptr<Genotype> genes, const Vector& position, Simulation* const simulation) :
-		Organism(std::move(genes), position, simulation)
+Carnivore::Carnivore(std::unique_ptr<Genotype> genes, const Vector& position, Simulation* const simulation, LeadingDesire desire) :
+		Organism(std::move(genes), position, simulation, desire)
 {
 	this->updateAction();
 }
@@ -24,18 +25,21 @@ void Carnivore::updateAction()
 {
 	suggestedAction_ = needs_->getLeadingDesire();
 
-	// TODO check first if there are no other factors that may change suggestedAction
-
 	switch(suggestedAction_)
 	{
 		case LeadingDesire::EATING:
-			currentAction_ = std::make_unique<CarnivoreHunting>(
-					CarnivoreActionFactory::getInstance().produceEatingAction(this, simulation_)
-					);
+			currentAction_ = std::move(
+					CarnivoreActionFactory::getInstance().produceEatingAction(this, simulation_));
 			break;
 
 		case LeadingDesire::REPRODUCTION:
-			currentAction_ = nullptr;
+			currentAction_ = std::move(
+					CarnivoreActionFactory::getInstance().produceSleepingAction(this, simulation_));
+			break;
+
+		case LeadingDesire::SLEEPING:
+			currentAction_ = std::move(
+					CarnivoreActionFactory::getInstance().produceSleepingAction(this, simulation_));
 			break;
 
 		default:
@@ -47,27 +51,39 @@ void Carnivore::eatPray(Herbivore* pray)
 {
 	if(pray)
 	{
-		pray->setHealth(0.0);
-		this->needs_->decreaseHungerBy(5.0);
-		this->needs_->increaseLonelinessBy(2.0);
+		pray->decreaseHealthByValue(10.0);
+		needs_->decreaseHungerBy(5.0);
+		needs_->increaseLonelinessBy(2.0);
+		needs_->update();
 	}
 
 }
 
 double Carnivore::getIndividualSpeedValueAfter(unsigned int time) const
 {
+	const double tirednessFactor = genes_->getTirednessFactor();
+	const double basicSpeed = genes_->getBasicSpeed();
 
-	double tirednessFactor = genes_-> getTirednessFactor();
-	double basicSpeed = genes_-> getBasicSpeed();
-	int runDuration = 1000 * tirednessFactor;
-	double pseudoNormalisationFactor = 0.000001;
+	const int intendedRunDuration = 1000 * tirednessFactor;
+	constexpr double PSEUDO_NORMALIZATION_FACTOR = 0.000002;
+	const double speedDeviation =
+			static_cast<double>(intendedRunDuration - static_cast<int>(time)) * PSEUDO_NORMALIZATION_FACTOR;
 
-	//if run takes too long
-	if(time > 2 * runDuration)
-		return basicSpeed - runDuration * pseudoNormalisationFactor;
+	//if run takes too long, organism is tired, but is not stopping!
+	if(speedDeviation < -0.5*speedDeviation)
+		return 0.5* basicSpeed;
 	else
-	{
-		double speedDeviation = static_cast<double>(runDuration - static_cast<int>(time)) * pseudoNormalisationFactor;
 		return speedDeviation + basicSpeed;
-	}
 }
+
+void Carnivore::update()
+{
+	this->newIteration();
+
+	if(currentAction_)
+		currentAction_->act();
+
+	this->move();
+	this->checkAge();
+}
+

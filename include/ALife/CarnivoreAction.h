@@ -19,6 +19,8 @@ public:
 	 */
 	CarnivoreAction(Carnivore* const owner, Simulation* const simulation);
 
+	virtual ~CarnivoreAction() = default;	///< Default virtual destructor.
+
 	virtual void act() = 0;									///< Universal for all Actions, executes particular Action.
 
 protected:

@@ -66,9 +66,20 @@ public:
 	 */
     void notifyWhenOrganismRemoved(Herbivore* const organismToRemove);
 
-    void notifyWhenOrganismClicked(Organism* const organism, OrganismView* const view) const; //TODO document
+    /**
+	 * Called to notify that Organism view was clicked by user.
+     * Presents information about selected organism.
+	 * @param organism - Pointer to selected Organism
+     * @param view - Pointer to view corresponding to selected Organism
+	 */
+    void notifyWhenOrganismClicked(Organism* const organism, OrganismView* const view) const;
 
-    void notifyWhenSelectedViewDeleted(OrganismView* const view) const; //TODO document
+    /**
+	 * Called to notify that selected organism's view was deleted.
+     * Causes to stop showing information related to this organism.
+     * @param view - Pointer to removed view
+	 */
+    void notifyWhenSelectedViewDeleted(OrganismView* const view) const;
 private:
     Window* const window_;                                              ///< Pointer to Window on which the simulation will be displayed.
     Simulation* const model_;                                           ///< Pointer to Simulation which will be displayed.

@@ -62,12 +62,16 @@ int Simulation::getHerbivoreCount() const
 	return herbivores_.size();
 }
 
-Herbivore* Simulation::getNearestPrey(Carnivore* hunter) const
+Herbivore* Simulation::getNearestPrey(Carnivore* hunter, double sightRange) const
 {
 	if(herbivores_.empty())
 		return nullptr;
 
 	Vector foodVector, nearestFoodVector(1, 1);
+	const double NORMALIZATION_FACTOR = 0.5;
+
+	// set the maximal sight range
+	nearestFoodVector = nearestFoodVector * sightRange * NORMALIZATION_FACTOR;
 	Herbivore* pray = nullptr;
 
 	for(auto tastyOrganism : herbivores_)
@@ -81,6 +85,39 @@ Herbivore* Simulation::getNearestPrey(Carnivore* hunter) const
 	}
 	
 	return pray;
+}
+
+Carnivore* Simulation::getNearestPredator(Herbivore* herbi, double sightRange) const
+{
+	if(carnivores_.empty())
+		return nullptr;
+
+	Vector predatorVector, nearestPredatorVector(1, 0);
+	const double NORMALIZATION_FACTOR = 0.8;
+
+	// set the maximal sight range
+	nearestPredatorVector = nearestPredatorVector * sightRange * NORMALIZATION_FACTOR;
+	Carnivore* predator = nullptr;
+
+	// TODO add additional organisms for lookup due to alertness (may be random for simplicity?) (not here though)
+
+	for(auto scaryHunter : carnivores_)
+	{
+		predatorVector = Vector::getShortestVectorBetweenPositions(herbi->getPosition(), scaryHunter->getPosition());
+		if(predatorVector.getLength() <= nearestPredatorVector.getLength()
+			and scaryHunter->getSuggestedAction() == LeadingDesire::EATING)
+		{
+			nearestPredatorVector = predatorVector;
+			predator = scaryHunter;
+		}
+	}
+
+	return predator;
+}
+
+MapTile* Simulation::getNearestGrass(Herbivore* herbi)
+{
+	return map_.getNearestMapTile(herbi);
 }
 
 void Simulation::update()
@@ -125,18 +162,14 @@ void Simulation::update()
 		view_->update();
 }
 
-Organism* Simulation::getOrganismAt(const Vector& position)
+Herbivore* Simulation::getOrganismAt(const Vector& position,  double precision)
 {
-	const double EPS = 0.0001;
-
-	for(auto organism : carnivores_)
-		if(fabs(organism->getPosition().getX() - position.getX()) < EPS and
-		   fabs(organism->getPosition().getY() - position.getY()) < EPS)
-			return organism;
+	if (precision <= 0.0)
+		return nullptr;
 
 	for(auto organism : herbivores_)
-		if(fabs(organism->getPosition().getX() - position.getX()) < EPS and
-		   fabs(organism->getPosition().getY() - position.getY()) < EPS)
+		if(fabs(organism->getPosition().getX() - position.getX()) < precision and
+		   fabs(organism->getPosition().getY() - position.getY()) < precision)
 			return organism;
 
 	return nullptr;
@@ -204,4 +237,21 @@ void Simulation::initializeSimulation(int carnivoreCount, int herbivoreCount)
 		auto genes = std::make_unique<Genotype>();
 		addOrganism(new Herbivore(std::move(genes), Vector(organismX, organismY), this));
 	}
+}
+
+std::pair<Vector, double> Simulation::getNearestCave(const Herbivore* herbi)
+{
+	const Vector herbiPosition = herbi->getPosition();
+	const auto caveVec = map_.getCaveLocations();
+	std::pair<Vector, double> nearestCave(Vector(1,1), 2.0);
+
+	std::for_each(caveVec.begin(), caveVec.end(),
+			[&nearestCave, herbiPosition](const auto cave)
+			{
+				const auto distance = Vector::getShortestVectorBetweenPositions(herbiPosition, cave).getLength();
+				if(distance < nearestCave.second)
+					nearestCave = {cave, distance};
+			} );
+
+	return {nearestCave.first, Map::getCaveRadius()};
 }

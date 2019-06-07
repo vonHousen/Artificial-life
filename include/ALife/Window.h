@@ -30,10 +30,10 @@ public:
     ~Window();                                          ///< A destructor.
 
     void updateOrganismCount();                         ///< Updates labels what show population of organisms. Called by Simulation.
-    void showOrganismInfo(Organism* const organism, OrganismView* const organismView);    // TODO document
+    void showOrganismInfo(Organism* const organism, OrganismView* const organismView);    ///< Displays information about selected organism on the window.
     void unselectDeletedView(OrganismView* const organismView);
 protected:
-    void mousePressEvent(QMouseEvent* event);           // TODO document
+    void mousePressEvent(QMouseEvent* event);           ///< Handler for mouse pressing event. Responsible for unselecting selected Organism.
 private slots:
     void update();                                      ///< Slot that reacts to QTimer's tick signal. Calls Simulation's update.
     void updateCarnivorePopulationLabel(int value);     ///< Slot that reacts when slider value is changed. Updates text in label to reflect slider's value. 

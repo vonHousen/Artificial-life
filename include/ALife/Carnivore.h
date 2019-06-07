@@ -20,22 +20,25 @@ public:
 	Carnivore(Organism&&) = delete;			///< Deleted moving constructor.
 	virtual ~Carnivore() = default;			///< Default virtual destructor
 
+	virtual void update();					///< Flow of the information, called by Simulation
+
 
 	/**
 	 * A constructor.
 	 * @param genes - Genotype representing individual Organism's traits inherited from parents.
 	 * @param position - Vector pointing to the position of the Organism on map.
 	 * @param simulation - Simulation that Organism takes part in.
+	 * @param desire - First desire Carnivore is born with. Default value is LeadingDesire::EATING.
 	 */
-	Carnivore(std::unique_ptr<Genotype> genes, const Vector& position, Simulation* const simulation);
+	Carnivore(std::unique_ptr<Genotype> genes, const Vector& position, Simulation* const simulation, LeadingDesire desire = LeadingDesire::EATING);
 
 	virtual void accept(StatisticsVisitor& visitor) const;
 
-	virtual void updateAction();			///< after being notified, it uses ActionFactory to update currentAction_.
+	virtual void updateAction();			///< After being notified, it uses ActionFactory to update currentAction_.
 
 	/**
 	 * Carnivore eats a Herbivore.
-	 * @param pray - eaten Organism.
+	 * @param pray - eaten Herbivore.
 	 */
 	void eatPray(Herbivore* pray);
 

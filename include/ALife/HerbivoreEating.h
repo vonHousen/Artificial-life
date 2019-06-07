@@ -2,6 +2,8 @@
 #ifndef ARTIFICIAL_LIFE_HERBIVOREEATING_H
 #define ARTIFICIAL_LIFE_HERBIVOREEATING_H
 
+class MapTile;
+
 #include "HerbivoreAction.h"
 
 /**
@@ -19,8 +21,11 @@ public:
 	 */
 	HerbivoreEating(Herbivore *const owner, Simulation *const simulation);
 
-	virtual void act();										///< Universal for all Actions, executes particular Action.
+	virtual ~HerbivoreEating();  ///< Virtual destructor. Changes state of eaten tile, so that it can be eaten by other organisms
 
+	virtual void act();										///< Universal for all Actions, executes particular Action.
+private:
+	MapTile* eatenTile_;	///< Pointer to grassy map tile that owner of this action is eating
 };
 
 

@@ -3,9 +3,11 @@
 #define ARTIFICIAL_LIFE_CARNIVOREACTIONFACTORY_H
 
 class CarnivoreHunting;
+class CarnivoreSleeping;
 class Carnivore;
 class Simulation;
 
+#include <memory>
 
 /**
  * Factory Design Pattern for Carnivore's Actions. It's a singleton.
@@ -32,7 +34,15 @@ public:
 	 * @param simulation - Simulation that Action makes an impact on.
 	 * @return CarnivoreHunting <=> Eating.
 	 */
-	CarnivoreHunting produceEatingAction(Carnivore* const owner, Simulation* const simulation);
+	std::unique_ptr<CarnivoreHunting> produceEatingAction(Carnivore* const owner, Simulation* const simulation);
+
+	/**
+	 * Produces Action of sleeping.
+	 * @param owner - Carnivore "owning" this Action.
+	 * @param simulation - Simulation that Action makes an impact on.
+	 * @return CarnivoreSleeping - individual action.
+	 */
+	std::unique_ptr<CarnivoreSleeping> produceSleepingAction(Carnivore* const owner, Simulation* const simulation);
 
 private:
 

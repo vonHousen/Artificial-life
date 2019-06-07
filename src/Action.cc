@@ -20,3 +20,32 @@ Action::Action(Herbivore* const owner, Simulation* const simulation) :
 	owner_		(owner),
 	simulation_	(simulation)
 {}
+
+bool Action::goToSleep(unsigned int timeDuration, unsigned int sleepingTime, const Vector& location)
+{
+	constexpr float EPS = 0.001;
+
+	const auto sleepingVector = Vector::getShortestVectorBetweenPositions(owner_->getPosition(), location);
+
+	if (sleepingVector.getLength() > EPS)
+	{
+		const auto velocity = owner_->getIndividualSpeedValueAfter(timeDuration);
+
+		const auto direction = sleepingVector.getUnitVector();
+		const auto intendedVelocity = direction * velocity;
+
+		owner_->setVelocity(intendedVelocity);
+
+		return false;
+
+	} else
+	{
+		constexpr unsigned int CORRECTION_FACTOR = 500;
+		const unsigned int timeToSleepWell = CORRECTION_FACTOR * owner_->getStamina();
+
+		if(sleepingTime >= timeToSleepWell)
+			owner_->sleepWell();
+
+		return true;
+	}
+}

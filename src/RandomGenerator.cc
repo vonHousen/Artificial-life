@@ -10,8 +10,10 @@ RandomGenerator* RandomGenerator::pInstance_ = nullptr;
 
 RandomGenerator::RandomGenerator()
 {
+    //Seed random engine with time
     rng_ = std::default_random_engine(
         std::chrono::high_resolution_clock::now().time_since_epoch().count());
+
     uniformDistribution_ = std::uniform_real_distribution<double>(0.0, 1.0);
     normalDistribution_ = std::normal_distribution<double>(0.0, 1.0);
 }

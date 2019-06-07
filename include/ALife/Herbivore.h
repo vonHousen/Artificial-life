@@ -3,6 +3,7 @@
 #define ARTIFICIAL_LIFE_HERBIVORE_H
 
 class Simulation;
+class MapTile;
 
 #include "Organism.h"
 
@@ -20,24 +21,26 @@ public:
 	Herbivore(Organism&&) = delete;			///< Deleted moving constructor.
 	virtual ~Herbivore() = default;			///< Default virtual destructor
 
+	virtual void update();					///< flow of the information, called by Simulation
 
 	/**
 	 * A constructor.
 	 * @param genes - Genotype representing individual Organism's traits inherited from parents.
 	 * @param position - Vector pointing to the position of the Organism on map.
 	 * @param simulation - Simulation that Organism takes part in.
+	 * @param desire - First desire Herbivore is born with. Default value is LeadingDesire::EATING.
 	 */
-	Herbivore(std::unique_ptr<Genotype> genes, const Vector& position, Simulation* const simulation);
+	Herbivore(std::unique_ptr<Genotype> genes, const Vector& position, Simulation* const simulation, LeadingDesire desire = LeadingDesire::EATING);
 
 	virtual void accept(StatisticsVisitor& visitor) const;
 
 	virtual void updateAction();			///< after being notified, it uses ActionFactory to update currentAction_.
 
 	/**
-	 * Herbivore eats grass of a position pointed by Vector.
-	 * @param position - position of eaten Organism.
+	 * Herbivore eats grass in specified MapTile.
+	 * @param grass - map tile with grass to be eaten.
 	 */
-	virtual void eatIt(const Vector&);
+	virtual void eatIt(MapTile* grass);
 
 	/**
 	 * Getter for individual for every Organism speed value, but tiredness is also taken into account.
@@ -45,6 +48,14 @@ public:
 	 * @return individual speed value.
 	 */
 	virtual double getIndividualSpeedValueAfter(unsigned int time) const;
+
+private:
+
+	/**
+	 * Get away from the greatest danger.
+	 * @param danger - pointer for the nearest Carnivore.
+	 */
+	void runAwayFrom(Carnivore* danger);
 
 };
 
