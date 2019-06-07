@@ -21,6 +21,12 @@ Simulation::~Simulation()
 
 	for(auto organism : herbivores_)
 		delete organism;
+
+	for(auto organism : carnivoresToAdd_)
+		delete organism;
+
+	for(auto organism : herbivoresToAdd_)
+		delete organism;
 }
 
 void Simulation::addOrganism(Carnivore* const newOrganism)
@@ -35,6 +41,11 @@ void Simulation::addOrganism(Herbivore* const newOrganism)
 	newOrganism->setSimulation(this);
 	herbivores_.push_back(newOrganism);
 	if(view_) view_->notifyWhenOrganismAdded(newOrganism);
+}
+
+void Simulation::addOrganismToQueue(Carnivore* const newOrganism)
+{
+	carnivoresToAdd_.push_back(newOrganism);
 }
 
 void Simulation::addOrganismToQueue(Herbivore* const newOrganism)
@@ -154,6 +165,12 @@ void Simulation::update()
 			delete herbivore;
 		}
 	}
+
+	for(auto newCarni : carnivoresToAdd_)
+	{
+		addOrganism(newCarni);
+	}
+	carnivoresToAdd_.clear();
 
 	for(auto newHerbi : herbivoresToAdd_)
 	{
@@ -290,7 +307,7 @@ void Simulation::produceBabies(const Carnivore* parentA, const Carnivore* parent
 
 	for(unsigned int i = 0; i < numChildren; ++i)
 	{
-		addOrganism(parentA->reproduceWith(parentB));
+		addOrganismToQueue(parentA->reproduceWith(parentB));
 	}
 }
 
@@ -329,7 +346,6 @@ Carnivore* Simulation::getBestSeenPartner(const Carnivore* lonelyCarnivore)
 	for(const auto potentialPartner : carnivores_)
 	{
 		if(potentialPartner->getSuggestedAction() == LeadingDesire::REPRODUCTION
-		   and not potentialPartner->isParenting()
 		   and potentialPartner != lonelyCarnivore
 		   and potentialPartner->getTimeAlive() > bestFitnessFunVal)
 		{
@@ -354,7 +370,6 @@ Herbivore* Simulation::getBestSeenPartner(const Herbivore* lonelyHerbivore)	//TO
 	for(const auto potentialPartner : herbivores_)
 	{
 		if(potentialPartner->getSuggestedAction() == LeadingDesire::REPRODUCTION
-		   and not potentialPartner->isParenting()
 		   and potentialPartner != lonelyHerbivore
 		   and potentialPartner->getTimeAlive() > bestFitnessFunVal)
 		{

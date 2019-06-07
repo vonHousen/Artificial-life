@@ -28,7 +28,12 @@ void HerbivorePairing::act()	// TODO use templates to unify code with Carnivores
 
 		//if partner is near enough - pair with it!
 		if (partnerVector.getLength() <= 2 * Herbivore::getRadius())
-			concreteOwner_->pairWith(matchedPartner);
+		{
+			//concreteOwner_->pairWith(matchedPartner);
+			simulation_->produceBabies(concreteOwner_, matchedPartner);
+			concreteOwner_->finishParenting();
+			matchedPartner->finishParenting();
+		}
 
 			//go for distant partner
 		else if (partnerVector != Vector())
@@ -48,8 +53,10 @@ void HerbivorePairing::goForIt(const Vector& partnerVector, Herbivore* matchedPa
 	{
 		intendedVelocity = direction * (partnerVector.getLength() - Herbivore::getRadius());
 		owner_->setVelocity(intendedVelocity);
-		concreteOwner_->pairWith(matchedPartner);
-
+		//concreteOwner_->pairWith(matchedPartner);
+		simulation_->produceBabies(concreteOwner_, matchedPartner);
+		concreteOwner_->finishParenting();
+		matchedPartner->finishParenting();
 	} else
 		owner_->setVelocity(intendedVelocity);
 }

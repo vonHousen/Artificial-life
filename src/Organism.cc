@@ -12,7 +12,6 @@ Organism::Organism(std::unique_ptr<Genotype> genes, const Vector& position, Simu
 	position_		(position),
 	velocity_		(Vector()),
 	acceleration_	(Vector()),
-	isParenting_	(false),
 
 	genes_ 			(std::move(genes)),
 	currentAction_ 	(nullptr),
@@ -24,11 +23,6 @@ Organism::Organism(std::unique_ptr<Genotype> genes, const Vector& position, Simu
 bool Organism::isAlive() const
 {
 	return health_ > 0.0;
-}
-
-bool Organism::isParenting() const
-{
-	return isParenting_;
 }
 
 const Vector& Organism::getPosition() const
@@ -158,7 +152,6 @@ void Organism::sleepWell()
 
 void Organism::finishParenting()
 {
-	isParenting_ = false;
 	needs_->decreaseLonelinessBy(10);
 	needs_->increaseTirednessBy(1);
 	needs_->update();

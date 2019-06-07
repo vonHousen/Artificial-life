@@ -27,9 +27,6 @@ Carnivore* Carnivore::reproduceWith(const Carnivore* other) const
 
 void Carnivore::updateAction()
 {
-	if(this->isParenting())
-		return;
-
 	suggestedAction_ = needs_->getLeadingDesire();
 
 	switch(suggestedAction_)
@@ -96,6 +93,4 @@ void Carnivore::update()
 
 void Carnivore::pairWith(Carnivore* partner)
 {
-	isParenting_ = true;
-	partner->isParenting_ = true;
 }

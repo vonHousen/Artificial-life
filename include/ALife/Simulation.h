@@ -31,6 +31,7 @@ public:
 	void update();										///< Flow of the information upside down.
 	void addOrganism(Carnivore* const);					///< Adds concrete Organism (Carnivore) to Simulation.
 	void addOrganism(Herbivore* const);					///< Adds concrete Organism (Herbivore) to Simulation.
+	void addOrganismToQueue(Carnivore* const);
 	void addOrganismToQueue(Herbivore* const);
 	void registerView(SimulationView* const);			///< Registers Simulation in View layer.
 
@@ -69,7 +70,7 @@ public:
 	 * @param herbi - Herbivore looking for the nearest Cave.
 	 * @return std::pair<Vector, double> : position of Cave, radius of Cave.
 	 */
-	std::pair<Vector,double> getNearestCave(const Herbivore* herbi);
+	std::pair<Vector, double> getNearestCave(const Herbivore* herbi);
 
 	/**
 	 * Getter for Herbivore at given location.
@@ -121,6 +122,7 @@ private:
 
 	std::vector<Carnivore*> carnivores_;				///< Data structure for aggregation of Carnivores.
 	std::vector<Herbivore*> herbivores_;				///< Data structure for aggregation of Herbivores.
+	std::vector<Carnivore*> carnivoresToAdd_;			///< Data structure for aggregation of Carnivores.
 	std::vector<Herbivore*> herbivoresToAdd_;			///< Data structure for aggregation of Herbivores.
 
 	Map map_;											///< Map, that covers simulation's area.

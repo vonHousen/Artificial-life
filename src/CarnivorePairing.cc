@@ -28,8 +28,11 @@ void CarnivorePairing::act()
 
 		//if partner is near enough - pair with it!
 		if (partnerVector.getLength() <= 2 * Carnivore::getRadius())
-			concreteOwner_->pairWith(matchedPartner);
-
+		{
+			simulation_->produceBabies(concreteOwner_, matchedPartner);
+			concreteOwner_->finishParenting();
+			matchedPartner->finishParenting();
+		}
 			//go for distant partner
 		else if (partnerVector != Vector())
 			this->goForIt(partnerVector, matchedPartner);
@@ -48,8 +51,9 @@ void CarnivorePairing::goForIt(const Vector& partnerVector, Carnivore* matchedPa
 	{
 		intendedVelocity = direction * (partnerVector.getLength() - Carnivore::getRadius());
 		owner_->setVelocity(intendedVelocity);
-		concreteOwner_->pairWith(matchedPartner);
-
+		simulation_->produceBabies(concreteOwner_, matchedPartner);
+		concreteOwner_->finishParenting();
+		matchedPartner->finishParenting();
 	} else
 		owner_->setVelocity(intendedVelocity);
 }
