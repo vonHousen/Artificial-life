@@ -59,10 +59,10 @@ Herbivore* Simulation::getNearestPrey(Carnivore* hunter, double sightRange) cons
 		return nullptr;
 
 	Vector foodVector, nearestFoodVector(1, 0);
-	const double NORMALIZATION_FACTOR = 0.5;
+	const double normalizationFactor = 0.04 * sightRange + 0.2;
 
 	// set the maximal sight range
-	nearestFoodVector = nearestFoodVector * sightRange * NORMALIZATION_FACTOR;
+	nearestFoodVector = nearestFoodVector * normalizationFactor;
 	Herbivore* pray = nullptr;
 
 	for(auto tastyOrganism : herbivores_)
@@ -84,10 +84,10 @@ Carnivore* Simulation::getNearestPredator(Herbivore* herbi, double sightRange) c
 		return nullptr;
 
 	Vector predatorVector, nearestPredatorVector(1, 0);
-	const double NORMALIZATION_FACTOR = 0.8;
+	const double normalizationFactor = 0.04 * sightRange + 0.1;
 
 	// set the maximal sight range
-	nearestPredatorVector = nearestPredatorVector * sightRange * NORMALIZATION_FACTOR;
+	nearestPredatorVector = nearestPredatorVector * normalizationFactor;
 	Carnivore* predator = nullptr;
 
 	// TODO add additional organisms for lookup due to alertness (may be random for simplicity?) (not here though)
@@ -95,6 +95,7 @@ Carnivore* Simulation::getNearestPredator(Herbivore* herbi, double sightRange) c
 	for(auto scaryHunter : carnivores_)
 	{
 		predatorVector = Vector::getShortestVectorBetweenPositions(herbi->getPosition(), scaryHunter->getPosition());
+
 		if(predatorVector.getLength() <= nearestPredatorVector.getLength()
 			and scaryHunter->getSuggestedAction() == LeadingDesire::EATING)
 		{
@@ -268,7 +269,8 @@ Carnivore* Simulation::getBestSeenPartner(const Carnivore* lonelyCarnivore)
 	Vector partnerVector, nearestPartnerVector(1, 0);
 
 	// set the maximal sight range
-	nearestPartnerVector = nearestPartnerVector * lonelyCarnivore->getSightRange();
+	const double normalizationFactor = 0.04 * lonelyCarnivore->getSightRange() + 0.2;
+	nearestPartnerVector = nearestPartnerVector * normalizationFactor;
 	Carnivore* partner = nullptr;
 	double bestFitnessFunVal = 0.0;
 
@@ -284,7 +286,6 @@ Carnivore* Simulation::getBestSeenPartner(const Carnivore* lonelyCarnivore)
 		   and potentialPartner != lonelyCarnivore
 		   and potentialPartner->getTimeAlive() > bestFitnessFunVal)
 		{
-			nearestPartnerVector = partnerVector;
 			partner = potentialPartner;
 			bestFitnessFunVal = partner->getLifespan();
 		}

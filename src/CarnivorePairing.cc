@@ -89,5 +89,8 @@ Carnivore* CarnivorePairing::smellPartner()
 	    and not smelledOrganism->isParenting()
 	    and smelledOrganism != owner_)
 
-	return smelledOrganism;
+		return smelledOrganism;
+
+	else
+		return nullptr;
 }
