@@ -329,7 +329,7 @@ void Simulation::produceBabies(const Herbivore* parentA, const Herbivore* parent
 
 	for(unsigned int i = 0; i < numChildren; ++i)
 	{
-		addOrganism(parentA->reproduceWith(parentB));
+		addOrganismToQueue(parentA->reproduceWith(parentB));
 	}
 }
 
