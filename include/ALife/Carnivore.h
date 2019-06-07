@@ -32,6 +32,8 @@ public:
 	 */
 	Carnivore(std::unique_ptr<Genotype> genes, const Vector& position, Simulation* const simulation, LeadingDesire desire = LeadingDesire::EATING);
 
+	virtual void accept(StatisticsVisitor& visitor) const;
+	
 	/**
 	 * Creates new Carnivore due to reproduction with supplied organism
 	 * @param other - pointer to the partner in reproduction

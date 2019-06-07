@@ -71,7 +71,6 @@ void SimulationView::notifyWhenOrganismAdded(Carnivore* const organismToAdd)
     auto newOrganismView = new CarnivoreView(organismToAdd, this);
     qGraphicsScene_->addItem(newOrganismView);
     carnivoreViews_.emplace(std::make_pair(organismToAdd, newOrganismView));
-    window_->updateOrganismCount();
 }
 
 void SimulationView::notifyWhenOrganismAdded(Herbivore* const organismToAdd)
@@ -79,7 +78,6 @@ void SimulationView::notifyWhenOrganismAdded(Herbivore* const organismToAdd)
     auto newOrganismView = new HerbivoreView(organismToAdd, this);
     qGraphicsScene_->addItem(newOrganismView);
     herbivoreViews_.emplace(std::make_pair(organismToAdd, newOrganismView));
-    window_->updateOrganismCount();
 }
 
 void SimulationView::notifyWhenOrganismRemoved(Carnivore* const organismToRemove)
@@ -87,7 +85,6 @@ void SimulationView::notifyWhenOrganismRemoved(Carnivore* const organismToRemove
     OrganismView* organismView = carnivoreViews_[organismToRemove];
     qGraphicsScene_->removeItem(organismView);
     carnivoreViews_.erase(organismToRemove);
-    window_->updateOrganismCount();
     delete organismView;
 }
 
@@ -96,7 +93,6 @@ void SimulationView::notifyWhenOrganismRemoved(Herbivore* const organismToRemove
     OrganismView* organismView = herbivoreViews_[organismToRemove];
     qGraphicsScene_->removeItem(organismView);
     herbivoreViews_.erase(organismToRemove);
-    window_->updateOrganismCount();
     delete organismView;
 }
 

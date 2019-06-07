@@ -11,6 +11,7 @@
 #include <include/ALife/MapTile.h>
 #include <include/ALife/Simulation.h>
 #include <include/ALife/Action.h>
+#include <include/ALife/StatisticsVisitor.h>
 #include <include/ALife/RandomGenerator.h>
 
 
@@ -19,6 +20,11 @@ Herbivore::Herbivore(std::unique_ptr<Genotype> genes, const Vector& position, Si
 	isHidden_(false)
 {
 	this->updateAction();
+}
+
+void Herbivore::accept(StatisticsVisitor& visitor) const
+{
+	visitor.visit(*this);
 }
 
 Herbivore* Herbivore::reproduceWith(const Herbivore* other) const

@@ -3,6 +3,7 @@
 #define ARTIFICIAL_LIFE_ORGANISM_H
 
 class Simulation;
+class StatisticsVisitor;
 
 #include <memory>
 #include "Action.h"
@@ -35,6 +36,8 @@ public:
 	 * @param desire - First desire Organism is born with. Default value is LeadingDesire::EATING.
 	 */
   	Organism(std::unique_ptr<Genotype> genes, const Vector& position, Simulation* const simulation, LeadingDesire desire = LeadingDesire::EATING);
+
+	virtual void accept(StatisticsVisitor& visitor) const = 0;
 
 	virtual void updateAction() = 0;		///< After being notified, it uses ActionFactory to update currentAction_.
 	virtual void update() = 0;				///< Flow of the information, called by Simulation

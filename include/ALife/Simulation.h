@@ -11,6 +11,7 @@ class Organism;
 class Herbivore;
 class Carnivore;
 class Vector;
+class StatisticsVisitor;
 
 #include <vector>
 #include <memory>
@@ -27,6 +28,8 @@ public:
 
 	Simulation();										///< A default constructor.
 	~Simulation();										///< A destructor.
+
+	void getStatistics(StatisticsVisitor& stats) const;
 
 	void update();										///< Flow of the information upside down.
 	void addOrganism(Carnivore* const);					///< Adds concrete Organism (Carnivore) to Simulation.
