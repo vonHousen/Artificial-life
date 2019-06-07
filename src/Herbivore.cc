@@ -8,6 +8,7 @@
 #include <include/ALife/HerbivoreEating.h>
 #include <include/ALife/HerbivoreSleeping.h>
 #include <include/ALife/HerbivoreParenting.h>
+#include <include/ALife/HerbivorePairing.h>
 #include <include/ALife/MapTile.h>
 #include <include/ALife/Simulation.h>
 #include <include/ALife/Action.h>
@@ -40,7 +41,7 @@ void Herbivore::updateAction()
 
 		case LeadingDesire::REPRODUCTION:
 			currentAction_ = std::move(
-					HerbivoreActionFactory::getInstance().produceSleepingAction(this, simulation_));
+					HerbivoreActionFactory::getInstance().producePairingAction(this, simulation_));
 			break;
 
 		case LeadingDesire::SLEEPING:

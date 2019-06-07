@@ -94,6 +94,13 @@ public:
 	Carnivore* getBestSeenPartner(const Carnivore* lonelyCarnivore);
 
 	/**
+	 * Getter for the nearest Herbivore partner-to-be in sight range.
+	 * @param lonelyHerbivore - Herbivore looking for partner to reproduce.
+	 * @return Herbivore pointer for partner / nullptr if not found.
+	 */
+	Herbivore* getBestSeenPartner(const Herbivore* lonelyHerbivore);
+
+	/**
 	 * Produces some number of children, depending on parents' fittness
 	 * and adds them to the simulation.
 	 * @param parentA - First parent
