@@ -99,15 +99,3 @@ void Herbivore::update()
 	this->move();
 	this->checkAge();
 }
-
-void Herbivore::pairWith(Herbivore* partner)
-{
-	const Vector birthPlace = partner->getPosition();
-	const Genotype childGenotype = genes_->crossOver(*partner->genes_).mutate();
-
-
-	simulation_->addOrganismToQueue(new Herbivore(std::make_unique<Genotype>(childGenotype), birthPlace, simulation_));
-
-	needs_->decreaseLonelinessBy(10);
-	needs_->increaseTirednessBy(3);
-}

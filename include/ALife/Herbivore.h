@@ -54,12 +54,6 @@ public:
 	 */
 	virtual double getIndividualSpeedValueAfter(unsigned int time) const;
 
-	/**
-	 * Starts parenting action with specified action.
-	 * @param partner - partner in reproduction
-	 */
-	void pairWith(Herbivore* partner);
-
 private:
 
 	/**

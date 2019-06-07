@@ -90,7 +90,3 @@ void Carnivore::update()
 	this->move();
 	this->checkAge();
 }
-
-void Carnivore::pairWith(Carnivore* partner)
-{
-}

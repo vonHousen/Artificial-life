@@ -31,8 +31,8 @@ void HerbivorePairing::act()	// TODO use templates to unify code with Carnivores
 		{
 			//concreteOwner_->pairWith(matchedPartner);
 			simulation_->produceBabies(concreteOwner_, matchedPartner);
-			concreteOwner_->finishParenting();
-			matchedPartner->finishParenting();
+			concreteOwner_->finishReproduction();
+			matchedPartner->finishReproduction();
 		}
 
 			//go for distant partner
@@ -55,8 +55,8 @@ void HerbivorePairing::goForIt(const Vector& partnerVector, Herbivore* matchedPa
 		owner_->setVelocity(intendedVelocity);
 		//concreteOwner_->pairWith(matchedPartner);
 		simulation_->produceBabies(concreteOwner_, matchedPartner);
-		concreteOwner_->finishParenting();
-		matchedPartner->finishParenting();
+		concreteOwner_->finishReproduction();
+		matchedPartner->finishReproduction();
 	} else
 		owner_->setVelocity(intendedVelocity);
 }

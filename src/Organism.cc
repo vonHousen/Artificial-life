@@ -150,7 +150,7 @@ void Organism::sleepWell()
 	needs_->update();
 }
 
-void Organism::finishParenting()
+void Organism::finishReproduction()
 {
 	needs_->decreaseLonelinessBy(10);
 	needs_->increaseTirednessBy(1);

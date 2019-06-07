@@ -93,9 +93,9 @@ public:
 	void sleepWell();
 
 	/**
-	 * Finalizes parenting action, fulfilling organism's needs
+	 * Finalizes reproduction action, fulfilling organism's needs
 	 */
-	void finishParenting();
+	void finishReproduction();
 
 protected:
 
