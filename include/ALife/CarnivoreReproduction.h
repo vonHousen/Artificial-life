@@ -1,6 +1,6 @@
 
-#ifndef ARTIFICIAL_LIFE_CARNIVOREPAIRING_H
-#define ARTIFICIAL_LIFE_CARNIVOREPAIRING_H
+#ifndef ARTIFICIAL_LIFE_CARNIVOREREPRODUCTION_H
+#define ARTIFICIAL_LIFE_CARNIVOREREPRODUCTION_H
 
 class Vector;
 
@@ -9,9 +9,9 @@ class Vector;
 
 
 /**
- * Carnivore's (concrete) Action of pairing.
+ * Carnivore's (concrete) Action of reproduction.
  */
-class CarnivorePairing : public CarnivoreAction
+class CarnivoreReproduction : public CarnivoreAction
 {
 public:
 
@@ -20,9 +20,9 @@ public:
 	 * @param owner - Carnivore "owning" this Action.
 	 * @param simulation - Simulation that Action makes an impact on.
 	 */
-	CarnivorePairing(Carnivore* const owner, Simulation* const simulation);
+	CarnivoreReproduction(Carnivore* const owner, Simulation* const simulation);
 
-	virtual ~CarnivorePairing() = default; 		///< Default virtual destructor.
+	virtual ~CarnivoreReproduction() = default; 		///< Default virtual destructor.
 
 	virtual void act();							///< Universal for all Actions, executes particular Action.
 
@@ -39,4 +39,4 @@ private:
 
 };
 
-#endif //ARTIFICIAL_LIFE_CARNIVOREPAIRING_H
+#endif //ARTIFICIAL_LIFE_CARNIVOREREPRODUCTION_H

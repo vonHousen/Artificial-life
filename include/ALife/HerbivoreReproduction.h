@@ -1,6 +1,6 @@
 
-#ifndef ARTIFICIAL_LIFE_HERBIVOREPAIRING_H
-#define ARTIFICIAL_LIFE_HERBIVOREPAIRING_H
+#ifndef ARTIFICIAL_LIFE_HERBIVOREREPRODUCTION_H
+#define ARTIFICIAL_LIFE_HERBIVOREREPRODUCTION_H
 
 class Vector;
 
@@ -9,9 +9,9 @@ class Vector;
 
 
 /**
- * Herbivore's (concrete) Action of pairing.
+ * Herbivore's (concrete) Action of reproduction.
  */
-class HerbivorePairing : public HerbivoreAction
+class HerbivoreReproduction : public HerbivoreAction
 {
 public:
 
@@ -20,9 +20,9 @@ public:
 	 * @param owner - Herbivore "owning" this Action.
 	 * @param simulation - Simulation that Action makes an impact on.
 	 */
-	HerbivorePairing(Herbivore* const owner, Simulation* const simulation);
+	HerbivoreReproduction(Herbivore* const owner, Simulation* const simulation);
 
-	virtual ~HerbivorePairing() = default; 		///< Default virtual destructor.
+	virtual ~HerbivoreReproduction() = default; 		///< Default virtual destructor.
 
 	virtual void act();							///< Universal for all Actions, executes particular Action.
 
@@ -39,4 +39,4 @@ private:
 
 };
 
-#endif //ARTIFICIAL_LIFE_HERBIVOREPAIRING_H
+#endif //ARTIFICIAL_LIFE_HERBIVOREREPRODUCTION_H

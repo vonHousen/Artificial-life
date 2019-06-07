@@ -1,24 +1,24 @@
 /**
- * Carnivore's (concrete) Action of pairing.
+ * Herbivore's (concrete) Action of reproduction.
  */
 
-#include <include/ALife/CarnivorePairing.h>
-#include <include/ALife/Carnivore.h>
+#include <include/ALife/HerbivoreReproduction.h>
+#include <include/ALife/Herbivore.h>
 #include <include/ALife/Simulation.h>
 #include <include/ALife/Vector.h>
 #include <include/ALife/RandomGenerator.h>
 
-CarnivorePairing::CarnivorePairing(Carnivore* const owner, Simulation* const simulation) :
-		CarnivoreAction(owner, simulation),
+HerbivoreReproduction::HerbivoreReproduction(Herbivore* const owner, Simulation* const simulation) :
+		HerbivoreAction(owner, simulation),
 		timeDuration_(0)
 {}
 
-void CarnivorePairing::act()
+void HerbivoreReproduction::act()	// TODO use templates to unify code with Carnivores
 {
 	++timeDuration_;
 	Vector partnerVector;
 
-	Carnivore* matchedPartner = simulation_->getBestSeenPartner(concreteOwner_);
+	Herbivore* matchedPartner = simulation_->getBestSeenPartner(concreteOwner_);
 
 	if(matchedPartner)
 	{
@@ -27,19 +27,21 @@ void CarnivorePairing::act()
 				Vector::getShortestVectorBetweenPositions(owner_->getPosition(), matchedPartner->getPosition());
 
 		//if partner is near enough - pair with it!
-		if (partnerVector.getLength() <= 2 * Carnivore::getRadius())
+		if (partnerVector.getLength() <= 2 * Herbivore::getRadius())
 		{
+			//concreteOwner_->pairWith(matchedPartner);
 			simulation_->produceBabies(concreteOwner_, matchedPartner);
 			concreteOwner_->finishReproduction();
 			matchedPartner->finishReproduction();
 		}
+
 			//go for distant partner
 		else if (partnerVector != Vector())
 			this->goForIt(partnerVector, matchedPartner);
 	}
 }
 
-void CarnivorePairing::goForIt(const Vector& partnerVector, Carnivore* matchedPartner)
+void HerbivoreReproduction::goForIt(const Vector& partnerVector, Herbivore* matchedPartner)
 {
 	const auto velocity = owner_->getIndividualSpeedValueAfter(owner_->getTimeAlive());
 
@@ -47,10 +49,11 @@ void CarnivorePairing::goForIt(const Vector& partnerVector, Carnivore* matchedPa
 	auto intendedVelocity = direction * velocity;
 
 	//if Carnivore is about to "jump above" the partner when it is moving too fast
-	if(partnerVector.getLength() - Carnivore::getRadius() < intendedVelocity.getLength())
+	if(partnerVector.getLength() - Herbivore::getRadius() < intendedVelocity.getLength())
 	{
-		intendedVelocity = direction * (partnerVector.getLength() - Carnivore::getRadius());
+		intendedVelocity = direction * (partnerVector.getLength() - Herbivore::getRadius());
 		owner_->setVelocity(intendedVelocity);
+		//concreteOwner_->pairWith(matchedPartner);
 		simulation_->produceBabies(concreteOwner_, matchedPartner);
 		concreteOwner_->finishReproduction();
 		matchedPartner->finishReproduction();
