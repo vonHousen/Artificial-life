@@ -94,6 +94,46 @@ TEST (ReproductionTestSuite, CarnivoreBlindPairing)
 	ASSERT_TRUE(second->isParenting());
 }
 
+/***
+ * Two Herbivores are far one from another
+ * Expected movement to each other reproduction.
+ */
+TEST (ReproductionTestSuite, HerbivorePairing)
+{
+	const Vector posFirst(0.5, 0.5), posSecond(-0.5, -0.5);
+	Simulation 	dummySimulation;
+	Herbivore*	first = new Herbivore(std::make_unique<Genotype>(5,1,9,5,9), posFirst, &dummySimulation, LeadingDesire::REPRODUCTION);
+	Herbivore*	second = new Herbivore(std::make_unique<Genotype>(5,1,9,5,9), posSecond, &dummySimulation, LeadingDesire::REPRODUCTION);
+	dummySimulation.addOrganism(first);
+	dummySimulation.addOrganism(second);
+
+	int iterationCounter = 0;
+	bool isPairingDone = false;
+
+	for( ; iterationCounter<9999; ++iterationCounter)
+	{
+		dummySimulation.update();
+		if(dummySimulation.getHerbivoreCount() < 2)
+			break;
+
+		else if (first->isParenting() or second->isParenting())
+		{
+			isPairingDone = true;
+			break;
+		}
+	}
+
+	const Vector positionOfFirst = first->getPosition();
+	const Vector positionOfSecond = second->getPosition();
+	const double afterPairingDistance = Vector::getShortestVectorBetweenPositions(positionOfFirst, positionOfSecond).getLength();
+
+	ASSERT_TRUE(isPairingDone);
+	ASSERT_LT(iterationCounter, 9999);
+	ASSERT_NEAR(afterPairingDistance, 2*Organism::getRadius(), 0.01);
+	ASSERT_TRUE(first->isParenting());
+	ASSERT_TRUE(second->isParenting());
+}
+
 /**
  * Two Carnivores are close to each other
  * Expected start of parenting

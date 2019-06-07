@@ -33,7 +33,9 @@ set(PROJECT_CODE
         src/HerbivoreSleeping.cc        include/ALife/HerbivoreSleeping.h
         src/CarnivoreParenting.cc       include/ALife/CarnivoreParenting.h
         src/HerbivoreParenting.cc       include/ALife/HerbivoreParenting.h
-        src/CarnivorePairing.cc         include/ALife/CarnivorePairing.h)
+        src/CarnivorePairing.cc         include/ALife/CarnivorePairing.h
+        src/HerbivorePairing.cc         include/ALife/HerbivorePairing.h
+        )
 
 find_package(Qt5Widgets CONFIG REQUIRED)
 

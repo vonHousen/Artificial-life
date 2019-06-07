@@ -6,6 +6,7 @@
 #include <include/ALife/HerbivoreEating.h>
 #include <include/ALife/HerbivoreSleeping.h>
 #include <include/ALife/HerbivoreParenting.h>
+#include <include/ALife/HerbivorePairing.h>
 
 HerbivoreActionFactory& HerbivoreActionFactory::getInstance()
 {
@@ -26,4 +27,10 @@ std::unique_ptr<HerbivoreSleeping> HerbivoreActionFactory::produceSleepingAction
 std::unique_ptr<HerbivoreParenting> HerbivoreActionFactory::produceParentingAction(Herbivore* const owner, Simulation* const simulation, Herbivore* partner)
 {
 	return std::make_unique<HerbivoreParenting>(owner, simulation, partner);
+}
+
+std::unique_ptr<HerbivorePairing>
+HerbivoreActionFactory::producePairingAction(Herbivore* const owner, Simulation* const simulation)
+{
+	return std::make_unique<HerbivorePairing>(owner, simulation);
 }

@@ -329,3 +329,28 @@ Carnivore* Simulation::getBestSeenPartner(const Carnivore* lonelyCarnivore)
 
 	return partner;
 }
+
+Herbivore* Simulation::getBestSeenPartner(const Herbivore* lonelyHerbivore)	//TODO make it a template for unification of code
+{
+	if(herbivores_.empty())
+		return nullptr;
+
+	// set the maximal sight range
+	Herbivore* partner = nullptr;
+	double bestFitnessFunVal = 0.0;
+
+	// look for potential partner
+	for(const auto potentialPartner : herbivores_)
+	{
+		if(potentialPartner->getSuggestedAction() == LeadingDesire::REPRODUCTION
+		   and not potentialPartner->isParenting()
+		   and potentialPartner != lonelyHerbivore
+		   and potentialPartner->getTimeAlive() > bestFitnessFunVal)
+		{
+			partner = potentialPartner;
+			bestFitnessFunVal = partner->getLifespan();
+		}
+	}
+
+	return partner;
+}
