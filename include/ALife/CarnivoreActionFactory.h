@@ -7,6 +7,7 @@ class Simulation;
 class CarnivoreHunting;
 class CarnivoreSleeping;
 class CarnivoreParenting;
+class CarnivorePairing;
 
 #include <memory>
 

@@ -102,12 +102,6 @@ public:
 	 * Finalizes parenting action, fulfilling organism's needs
 	 */
 	void finishParenting();
-	
-	/**
-	 * Decides whether Organism is parenting.
-	 * @return True/False
-	 */
-	bool isParenting();
 
 protected:
 
