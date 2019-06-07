@@ -9,6 +9,7 @@
 
 class OrganismView;
 class StatisticsWidget;
+class SpeciesStatisticsWidget;
 
 /**
  * Main window to display Simulation
@@ -58,6 +59,7 @@ private:
     QSlider* qSliderHerbivores_;                        ///< Slider that controls population of Hernivores that will be created on reset
     
     StatisticsWidget* statisitcsView_;
+    SpeciesStatisticsWidget* speciesStatisitcsView_;
 };
 
 

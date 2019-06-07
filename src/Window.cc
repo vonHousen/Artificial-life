@@ -9,6 +9,7 @@
 #include <include/ALife/OrganismView.h>
 #include <include/ALife/Organism.h>
 #include <include/ALife/StatisticsWidget.h>
+#include <include/ALife/SpeciesStatisticsWidget.h>
 
 Window::Window(std::shared_ptr<Simulation> simulation, int size, QWidget* parent): 
     QWidget(parent), 
@@ -71,7 +72,7 @@ Window::Window(std::shared_ptr<Simulation> simulation, int size, QWidget* parent
     //Labels indicating population of organisms in simulation
     vlayout->addWidget(qLabelCarnivores_);
     vlayout->addWidget(qLabelHerbivores_);
-    vlayout->addSpacing(20);
+    vlayout->addSpacing(10);
 
     //Controls related to simulation reset feature
     vlayout->addWidget(qLabelSetCarnivoresPopulation_);
@@ -79,11 +80,16 @@ Window::Window(std::shared_ptr<Simulation> simulation, int size, QWidget* parent
     vlayout->addWidget(qLabelSetHerbivoresPopulation_);
     vlayout->addWidget(qSliderHerbivores_);
     vlayout->addWidget(button);
-    vlayout->addSpacing(20);
+    vlayout->addSpacing(10);
 
     //Add statistics view
     statisitcsView_ = new StatisticsWidget(this);
     vlayout->addWidget(statisitcsView_);
+
+    //Add statistics view
+    speciesStatisitcsView_ = new SpeciesStatisticsWidget(this);
+    vlayout->addWidget(speciesStatisitcsView_);
+    speciesStatisitcsView_->show();
 
     QHBoxLayout* hlayout = new QHBoxLayout(this);
     hlayout->setMargin(0);
@@ -110,6 +116,7 @@ void Window::showOrganismInfo(Organism* const organism, OrganismView* const orga
     
     statisitcsView_->updateIndividualInfo(organism);
     statisitcsView_->show();
+    speciesStatisitcsView_->hide();
 }
 
 void Window::unselectDeletedView(OrganismView* const organismView)
@@ -118,6 +125,7 @@ void Window::unselectDeletedView(OrganismView* const organismView)
     selectedOrganismView_ = nullptr;
 
     statisitcsView_->hide();
+    speciesStatisitcsView_->show();
 }
 
 void Window::updateOrganismCount()
@@ -141,6 +149,7 @@ void Window::mousePressEvent(QMouseEvent* event)
         selectedOrganismView_ = nullptr;
 
         statisitcsView_->hide();
+        speciesStatisitcsView_->show();
     }
 }
 
@@ -148,6 +157,7 @@ void Window::update()
 {
     simulation_->update();
     if(selectedOrganism_) statisitcsView_->updateIndividualInfo(selectedOrganism_);
+    else speciesStatisitcsView_->updateInfo();
 }
 
 void Window::updateCarnivorePopulationLabel(int value)

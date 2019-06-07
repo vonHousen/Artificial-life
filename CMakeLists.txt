@@ -9,6 +9,7 @@ set(PROJECT_CODE
         src/RandomGenerator.cc          include/ALife/RandomGenerator.h
         src/Window.cc                   include/ALife/Window.h
         src/StatisticsWidget.cc         include/ALife/StatisticsWidget.h
+        src/SpeciesStatisticsWidget.cc  include/ALife/SpeciesStatisticsWidget.h
         src/Map.cc                      include/ALife/Map.h
         src/MapTile.cc                  include/ALife/MapTile.h
         src/Simulation.cc               include/ALife/Simulation.h

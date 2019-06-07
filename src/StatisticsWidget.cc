@@ -1,20 +1,21 @@
 
 #include <include/ALife/StatisticsWidget.h>
+#include <include/ALife/Window.h>
 #include <include/ALife/Organism.h>
 
 StatisticsWidget::StatisticsWidget(Window* window):
     window_(window)
 {
-    qOrganismHealth_ = new QLabel(this);
-    qOrganismTimeAlive_ = new QLabel(this);
-    qOrganismAlertness_ = new QLabel(this);
-    qOrganismSightRange_ = new QLabel(this);
-    qOrganismStamina_ = new QLabel(this);
-    qOrganismSpeed_ = new QLabel(this);
-    qOrganismLifespan_ = new QLabel(this);
-    qOrganismHunger_ = new QLabel(this);
-    qOrganismTiredness_ = new QLabel(this);
-    qOrganismLoneliness_ = new QLabel(this);
+    qOrganismHealth_ = new QLabel(window);
+    qOrganismTimeAlive_ = new QLabel(window);
+    qOrganismAlertness_ = new QLabel(window);
+    qOrganismSightRange_ = new QLabel(window);
+    qOrganismStamina_ = new QLabel(window);
+    qOrganismSpeed_ = new QLabel(window);
+    qOrganismLifespan_ = new QLabel(window);
+    qOrganismHunger_ = new QLabel(window);
+    qOrganismTiredness_ = new QLabel(window);
+    qOrganismLoneliness_ = new QLabel(window);
 
     QVBoxLayout* vlayout = new QVBoxLayout();
     vlayout->setSpacing(10);
@@ -32,6 +33,7 @@ StatisticsWidget::StatisticsWidget(Window* window):
     vlayout->addWidget(qOrganismLoneliness_);
 
     setLayout(vlayout);
+    hide();
 }
 
 void StatisticsWidget::updateIndividualInfo(const Organism* organism)
