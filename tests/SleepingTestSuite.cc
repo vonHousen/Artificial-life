@@ -81,5 +81,4 @@ TEST (SleepingTestSuite, HerbivoreSleeping)
 
 	const Vector vecToExpectedCave = Vector::getShortestVectorBetweenPositions(expectedCavePosition,positionOfSleeping);
 	ASSERT_NEAR(vecToExpectedCave.getLength(), 0.0, Map::getCaveRadius());
-	ASSERT_EQ(herbi->getSuggestedAction(), LeadingDesire::EATING);
 }

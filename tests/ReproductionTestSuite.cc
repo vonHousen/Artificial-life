@@ -26,32 +26,34 @@ TEST (ReproductionTestSuite, CarnivoreEasyPairing)
 
 	EXPECT_EQ(first->getSuggestedAction(), LeadingDesire::REPRODUCTION);
 	EXPECT_EQ(second->getSuggestedAction(), LeadingDesire::REPRODUCTION);
-	//EXPECT_FALSE(first->isParenting());
-	//EXPECT_FALSE(second->isParenting());
 	const double beforePairingDistance = Vector::getShortestVectorBetweenPositions(first->getPosition(), second->getPosition()).getLength();
 
 	int iterationCounter = 0;
-
+	bool didTheyReproduce = false;
 	for( ; iterationCounter<9999; ++iterationCounter)
 	{
 		dummySimulation.update();
 		if(dummySimulation.getCarnivoreCount() < 2)
 			break;
 
-		//else if (first->isParenting() or second->isParenting())
-		//{
-			//break;
-		//}
+		else if (first->getSuggestedAction() != LeadingDesire::REPRODUCTION
+				or second->getSuggestedAction() != LeadingDesire::REPRODUCTION)
+		{
+			didTheyReproduce = true;
+			break;
+		}
 	}
 
 	const Vector positionOfFirst = first->getPosition();
 	const Vector positionOfSecond = second->getPosition();
-	const double afterPairingDistance = Vector::getShortestVectorBetweenPositions(positionOfFirst, positionOfSecond).getLength();
+	const double afterPairingDistance =
+			Vector::getShortestVectorBetweenPositions(positionOfFirst, positionOfSecond).getLength();
 
+	ASSERT_TRUE(didTheyReproduce);
+	ASSERT_GT(dummySimulation.getCarnivoreCount(),2);
 	ASSERT_GT(beforePairingDistance, afterPairingDistance);
-	ASSERT_NEAR(afterPairingDistance, 2*Organism::getRadius(), 0.01);
-	//ASSERT_TRUE(first->isParenting());
-	//ASSERT_TRUE(second->isParenting());
+	ASSERT_NE(first->getSuggestedAction(), LeadingDesire::REPRODUCTION);
+	ASSERT_NE(second->getSuggestedAction(),  LeadingDesire::REPRODUCTION);
 }
 
 /***
@@ -62,10 +64,14 @@ TEST (ReproductionTestSuite, CarnivoreBlindPairing)
 {
 	const Vector posFirst(0.5, 0.5), posSecond(-0.5, -0.5);
 	Simulation 	dummySimulation;
-	Carnivore*	first = new Carnivore(std::make_unique<Genotype>(5,1,9,5,9), posFirst, &dummySimulation, LeadingDesire::REPRODUCTION);
-	Carnivore*	second = new Carnivore(std::make_unique<Genotype>(5,1,9,5,9), posSecond, &dummySimulation, LeadingDesire::REPRODUCTION);
+	Carnivore*	first = new Carnivore(
+			std::make_unique<Genotype>(5,1,9,5,9), posFirst, &dummySimulation, LeadingDesire::REPRODUCTION);
+	Carnivore*	second = new Carnivore(
+			std::make_unique<Genotype>(5,1,9,5,9), posSecond, &dummySimulation, LeadingDesire::REPRODUCTION);
 	dummySimulation.addOrganism(first);
 	dummySimulation.addOrganism(second);
+	const double beforePairingDistance =
+			Vector::getShortestVectorBetweenPositions(first->getPosition(), second->getPosition()).getLength();
 
 	int iterationCounter = 0;
 	bool isPairingDone = false;
@@ -76,22 +82,24 @@ TEST (ReproductionTestSuite, CarnivoreBlindPairing)
 		if(dummySimulation.getCarnivoreCount() < 2)
 			break;
 
-		//else if (first->isParenting() or second->isParenting())
-		//{
-			//isPairingDone = true;
-			//break;
-		//}
+		else if (first->getSuggestedAction() != LeadingDesire::REPRODUCTION
+				 or second->getSuggestedAction() != LeadingDesire::REPRODUCTION)
+		{
+			isPairingDone = true;
+			break;
+		}
 	}
 
 	const Vector positionOfFirst = first->getPosition();
 	const Vector positionOfSecond = second->getPosition();
-	const double afterPairingDistance = Vector::getShortestVectorBetweenPositions(positionOfFirst, positionOfSecond).getLength();
+	const double afterPairingDistance =
+			Vector::getShortestVectorBetweenPositions(positionOfFirst, positionOfSecond).getLength();
 
 	ASSERT_TRUE(isPairingDone);
-	ASSERT_LT(iterationCounter, 9999);
-	ASSERT_NEAR(afterPairingDistance, 2*Organism::getRadius(), 0.01);
-	//ASSERT_TRUE(first->isParenting());
-	//ASSERT_TRUE(second->isParenting());
+	ASSERT_GT(dummySimulation.getCarnivoreCount(),2);
+	ASSERT_GT(beforePairingDistance, afterPairingDistance);
+	ASSERT_NE(first->getSuggestedAction(), LeadingDesire::REPRODUCTION);
+	ASSERT_NE(second->getSuggestedAction(),  LeadingDesire::REPRODUCTION);
 }
 
 /***
@@ -106,6 +114,8 @@ TEST (ReproductionTestSuite, HerbivorePairing)
 	Herbivore*	second = new Herbivore(std::make_unique<Genotype>(5,1,9,5,9), posSecond, &dummySimulation, LeadingDesire::REPRODUCTION);
 	dummySimulation.addOrganism(first);
 	dummySimulation.addOrganism(second);
+	const double beforePairingDistance =
+			Vector::getShortestVectorBetweenPositions(first->getPosition(), second->getPosition()).getLength();
 
 	int iterationCounter = 0;
 	bool isPairingDone = false;
@@ -116,11 +126,12 @@ TEST (ReproductionTestSuite, HerbivorePairing)
 		if(dummySimulation.getHerbivoreCount() < 2)
 			break;
 
-		//else if (first->isParenting() or second->isParenting())
-		//{
-			//isPairingDone = true;
-			//break;
-		//}
+		else if (first->getSuggestedAction() != LeadingDesire::REPRODUCTION
+				 or second->getSuggestedAction() != LeadingDesire::REPRODUCTION)
+		{
+			isPairingDone = true;
+			break;
+		}
 	}
 
 	const Vector positionOfFirst = first->getPosition();
@@ -128,34 +139,8 @@ TEST (ReproductionTestSuite, HerbivorePairing)
 	const double afterPairingDistance = Vector::getShortestVectorBetweenPositions(positionOfFirst, positionOfSecond).getLength();
 
 	ASSERT_TRUE(isPairingDone);
-	ASSERT_LT(iterationCounter, 9999);
-	ASSERT_NEAR(afterPairingDistance, 2*Organism::getRadius(), 0.01);
-	//ASSERT_TRUE(first->isParenting());
-	//ASSERT_TRUE(second->isParenting());
+	ASSERT_GT(dummySimulation.getHerbivoreCount(),2);
+	ASSERT_GT(beforePairingDistance, afterPairingDistance);
+	ASSERT_NE(first->getSuggestedAction(), LeadingDesire::REPRODUCTION);
+	ASSERT_NE(second->getSuggestedAction(),  LeadingDesire::REPRODUCTION);
 }
-
-/**
- * Two Carnivores are close to each other
- * Expected start of parenting
- */
-/*
-TEST (ReproductionTestSuite, CarnivoreParenting)
-{
-	const Vector posFirst(0.5, 0.5), posSecond(0.4999, 0.4999);
-	Simulation 	dummySimulation;
-	Carnivore*	first = new Carnivore(std::make_unique<Genotype>(), posFirst, &dummySimulation, LeadingDesire::REPRODUCTION);
-	Carnivore*	second = new Carnivore(std::make_unique<Genotype>(), posSecond, &dummySimulation, LeadingDesire::REPRODUCTION);
-	dummySimulation.addOrganism(first);
-	dummySimulation.addOrganism(second);
-
-	EXPECT_EQ(first->getSuggestedAction(), LeadingDesire::REPRODUCTION);
-	EXPECT_EQ(second->getSuggestedAction(), LeadingDesire::REPRODUCTION);
-	
-	EXPECT_EQ(first->isParenting(), false);
-	EXPECT_EQ(second->isParenting(), false);
-
-	first->pairWith(second);
-
-	EXPECT_EQ(first->isParenting(), true);
-	EXPECT_EQ(second->isParenting(), true);
-}*/
