@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.4)
 project(Artificial_Life)
-set(CMAKE_BUILD_TYPE Debug)
+set(CMAKE_BUILD_TYPE Release)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
@@ -41,9 +41,6 @@ set(PROJECT_CODE
 find_package(Qt5Widgets CONFIG REQUIRED)
 
 add_subdirectory(include/googletest)
-add_subdirectory(tests)
-add_subdirectory(src)
-add_subdirectory(include/ALife)
 include_directories(include/ALife)
 include_directories(include/googletest)
 

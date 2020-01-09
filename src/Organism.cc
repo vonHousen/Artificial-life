@@ -142,8 +142,7 @@ void Organism::checkAge()
 		this->decreaseHealthByValue(10.0);
 }
 
-
-void Organism::sleepWell()
+void Organism::sleptWell()
 {
 	needs_->decreaseTirednessBy(10.0);
 	needs_->increaseHungerBy(1.0);

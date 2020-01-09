@@ -28,10 +28,16 @@ void HerbivoreSleeping::act()
 {
 	++timeDuration_;
 
-	if (goToSleep(timeDuration_, sleepingTime_, sleepingPosition_, tiredness_))
+	if(goToSleep(timeDuration_, sleepingTime_, sleepingPosition_))
 	{
-		++sleepingTime_;
 		if(not concreteOwner_->isHidden())
 			concreteOwner_->hide();
+
+		const unsigned int correctionFactor = tiredness_ * 100;
+		const unsigned int timeToSleepWell = correctionFactor * owner_->getStamina();
+		++sleepingTime_;
+
+		if(sleepingTime_ >= timeToSleepWell)
+			owner_->sleptWell();
 	}
 }

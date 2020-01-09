@@ -21,10 +21,9 @@ Action::Action(Herbivore* const owner, Simulation* const simulation) :
 	simulation_	(simulation)
 {}
 
-bool Action::goToSleep(unsigned int timeDuration, unsigned int sleepingTime, const Vector& location, double tiredness)
+bool Action::goToSleep(unsigned int timeDuration, unsigned int sleepingTime, const Vector& location)
 {
 	constexpr float EPS = 0.001;
-
 	const auto sleepingVector = Vector::getShortestVectorBetweenPositions(owner_->getPosition(), location);
 
 	if (sleepingVector.getLength() > EPS)
@@ -40,12 +39,6 @@ bool Action::goToSleep(unsigned int timeDuration, unsigned int sleepingTime, con
 
 	} else
 	{
-		const unsigned int correctionFactor = tiredness * 100;
-		const unsigned int timeToSleepWell = correctionFactor * owner_->getStamina();
-
-		if(sleepingTime >= timeToSleepWell)
-			owner_->sleepWell();
-
 		return true;
 	}
 }

@@ -93,7 +93,7 @@ public:
 	/**
 	 * Organism does not feel tired at all, although it is hungry after sleep.
 	 */
-	void sleepWell();
+	void sleptWell();
 
 	/**
 	 * Finalizes reproduction action, fulfilling organism's needs

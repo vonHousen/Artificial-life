@@ -25,6 +25,13 @@ void CarnivoreSleeping::act()
 {
 	++timeDuration_;
 
-	if ( goToSleep(timeDuration_, sleepingTime_, sleepingPosition_, tiredness_) )
+	if(goToSleep(timeDuration_, sleepingTime_, sleepingPosition_))
+	{
+		const unsigned int correctionFactor = tiredness_ * 100;
+		const unsigned int timeToSleepWell = correctionFactor * owner_->getStamina();
 		++sleepingTime_;
+
+		if(sleepingTime_ >= timeToSleepWell)
+			owner_->sleptWell();
+	}
 }

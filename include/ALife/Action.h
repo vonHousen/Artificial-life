@@ -52,10 +52,9 @@ protected:
 	 * @param timeDuration - how long this action takes.
 	 * @param sleepingTime - how long Organisms is already sleeping.
 	 * @param location - where Organism want to go to sleep.
-	 * @param tiredness - defines how much Organism was tired when going to sleep.
 	 * @return bool - is Organism sleeping?
 	 */
-	bool goToSleep(unsigned int timeDuration, unsigned int sleepingTime, const Vector& location, double tiredness);
+	bool goToSleep(unsigned int timeDuration, unsigned int sleepingTime, const Vector& location);
 };
 
 
