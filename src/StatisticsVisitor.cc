@@ -108,7 +108,7 @@ unsigned int StatisticsVisitor::getHerbivoreCount() const
 float StatisticsVisitor::getAvgHerbivoreHealth() const
 {
     if(numHerbivores_ == 0) return 0;
-    else return sumHerbivoresHealth_ / numCarnivores_;
+    else return sumHerbivoresHealth_ / numHerbivores_;
 }
 
 float StatisticsVisitor::getAvgHerbivoreTimeAlive() const
